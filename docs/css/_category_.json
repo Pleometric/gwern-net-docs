@@ -1,0 +1,8 @@
+{
+  "label": "CSS Stylesheets",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Documentation for gwern.net's CSS architecture and stylesheet system."
+  }
+}

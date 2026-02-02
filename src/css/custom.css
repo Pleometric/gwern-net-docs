@@ -1,0 +1,412 @@
+/**
+ * Brutalist theme inspired by fabiensanglard.net
+ * Simple, clean, desaturated aesthetics
+ */
+
+/* ========================================
+   Light Mode (default)
+   ======================================== */
+:root {
+  /* Desaturated primary - muted gray-brown */
+  --ifm-color-primary: #5a5a5a;
+  --ifm-color-primary-dark: #4d4d4d;
+  --ifm-color-primary-darker: #474747;
+  --ifm-color-primary-darkest: #3a3a3a;
+  --ifm-color-primary-light: #676767;
+  --ifm-color-primary-lighter: #6d6d6d;
+  --ifm-color-primary-lightest: #7a7a7a;
+
+  /* Background - warm cream/beige like fabiensanglard.net */
+  --ifm-background-color: #f5f5f0;
+  --ifm-background-surface-color: #f5f5f0;
+
+  /* Text colors */
+  --ifm-font-color-base: #1a1a1a;
+  --ifm-font-color-secondary: #4a4a4a;
+
+  /* Links - subtle, underlined style */
+  --ifm-link-color: #1a1a1a;
+  --ifm-link-hover-color: #4a4a4a;
+  --ifm-link-decoration: underline;
+
+  /* Navbar */
+  --ifm-navbar-background-color: #f5f5f0;
+  --ifm-navbar-link-color: #1a1a1a;
+  --ifm-navbar-link-hover-color: #4a4a4a;
+
+  /* Sidebar */
+  --ifm-menu-color: #1a1a1a;
+  --ifm-menu-color-active: #1a1a1a;
+  --ifm-menu-color-background-active: rgba(0, 0, 0, 0.05);
+  --ifm-menu-color-background-hover: rgba(0, 0, 0, 0.03);
+
+  /* Code */
+  --ifm-code-font-size: 90%;
+  --ifm-code-background: #e8e8e3;
+  --ifm-code-padding-vertical: 0.1rem;
+  --ifm-code-padding-horizontal: 0.3rem;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.08);
+
+  /* Cards and containers */
+  --ifm-card-background-color: #ebebeb;
+
+  /* Table */
+  --ifm-table-stripe-background: rgba(0, 0, 0, 0.03);
+  --ifm-table-border-color: #ccc;
+
+  /* Borders */
+  --ifm-hr-background-color: #1a1a1a;
+
+  /* Typography */
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --ifm-font-family-monospace: "SFMono-Regular", Consolas, "Liberation Mono",
+    Menlo, monospace;
+  --ifm-heading-font-weight: 700;
+  --ifm-font-weight-bold: 700;
+
+  /* Footer - same as page background */
+  --ifm-footer-background-color: #f5f5f0;
+  --ifm-footer-color: #1a1a1a;
+  --ifm-footer-link-color: #1a1a1a;
+  --ifm-footer-title-color: #1a1a1a;
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+[data-theme="dark"] {
+  /* Desaturated primary - muted gray */
+  --ifm-color-primary: #a0a0a0;
+  --ifm-color-primary-dark: #939393;
+  --ifm-color-primary-darker: #8d8d8d;
+  --ifm-color-primary-darkest: #7a7a7a;
+  --ifm-color-primary-light: #adadad;
+  --ifm-color-primary-lighter: #b3b3b3;
+  --ifm-color-primary-lightest: #c0c0c0;
+
+  /* Background - dark gray */
+  --ifm-background-color: #1a1a1a;
+  --ifm-background-surface-color: #1a1a1a;
+
+  /* Text colors */
+  --ifm-font-color-base: #e5e5e5;
+  --ifm-font-color-secondary: #b0b0b0;
+
+  /* Links */
+  --ifm-link-color: #e5e5e5;
+  --ifm-link-hover-color: #b0b0b0;
+
+  /* Navbar */
+  --ifm-navbar-background-color: #1a1a1a;
+  --ifm-navbar-link-color: #e5e5e5;
+  --ifm-navbar-link-hover-color: #b0b0b0;
+
+  /* Sidebar */
+  --ifm-menu-color: #e5e5e5;
+  --ifm-menu-color-active: #e5e5e5;
+  --ifm-menu-color-background-active: rgba(255, 255, 255, 0.08);
+  --ifm-menu-color-background-hover: rgba(255, 255, 255, 0.05);
+
+  /* Code */
+  --ifm-code-background: #2a2a2a;
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+
+  /* Cards */
+  --ifm-card-background-color: #252525;
+
+  /* Table */
+  --ifm-table-stripe-background: rgba(255, 255, 255, 0.03);
+  --ifm-table-border-color: #444;
+
+  /* Borders */
+  --ifm-hr-background-color: #e5e5e5;
+
+  /* Footer - same as page background */
+  --ifm-footer-background-color: #1a1a1a;
+  --ifm-footer-color: #e5e5e5;
+  --ifm-footer-link-color: #e5e5e5;
+  --ifm-footer-title-color: #e5e5e5;
+}
+
+/* ========================================
+   Global Styles
+   ======================================== */
+
+/* Links - underlined style like fabiensanglard */
+a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Navbar links shouldn't be underlined */
+.navbar__link,
+.navbar__brand {
+  text-decoration: none;
+}
+
+.navbar__link:hover {
+  text-decoration: none;
+}
+
+/* Sidebar links */
+.menu__link {
+  text-decoration: none;
+}
+
+.menu__link:hover {
+  text-decoration: none;
+}
+
+/* ========================================
+   Headings - Brutalist style
+   ======================================== */
+
+/* Article headings with bottom border like fabiensanglard */
+.markdown h1,
+.markdown h2 {
+  border-bottom: 2px solid var(--ifm-font-color-base);
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+}
+
+.markdown h3 {
+  border-bottom: 1px solid var(--ifm-font-color-secondary);
+  padding-bottom: 0.2rem;
+}
+
+.markdown h4 {
+  border-bottom: 1px solid var(--ifm-font-color-secondary);
+  padding-bottom: 0.2rem;
+  margin-left: 1.5rem;
+}
+
+/* Indent content following h4 - break chain at headings */
+.markdown h4 + :not(h2, h3, h4),
+.markdown h4 + :not(h2, h3, h4) + :not(h2, h3, h4),
+.markdown h4 + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4),
+.markdown h4 + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4),
+.markdown h4 + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4),
+.markdown h4 + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4),
+.markdown h4 + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) {
+  margin-left: 1.5rem;
+}
+
+/* Make headings slightly more prominent */
+.markdown h1 {
+  font-size: 1.75rem;
+  letter-spacing: 0.02em;
+}
+
+.markdown h2 {
+  font-size: 1.4rem;
+  letter-spacing: 0.01em;
+}
+
+.markdown h3 {
+  font-size: 1.2rem;
+}
+
+/* ========================================
+   Code blocks
+   ======================================== */
+
+/* Inline code - gray background like fabiensanglard */
+code {
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+/* Code blocks - minimal styling */
+pre {
+  border-radius: 0;
+  border: 1px solid var(--ifm-table-border-color);
+}
+
+/* ========================================
+   Blockquotes - dashed border style
+   ======================================== */
+
+blockquote {
+  border-left: 3px dashed var(--ifm-font-color-secondary);
+  background: transparent;
+  font-style: italic;
+  color: var(--ifm-font-color-secondary);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+}
+
+[data-theme="dark"] blockquote {
+  border-left-color: var(--ifm-font-color-secondary);
+}
+
+/* ========================================
+   Tables - simple borders
+   ======================================== */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th,
+table td {
+  border: 1px solid var(--ifm-table-border-color);
+  padding: 0.5rem 0.75rem;
+}
+
+table th {
+  background: rgba(0, 0, 0, 0.05);
+  font-weight: 700;
+}
+
+[data-theme="dark"] table th {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ========================================
+   Navbar
+   ======================================== */
+
+.navbar {
+  box-shadow: none;
+  border-bottom: 1px solid var(--ifm-table-border-color);
+}
+
+.navbar__title {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* ========================================
+   Sidebar
+   ======================================== */
+
+.menu__link--active:not(.menu__link--sublist) {
+  background: var(--ifm-menu-color-background-active);
+  font-weight: 600;
+}
+
+/* Sidebar category labels */
+.menu__list-item-collapsible:hover {
+  background: var(--ifm-menu-color-background-hover);
+}
+
+/* ========================================
+   Footer - brutalist style
+   ======================================== */
+
+.footer {
+  border-top: 2px solid var(--ifm-font-color-base);
+}
+
+.footer__title {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.footer__link-item {
+  text-decoration: none;
+}
+
+.footer__link-item:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   TOC (Table of Contents)
+   ======================================== */
+
+.table-of-contents__link {
+  text-decoration: none;
+}
+
+.table-of-contents__link:hover,
+.table-of-contents__link--active {
+  text-decoration: underline;
+}
+
+/* ========================================
+   Pagination
+   ======================================== */
+
+.pagination-nav__link {
+  border: 1px solid var(--ifm-table-border-color);
+  border-radius: 0;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-font-color-base);
+}
+
+/* ========================================
+   Admonitions/Alerts - simplified
+   ======================================== */
+
+.alert {
+  border-radius: 0;
+  border-left-width: 3px;
+  background: transparent;
+  border: 1px solid var(--ifm-table-border-color);
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+/* ========================================
+   Search
+   ======================================== */
+
+.DocSearch-Button {
+  border-radius: 0;
+}
+
+/* ========================================
+   Breadcrumbs
+   ======================================== */
+
+.breadcrumbs__link {
+  text-decoration: none;
+}
+
+.breadcrumbs__link:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   Theme toggle - simplify
+   ======================================== */
+
+.navbar__items--right .clean-btn {
+  border-radius: 0;
+}
+
+/* ========================================
+   Doc page layout adjustments
+   ======================================== */
+
+.theme-doc-markdown {
+  max-width: 800px;
+}
+
+/* Add some breathing room */
+article {
+  line-height: 1.7;
+}
+
+/* ========================================
+   Cards/Features (if used)
+   ======================================== */
+
+.card {
+  border-radius: 0;
+  border: 1px solid var(--ifm-table-border-color);
+  box-shadow: none;
+}
+
+.card:hover {
+  box-shadow: none;
+  border-color: var(--ifm-font-color-base);
+}
