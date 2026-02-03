@@ -30,13 +30,13 @@ Complete removal of non-essential elements:
 - Sidenote columns: `#sidenote-column-left`, `#sidenote-column-right`
 - Navigation and footer: `#navigation`, `#footer`
 - Link icons: `.link-icon-hook`, `.recently-modified-icon-hook`
-- Metadata decoration: inflation adjustments, date range subscripts, file includes
+- Metadata decoration: inflation adjustments, date range subscripts (`.date-range sub`), file includes
 - Annotation auxiliary links (for blog posts)
 
 ### Elements Hidden (`visibility: hidden`)
 
 Preserve layout while hiding:
-- `.date-range .subsup sub`: Date range metadata (keeps spacing)
+- `.date-range .subsup sub`: Date range subscripts are also set to `visibility: hidden`, but `display: none` from `.date-range sub` means spacing is not preserved
 
 ### Masked Links Mode
 
@@ -67,7 +67,7 @@ Reader mode adjusts academic citations to be inline rather than superscript:
 - `p code`: Remove background/border (blend into text)
 - `.date-range .subsup`: Reset margins
 - `.reader-mode-disable-when-clicked`: Pointer cursor (for toggling off reader mode)
-- `.reader-mode-style-not *`: Reset all styling (anti-style zone)
+- `.reader-mode-style-not *`: Resets font weight/style/variant/color (not a full reset)
 
 ## Mobile Adjustments
 
@@ -83,7 +83,7 @@ Removes top margin on mobile for immediate content access.
 
 ## Loading
 
-This file is loaded inline in the `<head>` as part of the critical CSS, ensuring reader mode can be activated instantly without additional HTTP requests.
+This file is bundled into `head-GENERATED.css` and loaded via `/static/css/head.css`, ensuring reader mode styles are available on first render without a separate request for this file.
 
 The styles are scoped to only apply when `body.reader-mode-active` class is present, so they don't affect normal browsing. The class is toggled by JavaScript in response to user interaction with the reader mode button in the page toolbar.
 

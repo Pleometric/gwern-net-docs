@@ -14,11 +14,10 @@ Downloads a URL and extracts the HTML page title for metadata generation.
 
 This script is a simple utility that fetches a URL and parses its HTML to extract the `<title>` element text. It's used during the build process to automatically generate human-readable titles for linked resources, particularly when creating annotations or metadata entries.
 
-The script handles typical web page quirks like HTML entity encoding and whitespace normalization, returning clean title text suitable for use in metadata databases. It uses a Perl-based HTML parser for robust extraction, falling back to `curl` for fetching and `xmllint` for validation.
+The script handles typical web page quirks like HTML entity encoding and whitespace normalization, returning clean title text suitable for use in metadata databases. It uses a Perl-based HTML parser for robust extraction, uses `curl` for fetching, and only checks for `xmllint` availability (it does not perform xmllint validation).
 
 ## Key Commands/Variables
 
-- **`USER_AGENT`**: Standard Firefox user agent string for HTTP requests
 - **`extract_title()`**: Main function that fetches URL, parses HTML, decodes entities, and extracts title
 - **`curl --max-filesize 100000000 --silent --location`**: Downloads URL content with 100MB size limit
 - **`HTML::TreeBuilder`**: Perl module for parsing HTML DOM tree
@@ -50,7 +49,7 @@ The dream of an alpine waterway – Swiss National Museum - Swiss history blog
 
 **Dependencies:**
 - `curl`: HTTP client for downloading pages
-- `xmllint`: XML/HTML validation (from `libxml2-utils` or `libxml2` package)
+- `xmllint`: Presence check only (from `libxml2-utils` or `libxml2` package)
 - `perl` with `HTML::Entities` and `HTML::TreeBuilder` modules
 - `timeout`: Command timeout utility
 - `file`, `iconv`: File type detection and encoding conversion

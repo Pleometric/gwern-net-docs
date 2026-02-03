@@ -1,7 +1,7 @@
 
 # hakyll.hs
 
-**Path:** `build/hakyll.hs` | **Language:** Haskell | **Lines:** ~425
+**Path:** `build/hakyll.hs` | **Language:** Haskell | **Lines:** ~526
 
 > Hakyll-based static site generator entry point orchestrating Pandoc transforms and template rendering
 
@@ -50,15 +50,15 @@ The core AST transformation pipeline. Applies all content transforms to a parsed
 3. `footnoteAnchorChecker` - Warn on malformed footnotes
 4. `createAnnotations` - Trigger annotation generation
 5. `addPageLinkWalk` - Mark local links
-6. `localizeLink` - Rewrite to archived versions
+6. `addSizeToLinks` - Add file size metadata
 7. `hasAnnotation` - Add link-annotated class
-8. `addSizeToLinks` - Add file size metadata
+8. `localizeLink` - Rewrite to archived versions
 9. `nominalToRealInflationAdjuster` - Adjust dollar amounts for inflation
 10. `typographyTransformTemporary` - Typography fixes
 11. `headerSelflinkAndSanitize` - Make headers self-linking
 12. `wrapInParagraphs` - Convert Plain to Para blocks
-13. `addCanPrefetch` - Mark prefetchable links
-14. `imageLinkHeightWidthSet` - Add image dimensions
+13. `imageLinkHeightWidthSet` - Add image dimensions
+14. `addCanPrefetch` - Mark prefetchable links
 
 ---
 
@@ -96,6 +96,7 @@ postCtx md rts =
 | `$escaped-url$` | URL-encoded path |
 | `$backlinks-yes$` | Boolean: has backlinks? |
 | `$similars-yes$` | Boolean: has similar links? |
+| `$linkbib-yes$` | Boolean: has link bibliography? |
 | `$page-created-recently$` | CSS class if \<90 days old |
 | `$refMapTimestamp$` | Cache-busting timestamp for /ref/ |
 | `$date-range-HTML$` | Formatted date range with duration |

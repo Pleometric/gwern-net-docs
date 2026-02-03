@@ -222,7 +222,7 @@ window.scrollBy(0, -1 * parseInt(popin.dataset.windowScrollOffset ?? '0'));
 
 ### Height Inheritance
 
-When spawning a popin from within another popin while content is still loading, the new popin inherits the parent's height to avoid layout thrashing:
+When spawning a popin from within another popin while content is still loading (or loading failed), the new popin inherits the parent's height to avoid layout thrashing:
 
 ```javascript
 if (options.inheritInitialHeight && Popins.popFrameStateLoading(popin))
@@ -315,4 +315,3 @@ The simpler feature set (no windowing, no tiling) is intentional—popins are me
 - [extracts-content.js](/frontend/extracts-content-js) - Content type definitions for popin content
 - [initial.js](/frontend/initial-js) - GW namespace and notification center for popin events
 - [content.js](/frontend/content-js) - Content loading system that provides popin data
-

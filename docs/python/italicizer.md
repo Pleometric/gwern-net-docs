@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # italicizer.py
 
-**Path:** `build/italicizer.py` | **Language:** Python | **Lines:** ~1261
+**Path:** `build/italicizer.py` | **Language:** Python | **Lines:** ~1294
 
 LLM-based script to add missing italics formatting to text using semantic understanding of English writing conventions.
 
@@ -21,7 +21,7 @@ When uncertain, the script returns an empty string `""` rather than risk incorre
 ## Key Functions
 
 - **Main processing loop**: Reads input from stdin or command-line argument, sends to OpenAI API
-- **Prompt construction**: Massive few-shot prompt with 500+ examples demonstrating when to italicize and when not to
+- **Prompt construction**: Massive few-shot prompt with 1,200+ examples demonstrating when to italicize and when not to
 - **Response handling**: Returns formatted text with `<em>` tags or empty string if no changes needed
 
 ## Command Line Usage

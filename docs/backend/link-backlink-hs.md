@@ -58,7 +58,7 @@ Counts backlinks by reading the HTML snippet and counting occurrences of `"[back
 
 ### `getSimilarLinkCount :: FilePath -> IO Int`
 
-Counts similar links by counting link elements in the similar-links snippet.
+Counts similar links by counting occurrences of `class="link-annotated id-not backlink-not"` in the similar-links snippet.
 
 ### `getForwardLinks :: Backlinks -> T.Text -> [T.Text]`
 

@@ -66,27 +66,26 @@ Automated cleanup of common errors and style inconsistencies across all Markdown
 
 Uses `gwsed` function (defined in `bash.sh`) for safe global search-replace.
 
-### Phase 4: Haskell Compilation (lines 179-196)
+### Phase 4: Haskell Compilation (lines 182-200)
 
-Compiles all Haskell build tools with GHC optimization.
+Compiles all Haskell build tools via Cabal.
 
 ```bash
-compile () { ghc -O2 $WARNINGS -rtsopts -threaded --make "$@"; }
-compile hakyll.hs
-compile generateLinkBibliography.hs
-compile generateDirectory.hs
-compile preprocess-markdown.hs
-# ... others compiled in background
+cd ./static/build
+cabal install
+cabal clean
+cd ../../
 ```
 
-**Key binaries:**
+**Key binaries installed:**
 - `hakyll` - Main site generator
 - `generateLinkBibliography` - Creates per-page link bibliographies
 - `generateDirectory` - Generates tag directory index pages
 - `checkMetadata` - Validates annotation metadata
+- `generateSimilarLinks` - Similar links computation (run via cron)
 
-**Depends on:** GHC, Haskell dependencies
-**Produces:** Compiled executables in `static/build/`
+**Depends on:** GHC, Cabal, Haskell dependencies
+**Produces:** Compiled executables installed to Cabal bin path
 
 ### Phase 5: Metadata Validation (lines 198-265, SLOW only)
 
@@ -110,34 +109,66 @@ Generates content that Hakyll needs:
 2. Creates link bibliographies for all pages
 3. Builds tag directory index pages
 
-### Phase 7: Asset Generation (lines 276-320)
+### Phase 7: Asset Generation (lines 276-490)
 
 Parallel generation of supporting assets:
 
-**Video posters:**
+**Video posters (3×3 filmstrip):**
 ```bash
-ffmpeg -i "$VIDEO" -vf "select=eq(n\\,5)" -vframes 1 "$POSTER"
-mogrify -quality 15 "$POSTER"
+SAMPLE_FPS=$(echo "scale=6; 10 / $DURATION" | bc)
+ffmpeg -y -i "$VIDEO" \
+    -vf "fps=$SAMPLE_FPS,scale=iw*sar:ih,setsar=1,scale=iw/3:ih/3,tile=3x3:nb_frames=9:padding=2:color=black" \
+    -frames:v 1 "$POSTER"
+compressJPG "$POSTER"
 ```
-Extracts frame 5 as a low-quality preview image.
+Generates 3×3 filmstrip grid sampling 9 frames evenly across video duration. Output dimensions match original video (each cell is 1/3 size, tiled 3×3). Used as `data-video-poster` attribute for lazy-loaded preview via IntersectionObserver (standard `poster=` attribute doesn't support lazy loading).
+
+**Large video posters (5×5 filmstrip):**
+```bash
+ffmpeg -y -i "$VIDEO" \
+    -vf "fps=$SAMPLE_FPS,scale=...,tile=5x5:nb_frames=25:padding=3:color=black" \
+    -frames:v 1 "$TMPSTRIP"
+convert "$TMPSTRIP" -gravity North -background '#000000' -splice 0x60 \
+    -font IBM-Plex-Mono-Bold -pointsize 24 -fill white \
+    -annotate +0+13 "$META_LINE" "$POSTER"
+```
+Generates 5×5 filmstrip (25 frames) with metadata overlay bar showing: filepath, duration, dimensions, file size, codec, bitrate, audio presence. Loaded on hover via JS at `$VIDEO-poster-large.jpg`. For videos &lt;1s, falls back to single enlarged frame.
 
 **Image thumbnails:**
 ```bash
 convert "$image" -resize 256x "$thumbnail_path"
 ```
-Creates 256px-wide thumbnails in `/metadata/thumbnail/256px/`.
+Creates 256px-wide thumbnails at `/metadata/thumbnail/256px/` with URL-encoded paths. Thumbnails are generated for all locally-hosted JPGs/PNGs (excluding mirrors like doc/www/).
 
-### Phase 8: Hakyll Build (lines 322)
+### Phase 8: Hakyll Build (lines 492)
 
 The core compilation step:
 
 ```bash
-time ./static/build/hakyll build +RTS -N"$N" -RTS
+time hakyll build +RTS -N"$N" -RTS
 ```
 
-Hakyll processes all Markdown files through Pandoc, applies templates, and generates HTML. This is the longest single step (10-30+ minutes).
+Hakyll (now installed via `cabal install`) processes all Markdown files through Pandoc, applies templates, and generates HTML. This is the longest single step (10-30+ minutes).
 
 **Produces:** `_site/` directory with all HTML pages
+
+### Phase 8.5: X-of-the-Day Updates (SLOW only)
+
+After Hakyll build, updates rotating content features:
+
+```bash
+# Annotation-of-the-day
+ghci -istatic/build/ ./static/build/XOfTheDay.hs ./static/build/LinkMetadata.hs \
+     -e 'do {md <- LinkMetadata.readLinkMetadata; aotd md; }'
+
+# Quote-of-the-day
+ghci -istatic/build/ ./static/build/XOfTheDay.hs -e 'qotd'
+
+# Site-of-the-day
+ghci -istatic/build/ ./static/build/XOfTheDay.hs -e 'sotd'
+```
+
+These generate daily rotating content for the homepage.
 
 ### Phase 9: Post-Processing (lines 340-600)
 

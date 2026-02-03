@@ -1,7 +1,7 @@
 
 # Tags.hs
 
-**Path:** `build/Tags.hs` + `build/Config/Tags.hs` | **Language:** Haskell | **Lines:** ~1,200 (202 + 993)
+**Path:** `build/Tags.hs` + `build/Config/Tags.hs` | **Language:** Haskell | **Lines:** ~1,200+ (209 + ~993)
 
 > Hierarchical tag system: validation, normalization, rendering, and fuzzy matching for the `/doc/` directory taxonomy.
 
@@ -48,10 +48,11 @@ The fuzzy tag matcher. Given a short/ambiguous tag input, returns the canonical 
 
 1. Exact match in tag list
 2. Lookup in `tagsShort2Long` petnames ("gpt4" → "ai/nn/transformer/gpt/4")
-3. Suffix match ("transformer" → "ai/nn/transformer")
-4. Infix match ("bias" → "psychology/cognitive-bias")
-5. Dot→slash rewriting ("ai.dataset" → "ai/dataset")
-6. Levenshtein edit distance (max 3) for typo correction
+3. Prefix match (including against `tagsShort2Long`)
+4. Suffix match (including against `tagsShort2Long`)
+5. Infix match (including against `tagsShort2Long`)
+6. Rewrite `.`→`/` and `-`→`/`, then retry matches
+7. Levenshtein edit distance (max 3) for typo correction
 
 ```haskell
 guessTagFromShort [] allTags "gpt4"        -- → "ai/nn/transformer/gpt/4"
@@ -186,9 +187,14 @@ User Input (e.g. "gpt4")
 │           │ Not found   │
 │           ▼             │
 │  ┌────────────────────┐ │
-│  │ Suffix/Infix match │─┼──Found──► Return first match
+│  │ Prefix/Suffix/Infix│─┼──Found──► Return first match
 │  └────────────────────┘ │
 │           │ Not found   │
+│           ▼             │
+│  ┌────────────────────┐ │
+│  │ Rewrite ./- -> /   │─┼──Retry matches
+│  └────────────────────┘ │
+│           │ Still none  │
 │           ▼             │
 │  ┌────────────────────┐ │
 │  │ Levenshtein (≤3)   │─┼──Found──► Return closest

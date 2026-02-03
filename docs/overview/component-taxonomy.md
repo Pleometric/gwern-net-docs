@@ -27,11 +27,11 @@ This document organizes every documented file by functional purpose. Each file i
 | **[Popup System](#3-popup-system)** | Hover popups, popins, extract coordination | 12 | 2 |
 | **[Link Processing](#4-link-processing)** | Archives, icons, auto-linking, IDs | 22 | 1 |
 | **[Content Rendering](#5-content-rendering)** | Transclusion, DOM rewriting, content loading | 10 | 2 |
-| **[Typography & Layout](#6-typography--layout)** | Text transforms, sidenotes, columns | 17 | 1 |
+| **[Typography & Layout](#6-typography--layout)** | Text transforms, sidenotes, columns | 16 | 1 |
 | **[Theming & UI](#7-theming--ui)** | Dark mode, reader mode, colors, CSS | 20 | 0 |
-| **[Utilities & Infrastructure](#8-utilities--infrastructure)** | Helpers, config, templates, server | 65 | 1 |
+| **[Utilities & Infrastructure](#8-utilities--infrastructure)** | Helpers, config, templates, server | 72 | 1 |
 
-**Total: 194 files**
+**Total: 200 files**
 
 ---
 
@@ -94,7 +94,7 @@ The annotation system provides rich metadata for links (title, author, date, abs
 | [metadata-date-hs](/backend/metadata-date-hs) | 3 | Date parsing and validation |
 | [metadata-format-hs](/backend/metadata-format-hs) | 3 | Abstract/title HTML cleaning |
 | [metadata-title-hs](/backend/metadata-title-hs) | 3 | Title extraction from pages |
-| [paragraph-hs](/backend/paragraph-hs) | 3 | GPT-4o paragraph splitting |
+| [paragraph-hs](/backend/paragraph-hs) | 3 | gpt-4o-mini paragraph splitting |
 | [date-guesser](/python/date-guesser) | 2 | LLM date extraction |
 | [title-cleaner](/python/title-cleaner) | 2 | LLM title cleanup |
 | [paragraphizer](/python/paragraphizer) | 2 | LLM paragraph splitting |
@@ -258,7 +258,6 @@ Text transformation, formatting, and page structure.
 | [image-focus-js](/frontend/image-focus-js) | 3 | Lightbox/image viewer |
 | [invertornot](/python/invertornot) | 2 | GPT-4V inversion classifier |
 | [image-margin-checker](/python/image-margin-checker) | 1 | Image margin analysis |
-| [png](/shell/png) | 2 | PNG optimization |
 | [should-image-have-outline](/php/should-image-have-outline) | 2 | Corner analysis for outline CSS |
 | [build-inlined-images](/php/build-inlined-images) | 2 | Base64 inline images |
 
@@ -327,7 +326,9 @@ Supporting code, configuration, templates, and server setup.
 | [query-hs](/backend/query-hs) | 3 | Pandoc AST queries |
 | [unique-hs](/backend/unique-hs) | 2 | Duplicate detection |
 | [string-replace-hs](/backend/string-replace-hs) | 2 | Parallel string replacement |
+| [text-regex-hs](/backend/text-regex-hs) | 2 | Regex utilities and pattern matching |
 | [rename-hs](/backend/rename-hs) | 2 | Page rename script generator |
+| [gwernnet-cabal](/backend/gwernnet-cabal) | 2 | Cabal project configuration |
 
 ### Frontend Utilities
 
@@ -336,6 +337,8 @@ Supporting code, configuration, templates, and server setup.
 | [misc-js](/frontend/misc-js) | 2 | Miscellaneous features |
 | [console-js](/frontend/console-js) | 2 | Console utilities |
 | [404-guesser-js](/frontend/404-guesser-js) | 2 | 404 page redirect suggestions |
+| [gwtar-js](/frontend/gwtar-js) | 2 | JavaScript tarball archive handling |
+| [gwtar-noscript-html](/frontend/gwtar-noscript-html) | 1 | Noscript fallback for gwtar |
 
 ### Tags & Navigation
 
@@ -388,6 +391,7 @@ Supporting code, configuration, templates, and server setup.
 | [collapse-checker](/python/collapse-checker) | 1 | Collapse validation |
 | [htmlAttributesExtract](/python/htmlAttributesExtract) | 1 | HTML attribute extraction |
 | [latex2unicode](/python/latex2unicode) | 2 | LaTeX to Unicode conversion |
+| [seriate](/python/seriate) | 2 | Optimal ordering for similarity matrices |
 
 ### Shell Utilities
 
@@ -397,6 +401,8 @@ Supporting code, configuration, templates, and server setup.
 | [upload](/shell/upload) | 2 | File upload with processing |
 | [download-title](/shell/download-title) | 2 | Download and extract title |
 | [gwsed](/shell/gwsed) | 2 | Site-wide string replacement |
+| [compress-gif](/shell/compress-gif) | 2 | GIF compression optimization |
+| [compress-png](/shell/compress-png) | 2 | PNG compression optimization |
 
 ### Configuration Modules
 

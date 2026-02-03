@@ -1,7 +1,7 @@
 
 # LinkID.hs
 
-**Path:** `build/LinkID.hs` | **Language:** Haskell | **Lines:** ~230
+**Path:** `build/LinkID.hs` | **Language:** Haskell | **Lines:** ~232
 
 > Citation-style ID generation for links and annotations
 

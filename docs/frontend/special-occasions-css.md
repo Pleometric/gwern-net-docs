@@ -232,7 +232,7 @@ body[class*='special-christmas']   /* Both Christmas modes */
 body.special-easter                /* Easter */
 ```
 
-**Note:** The JS can apply `special-halloween-light` based on `DarkMode.computedMode()`, but the CSS defines no rules for it—only `special-halloween-dark` has styles. April Fools does not use a `body.special-april-fools` class; its styles target `.popup.april-fools-special-birthdaycat` directly.
+**Note:** The JS can apply `special-halloween-light` based on `DarkMode.computedMode()`, but the CSS defines no rules for it—only `special-halloween-dark` has styles. April Fools **does** add `body.special-april-fools` via JS, but CSS styling is concentrated on `.popup.april-fools-special-birthdaycat`.
 
 **Pattern:** `body.special-{occasion}-{mode}` or just `body.special-{occasion}`
 
@@ -240,7 +240,7 @@ The attribute selector `[class*='special-christmas']` targets both light and dar
 
 ### Logo Manipulation
 
-All themes except April Fools replace the site logo:
+Only Halloween and Christmas replace the site logo (Easter logo injection is commented out; April Fools does not replace the logo):
 
 ```css
 /* Hide default SVG logo */
@@ -373,7 +373,7 @@ Runs through `GW.specialOccasions` array, calling each occasion's test function.
 **Mode-Specific Classes:**
 Halloween and Christmas themes check `DarkMode.computedMode()` and apply mode-specific classes:
 ```javascript
-// Halloween always uses dark
+// Halloween selects light or dark based on DarkMode.computedMode()
 let specialClass = "special-halloween-dark";
 
 // Christmas varies by mode
@@ -474,7 +474,7 @@ Logo selection supports:
 
 **Implementation Notes:**
 
-1. **Why separate light/dark classes?** Christmas works in both modes, with distinct color palettes optimized for each background. Halloween sets `DarkMode.defaultMode = "dark"` to encourage dark mode, and while the JS can technically apply a `special-halloween-light` class, the CSS only defines styles for `special-halloween-dark`—light mode users see no Halloween theming.
+1. **Why separate light/dark classes?** Christmas works in both modes, with distinct color palettes optimized for each background. Halloween sets `DarkMode.pageDefaultMode = "dark"` to encourage dark mode, and while the JS can technically apply a `special-halloween-light` class, the CSS only defines styles for `special-halloween-dark`—light mode users see no Halloween theming.
 
 2. **Why hide the SVG logo?** The default logo is an inline SVG for fast rendering and styling flexibility. Special occasion logos are often bitmaps (photos, complex illustrations) that can't be easily embedded inline, so they're loaded as `<img>` elements and the SVG is hidden.
 

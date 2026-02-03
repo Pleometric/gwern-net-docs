@@ -1,6 +1,6 @@
-# nginx-broken.conf
+# broken.conf
 
-**Path:** `redirect/nginx-broken.conf` | **Language:** Nginx
+**Path:** `nginx/redirect/broken.conf` | **Language:** Nginx
 
 Nginx redirect map configuration for handling broken, malicious, and malformed URLs on gwern.net.
 
@@ -8,19 +8,19 @@ Nginx redirect map configuration for handling broken, malicious, and malformed U
 
 ## Overview
 
-`nginx-broken.conf` is a comprehensive nginx map configuration containing **28,006 redirect rules** specifically designed to handle broken URLs, malicious crawler requests, typos, and malformed links. Unlike `nginx.conf` which handles legitimate content moves, this file serves as a defensive layer that cleans up garbage URLs and redirects broken requests to appropriate destinations.
+`nginx-broken.conf` is a comprehensive nginx map configuration containing **28,822 redirect rules** specifically designed to handle broken URLs, malicious crawler requests, typos, and malformed links. Unlike `nginx.conf` which handles legitimate content moves, this file serves as a defensive layer that cleans up garbage URLs and redirects broken requests to appropriate destinations.
 
 This file represents years of accumulated fixes for broken external links, typosquatting, malicious bots, and URL corruption. It implements a "zero error log" philosophy where even garbage requests are handled gracefully rather than generating 404 errors.
 
 ## File Structure
 
-**Location:** `redirect/nginx-broken.conf`
+**Location:** `nginx/redirect/broken.conf`
 
 **Type:** Nginx map configuration
 
-**Size:** 28,285 lines, ~1.9MB
+**Size:** 29,132 lines, ~1.9MB
 
-**Redirect count:** 28,006 rules
+**Redirect count:** 28,822 rules
 
 **Format:** Same nginx map syntax as nginx.conf
 ```nginx
@@ -318,7 +318,7 @@ Redirect to section of a page:
 
 ### Map Size Impact
 
-**28,006 rules** in a single nginx map:
+**28,822 rules** in a single nginx map:
 
 **Lookup performance:**
 - Literal matches: O(1) hash lookup (fast)
@@ -561,9 +561,9 @@ nginx -s reload
 
 | Metric | Value |
 |--------|-------|
-| Total redirects | 28,006 |
+| Total redirects | 28,822 |
 | File size | 1.9 MB |
-| Lines | 28,285 |
+| Lines | 29,132 |
 | Literal 404 blocks | ~50+ security-related |
 | Danbooru typo variants | 15+ variations |
 | Newsletter date fixes | 100+ date variations |

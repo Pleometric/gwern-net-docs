@@ -9,7 +9,7 @@
 
 ## Overview
 
-`dark-mode-adjustments.css` handles the visual adaptation of images, icons, and UI elements for dark mode. Unlike the base color scheme which uses CSS custom properties for text and backgrounds, this file applies CSS filters to transform visual content that can't be easily recolored through variables alone.
+`dark-mode-adjustments.css` handles the visual adaptation of images, icons, and UI elements for dark mode. It primarily applies CSS filters for visual content that can't be easily recolored through variables alone, and also overrides a small set of color variables (e.g., body background/text) for dark mode tuning.
 
 The file implements a sophisticated three-tier image handling strategy: invertible images (diagrams, charts) get full inversion with hue rotation; non-invertible images (artwork, photos) get grayscale only; and manually-marked images can opt out entirely. All filters are removed on hover to let users see the original.
 
@@ -20,7 +20,7 @@ A key design principle evident throughout is **performance over purity**—the b
 ## Key Selectors
 
 ### `.dark-mode-invert`
-Applied to elements that should be inverted in dark mode. Uses a CSS variable `--dark-mode-invert-filter` that can be set by JavaScript:
+Applied to elements that should be inverted in dark mode. Uses a CSS variable `--dark-mode-invert-filter` that is set via CSS (by component styles or defaults):
 
 ```css
 .dark-mode-invert,
@@ -30,7 +30,7 @@ Applied to elements that should be inverted in dark mode. Uses a CSS variable `-
 }
 ```
 
-The variable-based approach allows [dark-mode-js](dark-mode-js) to dynamically enable/disable the filter.
+The variable-based approach allows different components to define appropriate filters without JavaScript intervention.
 
 ### Image Class Hierarchy
 Images follow a strict precedence order:
@@ -105,7 +105,7 @@ For manually-curated or automatically-detected complex images:
 The `#markdownBody` specificity override ensures this rule beats the default grayscale.
 
 ### Hover Behavior
-All filtered images restore to original on hover:
+All filtered images restore to original on hover. A delayed transition is defined, but a later rule disables transitions for `figure img` and variants to avoid rendering issues:
 
 ```css
 figure img:not(.drop-filter-on-hover-not):hover {
@@ -126,7 +126,7 @@ figure img.invert-auto::before {
 }
 ```
 
-This ensures alt-text remains readable when the parent image is inverted. However, transitions are disabled for alt-text (lines 115-122) due to rendering conflicts—noted as **TEMPORARY** pending migration to a color-based scheme.
+This ensures alt-text remains readable when the parent image is inverted. However, transitions are disabled for `figure img` and invert variants (including alt-text) due to rendering conflicts—noted as **TEMPORARY** pending migration to a color-based scheme.
 
 ---
 
@@ -209,24 +209,7 @@ These are decorative elements that need to stand out against the dark background
 ## Integration Points
 
 ### Load Order
-This file is conditionally loaded **only in dark mode** by [dark-mode-js](dark-mode-js). The JavaScript manages:
-
-1. Detecting user preference (system, localStorage, or default)
-2. Setting `--dark-mode-invert-filter` variable
-3. Loading this stylesheet via `<link>` injection or toggle
-
-### Filter Variable Control
-The `.dark-mode-invert` class uses a variable that JavaScript can set:
-
-```javascript
-// In dark-mode.js (hypothetical)
-document.documentElement.style.setProperty(
-    '--dark-mode-invert-filter',
-    'invert(1)'
-);
-```
-
-This allows toggling the filter without reloading stylesheets.
+This file is bundled into `dark-mode-GENERATED.css` and inlined in the `<head>` with a media attribute. JavaScript toggles the media attribute to force dark, force light, or follow system preference; it does not set `--dark-mode-invert-filter`.
 
 ### Server-Side Coordination
 Image classes like `.invert-auto` and `.invert-not-auto` are applied during Hakyll build:

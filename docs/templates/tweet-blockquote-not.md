@@ -20,7 +20,7 @@ This template is part of the annotation system pipeline: `Annotation.hs` scrapes
 
 - `contentTypeClass` - CSS class for content type styling (e.g., `content-transform-tweet`)
 - `authorLinkClass` - CSS class for the author link element
-- `authorLinkHref` - URL to the author's Twitter/X profile
+- `authorLinkHref` - URL to the author's Twitter/X profile (defined but not used by the current template)
 - `titleLinkHref` - URL destination for the title link (often same as tweet URL)
 - `whichTab` - Text describing tab behavior (e.g., "a new", "the same")
 - `tabOrWindow` - Text "tab" or "window"
@@ -42,8 +42,8 @@ The template produces this structure:
 <div class="content-transform [type-class]">
     <p class="data-field tweet-links">
         <a class="[author-class]"
-           title="Open <author-url> in [which] [tab/window]"
-           href="[author-url]"
+           title="Open <title-url> in [which] [tab/window]"
+           href="[title-url]"
            target="[target]"
            [icon-metadata]
         >[author+avatar]</a> on <a
@@ -59,6 +59,8 @@ The template produces this structure:
 ```
 
 The layout emphasizes attribution (author and timestamp links) followed by content. The `data-field` classes enable JavaScript targeting for dynamic behavior like link rewriting or content updates.
+
+**Template caveats:** The author link currently uses `titleLinkHref` (not `authorLinkHref`). The tweet link title placeholder in the template is malformed (`<<{tweetLinkHref>>`), so it does not interpolate as documented.
 
 ---
 

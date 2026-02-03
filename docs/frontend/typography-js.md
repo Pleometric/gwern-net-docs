@@ -1,7 +1,7 @@
 
 # typography.js
 
-**Path:** `js/typography.js` | **Language:** JavaScript | **Lines:** ~285
+**Path:** `js/typography.js` | **Language:** JavaScript | **Lines:** ~299
 
 > Client-side text processing for smart quotes, dashes, ellipses, and word-break insertion
 

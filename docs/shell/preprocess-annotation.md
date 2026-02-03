@@ -22,12 +22,12 @@ The simplicity of this script reflects the design philosophy that most annotatio
 
 **Main pipeline:**
 ```bash
-cat - | ~/wiki/static/build/preprocess-markdown
+cat - | preprocess-markdown
 ```
 
 **Components:**
 - `cat -` - Read from stdin (explicit pipe-through idiom)
-- `~/wiki/static/build/preprocess-markdown` - Core Markdown normalizer
+- `preprocess-markdown` (from `$PATH`) - Core Markdown normalizer
 
 **Commented-out legacy pipeline:**
 ```bash

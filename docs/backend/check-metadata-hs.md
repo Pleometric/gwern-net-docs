@@ -55,7 +55,7 @@ The delegated function performs extensive checks across four GTX databases (`me.
 - Abstracts must be unique (no copy-paste duplicates)
 
 **DOI Validation:**
-- Must contain exactly one `/` (DOI spec requirement)
+- Must contain at least one `/` and a digit
 - Must contain at least one digit
 - No invalid punctuation (en-dash, em-dash, space, braces, etc.)
 - Cannot be a date, tag, or URL

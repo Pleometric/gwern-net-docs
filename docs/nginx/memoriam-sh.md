@@ -38,7 +38,7 @@ declare -A memorials=(
 )
 ```
 
-The memorial database is a Bash associative array mapping MM-DD date strings to names. When multiple people died on the same date, their names are comma-separated (e.g., `["01-14"]="Kurt Gödel, Lewis Carroll"`), and the script randomly selects one.
+The memorial database is a Bash associative array mapping MM-DD date strings to names. If you want multiple people on the same date, you must use a comma-separated value (e.g., `["01-14"]="Kurt Gödel, Lewis Carroll"`); `pick_random_name` will then choose one. Duplicate keys overwrite earlier entries.
 
 ### Random Name Selection
 
@@ -72,7 +72,7 @@ fi
 The script:
 1. Gets today's date in MM-DD format using US Eastern Time (Gwern's timezone)
 2. Checks if an entry exists for today
-3. If found, picks a random name (if multiple) and outputs the nginx directive
+3. If found, picks a random name only if the value is a comma-separated list; otherwise it outputs the single name
 4. If not found, produces no output (empty config file)
 
 ### Data Validation
@@ -173,7 +173,7 @@ On days without memorials, the script outputs nothing, resulting in an empty inc
 
 ### Random Rotation for Shared Dates
 
-The random selection for multi-person dates ensures long-term fairness. Over many January 14ths, both Gödel and Carroll will be commemorated roughly equally, rather than always picking the first listed or alphabetically.
+The random selection for multi-person dates ensures long-term fairness when a comma-separated list is used. Duplicate keys do not accumulate; the last entry wins.
 
 ### Leap Year Handling
 

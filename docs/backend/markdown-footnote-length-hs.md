@@ -32,7 +32,7 @@ find ~/wiki/ -name "*.md" -exec runghc markdown-footnote-length {} \;
 
 **Output:** For each footnote exceeding 2,400 characters, prints `<filepath>: <footnote-content>` to stdout
 
-**Exit:** Always exits 0 (warnings only, non-blocking)
+**Exit:** Returns non-zero on parse failures or missing args; otherwise exits 0 (warnings only)
 
 ---
 

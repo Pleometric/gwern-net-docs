@@ -19,7 +19,7 @@ The system operates in two phases: first it parses all Markdown/HTML files and a
 Key design decisions:
 - **Anchor-aware deduplication**: Links to `/page` and `/page#section` are grouped under the base page, but the anchor-specific callers are preserved separately for granular navigation
 - **Author bibliography integration**: When a backlink comes from an annotation's author field (not the abstract), it's categorized separately as "authored by" rather than "mentioned in"
-- **Context transclusion**: Each backlink item includes a transclusion directive that loads the surrounding context from the caller page, so readers see where/how the target was mentioned
+- **Context transclusion**: Non-author backlinks include a transclusion directive that loads surrounding context; author backlinks omit it because the "context" would just be the author field
 - **Incremental updates**: The database persists between runs; new files are appended via stdin, merged with existing entries
 
 ---

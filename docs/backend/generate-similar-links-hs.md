@@ -63,7 +63,7 @@ This watches annotation database files (`.gtx`) and immediately embeds new annot
 ### Data Flow
 
 1. **Load databases** (metadata, backlinks, embeddings)
-2. **Identify missing embeddings**: Compare metadata URLs with embedding database, prioritize by modification date
+2. **Identify missing embeddings**: Compare metadata URLs with embedding database and list missing entries (no date-based ordering)
 3. **Generate embeddings**: Call OpenAI API for missing items (batch limit: 2000 at once)
 4. **Prune stale embeddings**: Remove embeddings for URLs no longer in metadata
 5. **Build RP-tree forest**: Spatial index for fast k-nearest-neighbor search

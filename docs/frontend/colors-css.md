@@ -221,7 +221,7 @@ The entire light mode palette is redefined for dark mode through a generated sty
 1. **Light mode (colors.css)**: Defines all `--GW-*` variables with light values under `:root`
 2. **Dark mode (dark-mode-GENERATED.css)**: Redefines the same variables under `:root` in a separate stylesheet
 3. **Component stylesheets**: Use `var(--GW-*)` for color values
-4. **Automatic switching**: JavaScript toggles the `media` attribute on `#inlined-styles-colors-dark` (and dark favicons) between `all` (active) and `not all` (disabled), not by toggling a body class
+4. **Automatic switching**: JavaScript toggles the `media` attribute on `#inlined-styles-colors-dark` (and dark favicons) among `all` (force dark), `not all` (force light), and `all and (prefers-color-scheme: dark)` (auto), not by toggling a body class
 
 **Example of how a variable is overridden:**
 
@@ -239,7 +239,7 @@ The entire light mode palette is redefined for dark mode through a generated sty
 }
 ```
 
-The dark mode stylesheet has `media="not all"` by default (disabled). When dark mode is activated, JavaScript changes it to `media="all"`, causing the dark mode `:root` definitions to override the light mode ones through CSS source order.
+The dark mode stylesheet defaults to `media="all and (prefers-color-scheme: dark)"` (auto). JavaScript switches it to `media="all"` to force dark or `media="not all"` to force light, causing the dark mode `:root` definitions to override the light mode ones through CSS source order when active.
 
 ### Gradual Intensity Levels
 
@@ -275,21 +275,18 @@ Components with nested or progressive states use systematic color progressions:
 The dark mode color system is **generated, not hand-authored**:
 
 1. **Generation script** (`build/color-scheme-convert.php` or similar) reads `colors.css`
-2. **Transforms each color** using algorithmic rules:
-   - Invert lightness in HSL color space
-   - Adjust saturation for readability
-   - Special case certain hues (greens, blues)
-   - Preserve relative contrast ratios
-3. **Outputs `dark-mode-GENERATED.css`** with all variables redefined inside `body.dark-mode { ... }`
+2. **Transforms each color** using algorithmic rules and multiple color-space conversions (Lab/YCC/Oklab/Oklch) via a bit-flag recipe (lightness/hue inversion, colorization) rather than a simple HSL inversion
+3. **Outputs `dark-mode-GENERATED.css`** with all variables redefined under `:root`
 4. **Manual adjustments** can override specific variables in `dark-mode-adjustments.css`
 
 ### Dark Mode Adjustments
 
-[dark-mode-adjustments-css](dark-mode-adjustments-css) applies **non-color** dark mode fixes:
+[dark-mode-adjustments-css](dark-mode-adjustments-css) applies dark mode fixes, including image filters and a small set of variable overrides:
 - Image filters (`filter: invert()` for certain graphics)
 - Opacity adjustments for embeds
 - `mix-blend-mode` overrides
 - Special handling for SVGs, LaTeX equations, portraits
+- A few variable overrides (e.g., body background/text)
 
 **Division of labor:**
 - `colors.css` → defines light mode palette (150+ variables)
@@ -337,7 +334,7 @@ This ensures the dark mode stylesheet is always in sync with the light mode sour
 JavaScript (particularly `dark-mode-initial.js`) interacts with this system:
 
 1. **Reads user preference** from localStorage
-2. **Toggles `media` attribute** on the dark mode stylesheet (`#inlined-styles-colors-dark`) between `all` and `not all`
+2. **Toggles `media` attribute** on the dark mode stylesheet (`#inlined-styles-colors-dark`) among `all`, `not all`, and `all and (prefers-color-scheme: dark)`
 3. **CSS cascade applies** the appropriate variable definitions based on source order
 4. **No JavaScript color manipulation** - all handled by CSS variables and media attribute switching
 

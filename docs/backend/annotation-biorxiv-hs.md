@@ -41,7 +41,7 @@ biorxiv md "https://www.biorxiv.org/content/10.1101/2020.04.03.024554.full"
 
 **Returns:**
 - `Right (url, MetadataItem)` — success with 7-tuple: (title, author, date, created, [(key,value)], tags, abstract)
-- `Left Permanent` — parse failure (title empty) or PDF URL (skipped)
+- `Left Permanent` — parse failure (title empty)
 - `Left Temporary` — abstract empty after processing
 
 ---

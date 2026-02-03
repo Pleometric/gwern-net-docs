@@ -67,8 +67,9 @@ Map from URLs to lists of acceptable anchor texts, used to override filtering he
 | `$`, `₿`, `#` prefixes | Non-URL strings |
 | `/static/img/`, `/metadata/` | Asset paths |
 | `/newsletter/20` | Newsletter archives |
-| `dropbox.com`, `harney.com` | Specific domains |
-| `/doc/*/index` | Index pages |
+| `dropbox.com`, `https://www.harney.com` (prefix) | Specific domains |
+| `https://www.reuters.com/idUSKCN1071KW` | Specific URL blacklist |
+| `/doc/*/index`, `https://gwern.net/doc/*/index` | Index pages |
 
 ### Anchor Filtering Logic
 

@@ -1,7 +1,7 @@
 
 # special-occasions.js
 
-**Path:** `js/special-occasions.js` | **Language:** JavaScript | **Lines:** ~690
+**Path:** `js/special-occasions.js` | **Language:** JavaScript | **Lines:** ~692
 
 > Date-driven holiday theming system for Halloween, Christmas, Easter, and April Fools
 

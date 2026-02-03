@@ -92,7 +92,7 @@ The generated CSS files are imported into `head.css` and `style.css`, making the
 - [Image.hs](/backend/image-hs) - Server-side image processing pipeline
 - [sync.sh](/backend/sync-sh) - Build orchestrator that calls this script
 - [should_image_have_outline.php](/php/should-image-have-outline) - Related PHP image tool
-- [png.sh](/shell/png) - PNG optimization before inlining
+- [compressPNG](/shell/compress-png) - PNG compression before inlining
 - [colors.css](/css/colors) - CSS that uses inlined image variables
 - [initial.css](/css/initial) - Initial CSS that may include inlined images
 - [image-focus.js](/frontend/image-focus-js) - Client-side image handling

@@ -54,7 +54,7 @@ Reverse-parses citation tooltips (like `"'Title', Author 2020"`) back into struc
 
 ### `cleanTitleWithAI :: String -> IO String`
 
-Invokes `title-cleaner.py` to clean titles using GPT-4o-mini. Returns empty string on failure.
+Invokes `title-cleaner.py` to clean titles using `gpt-5-mini` (temperature 1). Returns empty string on failure.
 
 **Called by:** `htmlDownloadAndParseTitleClean`
 **Calls:** `runShellCommand` (to `title-cleaner.py`)
@@ -105,7 +105,7 @@ URL
             │
             ▼
 ┌─────────────────────────┐
-│  title-cleaner.py       │  GPT-4o-mini for edge cases
+│  title-cleaner.py       │  gpt-5-mini for edge cases
 │  (LLM cleanup)          │
 └───────────┬─────────────┘
             │
@@ -199,8 +199,8 @@ This is processed by `Utils.deleteMixedMany`.
 
 ### title-cleaner.py
 
-The LLM script uses GPT-4o-mini with:
-- Temperature: 0 (deterministic)
+The LLM script uses `gpt-5-mini` with:
+- Temperature: 1
 - ~400 few-shot examples covering edge cases
 - Tasks: Remove boilerplate, fix encoding, convert `*italic*` to `<em>`, identify error pages
 

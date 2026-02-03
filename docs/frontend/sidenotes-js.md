@@ -1,7 +1,7 @@
 
 # sidenotes.js
 
-**Path:** `js/sidenotes.js` | **Language:** JavaScript | **Lines:** ~1,339 | **Author:** Said Achmiz (2019)
+**Path:** `js/sidenotes.js` | **Language:** JavaScript | **Lines:** ~1,350 | **Author:** Said Achmiz (2019)
 
 > Dynamically positions footnotes as margin sidenotes with collision avoidance
 
@@ -41,12 +41,24 @@ let sidenote = Sidenotes.counterpart(citation);  // div.sidenote
 
 **Called by:** Position calculations, highlight handlers, slide logic
 
+### `Sidenotes.sidenoteOfNumber(number) → Element|null`
+
+Returns the sidenote with the given number.
+
+### `Sidenotes.citationOfNumber(number) → Element|null`
+
+Returns the citation with the given number.
+
 ### `Sidenotes.updateSidenotePositions()`
 
 Recalculates and applies positions for all sidenotes. The heavy lifter—runs the layout algorithm, detects cut-off notes, updates back-arrow orientations.
 
 **Called by:** Window resize, content injection, collapse state changes
 **Calls:** `updateSidenoteDispositions`, `updateFootnoteBackArrowOrientationForSidenote`
+
+### `Sidenotes.updateSidenotePositionsIfNeeded()`
+
+Queues a position update on the next available animation frame if one isn't already queued. Uses `requestIdleCallback` for debouncing.
 
 ### `Sidenotes.slideSidenoteIntoView(sidenote, toCitation)`
 
@@ -64,8 +76,17 @@ Responds to URL hash changes targeting sidenotes or citations. Handles:
 - Highlighting the targeted sidenote/citation pair
 - Expanding collapse blocks containing the citation
 - Scrolling the sidenote into view (with slide-lock to prevent jitter)
+- Hiding UI elements that would overlap sidenotes
 
 **Called by:** `GW.hashDidChange` event, self-link clicks
+
+### `Sidenotes.updateTargetCounterpart()`
+
+Updates the `.targeted` class on citations and sidenotes when the URL hash changes to target a note.
+
+### `Sidenotes.hideInterferingUIElements()`
+
+Hides mode selectors and other UI elements that would overlap with a sidenote at the top-right of the page.
 
 ---
 
@@ -80,7 +101,8 @@ Sidenotes = {
   sidenoteColumnLeft: Element,    // #sidenote-column-left container
   sidenoteColumnRight: Element,   // #sidenote-column-right container
   displacedSidenotes: Element[],  // Currently slid sidenotes
-  positionUpdateQueued: boolean   // Debounce flag for position updates
+  positionUpdateQueued: boolean,  // Debounce flag for position updates
+  sidenotesNeedConstructing: boolean  // Flag for pending construction
 }
 ```
 
@@ -88,18 +110,20 @@ Sidenotes = {
 
 The positioning algorithm in `updateSidenotePositions()` works in phases:
 
-1. **Proscribed Ranges**: Scan for elements that intrude into sidenote columns (full-width images, tables, margin notes). Convert to vertical ranges where sidenotes cannot be placed.
+1. **Disposition**: Place sidenotes in appropriate columns; hide sidenotes whose citations are in collapsed blocks.
 
-2. **Layout Cells**: Divide each column into vertical "cells"—the gaps between proscribed ranges. Each cell tracks remaining room.
+2. **Proscribed Ranges**: Scan for elements that intrude into sidenote columns (full-width images, tables, margin notes). Convert to vertical ranges where sidenotes cannot be placed.
 
-3. **Assignment**: For each sidenote, find fitting cells (enough room for sidenote height). Score cells by:
+3. **Layout Cells**: Divide each column into vertical "cells"—the gaps between proscribed ranges. Each cell tracks remaining room.
+
+4. **Assignment**: For each sidenote, find fitting cells (enough room for sidenote height). Score cells by:
    - Vertical distance from citation
    - Horizontal distance (for two-column layouts)
    - "Crowdedness"—overlap with sidenotes already assigned to that cell
 
-4. **Positioning within Cells**: Set default position (aligned with citation, or cell top). Sort by position. For overlapping pairs, split the overlap: push upper notes up, shift lower note down.
+5. **Positioning within Cells**: Set default position (aligned with citation, or cell top). Sort by position. For overlapping pairs, split the overlap: push upper notes up, shift lower note down.
 
-5. **Bottom Overflow**: If the lowest sidenote extends past cell bottom, push the whole stack upward.
+6. **Bottom Overflow**: If the lowest sidenote extends past cell bottom, push the whole stack upward.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
@@ -137,7 +161,7 @@ The positioning algorithm in `updateSidenotePositions()` works in phases:
 
 Two modes based on viewport width:
 - **Sidenote mode** (≥1761px): Sidenotes visible in margins
-- **Footnote mode** (\<1761px): Traditional footnotes at page bottom
+- **Footnote mode** (&lt;1761px): Traditional footnotes at page bottom
 
 The `mediaQueries.viewportWidthBreakpoint` media query triggers:
 - Rewriting citation hrefs (`#fn5` ↔ `#sn5`)
@@ -234,6 +258,7 @@ if (Sidenotes.positionUpdateQueued) return;
 Sidenotes.positionUpdateQueued = true;
 requestIdleCallback(() => {
   Sidenotes.positionUpdateQueued = false;
+  if (Sidenotes.sidenotesNeedConstructing) return;
   Sidenotes.updateSidenotePositions();
 });
 ```
@@ -250,10 +275,19 @@ Defined at the top of the `Sidenotes` object:
 | `sidenotePadding` | `13.0` | Padding including border (px) |
 | `minimumViewportWidthForSidenotes` | `"1761px"` | Below this, sidenotes disabled |
 | `minimumViewportWidthForSidenoteMarginNotes` | `"1497px"` | Below this, margin notes inline |
-| `potentiallyOverlappingElementsSelectors` | `[".width-full img", ...]` | Elements that create proscribed zones |
-| `constrainMarginNotesWithinSelectors` | `[".backlink-context", ...]` | Contexts where margin notes stay inline |
+| `potentiallyOverlappingElementsSelectors` | `[".width-full img", ".width-full video", ...]` | Elements that create proscribed zones |
+| `constrainMarginNotesWithinSelectors` | `[".backlink-context", ".margin-notes-block", ...]` | Contexts where margin notes stay inline |
 | `useLeftColumn` | `() => false` | Whether to use left margin |
 | `useRightColumn` | `() => true` | Whether to use right margin |
+
+### Media Queries
+
+```javascript
+Sidenotes.mediaQueries = {
+  viewportWidthBreakpoint: matchMedia(`(min-width: 1761px)`),
+  marginNoteViewportWidthBreakpoint: matchMedia(`(min-width: 1497px)`)
+}
+```
 
 ---
 
@@ -292,6 +326,7 @@ Defined at the top of the `Sidenotes` object:
 - Uses `Notes.noteNumber()`, `Notes.footnoteIdForNumber()`, `Notes.sidenoteIdForNumber()` from notes system
 - Reads collapse state via `isWithinCollapsedBlock()`
 - Triggers transclusion via `Transclude.triggerTransclude()`
+- Uses `revealElement()` from utility.js for expanding collapsed blocks
 
 ---
 

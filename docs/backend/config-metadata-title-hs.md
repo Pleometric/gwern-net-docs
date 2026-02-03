@@ -1,7 +1,7 @@
 
 # Config.Metadata.Title
 
-**Path:** `build/Config/Metadata/Title.hs` | **Language:** Haskell | **Lines:** ~186
+**Path:** `build/Config/Metadata/Title.hs` | **Language:** Haskell | **Lines:** ~189
 
 > Configuration lists for filtering and cleaning HTML page titles
 
@@ -71,9 +71,9 @@ Character encoding fixes (6 entries). Repairs common mojibake:
 [("  ", " "),           -- double space → single
  (" � ", " - "),        -- replacement char → dash
  ("Â°", "°"),           -- UTF-8/Latin-1 collision
- ("Â ", " "),           -- ditto
+ ("Â ", " "),           -- ditto (A-circumflex + NBSP)
  (" â\200\224 ", "—"),  -- em-dash encoding
- ("\128\200\231", "'")  -- curly quote encoding
+ ("\128\200\231", "’")  -- curly quote encoding
 ]
 ```
 
@@ -105,7 +105,7 @@ Categories include:
 This module is pure configuration—no functions, just data declarations. The structure is:
 
 ```
-separators      : String      (4 chars)
+separators      : String      (3 chars)
 badStringPatterns: [String]   (8 patterns)
 badStrings      : [String]    (~290 exact matches)
 stringReplace   : [(String,String)] (6 pairs)

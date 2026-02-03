@@ -1,7 +1,7 @@
 
 # bash.sh
 
-**Path:** `build/bash.sh` | **Language:** Bash | **Lines:** ~1,013
+**Path:** `build/bash.sh` | **Language:** Bash | **Lines:** ~1,250
 
 > Shell helper function library for gwern.net wiki operations
 
@@ -201,7 +201,7 @@ Moves entire directories by iterating `gwmv` over contents.
 Adds or modifies annotation tags via the `changeTag` Haskell tool.
 
 **Aliases:** `gwt`, `t`
-**Calls:** `./static/build/changeTag`
+**Calls:** `changeTag`
 
 ---
 

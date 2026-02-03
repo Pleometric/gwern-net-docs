@@ -129,6 +129,6 @@ Called by **Image.hs** during Hakyll build:
 - [build_inlined_images.php](/php/build-inlined-images) - Related PHP image processing
 - [invertornot.py](/python/invertornot) - GPT-4-Vision image classification
 - [image-margin-checker.py](/python/image-margin-checker) - GPT-4-Vision margin analysis
-- [png.sh](/shell/png) - PNG optimization script
+- [compressPNG](/shell/compress-png) - PNG compression optimization
 - [image-focus.js](/frontend/image-focus-js) - Client-side image lightbox
 - [Typography.hs](/backend/typography-hs) - AST transforms that may involve images

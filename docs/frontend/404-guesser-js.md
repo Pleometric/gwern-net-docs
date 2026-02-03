@@ -5,7 +5,7 @@ slug: 404-guesser-js
 
 # 404-guesser.js
 
-**Path:** `js/404-guesser.js` | **Language:** JavaScript | **Lines:** ~273
+**Path:** `js/404-guesser.js` | **Language:** JavaScript | **Lines:** ~263
 
 > Enhances 404 error pages with intelligent URL suggestions based on Levenshtein distance
 
@@ -65,15 +65,13 @@ function urlPathnamesFromSitemapString(sitemapText)
 
 **findSimilarUrlPaths(urlPaths, targetPath, numResults, maxDistance)**
 ```javascript
-function findSimilarUrlPaths(urlPaths, targetPath, numResults=10, maxDistance=8)
+function findSimilarUrlPaths(urlPaths, targetPath, numResults, maxDistance)
 ```
-- Primary matching logic with two-stage approach
-- Stage 1: Full-path matching with bounded Levenshtein distance
-  - Pre-filters by length difference (`Math.abs(length_a - length_b) <= maxDistance`)
-  - Calculates edit distance for remaining candidates
-  - Sorts by distance ascending, takes top `numResults`
-- Stage 2: If no results, falls back to `findSimilarByBasename()` with `maxDistance * 0.5`
-- Returns array of up to 10 pathname strings
+- Full-path matching with bounded Levenshtein distance
+- Pre-filters by length difference (`Math.abs(length_a - length_b) <= maxDistance`)
+- Calculates edit distance for remaining candidates
+- Sorts by distance ascending, takes top `numResults`
+- Returns array of up to `numResults` pathname strings
 
 **findSimilarByBasename(urlPaths, targetPath, numResults, maxDistance)**
 ```javascript
@@ -115,12 +113,12 @@ This is critical for performance: with 37,000+ URLs, full Levenshtein distance w
 
 ### Two-Stage Matching Strategy
 
-The algorithm uses a fallback approach:
+The algorithm combines both matching approaches:
 
-1. **Full-path matching first:** Tries to match entire pathnames (e.g., `/rubiks-cube`)
-2. **Basename fallback:** If no results, matches only the last segment with stricter threshold (`maxDistance * 0.5`)
+1. **Basename matching first:** Matches only the last path segment with stricter threshold (`maxDistance * 0.5` = 4)
+2. **Full-path matching second:** Matches entire pathnames with full threshold (`maxDistance` = 8)
 
-This catches both typos in the exact path and wrong/missing directory structures.
+Results are concatenated, deduplicated via `.unique()`, and limited to `maxNumResults` (10). This catches both wrong/missing directory structures (e.g., `/ai-slop` to `/blog/ai-slop`) and typos in the exact path.
 
 ### Sitemap Caching Considerations
 

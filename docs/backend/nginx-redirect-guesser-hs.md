@@ -116,8 +116,8 @@ nubOrd . filter (`S.notMember` existingLines) $ generated
 
 ### File Paths
 
-- `static/redirect/nginx.conf` — Primary redirect rules
-- `static/redirect/nginx-broken.conf` — Rules for clearly broken/malicious URLs
+- `nginx/redirect/move.conf` — Primary redirect rules
+- `nginx/redirect/broken.conf` — Rules for clearly broken/malicious URLs
 - `C.root` — Site root directory for file enumeration
 
 ---

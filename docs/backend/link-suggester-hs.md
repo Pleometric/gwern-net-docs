@@ -21,7 +21,7 @@ The output format is native Elisp that sets `markdown-rewrites` to an associatio
 
 ### `main :: IO ()`
 
-Entry point. Reads filenames from stdin, parses all files in parallel, builds the suggestion database through filtering stages, and writes `linkSuggestions.el` and `linkSuggestions-deleted.hs`.
+Entry point. Reads filenames from stdin, parses all files in parallel, builds the suggestion database through filtering stages, writes the Elisp output to the first CLI argument, and writes debug output to `metadata/linkSuggestions-deleted.hs`.
 
 **Called by:** Command line via `find . -name "*.md" -or -name "*.html" | link-suggester.hs output.el`
 
@@ -72,7 +72,7 @@ Input files (stdin)
         ↓
 [Format as Elisp]
         ↓
-linkSuggestions.el
+output file (first CLI argument)
 ```
 
 ### Key Data Structures
@@ -95,7 +95,7 @@ let dbFailedMinimum = ("Did not pass hitsMinimum filter",
                        db `M.difference` dbMinimumLess)
 ```
 
-This produces `linkSuggestions-deleted.hs` containing all rejected entries grouped by rejection reason—invaluable for debugging false negatives.
+This produces `metadata/linkSuggestions-deleted.hs` containing all rejected entries grouped by rejection reason—invaluable for debugging false negatives.
 
 ### Case-Sensitive Deduplication
 

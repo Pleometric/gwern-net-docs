@@ -66,5 +66,5 @@ WARNING: Received an error for image ./path/to/image.png: 'Your input image may 
 - [invertornot.py](/python/invertornot) - Related GPT-4-Vision image classification tool
 - [image-focus.js](/frontend/image-focus-js) - Client-side image lightbox
 - [should_image_have_outline.php](/php/should-image-have-outline) - PHP-based image analysis
-- [png.sh](/shell/png) - PNG optimization script
+- [compressPNG](/shell/compress-png) - PNG compression optimization
 - [collapse-checker.py](/python/collapse-checker) - Validates collapsed HTML blocks

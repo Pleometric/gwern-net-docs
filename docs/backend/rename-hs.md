@@ -40,10 +40,10 @@ The script is minimal—just 15 lines. It builds a single string by concatenatin
 ```
 git mv '.{old}.md' '.{new}.md' && \
 gwsed.sh ' {old}' ' {new}' && \
-gwsed.sh '](old}' ']{new}' && \
+gwsed.sh '](old' '](new' && \
 gwsed.sh 'href="{old}"' 'href="{new}"' && \
 gwsed.sh 'href=\"{old}\"' 'href=\"{new}\"' && \
-echo '"~^{old}$" "{new}";' >> ~/wiki/static/redirect/nginx.conf
+echo '"~^{old}$" "{new}";' >> ~/wiki/static/nginx/redirect/move.conf
 ```
 
 Each step targets a different link format:
@@ -71,7 +71,7 @@ Each step targets a different link format:
 None. The script is hardcoded to:
 - Assume files are `.md` with leading dots
 - Use `gwsed.sh` for replacements
-- Append redirects to `~/wiki/static/redirect/nginx.conf`
+- Append redirects to `~/wiki/static/nginx/redirect/move.conf`
 
 ---
 
@@ -96,7 +96,7 @@ The generated nginx redirect rules are picked up by the web server configuration
 ```bash
 # Generate rename script for moving "/spaced-repetition" to "/srs"
 $ runghc rename.hs /spaced-repetition /srs
-git mv './spaced-repetition.md' './srs.md' && gwsed.sh ' /spaced-repetition' ' /srs' && gwsed.sh '](/spaced-repetition' '](/srs' && gwsed.sh 'href="/spaced-repetition"' 'href="/srs"' && gwsed.sh 'href=\"/spaced-repetition\"' 'href=\"/srs\"' && echo '"~^/spaced-repetition$" "/srs";' >> ~/wiki/static/redirect/nginx.conf
+git mv './spaced-repetition.md' './srs.md' && gwsed.sh ' /spaced-repetition' ' /srs' && gwsed.sh '](/spaced-repetition' '](/srs' && gwsed.sh 'href="/spaced-repetition"' 'href="/srs"' && gwsed.sh 'href=\"/spaced-repetition\"' 'href=\"/srs\"' && echo '"~^/spaced-repetition$" "/srs";' >> ~/wiki/static/nginx/redirect/move.conf
 
 # Review output, then execute
 $ runghc rename.hs /spaced-repetition /srs | bash

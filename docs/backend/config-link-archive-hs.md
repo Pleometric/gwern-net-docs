@@ -43,7 +43,6 @@ Rewrites URLs to optimal formats for local archiving. Key transformations:
 - OpenReview forum → pdf
 - Reddit → Old Reddit
 - X.com → localhost proxy
-- Medium → Freedium (clean frontend)
 - Fandom wikis → Antifandom
 - Wayback Machine → iframe-friendly format
 
@@ -143,7 +142,7 @@ Mock database for testing, mapping URLs to their expected archive paths.
 Original URL
     │
     ├─► transformURLsForArchiving ─► local archive path
-    │       (Arxiv→PDF, Reddit→Old, Medium→Freedium, etc.)
+    │       (Arxiv→PDF, Reddit→Old, etc.)
     │
     ├─► transformURLsForMobile ─► data-href-mobile
     │       (Arxiv→HTML, X→Nitter)

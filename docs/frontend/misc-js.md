@@ -1,7 +1,7 @@
 
 # misc.js
 
-**Path:** `js/misc.js` | **Language:** JavaScript | **Lines:** ~2,800
+**Path:** `js/misc.js` | **Language:** JavaScript | **Lines:** ~2,804
 
 > Utility modules and UI components: inject triggers, image handling, clipboard, toolbar, floating header, and miscellaneous helpers
 

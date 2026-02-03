@@ -155,7 +155,7 @@ If `extracts-load.js` ran before these registrations, `Extracts.setup()` would f
 ### Events Fired
 
 - **`Extracts.didLoad`** - Signals configuration is complete
-  - Listeners: None in the codebase currently
+- Listeners: `reader-mode.js` registers a handler for `Extracts.didLoad`
   - Timing: Immediately after config object is set
 
 ### Functions Called

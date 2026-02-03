@@ -93,7 +93,7 @@ Key design philosophy: progressive enhancement with mobile-first responsive brea
 
 ### Margin Notes (lines 1682–1786)
 - **Dual display modes**: inline (italic colored text) or sidenote (popped-out on wide viewports ≥1497px)
-- **Sidenote positioning**: absolute, positioned via `--marginnote-vertical-position` custom property
+- **Sidenote positioning**: `top` uses `--marginnote-vertical-position`, but this stylesheet does not set `position` (so actual positioning is handled elsewhere/JS)
 - **Width calculation**: `calc(50vw - (var(--GW-body-max-width) / 2 + 96px))`
 - **Special handling** in admonitions (adjusted for icon area width)
 - **"Icon only" variants** for pure visual indicators

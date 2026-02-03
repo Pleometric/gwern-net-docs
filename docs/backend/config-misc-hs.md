@@ -1,7 +1,7 @@
 
 # Config.Misc
 
-**Path:** `build/Config/Misc.hs` | **Language:** Haskell | **Lines:** ~257
+**Path:** `build/Config/Misc.hs` | **Language:** Haskell | **Lines:** ~283
 
 > Global constants, date utilities, and miscellaneous configuration values used throughout the build system
 

@@ -11,9 +11,9 @@
 
 This module creates link bibliographies—ordered lists of all outbound links from a page or annotation, displayed with their full annotations where available. Link bibliographies are the "forward citation" counterpart to backlinks: while backlinks show what points *to* a page, link bibliographies show what a page points *out to*.
 
-The output is an HTML fragment (not a full page) designed for transclusion into popups and page metadata blocks. Each bibliography is written to `metadata/annotation/link-bibliography/$ESCAPED_PATH.html`. The fragment contains a numbered list with the header "Bibliography (N):" where N is the link count.
+The output is an HTML fragment (not a full page) designed for transclusion into popups and page metadata blocks. Each bibliography is written to `metadata/annotation/link-bibliography/$ESCAPED_PATH.html`. The fragment contains a numbered list with the header "Bibliography" and appends a count only when `N >= 2`.
 
-A key design decision is separating Wikipedia links into a collapsed sub-list at the end. Wikipedia links are "so numerous, and so bulky" (per source comments) that they would overwhelm the primary bibliography. Links without full annotations still get entries—they show as code-styled paths with optional context transclusion via `.include-block-context`.
+A key design decision is separating Wikipedia links into a collapsed sub-list at the end. Wikipedia links are "so numerous, and so bulky" (per source comments) that they would overwhelm the primary bibliography. Links without full annotations still get entries—if a title exists, it's rendered as titlecased HTML; if the title is empty, the path is shown in code styling, with optional context transclusion via `.include-block-context`.
 
 ---
 

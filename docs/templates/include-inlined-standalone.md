@@ -6,11 +6,11 @@ sidebar_position: 5
 
 **Path:** `include/inlined-standalone.html` | **Language:** HTML/CSS | **Lines:** ~345
 
-Standalone page variant that bundles all CSS resources inline for single-file portability.
+Standalone page variant that inlines core color variables but still links `head.css` and `style.css` externally.
 
 ## Overview
 
-The `inlined-standalone.html` include file is an alternative to `inlined-asset-links.html` designed for "standalone" pages that need to be fully self-contained or function independently of the main site infrastructure. Instead of loading stylesheets via `<link>` elements, this variant inlines all CSS directly into the HTML document.
+The `inlined-standalone.html` include file is an alternative to `inlined-asset-links.html` designed for "standalone" pages that need to be more self-contained. It inlines the color variable blocks but still loads `head.css` and `style.css` via `<link>` elements.
 
 This approach is used for pages that may be:
 - Archived or distributed as single HTML files
@@ -120,7 +120,7 @@ The decision of which variant to use is made during the Hakyll build process bas
 |--------------|-------------|----------|---------------------|
 | `inlined-head.html` | Minimal inline + external | Normal pages | Optimized for speed |
 | `inlined-asset-links.html` | Deferred external | Normal pages | Progressive enhancement |
-| `inlined-standalone.html` | Full inline + sync external | Standalone pages | Optimized for portability |
+| `inlined-standalone.html` | Inline colors + external head/style | Standalone pages | Optimized for portability |
 
 ---
 

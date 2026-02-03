@@ -67,7 +67,7 @@ Searches for problematic URL patterns:
 ### 2. Link Destination Issues
 Checks for suboptimal link targets:
 - Linking to Arxiv/BioRxiv PDFs instead of abstract pages
-- NCBI/PubMed numeric IDs without `/pubmed/` prefix
+- NCBI/PubMed numeric IDs with `/pubmed/` prefix
 - PNAS abstracts without full path
 
 ### 3. Markdown Syntax Errors

@@ -6,13 +6,13 @@ sidebar_position: 3
 
 **Path:** `include/inlined-head.html` | **Language:** HTML/CSS | **Lines:** ~844
 
-Critical CSS and JavaScript inlined in the document `<head>` for optimal initial page load.
+Critical CSS inlined in the document `<head>` for optimal initial page load; JavaScript is linked externally.
 
 ## Overview
 
-The `inlined-head.html` include file contains critical above-the-fold CSS and JavaScript that must be loaded before the page renders. It is included directly in the `<head>` section of every page to minimize render-blocking requests and provide immediate styling and functionality.
+The `inlined-head.html` include file contains critical above-the-fold CSS that must be loaded before the page renders. JavaScript is loaded via an external `<script src="/static/js/head.js">` tag. This include is inserted directly in the `<head>` section of every page to minimize render-blocking requests and provide immediate styling.
 
-This file is structured around performance optimization: it inlines comprehensive CSS custom property definitions for the entire site's color scheme (including light and dark mode variants), critical layout styles, and essential JavaScript for early-stage page initialization. The inline approach eliminates additional network requests for these critical resources, reducing time-to-first-paint.
+This file is structured around performance optimization: it inlines comprehensive CSS custom property definitions for the entire site's color scheme (including light and dark mode variants) and critical layout styles. JavaScript for early-stage initialization is loaded via `head.js` as a separate request.
 
 The file is particularly notable for its extensive CSS custom properties (CSS variables) system, which defines over 300 color tokens used throughout the site. This centralized theming system enables dark mode, popup styling, syntax highlighting, and all UI component colors to be managed from a single location.
 

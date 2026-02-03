@@ -13,7 +13,7 @@
 
 The module exists to separate raw data from computation. While `Inflation.hs` contains the adjustment algorithms and Pandoc transformations, `Config.Inflation` supplies the underlying rates. This separation allows the data to be updated independently (e.g., when new year-end inflation figures are released) without touching the inflation calculation logic.
 
-The data spans from 1913 to 2023 for US inflation (using CPI through 1958, then PCE thereafter) and from May 2010 (Bitcoin "Pizza Day") through December 2022 for Bitcoin exchange rates. When dates fall outside these ranges, the system carries forward the last available rate.
+The data spans from 1913 to 2024 for US inflation (using CPI through 1958, then PCE thereafter) and from May 2010 (Bitcoin "Pizza Day") through 2022-01-01 for Bitcoin exchange rates. When dates fall outside these ranges, the system carries forward the last available rate.
 
 ---
 
@@ -35,7 +35,7 @@ Amounts that haven't inflated by at least 20% are left unchanged to avoid clutte
 
 ### `inflationRatesUSD :: [Double]`
 
-Annual percentage change in USD purchasing power, 1913–2023 (projected forward using `repeat`).
+Annual percentage change in USD purchasing power, 1913–2024 (projected forward using `repeat`).
 
 ```haskell
 inflationRatesUSD :: [Double]
@@ -43,7 +43,8 @@ inflationRatesUSD = let
     cpi19131958 = [0.0,1.0,2.0,12.6,18.1,...]  -- CPI: 1913-1958
     pce19592018 = [5.7,2.7,2.1,4.9,4.1,...]    -- PCE: 1959-2018
     pce20192023 = [1.43, 1.09, 4.13, 6.55, 3.77]
-  in (cpi19131958 ++ pce19592018 ++ pce20192023) ++ repeat (last pce20192023)
+    pce2024     = [2.62]
+  in (cpi19131958 ++ pce19592018 ++ pce20192023) ++ repeat (last pce2024)
 ```
 
 **Data format:**
@@ -55,7 +56,7 @@ inflationRatesUSD = let
 **Sources:**
 - CPI: US Inflation Calculator (1913–1958)
 - PCE: Bureau of Economic Analysis (1959–2018)
-- Recent years: FRED DPCERG3A086NBEA series (2019–2023)
+- Recent years: FRED DPCERG3A086NBEA series (2019–2024)
 
 **Called by:** `Inflation.inflationAdjustUSD`
 
@@ -120,7 +121,7 @@ The module is structured as three data declarations:
 ├─────────────────────────────────────────────────────────┤
 │  inflationRatesUSD (lines 17-24)                        │
 │    ~110 CPI/PCE rates + infinite extension              │
-│    Format: [rate_1913, rate_1914, ..., rate_2023, ...]  │
+│    Format: [rate_1913, rate_1914, ..., rate_2024, ...]  │
 ├─────────────────────────────────────────────────────────┤
 │  inflationDollarLinkTestCases (lines 26-107)            │
 │    ~40 test cases for regression testing                │
@@ -144,7 +145,7 @@ Bitcoin uses **date-indexed** data (string keys like `"2017-01-01"`) because BTC
 ### Infinite Extension via `repeat`
 
 ```haskell
-inflationRatesUSD = (...) ++ repeat (last pce20192023)
+inflationRatesUSD = (...) ++ repeat (last pce2024)
 ```
 
 Rather than failing on future dates, the module projects the last known inflation rate forward indefinitely. This is a pragmatic choice—inflation adjustments for very recent years won't be perfect, but the system won't crash on `[$100]($2025)` inputs.
@@ -176,7 +177,7 @@ This module *is* the configuration. To update:
 | `bitcoinUSDExchangeRateHistory` | Periodically | btcvol.info or similar |
 | `minPercentage` | Rarely | Adjust if 20% threshold feels wrong |
 
-When adding new inflation rates, append to `pce20192023` (or rename to `pce2019YYYY`) and the `repeat` will handle the rest.
+When adding new inflation rates, append a new list (e.g., `pce2025`) and update the `repeat` to use the last entry of the most recent list.
 
 ---
 

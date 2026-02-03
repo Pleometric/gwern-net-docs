@@ -11,7 +11,7 @@
 
 link-prioritize.hs is a CLI utility that helps prioritize which links should receive manual annotations. The problem it solves: gwern.net has thousands of external links, and writing quality annotations is time-consuming. This tool identifies which unannotated links appear most frequently across the site, so annotation effort can focus on high-impact URLs.
 
-The tool takes a list of URLs (typically piped from `link-extractor.hs`) and cross-references them against both the manual annotation database (`*.gtx` files) and auto-generated annotations. A link is considered "annotated" if it has an abstract longer than 100 characters. Links that fail this check are counted by frequency and output in descending order.
+The tool ignores stdin and instead counts URLs from the backlinks database, then cross-references them against both the manual annotation database (`*.gtx` files) and auto-generated annotations. A link is considered "annotated" if it has an abstract longer than 100 characters. Links that fail this check are counted by frequency and output in descending order.
 
 The design filters out several categories that shouldn't be prioritized: Wikipedia links (which auto-populate well), author bio URLs (writing full biographies is impractical), and URLs without dots (likely anchors or special syntax).
 
@@ -21,7 +21,7 @@ The design filters out several categories that shouldn't be prioritized: Wikiped
 
 ### `main :: IO ()`
 
-Entry point. Reads an optional numeric argument for limiting output, loads the metadata and backlinks databases, filters/ranks URLs, and prints results.
+Entry point. Reads a required numeric argument for limiting output, loads the metadata and backlinks databases, filters/ranks URLs, and prints results.
 
 **Called by:** Shell invocation
 **Calls:** `readLinkMetadata`, `readBacklinksDB`, `isAnnotated`
@@ -49,7 +49,7 @@ Normalizes `https://gwern.net/` URLs to `/` paths before lookup. Returns `True` 
 ### Data Flow
 
 ```
-URLs (stdin) → readBacklinksDB → frequency count → filter unannotated → sort → output
+readBacklinksDB → frequency count → filter unannotated → sort → output
 ```
 
 ### Key Data Structures
@@ -62,7 +62,7 @@ URLs (stdin) → readBacklinksDB → frequency count → filter unannotated → 
 
 ### Processing Steps
 
-1. Parse optional `printN` argument (defaults to unlimited)
+1. Parse required `printN` argument (no default)
 2. Load metadata DB, sanity-check it has \>1000 entries
 3. Load backlinks DB
 4. Extract author URLs to filter
@@ -101,7 +101,7 @@ Guards against running with a corrupted or partially-loaded database, which woul
 
 | Setting | Location | Effect |
 |---------|----------|--------|
-| Print limit | CLI arg 1 | Max URLs to output (default: unlimited) |
+| Print limit | CLI arg 1 | Max URLs to output (required) |
 | Annotation threshold | Hardcoded (100) | Min abstract length to count as "annotated" |
 
 ---
@@ -110,7 +110,7 @@ Guards against running with a corrupted or partially-loaded database, which woul
 
 ### Inputs
 
-- **stdin**: Newline-separated URLs (typically from `link-extractor.hs`)
+- **stdin**: Ignored
 - **Metadata DB**: Via `readLinkMetadata` from [LinkMetadata](link-metadata-hs)
 - **Backlinks DB**: Via `readBacklinksDB` from LinkBacklink
 - **Author DB**: `Config.Metadata.Author.authorLinkDB`
@@ -122,14 +122,8 @@ Guards against running with a corrupted or partially-loaded database, which woul
 ### Typical Pipeline
 
 ```bash
-# Single file
-link-extractor.hs doc.md | link-prioritize.hs
-
-# Whole site
-find ~/wiki -name "*.md" -print0 | \
-  parallel --null link-extractor.hs | \
-  grep -E '^http' | \
-  link-prioritize.hs 50
+# Top 50 links based on backlinks DB
+link-prioritize.hs 50
 ```
 
 ---

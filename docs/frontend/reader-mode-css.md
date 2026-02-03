@@ -44,7 +44,6 @@ The stylesheet implements careful distinctions between elements that should be c
 
 **Misc. visual elements:**
 - `.inflation-adjusted .subsup` - Inflation adjustment superscripts
-- `.date-range sub` - Date range subscripts
 - `.file-includes` - File inclusion metadata
 - `.annotation.blog-post .data-field.aux-links` - Auxiliary links in blog post annotations
 

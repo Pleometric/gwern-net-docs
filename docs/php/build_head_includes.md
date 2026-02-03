@@ -6,15 +6,15 @@ sidebar_position: 3
 
 **Path:** `build/build_head_includes.php` | **Language:** PHP | **Lines:** ~91
 
-Generates an inlined HTML include file for the document `<head>` with critical CSS, JS, and preload hints.
+Generates an inlined HTML include file for the document `<head>` with critical CSS, external JS tags, and preload hints.
 
 ## Overview
 
-This script creates `inlined-head.html`, a server-side include (SSI) file that contains all critical resources needed for initial page render. It inlines CSS and JavaScript directly into `<style>` and `<script>` tags to eliminate render-blocking HTTP requests, and adds versioned `<link>` and `<script>` tags for external resources with cache-busting query parameters.
+This script creates `inlined-head.html`, a server-side include (SSI) file that contains critical resources needed for initial page render. It inlines CSS directly into `<style>` tags and adds versioned `<link>`/`<script>` tags for external resources (including `head.js`).
 
 The generated include file is designed to be embedded in HTML pages via Apache SSI directives (`<!--#include virtual="/static/include/inlined-head.html"-->`). This approach allows the same optimized head content to be shared across all pages without duplicating code in templates.
 
-The script handles three types of includes: inlined CSS (from `.css` files), inlined JS (from `.js` files), and external resource references (preload hints, external stylesheets/scripts) with automatic cache-busting versioning.
+The script handles two types of includes: inlined CSS (from `.css` files) and external resource references (preload hints, external stylesheets/scripts) with automatic cache-busting versioning.
 
 ## Key Functions/Variables
 
@@ -22,8 +22,7 @@ The script handles three types of includes: inlined CSS (from `.css` files), inl
 
 - **`$includes`**: Array defining resources to include in the head. Each entry is either:
   - `[ 'filename.css', 'attributes' ]` - CSS file to inline with optional HTML attributes
-  - `[ 'filename.js', 'attributes' ]` - JS file to inline with optional HTML attributes
-  - `[ '<element ...>', null ]` - Literal HTML tag for external resources
+- `[ '<element ...>', null ]` - Literal HTML tag for external resources (including JS)
 
 ### Include List
 
@@ -41,7 +40,7 @@ The script handles three types of includes: inlined CSS (from `.css` files), inl
 
 - **Type detection**: Regex checks determine if an entry is CSS (`.css`), JS (`.js`), or external HTML (`src=`/`href=`)
 - **File path resolution**: Constructs absolute filesystem paths based on type (CSS → `$css_dir`, JS → `$js_dir`, external → parse from tag)
-- **Inlining**: For CSS/JS files, reads content with `file_get_contents()` and wraps in `<style>`/`<script>` tags
+- **Inlining**: For CSS files, reads content with `file_get_contents()` and wraps in `<style>` tags
 - **Versioning**: For external resources, calls `VersionedAssetHref()` to append `?v={timestamp}` query parameters
 
 ### Helper Function Usage
@@ -65,7 +64,7 @@ The script handles three types of includes: inlined CSS (from `.css` files), inl
 
 ### Output Files
 
-- `/include/inlined-head.html` - Complete HTML include with inlined CSS/JS and versioned external references
+- `/include/inlined-head.html` - Complete HTML include with inlined CSS and versioned external references
 
 Example output structure:
 ```html
@@ -91,7 +90,7 @@ php /path/to/build/build_head_includes.php
 No command-line arguments required. The script:
 1. Requires `build_paths.php`, `build_variables.php`, and `build_functions.php`
 2. Iterates through `$includes` array
-3. Inlines CSS/JS file contents or versions external references
+3. Inlines CSS file contents or versions external references
 4. Writes complete include file to `/include/inlined-head.html`
 
 **Server configuration:** Pages must use the `.shtml` extension and enable SSI processing:

@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # htmlAttributesExtract.py
 
-**Path:** `build/htmlAttributesExtract.py` | **Language:** Python | **Lines:** ~83
+**Path:** `build/htmlAttributesExtract.py` | **Language:** Python | **Lines:** ~84
 
 BeautifulSoup-based HTML parser that extracts all CSS classes, data-attributes, and IDs for whitelist validation.
 
@@ -27,7 +27,7 @@ The script is called in `sync.sh` during the build process. It checks both class
 - **Attribute extraction**:
   - CSS classes: Joined with spaces (as they appear in HTML)
   - Data-attributes: Keys only (e.g., `data-link-icon`, not its value)
-  - IDs: Prefixed with `id:` for unambiguous grepping
+  - IDs: Collected but output currently disabled (commented out in source)
 
 ## Command Line Usage
 
@@ -39,8 +39,6 @@ python htmlAttributesExtract.py index.html
 # abstract smallcaps-not dropcap-not
 # data-filesize-bytes
 # data-link-icon
-# id:footnote-1
-# id:introduction
 
 # Multiple files
 python htmlAttributesExtract.py *.html
@@ -58,8 +56,9 @@ find ./_site -name "*.html" | \
 - One item per line
 - CSS classes: Space-separated as they appear in HTML
 - Data-attributes: Just the key (e.g., `data-popup-target`)
-- IDs: Prefixed with `id:` (e.g., `id:main-content`)
 - Sorted output for easy diffing
+
+**Note:** ID extraction code exists but is currently disabled (commented out in source). When enabled, IDs would be prefixed with `id:` for unambiguous grepping.
 
 **Error handling:**
 - Missing files: Exits with error message

@@ -238,7 +238,7 @@ let f'' = if isVideoFilename f' then f' ++ "-poster.jpg" else f'
 - [invertornot.py](/python/invertornot) - GPT-4-Vision inversion classification (obsoleted)
 - [image-focus.js](/frontend/image-focus-js) - Client-side lightbox that uses image dimensions
 - [should_image_have_outline.php](/php/should-image-have-outline) - PHP script for outline detection
-- [png.sh](/shell/png) - PNG optimization script
+- [compressPNG](/shell/compress-png) - PNG compression optimization
 - [Typography.hs](/backend/typography-hs) - Calls `invertImageInline` during AST transformation
 - [popups.js](/frontend/popups-js) - Consumes `image-height`/`image-width` attributes
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Provides inversion override metadata

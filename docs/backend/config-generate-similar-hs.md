@@ -1,7 +1,7 @@
 
 # Config.GenerateSimilar
 
-**Path:** `build/Config/GenerateSimilar.hs` | **Language:** Haskell | **Lines:** ~61
+**Path:** `build/Config/GenerateSimilar.hs` | **Language:** Haskell | **Lines:** ~60
 
 > Configuration constants for embedding-based similar link recommendations
 

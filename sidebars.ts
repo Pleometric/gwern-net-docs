@@ -150,7 +150,6 @@ const sidebars: SidebarsConfig = {
         'frontend/image-focus-js',
         'python/invertornot',
         'python/image-margin-checker',
-        'shell/png',
         'php/should-image-have-outline',
         'php/build-inlined-images',
       ],
@@ -189,10 +188,12 @@ const sidebars: SidebarsConfig = {
         'backend/query-hs',
         'backend/unique-hs',
         'backend/string-replace-hs',
+        'backend/text-regex-hs',
         'backend/rename-hs',
         'backend/config-misc-hs',
         'backend/config-paragraph-hs',
         'backend/nginx-redirect-guesser-hs',
+        'backend/gwernnet-cabal',
       ],
     },
     {
@@ -202,6 +203,8 @@ const sidebars: SidebarsConfig = {
         'frontend/misc-js',
         'frontend/console-js',
         'frontend/404-guesser-js',
+        'frontend/gwtar-js',
+        'frontend/gwtar-noscript-html',
       ],
     },
     {
@@ -253,6 +256,7 @@ const sidebars: SidebarsConfig = {
         'python/collapse-checker',
         'python/htmlAttributesExtract',
         'python/latex2unicode',
+        'python/seriate',
       ],
     },
     {
@@ -263,6 +267,8 @@ const sidebars: SidebarsConfig = {
         'shell/upload',
         'shell/download-title',
         'shell/gwsed',
+        'shell/compress-gif',
+        'shell/compress-png',
       ],
     },
     {

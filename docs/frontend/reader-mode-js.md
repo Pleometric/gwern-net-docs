@@ -133,7 +133,7 @@ deactivateTriggerElementSelector: [
 ].join(", ")
 ```
 
-When any of these elements becomes fully visible (`threshold: 1.0`), reader mode deactivates automatically.
+Only the first matching element is observed (`document.querySelector`), so reader mode deactivates when that single element becomes fully visible (`threshold: 1.0`).
 
 ---
 

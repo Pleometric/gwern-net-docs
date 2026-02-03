@@ -1,7 +1,7 @@
 
 # collapse.js
 
-**Path:** `js/collapse.js` | **Language:** JavaScript | **Lines:** ~1,130
+**Path:** `js/collapse.js` | **Language:** JavaScript | **Lines:** ~1,150
 
 > Collapsible content sections with disclosure buttons and auto-expansion
 
@@ -38,6 +38,12 @@ expandCollapseBlocksToReveal(document.getElementById("footnote-5"), {
 
 Collapses the specified block and all nested collapse blocks within it.
 
+```javascript
+collapseCollapseBlock(collapseBlock, {
+    fireStateChangedEvent: true  // default
+});
+```
+
 **Called by:** `GW.contentInjectHandlers.collapseExpandedCollapseBlocks`
 **Calls:** `isCollapsed()`, `toggleCollapseBlockState()`
 
@@ -64,6 +70,25 @@ Returns `true` if the element is inside any currently-collapsed block (checking 
 
 **Called by:** `expandCollapseBlocksToReveal()`, `GW.selectionChangedRevealElement`
 **Calls:** `isCollapsed()`
+
+---
+
+### `containsBlockChildren(element) → boolean`
+
+Returns `true` if the element's immediate children include any block-level elements (DIV, P, UL, LI, SECTION, BLOCKQUOTE, FIGURE) or include-links.
+
+---
+
+### `newDisclosureButton(options) → Element`
+
+Constructs and returns a disclosure button.
+
+```javascript
+newDisclosureButton({
+    block: true,   // block collapse (chevron) vs inline (brackets)
+    start: true    // for inline: start vs end button
+});
+```
 
 ---
 
@@ -114,8 +139,11 @@ Collapse state is managed via CSS classes:
 | `.collapse-block` | Block-level collapse |
 | `.collapse-inline` | Inline collapse |
 | `.has-abstract` | Has preview content |
+| `.has-abstract-collapse-only` | Has abstract-collapse-only |
 | `.no-abstract` | No preview content |
 | `.expand-on-hover` | Desktop hover behavior enabled |
+| `.bare-content` | Content starts with p or list |
+| `.iceberg-not` | Hide iceberg indicator |
 
 ### DOM Structure After Preparation
 
@@ -189,13 +217,15 @@ Desktop collapses expand on hover, but this would be annoying during scrolling. 
 // Disable during scroll
 addScrollListener((event) => {
     GW.collapse.hoverEventsActive = false;
-});
+}, { name: "disableCollapseHoverEventsOnScrollListener" });
 
 // Re-enable on mouse move
 addMousemoveListener((event) => {
     GW.collapse.hoverEventsActive = true;
-});
+}, { name: "enableCollapseHoverEventsOnMousemoveListener" });
 ```
+
+The module also adds scroll listeners to popup scroll views via a `Popups.popupDidSpawn` event handler.
 
 Hover expansion has a 1-second delay and can be cancelled by `mouseleave` or `mousedown`.
 

@@ -1,7 +1,7 @@
 
 # layout.js
 
-**Path:** `js/layout.js` | **Language:** JavaScript | **Lines:** ~1,592
+**Path:** `js/layout.js` | **Language:** JavaScript | **Lines:** ~1,584
 
 > Block layout system for computing vertical spacing and structural classes
 

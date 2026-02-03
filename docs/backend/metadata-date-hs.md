@@ -1,7 +1,7 @@
 
 # Metadata.Date
 
-**Path:** `build/Metadata/Date.hs` | **Language:** Haskell | **Lines:** ~155
+**Path:** `build/Metadata/Date.hs` | **Language:** Haskell | **Lines:** ~159
 
 > Date parsing, validation, and range annotation for annotations and typography
 
@@ -113,7 +113,7 @@ Three compiled regexes (using `Text.Regex.TDFA`) detect date patterns:
 | `dateFullRangeRegex` | Full date ranges | `2020-09-27–2023-05-17` |
 | `singleYearRegex` | Standalone years | `...in 1969...` |
 
-The regexes exclude currency patterns (`$`, `€`, `£`, etc.) and require years in 1501–2099 range.
+The regexes are permissive (match any 4-digit year starting with 1 or 2). A separate guard filters `$`-prefixed matches, and year bounds are enforced later via `minDateFirst`/`maxDateSecond`.
 
 ### LLM Date Guesser
 

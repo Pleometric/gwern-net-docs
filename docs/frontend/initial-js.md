@@ -1,7 +1,7 @@
 
 # initial.js
 
-**Path:** `js/initial.js` | **Language:** JavaScript | **Lines:** ~1,335
+**Path:** `js/initial.js` | **Language:** JavaScript | **Lines:** ~1,351
 
 > Site-wide initialization and custom pub/sub event system (notification center)
 
@@ -19,7 +19,9 @@ The file also establishes media query helpers, debugging infrastructure, scroll 
 
 ## Public API
 
-### `GW.notificationCenter.addHandlerForEvent(eventName, f, options) → void`
+### Notification Center
+
+#### `GW.notificationCenter.addHandlerForEvent(eventName, f, options) → void`
 
 Registers a handler function to be called when the named event fires.
 
@@ -29,7 +31,8 @@ GW.notificationCenter.addHandlerForEvent("GW.contentDidLoad", (eventInfo) => {
 }, {
     phase: "rewrite",
     condition: (info) => info.contentType === "annotation",
-    once: false
+    once: false,
+    name: "myHandlerName"
 });
 ```
 
@@ -37,12 +40,13 @@ GW.notificationCenter.addHandlerForEvent("GW.contentDidLoad", (eventInfo) => {
 - `condition` — Function returning boolean; handler only runs if true
 - `once` — If true, handler auto-removes after first (successful) invocation
 - `phase` — Controls execution order (see Handler Phases below)
+- `name` — String identifier for debugging/tracking
 
 **Called by:** Most modules via `addContentLoadHandler()` / `addContentInjectHandler()`
 
 ---
 
-### `GW.notificationCenter.fireEvent(eventName, eventInfo) → void`
+#### `GW.notificationCenter.fireEvent(eventName, eventInfo) → void`
 
 Fires a named event, calling all registered handlers in phase order.
 
@@ -60,66 +64,70 @@ GW.notificationCenter.fireEvent("GW.contentDidLoad", {
 
 ---
 
-### `GW.notificationCenter.removeHandlerForEvent(eventName, f) → void`
+#### `GW.notificationCenter.removeHandlerForEvent(eventName, f) → void`
 
 Unregisters a specific handler function from an event.
 
 ---
 
-### `addContentLoadHandler(handler, phase, condition, once) → void`
+#### `GW.notificationCenter.removeAllHandlersForEvent(eventName) → void`
 
-Convenience wrapper for registering `GW.contentDidLoad` handlers.
+Removes all handlers registered for a given event.
+
+---
+
+### Content Handler Convenience Functions
+
+#### `addContentLoadHandler(name, handler, phase, condition, once) → void`
+
+Convenience wrapper for registering `GW.contentDidLoad` handlers. Also stores handler in `GW.contentLoadHandlers[name]`.
 
 ```javascript
-addContentLoadHandler((eventInfo) => {
+addContentLoadHandler("wrapTables", (eventInfo) => {
     // Rewrite tables in eventInfo.container
 }, "rewrite");
 ```
 
 ---
 
-### `addContentInjectHandler(handler, phase, condition, once) → void`
+#### `addContentInjectHandler(name, handler, phase, condition, once) → void`
 
-Convenience wrapper for registering `GW.contentDidInject` handlers. Same signature as `addContentLoadHandler`.
-
----
-
-### `doWhenPageLoaded(f) → void`
-
-Runs `f` immediately if `window.load` has fired, otherwise defers until it fires.
+Convenience wrapper for registering `GW.contentDidInject` handlers. Also stores handler in `GW.contentInjectHandlers[name]`.
 
 ---
 
-### `doWhenDOMContentLoaded(f) → void`
+### Event Listeners (Animation-Frame Throttled)
 
-Runs `f` immediately if `DOMContentLoaded` has fired (checked via `GW.DOMContentLoaded` flag), otherwise defers.
+#### `addNamedEventListener(target, eventName, fn, options) → wrapper`
 
----
-
-### `doWhenBodyExists(f) → void` / `doWhenMainExists(f) → void`
-
-Uses `MutationObserver` to run `f` as soon as `<body>` or `<main>` exists, or immediately if already present.
-
----
-
-### `doWhenMatchMedia(mediaQuery, options) → void`
-
-Registers callbacks for media query state changes. Used for responsive behavior.
+Adds a high-performance event listener that runs at most once per animation frame.
 
 ```javascript
-doWhenMatchMedia(GW.mediaQueries.mobileWidth, {
-    name: "adjustForMobile",
-    ifMatchesOrAlwaysDo: () => { /* mobile layout */ },
-    otherwiseDo: () => { /* desktop layout */ },
-    callWhenAdd: true
+addNamedEventListener(document, "scroll", (event) => {
+    // Runs at most once per frame
+}, {
+    name: "myScrollHandler",
+    defer: true,
+    ifDeferCallWhenAdd: true
 });
 ```
 
+**Options:**
+- `name` — String identifier for later removal
+- `defer` — If true, delays adding until page is loaded
+- `ifDeferCallWhenAdd` — If true (and defer=true), calls handler immediately when added
+
 ---
 
-### `addScrollListener(fn, options) → wrapper`
+#### `removeNamedEventListener(eventName, name) → void`
 
-High-performance scroll listener that throttles to animation frames.
+Removes a named event listener.
+
+---
+
+#### `addScrollListener(fn, options) → wrapper`
+
+High-performance scroll listener (targets `document` by default).
 
 ```javascript
 addScrollListener((event) => {
@@ -129,13 +137,182 @@ addScrollListener((event) => {
 
 ---
 
-### `GWLog(string, source, level) → void`
+#### `removeScrollListener(name) → void`
 
-Conditional debug logging. Output controlled by `GW.logLevel` (stored in localStorage as `gw-log-level`).
+Removes a named scroll listener.
+
+---
+
+#### `addMousemoveListener(fn, options) → wrapper`
+
+High-performance mousemove listener (targets `window` by default).
+
+---
+
+#### `removeMousemoveListener(name) → void`
+
+Removes a named mousemove listener.
+
+---
+
+#### `addWindowResizeListener(fn, options) → wrapper`
+
+High-performance resize listener (targets `window`).
+
+---
+
+#### `removeWindowResizeListener(name) → void`
+
+Removes a named resize listener.
+
+---
+
+### Media Queries
+
+#### `doWhenMatchMedia(mediaQuery, options) → void`
+
+Registers callbacks for media query state changes.
 
 ```javascript
-GW.setLogLevel(2, true);  // Enable verbose logging, persist to localStorage
+doWhenMatchMedia(GW.mediaQueries.mobileWidth, {
+    name: "adjustForMobile",
+    ifMatchesOrAlwaysDo: (mediaQuery) => { /* mobile layout */ },
+    otherwiseDo: (mediaQuery) => { /* desktop layout */ },
+    whenCanceledDo: (mediaQuery) => { /* cleanup */ },
+    callWhenAdd: true
+});
+```
+
+**Options:**
+- `name` — Required string identifier
+- `ifMatchesOrAlwaysDo` — Called when matches (or always if `otherwiseDo` is null)
+- `otherwiseDo` — Called when query stops matching
+- `whenCanceledDo` — Called when media query is canceled
+- `callWhenAdd` — If true (default), calls immediately when added
+
+---
+
+#### `cancelDoWhenMatchMedia(name) → void`
+
+Deactivates a named media query listener.
+
+---
+
+### Do-When Utilities
+
+#### `doWhenPageLoaded(f) → void`
+
+Runs `f` immediately if `window.load` has fired, otherwise defers until it fires.
+
+---
+
+#### `doWhenDOMContentLoaded(f) → void`
+
+Runs `f` immediately if `DOMContentLoaded` has fired (checked via `GW.DOMContentLoaded` flag), otherwise defers.
+
+---
+
+#### `doWhenElementExists(f, selector) → void`
+
+Uses `MutationObserver` to run `f(element)` as soon as an element matching `selector` exists.
+
+---
+
+#### `doWhenBodyExists(f) → void`
+
+Uses MutationObserver to run `f` as soon as `<body>` exists, or immediately if already present.
+
+---
+
+#### `doWhenMainExists(f) → void`
+
+Uses MutationObserver to run `f` as soon as `<main>` exists, or immediately if already present. Also sets `document.main` to the element.
+
+---
+
+### Scroll State
+
+#### `GW.scrollState`
+
+Object tracking scroll position and direction:
+
+```javascript
+GW.scrollState = {
+    lastScrollTop: number,              // Previous scroll position
+    newScrollTop: number,               // Current scroll position
+    unbrokenDownScrollDistance: number, // Continuous down-scroll distance
+    unbrokenUpScrollDistance: number    // Continuous up-scroll distance
+};
+```
+
+---
+
+#### `togglePageScrolling(enable?) → void`
+
+Enable/disable/toggle page scrolling. Adds `scroll-enabled-not` class to `<html>`.
+
+---
+
+#### `isPageScrollingEnabled() → boolean`
+
+Returns true if page scrolling is currently enabled.
+
+---
+
+### Debugging
+
+#### `GWLog(string, source, level) → void`
+
+Conditional debug logging. Output controlled by `GW.logLevel`.
+
+```javascript
 GWLog("Processing complete", "annotations", 1);
+```
+
+---
+
+#### `GW.setLogLevel(level, permanently) → void`
+
+Set log verbosity. If `permanently` is true, stores in localStorage.
+
+---
+
+#### `GWStopWatch(f, ...args) → result`
+
+Times a function execution with console output.
+
+---
+
+#### `GWTimer(f, ...args) → milliseconds`
+
+Returns execution time of a function in milliseconds.
+
+---
+
+#### `GWServerLogError(errorString, errorType) → void`
+
+Reports an error by sending a request to a special 404 URL (requires `utility.js`).
+
+---
+
+### Helper Functions
+
+#### `Array.prototype.π(strings) → Array`
+
+String array product. Concatenates each element of the array with each element of the argument.
+
+```javascript
+[ "a", "b" ].π([ "x", "y" ])  // → [ "ax", "ay", "bx", "by" ]
+```
+
+---
+
+#### `_π(...args) → Array`
+
+Sequential string array product across multiple arguments.
+
+```javascript
+_π(["a", "b"], ["x", "y"], ["1", "2"])  // All combinations
 ```
 
 ---
@@ -148,7 +325,7 @@ GWLog("Processing complete", "annotations", 1);
 GW.notificationCenter = {
     eventHandlers: {
         "GW.contentDidLoad": [
-            { f: Function, options: { phase, condition, once } },
+            { f: Function, options: { phase, condition, once, name } },
             ...
         ],
         ...
@@ -203,14 +380,6 @@ This ensures transclusion handlers run before rewrite handlers.
 
 If `addHandlerForEvent` is called while that event is firing, the handler goes to `waitingHandlers` and is added after firing completes. This prevents concurrent modification issues.
 
-```javascript
-// In addHandlerForEvent:
-if (GW.notificationCenter.currentEvents.includes(eventName)) {
-    GW.notificationCenter.waitingHandlers[eventName].push({ f, options });
-    return;
-}
-```
-
 ### Animation-Frame-Throttled Event Listeners
 
 For scroll/resize events, `addNamedEventListener` uses a clever pattern: add a listener with `{ once: true }`, then in the callback, wait for `requestAnimationFrame` before running the actual handler and re-adding the listener.
@@ -218,6 +387,8 @@ For scroll/resize events, `addNamedEventListener` uses a clever pattern: add a l
 ```javascript
 let wrapper = (event) => {
     requestAnimationFrame(() => {
+        if (wrapper.removed == true)
+            return;
         fn(event);
         target.addEventListener(eventName, wrapper, { once: true, passive: true });
     });
@@ -243,8 +414,7 @@ GW.contentDidInjectEventFlags = {
     clickable:         1 << 0,
     stripCollapses:    1 << 1,
     fullWidthPossible: 1 << 2,
-    localize:          1 << 3,
-    mergeFootnotes:    1 << 4
+    localize:          1 << 3
 };
 // After prefireProcessor, eventInfo.clickable, eventInfo.stripCollapses, etc. are booleans
 ```
@@ -252,6 +422,29 @@ GW.contentDidInjectEventFlags = {
 ---
 
 ## Configuration
+
+### Media Queries
+
+```javascript
+GW.mediaQueries = {
+    mobileWidth:           matchMedia("(max-width: 649px)"),
+    systemDarkModeActive:  matchMedia("(prefers-color-scheme: dark)"),
+    hoverAvailable:        matchMedia("only screen and (hover: hover) and (pointer: fine)"),
+    portraitOrientation:   matchMedia("(orientation: portrait)"),
+    printView:             matchMedia("print")
+};
+```
+
+### Browser Detection
+
+```javascript
+GW.isMobile()     // Touch + narrow viewport OR no hover capability
+GW.isFirefox()    // Firefox browser
+GW.isTorBrowser() // Tor browser (no service workers)
+GW.isX11()        // X11 display server
+```
+
+### Logging
 
 | Setting | Location | Effect |
 |---------|----------|--------|
@@ -289,6 +482,8 @@ GW.setLogLevel(2, true);  // Level 2, persist to localStorage
 | `GW.scrollState` | Tracks scroll position and direction distances |
 | `GW.mediaQueries` | Pre-defined MediaQueryList objects |
 | `GW.eventListeners` | Registry of named event listeners |
+| `GW.contentLoadHandlers` | Dictionary of content load handlers by name |
+| `GW.contentInjectHandlers` | Dictionary of content inject handlers by name |
 | `document.main` | Reference to `<main>` element (set by `doWhenMainExists`) |
 
 ### Dependencies

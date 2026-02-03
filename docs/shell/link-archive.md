@@ -62,8 +62,8 @@ For large (>5MB) HTML files, it can optionally decompose the monolithic SingleFi
 4. **`--dry-run`**: Calculate hypothetical path without I/O
    ```bash
    $ linkArchive.sh --dry-run "https://x.com/user/status/123"
-   doc/www/x.com/8e93ed7854e0d7d8323cdbc667f946fee6f98d3d
-   # Note: no extension, as PDF vs HTML is unknown without fetching
+   doc/www/x.com/8e93ed7854e0d7d8323cdbc667f946fee6f98d3d.html
+   # Note: returns .html when no archive exists (or .*=existing archive extension)
    ```
 
 **Examples:**

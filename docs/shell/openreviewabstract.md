@@ -52,7 +52,7 @@ This tool is used during the manual annotation workflow when adding research pap
 ./openReviewAbstract.sh 'https://openreview.net/forum?id=BkjLkSqxg'
 ```
 
-**Output format** (7 lines, some may be empty):
+**Output format** (6 lines, some may be empty):
 ```
 LipNet: End-to-End Sentence-level Lipreading
 Yannis M. Assael, Brendan Shillingford, Shimon Whiteson, Nando de Freitas

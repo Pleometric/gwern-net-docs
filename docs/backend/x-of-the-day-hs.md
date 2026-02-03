@@ -13,7 +13,7 @@ XOfTheDay implements a "quote of the day" style system extended to three content
 
 The module solves the duplicate problem inherent in random selection. With simple random sampling from 366 quotes, a daily visitor has 50% odds of seeing a duplicate after only 23 visits (birthday problem). Instead, XOfTheDay cycles through items exhaustively—each is shown exactly once before the cycle resets—providing guaranteed O(n) coverage rather than probabilistic O(n log n).
 
-Design priorities: simplicity (plain Haskell `read`/`show` databases), determinism (smallest-first selection for quotes, longest-first for annotations), and minimal external dependencies (just file I/O and Pandoc for HTML generation).
+Design priorities: simplicity (plain Haskell `read`/`show` databases), determinism (smallest-first selection for quotes and sites, longest-first for annotations), and minimal external dependencies (just file I/O and Pandoc for HTML generation).
 
 ---
 
@@ -76,7 +76,7 @@ Annotations use a simpler append-only list of URLs (`AotD`). The selection algor
 1. Read database as Set
 2. Filter to unused items (status = False)
 3. If all used, negate entire set (reset cycle)
-4. Sort by content length, take smallest (quote) or arbitrary (site)
+4. Sort by content length, take smallest (quote and site)
 5. Format as HTML, write to snippet file
 6. Toggle selected item's flag, write database
 ```

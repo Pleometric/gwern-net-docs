@@ -28,7 +28,9 @@ The script used GPT-4-Vision's multi-image capability: it takes the original ima
 
 ```bash
 # Classify a single image
-OPENAI_API_KEY="sk-XXX" python invertornot.py path/to/image.jpg
+OPENAI_API_KEY="sk-XXX" python invertornot.py
+
+Note: the script currently ignores CLI arguments and uses a hardcoded `image_path` inside the file.
 # Output: JSON response with YES/NO judgment
 
 # Example output structure:

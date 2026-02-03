@@ -4,9 +4,9 @@ sidebar_position: 6
 
 # title-cleaner.py
 
-**Path:** `build/title-cleaner.py` | **Language:** Python | **Lines:** ~853
+**Path:** `build/title-cleaner.py` | **Language:** Python | **Lines:** ~882
 
-Removes cruft from webpage titles extracted from HTML `<title>` tags using GPT-4 language models.
+Removes cruft from webpage titles extracted from HTML `<title>` tags using GPT-5-mini language model.
 
 ---
 
@@ -14,7 +14,7 @@ Removes cruft from webpage titles extracted from HTML `<title>` tags using GPT-4
 
 When scraping HTML pages, the `<title>` field often contains unwanted content: site names, domain suffixes, error messages, boilerplate text, or garbled Unicode. Manually writing rules to clean >20,000 URLs on gwern.net would be unmanageable due to the extreme long-tail of edge cases.
 
-This script uses GPT-4.1-mini to intelligently clean titles based on "I know it when I see it" heuristics. It removes spam, cruft, and boilerplate while preserving meaningful content. The script can also convert inline Markdown (like `*emphasis*`) to HTML (`<em>emphasis</em>`).
+This script uses GPT-5-mini to intelligently clean titles based on "I know it when I see it" heuristics. It removes spam, cruft, and boilerplate while preserving meaningful content. The script can also convert inline Markdown (like `*emphasis*`) to HTML (`<em>emphasis</em>`).
 
 The cleaning process is conservative: when uncertain, it returns the original title unchanged. Titles deemed completely useless (error pages, generic "Index", empty strings, site-wide constants) are replaced with empty strings for manual review.
 
@@ -22,8 +22,8 @@ The cleaning process is conservative: when uncertain, it returns the original ti
 
 ## Key Functions
 
-- **Main processing**: Reads input from stdin or command-line argument, sends to GPT-4.1-mini
-- **Extensive prompt examples**: 500+ examples covering common title problems
+- **Main processing**: Reads input from stdin or command-line argument, sends to GPT-5-mini
+- **Extensive prompt examples**: 600+ few-shot examples covering common title problems
 - **Output format**: Returns cleaned title or empty string (never adds commentary)
 - **Markdown-to-HTML conversion**: Converts `*foo*` → `<em>foo</em>` and `Best-of-n` → `Best-of-<em>n</em>`
 

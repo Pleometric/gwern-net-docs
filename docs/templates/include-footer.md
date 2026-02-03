@@ -51,7 +51,7 @@ Located within `.markdownBody` div for consistent styling:
 The footer is included via Server-Side Includes (SSI) in the Hakyll-generated page templates. The SSI directive appears in the base page template:
 
 ```html
-<!--#include virtual="/include/footer.html" -->
+<!--#include virtual="/static/include/footer.html" -->
 ```
 
 This is processed by nginx's SSI module when pages are served, allowing the footer to be updated independently of the main site build process.

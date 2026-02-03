@@ -11,7 +11,7 @@
 
 Annotation/PDF.hs handles metadata extraction for locally-hosted PDF files on gwern.net. When a PDF link is encountered that lacks annotation data, this module attempts to populate title, author, date, and DOI fields by parsing the PDF's embedded metadata via `exiftool`, then optionally enriches the annotation with an abstract fetched from the Crossref API.
 
-The module occupies a specific niche in the annotation pipeline: it's invoked by `Annotation.Gwernnet` when processing local `/doc/*.pdf` paths. Unlike web scrapers that parse HTML, this module relies entirely on embedded PDF metadata and external DOI resolution. If the PDF lacks sufficient embedded metadata (title, author, date, or DOI), the extraction fails permanently.
+The module occupies a specific niche in the annotation pipeline: it's invoked by `Annotation.linkDispatcherURL` when processing `.pdf` URLs. Unlike web scrapers that parse HTML, this module relies entirely on embedded PDF metadata and external DOI resolution. It returns `Left Permanent` only when **all** extracted fields are empty; missing files trigger an error.
 
 Key design decisions include preferring the longer of `Author` vs `Creator` fields (since PDF metadata conventions vary), using Crossref as the sole source for abstracts, and appending page-number suffixes to titles when linking to specific PDF pages.
 
@@ -27,9 +27,9 @@ Main entry point. Extracts metadata from a PDF file at the given path.
 - `md` — The existing metadata database (passed through to `doi2Abstract` for paragraph processing)
 - `p` — Local file path (e.g., `/doc/ai/2023-smith.pdf` or `/doc/ai/2023-smith.pdf#page=5`)
 
-**Returns:** `Right (path, metadataItem)` on success with extracted title, author, date, DOI, and abstract; `Left Permanent` if the PDF lacks sufficient metadata or doesn't exist.
+**Returns:** `Right (path, metadataItem)` on success with extracted title, author, date, DOI, and abstract; `Left Permanent` only when all extracted fields are empty (missing files `error`).
 
-**Called by:** `Annotation.Gwernnet.gwern` (when path has `.pdf` extension)
+**Called by:** `Annotation.linkDispatcherURL` (when path has `.pdf` extension)
 **Calls:** `exiftool` (via shell), `doi2Abstract`, `cleanAuthors`, `linkAutoHtml5String`, `pageNumberParse`
 
 ---
@@ -65,7 +65,7 @@ doi2Abstract md doi = if length doi < 7 then return Nothing
 ```
 PDF file path
     ↓
-exiftool (4 parallel calls)
+exiftool (5 calls)
     ↓
 [Title, Author, Creator, Date, DOI]
     ↓
@@ -124,7 +124,7 @@ let title = titleBase ++ (if null pageNumber' || null titleBase
 
 ### Parallel Exiftool Calls
 
-Each metadata field requires a separate `exiftool` invocation (4 total: Title, Author, Creator, Date, DOI). These run sequentially in the current implementation—a potential optimization point.
+Each metadata field requires a separate `exiftool` invocation (5 total: Title, Author, Creator, Date, DOI). These run sequentially in the current implementation—a potential optimization point.
 
 ---
 
@@ -169,7 +169,7 @@ Uses several shared utilities from `Metadata.*`:
 
 ### External Dependencies
 
-- **exiftool** — Must be installed and in PATH; called 4-5 times per PDF
+- **exiftool** — Must be installed and in PATH; called 5 times per PDF
 - **curl** — Used for Crossref API requests
 - **Crossref API** — `https://api.crossref.org/works/{doi}` — rate-limited, requires polite user-agent
 

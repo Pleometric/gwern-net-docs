@@ -1,7 +1,7 @@
 
 # Config.Metadata.Author
 
-**Path:** `build/Config/Metadata/Author.hs` | **Language:** Haskell | **Lines:** ~3,362
+**Path:** `build/Config/Metadata/Author.hs` | **Language:** Haskell | **Lines:** ~3,438
 
 > Configuration data for author name canonicalization and linking
 

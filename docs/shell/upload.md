@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # upload.sh
 
-**Path:** `build/upload.sh` | **Language:** Bash | **Lines:** ~266
+**Path:** `build/upload.sh` | **Language:** Bash | **Lines:** ~279
 
 Comprehensive file upload manager with automatic optimization, naming, and deployment.
 
@@ -14,7 +14,7 @@ Comprehensive file upload manager with automatic optimization, naming, and deplo
 
 `upload.sh` is the primary interface for adding files to gwern.net, handling everything from file naming and format conversion to optimization, metadata extraction, and deployment. It serves as a quality gate ensuring all uploaded content follows site conventions: lowercase filenames, standardized extensions, globally unique names, and optimized formats.
 
-The script distinguishes between two upload modes: **temporary uploads** (one argument) go to `/doc/www/misc/` with auto-deletion after 90 days, while **permanent uploads** (two arguments) are placed in topic-specific directories like `/doc/statistics/decision/`. Files undergo format-specific processing: PDFs are OCR'd and compressed, images are metadata-stripped and checked for optimization opportunities, and text files are reformatted for readability.
+The script distinguishes between two upload modes: **temporary uploads** (one argument) go to `/doc/www/misc/`, while **permanent uploads** (two arguments) are placed in topic-specific directories like `/doc/statistics/decision/`. Files undergo format-specific processing: PDFs are OCR'd and compressed, images are metadata-stripped and checked for optimization opportunities, and text files are reformatted for readability. (No automatic deletion is scheduled in the script.)
 
 A key feature is the large-file strategy: files over 200MB are uploaded normally but added to `.gitignore` to avoid bloating the Git repository, providing the benefits of Git-based deployment without the overhead of Git-LFS or Git-annex. The script integrates with the broader gwern.net infrastructure by calling external tools (compressPdf, crossref, cloudflare-expire) and opening uploaded files in a browser for verification.
 
@@ -144,12 +144,15 @@ wget https://arxiv.org/pdf/2301.12345.pdf -O transformer-paper.pdf
 - `BROWSER` - Prefers Firefox if running, else Chromium/Chrome/Brave
 
 **Exit codes:**
-- `1` - File doesn't exist or general error
-- `2` - Target directory invalid and guess failed
-- `3` - Could not change to wiki directory
-- `4` - File already exists at exact target path
+- `1` - File missing/empty
+- `2` - Missing required dependencies
+- `3` - Unsupported file extension
+- `4` - Could not change to wiki directory (temp upload path)
 - `5` - Failed to find unique filename after 100 attempts
-- `10` - Missing required dependencies
+- `6` - Rename failure after uniqueness attempt
+- `8` - Target directory invalid and guess failed
+- `9` - Could not change to wiki directory (permanent upload path)
+- `10` - File already exists at exact target path
 
 ## Key Dependencies
 

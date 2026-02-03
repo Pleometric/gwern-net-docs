@@ -1,7 +1,7 @@
 
 # Config.LinkID
 
-**Path:** `build/Config/LinkID.hs` | **Language:** Haskell | **Lines:** ~21
+**Path:** `build/Config/LinkID.hs` | **Language:** Haskell | **Lines:** ~29
 
 > Configuration for citation ID generation overrides and affiliation anchor lists
 

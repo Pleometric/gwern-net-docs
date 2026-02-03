@@ -14,7 +14,7 @@ This template is an elaborate easter egg featuring the "Unfortunately, the clock
 
 The meme's core message is memento mori: reminding users that time is passing, opportunities are finite, and procrastination has real costs. Like its sibling template `idealconditionsdonotexistandwillneverhappen.html`, this is designed to be shown as a popup or easter egg, potentially triggered after periods of browsing inactivity.
 
-What makes this template exceptional is its density of interactivity - it includes 100+ clickable areas with randomized link destinations, philosophical commentary, memes, and self-referential humor. The sofa alone has 90+ randomized link targets. This represents Gwern's characteristic style of layering depth and humor into seemingly simple elements.
+What makes this template exceptional is its density of interactivity - it includes 100+ clickable areas with randomized link destinations, philosophical commentary, memes, and self-referential humor. The sofa alone has 65 randomized link targets. This represents Gwern's characteristic style of layering depth and humor into seemingly simple elements.
 
 ## Key Variables/Blocks
 
@@ -59,7 +59,7 @@ This template contains no Hakyll/Pandoc variables - it's pure static HTML with e
 - Bertrand Russell "In Praise of Idleness"
 - Seneca "On the Shortness of Life"
 
-**"remain ignorant" button** (randomized, 16 options):
+**"remain ignorant" button** (randomized, 17 options):
 - `/404`
 - Rickroll
 - "Dare To Be Stupid" (Weird Al)
@@ -67,7 +67,7 @@ This template contains no Hakyll/Pandoc variables - it's pure static HTML with e
 - Wikipedia Random Article
 - Neal.fun Internet Artifacts
 
-**Close "X" button** (randomized, 7 options):
+**Close "X" button** (randomized, 9 options):
 - Redirects to `/index` or `/404`
 - Links to `about:blank`
 - Does nothing (disabled link)

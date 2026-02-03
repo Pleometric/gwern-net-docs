@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # latex2unicode.py
 
-**Path:** `build/latex2unicode.py` | **Language:** Python | **Lines:** ~281
+**Path:** `build/latex2unicode.py` | **Language:** Python | **Lines:** ~290
 
 Converts LaTeX/TeX math expressions into native Unicode + HTML for lightweight, natural-looking mathematical typography in web browsers.
 

@@ -12,7 +12,7 @@ Main Hakyll template for all standard gwern.net pages.
 
 The `default.html` template is the primary HTML wrapper for all gwern.net content pages. It provides the complete HTML document structure, including the `<head>` section with extensive metadata (Dublin Core, OpenGraph, Twitter Cards, Google Scholar citations), Server-Side Include (SSI) directives for performance-critical resources, and the `<body>` layout with sidebar, article content, and footer.
 
-This template is invoked for all regular pages (essays, essays, notes) but not for special cases like the 404 error page or placeholder pages. It implements a sophisticated metadata system that supports rich social media previews, academic citation, and SEO optimization. The template uses conditional Hakyll variables to customize behavior based on page type (e.g., displaying different metadata fields for the index page versus article pages).
+This template is invoked for all regular pages (essays, essays, notes) and also for 404 pages; `error404` is a metadata flag that toggles special-case behavior within the template. It implements a sophisticated metadata system that supports rich social media previews, academic citation, and SEO optimization. The template uses conditional Hakyll variables to customize behavior based on page type (e.g., displaying different metadata fields for the index page versus article pages).
 
 The template heavily relies on SSI (Server-Side Includes) to inline critical CSS/JS and modular HTML components. This approach balances performance (inlining critical resources) with maintainability (keeping repeated components in separate files). The design assumes an nginx server configured to process SSI directives.
 

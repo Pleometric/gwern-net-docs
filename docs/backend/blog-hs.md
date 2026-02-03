@@ -1,7 +1,7 @@
 
 # Blog.hs
 
-**Path:** `build/Blog.hs` | **Language:** Haskell | **Lines:** ~273
+**Path:** `build/Blog.hs` | **Language:** Haskell | **Lines:** ~274
 
 > Generates standalone blog pages from authored annotations and directory indexes
 

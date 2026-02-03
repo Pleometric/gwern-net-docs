@@ -66,7 +66,7 @@ All outputs are staged for commit via `git add`:
 - **Versioned CSS**: `fonts-VERSIONED.css`, `head-VERSIONED.css`, `style-VERSIONED.css`
 - **Generated JS**: `head-GENERATED.js`, `script-GENERATED.js`, `asset-versions-GENERATED.js`
 - **Icon sprite**: `static/icon/icons.svg`
-- **SSI fragments**: `static/include/inlined-head.html`, `static/include/body-end.html`, `static/include/inlined-head-standalone.html`
+- **SSI fragments**: `static/include/inlined-head.html`, `static/include/body-end.html`, `static/include/inlined-standalone.html`
 
 ## Usage
 

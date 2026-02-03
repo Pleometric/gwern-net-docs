@@ -1,6 +1,6 @@
-# nginx.conf
+# move.conf
 
-**Path:** `redirect/nginx.conf` | **Language:** Nginx
+**Path:** `nginx/redirect/move.conf` | **Language:** Nginx
 
 Nginx redirect map configuration for gwern.net URL canonicalization and historical redirects.
 
@@ -8,7 +8,7 @@ Nginx redirect map configuration for gwern.net URL canonicalization and historic
 
 ## Overview
 
-`nginx.conf` is a massive nginx map configuration file containing **12,481 redirect rules** that handle URL canonicalization, historical page moves, file reorganizations, and path standardization across gwern.net. This file ensures that old URLs, externally-linked content, and reorganized resources continue to work as the site evolves.
+`move.conf` is a massive nginx map configuration file containing **12,810 redirect rules** that handle URL canonicalization, historical page moves, file reorganizations, and path standardization across gwern.net. This file ensures that old URLs, externally-linked content, and reorganized resources continue to work as the site evolves.
 
 The configuration uses nginx's `map` directive to define pattern-based redirects, supporting both literal matches and regex patterns. It serves as a historical record of site reorganization decisions while maintaining link permanence for external citations and bookmarks.
 
@@ -16,11 +16,11 @@ The configuration uses nginx's `map` directive to define pattern-based redirects
 
 ## File Structure
 
-**Location:** `redirect/nginx.conf`
+**Location:** `nginx/redirect/move.conf`
 
 **Type:** Nginx map configuration
 
-**Size:** 12,821 lines, ~1.5MB
+**Size:** 12,836 lines, ~1.5MB
 
 **Format:** Key-value redirect map
 ```nginx
@@ -246,18 +246,18 @@ Many redirects normalize file formats:
 This file is included in the main nginx configuration via a `map` directive:
 
 ```nginx
-map $request_uri $redirect_uri {
-    include /path/to/redirect/nginx.conf;
+map $request_uri $new_uri {
+    include /path/to/redirect/move.conf;
 }
 
 server {
-    if ($redirect_uri) {
-        return 301 $redirect_uri;
+    if ($new_uri) {
+        rewrite ^(.*)$ $new_uri permanent;
     }
 }
 ```
 
-The map populates `$redirect_uri` variable which triggers a 301 redirect when non-empty.
+The map populates `$new_uri` which triggers a permanent rewrite when non-empty.
 
 ## Maintenance Patterns
 
@@ -319,7 +319,7 @@ This file embodies gwern.net's commitment to **Cool URIs don't change**:
 > — Tim Berners-Lee
 
 **Evidence:**
-- 12,481 redirect rules maintained indefinitely
+- 12,810 redirect rules maintained indefinitely
 - Redirects span years of site evolution
 - Even minor file moves get permanent redirects
 - External citations continue working indefinitely
@@ -381,9 +381,9 @@ This file is likely:
 
 | Metric | Value |
 |--------|-------|
-| Total redirects | 12,481 |
+| Total redirects | 12,810 |
 | File size | 1.5 MB |
-| Lines | 12,821 |
+| Lines | 12,836 |
 | Major categories | 8+ (repo split, images, fonts, logos, content reorg) |
 | Oldest redirects | Repo splitting (early site history) |
 | Newest redirects | Ongoing content reorganization |

@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # date-guesser.py
 
-**Path:** `build/date-guesser.py` | **Language:** Python | **Lines:** ~1498
+**Path:** `build/date-guesser.py` | **Language:** Python | **Lines:** ~1182
 
 Extracts publication dates in standardized YYYY[-MM[-DD]] format from natural language inputs, URLs, and structured metadata.
 
@@ -12,7 +12,7 @@ Extracts publication dates in standardized YYYY[-MM[-DD]] format from natural la
 
 ## Overview
 
-Many strings—page titles, abstracts, URLs, file names—contain dates in wildly varying formats. Writing regular expressions to cover all possible formats would be labor-intensive and error-prone. This script uses GPT-4.1-mini to intelligently extract dates using both syntactic and semantic understanding.
+Many strings—page titles, abstracts, URLs, file names—contain dates in wildly varying formats. Writing regular expressions to cover all possible formats would be labor-intensive and error-prone. This script uses GPT-5-mini to intelligently extract dates using both syntactic and semantic understanding.
 
 The script is conservative by design: when in doubt, it returns an empty string rather than risk guessing incorrectly. This makes it safe for automated processing pipelines where false positives would be costly. It understands complex edge cases like ArXiv IDs (YYMM.NNNNN format), leap years, month/day validity, Internet Archive timestamps vs. original publication dates, and more.
 
@@ -22,8 +22,8 @@ Date extraction returns the most precise format available: full dates when possi
 
 - **`validate_date_format(date_str)`**: Validates date string matches YYYY[-MM[-DD]] regex patterns
 - **`validate_date_not_future(date_str)`**: Ensures date is not in the future and respects leap years and month lengths
-- **`main()`**: Orchestrates the GPT-4.1-mini API call with extensive prompt examples covering edge cases
-- **Prompt examples**: 100+ examples demonstrating proper date extraction behavior for URLs, metadata, ArXiv IDs, DOIs, timestamps, version numbers, and ambiguous formats
+- **`main()`**: Orchestrates the GPT-5-mini API call with extensive prompt examples covering edge cases
+- **Prompt examples**: 300+ few-shot examples demonstrating proper date extraction behavior for URLs, metadata, ArXiv IDs, DOIs, timestamps, version numbers, and ambiguous formats
 
 ## Command Line Usage
 

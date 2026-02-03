@@ -16,8 +16,8 @@ LLM-powered tool to split run-on research paper abstracts into multiple topical 
 
 The script enforces strict validation to prevent content corruption:
 - **Minimum length**: 100 characters (shorter texts don't benefit from splitting)
-- **Paragraph breaks required**: Output must contain at least one `\n\n`
-- **Length constraints**: Output can't exceed 2× original length (allowing for HTML links)
+- **Paragraph breaks required**: Output must contain at least one newline (`\n`)
+- **Length constraints**: Output can't exceed 2× original length + 1000 characters
 - **Number preservation**: All decimal numbers from input must appear in output (prevents silent data corruption)
 
 Originally, the script required byte-for-byte equality (except newlines) to prevent rewording. This was relaxed in 2023 as GPT-4 became reliable enough to preserve exact wording while adding links. The main remaining failure mode is with very long texts (podcast transcripts), not abstract-length inputs.

@@ -9,7 +9,7 @@
 
 ## Overview
 
-Paragraph.hs addresses a common readability problem: research paper abstracts are typically written as dense, single-paragraph walls of text. While they follow a logical structure (background → methods → results → conclusion), the lack of visual separation makes them hard to skim. This module uses GPT-4o to intelligently split run-on paragraphs into multiple topic-organized paragraphs.
+Paragraph.hs addresses a common readability problem: research paper abstracts are typically written as dense, single-paragraph walls of text. While they follow a logical structure (background → methods → results → conclusion), the lack of visual separation makes them hard to skim. This module uses `gpt-4o-mini` to intelligently split run-on paragraphs into multiple topic-organized paragraphs.
 
 The implementation is deliberately conservative. It only processes text that: (1) exceeds a minimum length threshold, (2) doesn't already contain paragraph breaks, and (3) isn't on a manual whitelist of URLs that shouldn't be modified. The LLM call is delegated to a Python script (`paragraphizer.py`) that handles the OpenAI API interaction, while Haskell handles input validation, output verification, and integration with the broader annotation system.
 
@@ -83,7 +83,7 @@ Input text (HTML)
        │
        ▼
 ┌──────────────────┐
-│ paragraphizer.py │ ← GPT-4o API call (external process)
+│ paragraphizer.py │ ← `gpt-4o-mini` API call (external process)
 └──────────────────┘
        │
        ▼
@@ -195,7 +195,7 @@ This is a manual diagnostic command, not part of the regular build.
 
 ## See Also
 
-- [paragraphizer.py](/python/paragraphizer) - Python script that makes the GPT-4o API call
+- [paragraphizer.py](/python/paragraphizer) - Python script that makes the `gpt-4o-mini` API call
 - [Annotation.hs](/backend/annotation-hs) - Dispatcher that calls annotation scrapers
 - [Annotation/Arxiv.hs](/backend/annotation-arxiv-hs) - Scraper that uses processParagraphizer
 - [Annotation/Biorxiv.hs](/backend/annotation-biorxiv-hs) - Scraper that uses processParagraphizer

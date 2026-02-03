@@ -1,7 +1,7 @@
 
 # extracts.js
 
-**Path:** `js/extracts.js` | **Language:** JavaScript | **Lines:** ~940
+**Path:** `js/extracts.js` | **Language:** JavaScript | **Lines:** ~952
 
 Coordinator that bridges content providers with popup/popin display systems.
 

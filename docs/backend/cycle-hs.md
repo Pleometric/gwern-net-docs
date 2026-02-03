@@ -65,7 +65,7 @@ If the transformation loops, `fixedPoint` (from Utils) will error after 5000 ite
 
 ---
 
-### `testCycleDetection :: [(Int,Int)]((Int,Int).md)`
+### `testCycleDetection :: [[(Int,Int)]]`
 
 Self-test for `cycleExists`. Returns empty list on success, otherwise the failing test cases. Uses test data from `Config.Misc.cycleTestCases`.
 

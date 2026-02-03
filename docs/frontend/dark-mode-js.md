@@ -1,222 +1,242 @@
 
-# dark-mode.js / dark-mode-initial.js
+# dark-mode.js
 
-**Path:** `js/dark-mode.js` | **Language:** JavaScript | **Lines:** ~280
+**Path:** `js/dark-mode.js` | **Language:** JavaScript | **Lines:** ~291
 
-> Two-file JavaScript system for theme switching with FOUC prevention, CSS variable theming, and intelligent image inversion
+> UI and advanced features for theme switching: mode selector widget, scroll-triggered activation, and inline selectors
 
 ---
 
 ## Overview
 
-The dark mode system provides theme switching between light, dark, and auto (system-follows) modes. It's split into two files for a critical reason: **FOUC prevention** (Flash Of Unstyled Content). The initial file loads synchronously in `<head>` before any content renders, reading localStorage and immediately applying the correct theme. The main file loads later with the rest of the JavaScript and handles the UI widget.
+This file extends the `DarkMode` object (initialized by `dark-mode-initial.js`) with the full user interface and advanced features. It loads after the initial script and provides:
 
-The system works by manipulating the `media` attribute of `<style>` blocks containing dark mode CSS variables. When set to `"all"`, dark mode styles apply; when set to `"not all"`, they're ignored; when set to `"all and (prefers-color-scheme: dark)"`, they follow the system preference.
+1. **Mode selector widget** — A three-button toggle (Auto/Light/Dark) injected into the page toolbar
+2. **Inline mode selectors** — Smaller selectors that can be embedded within content
+3. **Scroll-triggered mode activation** — Dark mode can be forced when scrolling to specific elements
+4. **Light mode re-activation** — Light mode can be re-enabled when scrolling past dark mode trigger zones
 
-A notable design choice: the CSS always includes both light and dark variable definitions. Rather than toggling classes on `<body>`, the system controls which `<style>` block is active via media queries. This allows dark mode to work even with JavaScript disabled—the CSS `@media (prefers-color-scheme: dark)` query provides a fallback.
+The file is split from `dark-mode-initial.js` to keep the critical path (FOUC prevention) minimal. This file can load deferred without affecting initial render.
 
 ---
 
 ## Public API
 
-### `DarkMode.currentMode() → "auto" | "light" | "dark"`
+### `DarkMode.setup()`
 
-Returns the currently selected mode (not the computed/displayed mode).
+Main initialization function. Called automatically on script load.
 
-**Called by:** `DarkMode.setMode`, `DarkMode.saveMode`, `DarkMode.modeSelectorHTML`, `DarkMode.updateModeSelectorState`
-**Calls:** `document.querySelector` (reads `media` attribute)
+1. Injects the primary mode selector widget into page toolbar
+2. Spawns IntersectionObservers for scroll-triggered mode changes
+3. Sets up inline mode selectors via content rewrite processor
 
----
-
-### `DarkMode.computedMode(modeSetting?, systemDarkModeActive?) → "light" | "dark"`
-
-Returns the actual displayed mode. When `currentMode()` is "auto", this checks the system preference.
-
-```javascript
-// Returns "dark" if:
-//   modeSetting == "dark", OR
-//   modeSetting == "auto" AND system dark mode is active
-// Otherwise returns "light"
-```
-
-**Called by:** `DarkMode.modeSelectorHTML`, event handlers
-**Calls:** `GW.mediaQueries.systemDarkModeActive.matches`
+**Called by:** Script load (automatic)
+**Calls:** `injectModeSelector`, `spawnObservers`, `processMainContentAndAddRewriteProcessor`
 
 ---
 
-### `DarkMode.setMode(selectedMode?) → void`
+### `DarkMode.modeSelectorHTML(inline = false) → string`
 
-Sets the display mode. If no argument, uses `DarkMode.defaultMode` (normally "auto").
+Generates the HTML for a mode selector widget.
 
-1. Saves to localStorage
-2. Updates `media` attribute on dark mode style elements
-3. Fires `DarkMode.didSetMode` event
+**Parameters:**
+- `inline` — If `true`, generates compact inline version with short labels
 
-**Called by:** Initial load (twice: once immediately, once after body exists), button clicks, scroll observers
-**Calls:** `DarkMode.saveMode`, `GW.notificationCenter.fireEvent`
+**Returns:** HTML string with three buttons (Auto/Light/Dark)
 
----
-
-### `DarkMode.saveMode(newMode?) → void`
-
-Persists mode to localStorage. Key: `"dark-mode-setting"`. Auto mode removes the key entirely (localStorage absence = auto).
+**Called by:** `injectModeSelector`
 
 ---
 
-### `DarkMode.setup() → void`
+### `DarkMode.injectModeSelector(replacedElement = null)`
 
-Called on load. Injects the mode selector widget into the page toolbar and sets up inline selectors.
+Injects a mode selector into the DOM.
+
+**Parameters:**
+- `replacedElement` — If provided, replaces this element with an inline selector. If `null`, adds to page toolbar.
+
+**Called by:** `setup`, rewrite processor for inline selectors
+
+---
+
+### `DarkMode.activateModeSelector(modeSelector)`
+
+Wires up event handlers for a mode selector widget.
+
+1. Adds click handlers to buttons
+2. Registers event handler for `DarkMode.didSetMode` to update state
+3. Sets up media query listener for system dark mode changes
+
+**Called by:** `injectModeSelector`, rewrite processor
+
+---
+
+### `DarkMode.updateModeSelectorState(modeSelector?)`
+
+Updates the visual state of a mode selector to reflect current mode.
+
+1. Clears all button states
+2. Marks correct button as selected/disabled
+3. Sets accesskey on next button
+4. In auto mode, marks the currently active (light/dark) button
+
+**Called by:** `DarkMode.didSetMode` event handler, system dark mode media query
+
+---
+
+### `DarkMode.spawnObservers(container = document.body)`
+
+Creates IntersectionObservers for scroll-triggered mode changes within a container.
+
+**Behavior:**
+- Elements matching `.dark-mode-enable-when-here` trigger dark mode when 100% visible
+- Elements matching `.light-mode-re-enable-when-here` re-enable light mode (only if user's saved mode would show light)
+
+**Called by:** `setup`, rewrite processor for dynamically loaded content
+
+---
+
+### `DarkMode.modeSelectButtonClicked(event)`
+
+Click handler for mode selector buttons.
+
+Uses `doIfAllowed()` pattern to prevent rapid clicks during mode transition. For accesskey presses (no pointer), expands the toolbar before changing mode.
+
+**Called by:** Button activate event
 
 ---
 
 ## Internal Architecture
 
-### Two-Phase Loading
-
-```
-1. HEAD (dark-mode-initial.js, synchronous)
-   ├── Read localStorage
-   ├── Set media attributes immediately (prevents FOUC)
-   ├── Define core DarkMode object
-   └── Set up mode change event handlers
-
-2. BODY LOADED (dark-mode.js, deferred)
-   ├── Extend DarkMode object with UI
-   ├── Inject toolbar widget
-   └── Set up scroll-triggered dark mode activation
-```
-
-### Media Attribute Switching
-
-The core mechanism manipulates these elements (defined in `switchedElementsSelector`):
-
-- `#inlined-styles-colors-dark` — The dark mode CSS variables
-- `#favicon-dark` — Dark mode favicon
-- `#favicon-apple-touch-dark` — Dark mode Apple touch icon
-
-Each gets its `media` attribute set to one of:
-
-| Mode | Media Attribute Value |
-|------|----------------------|
-| auto | `"all and (prefers-color-scheme: dark)"` |
-| dark | `"all"` |
-| light | `"not all"` |
-
-### Mode Selector Widget
-
-The widget shows three buttons (Auto/Light/Dark) with icons. The currently selected mode's button is disabled. In "auto" mode, an additional "active" indicator shows which of light/dark is currently displayed based on system preference.
-
-### Scroll-Triggered Dark Mode
-
-Certain pages can force dark mode when scrolled to a specific element:
+### Mode Options Configuration
 
 ```javascript
-activateTriggerElementsSelector: ".dark-mode-enable-when-here"
+modeOptions: [
+    // [name, shortLabel, unselectedLabel, selectedLabel, description, iconName]
+    [ "auto", "Auto", "Auto Light/Dark", "Auto Light/Dark",
+      "Set light or dark mode automatically, according to system-wide setting...",
+      "adjust-solid" ],
+    [ "light", "Light", "Light Mode", "Light Mode",
+      "Light mode at all times (black-on-white)",
+      "sun-solid" ],
+    [ "dark", "Dark", "Dark Mode", "Dark Mode",
+      "Dark mode at all times (inverted: white-on-black)",
+      "moon-solid" ]
+]
 ```
 
-When an element with this class scrolls into view (using IntersectionObserver at 100% threshold), dark mode is activated.
+### Widget HTML Structure
+
+```html
+<div id="dark-mode-selector" class="dark-mode-selector mode-selector">
+    <button type="button" class="select-mode-auto selected" disabled>
+        <span class="icon">[SVG]</span>
+        <span class="label">Auto Light/Dark</span>
+    </button>
+    <button type="button" class="select-mode-light selectable active">
+        <span class="icon">[SVG]</span>
+        <span class="label">Light Mode</span>
+    </button>
+    <button type="button" class="select-mode-dark selectable">
+        <span class="icon">[SVG]</span>
+        <span class="label">Dark Mode</span>
+    </button>
+</div>
+```
+
+**Classes:**
+- `selected` — Currently chosen mode
+- `selectable` — Available for selection
+- `active` — In auto mode, indicates which of light/dark is currently displayed
+
+### Inline Mode Selectors
+
+Inline selectors are placed within content using:
+
+```html
+<span class="dark-mode-selector-inline"></span>
+```
+
+The rewrite processor replaces these with compact mode selectors using short labels.
+
+### Scroll-Triggered Mode Activation
+
+```javascript
+// Dark mode triggers
+enableDarkModeTriggerElementsSelector: ".dark-mode-enable-when-here"
+
+// Light mode re-enable triggers
+reEnableLightModeTriggerElementsSelector: ".light-mode-re-enable-when-here"
+```
+
+Uses `lazyLoadObserver()` with `threshold: 1.0` (element must be 100% visible).
+
+The light mode re-enable only fires if `DarkMode.computedMode(DarkMode.savedMode())` would be "light" — i.e., the user hasn't explicitly chosen dark mode.
 
 ---
 
 ## Key Patterns
 
-### FOUC Prevention via Immediate Execution
-
-`dark-mode-initial.js` runs synchronously in `<head>`:
+### Rate-Limited Mode Switching
 
 ```javascript
-// Runs immediately on script load, before any rendering
-DarkMode.setMode();
+doIfAllowed(() => {
+    DarkMode.setMode(selectedMode, true);
+}, DarkMode, "modeSelectorInteractable");
+```
 
-// Runs again once <body> exists (for body class detection)
-doWhenBodyExists(() => {
-    if (document.body.classList.contains("dark-mode"))
-        DarkMode.defaultMode = "dark";
-    DarkMode.setMode();
+The `doIfAllowed()` pattern prevents rapid clicking from causing visual glitches during CSS transitions.
+
+### Accesskey Toolbar Expansion
+
+```javascript
+if (event.pointerId == -1) {
+    button.blur();
+    GW.pageToolbar.expandToolbarFlashWidgetDoThing("dark-mode-selector", () => {
+        DarkMode.setMode(selectedMode, true);
+    });
+} else {
+    DarkMode.setMode(selectedMode, true);
+}
+```
+
+When the mode is changed via keyboard (accesskey), the toolbar briefly expands to show the user what changed.
+
+### Dual-Phase Observer Spawning
+
+```javascript
+processMainContentAndAddRewriteProcessor("DarkMode.spawnObserversForTriggerElementsInLoadedContent", (container) => {
+    DarkMode.spawnObservers(container);
 });
 ```
 
-### Auto Mode with System Preference Tracking
-
-The system listens for OS theme changes:
-
-```javascript
-doWhenMatchMedia(GW.mediaQueries.systemDarkModeActive, {
-    name: "DarkMode.fireComputedModeDidChangeEventForSystemDarkModeChange",
-    ifMatchesOrAlwaysDo: (mediaQuery) => {
-        // Fire event only if computed mode actually changed
-        let previousComputedMode = DarkMode.computedMode(DarkMode.currentMode(), !(mediaQuery.matches));
-        if (previousComputedMode != DarkMode.computedMode())
-            GW.notificationCenter.fireEvent("DarkMode.computedModeDidChange");
-    }
-});
-```
-
-### Image Inversion Classes
-
-Images are classified for dark mode handling via server-side analysis:
-
-| Class | Behavior in Dark Mode |
-|-------|----------------------|
-| `.invert` | Inverted (manually marked) |
-| `.invert-auto` | Inverted (auto-detected by ImageMagick color counting) |
-| `.invert-not` | No filtering (manually marked, e.g., artwork) |
-| `.invert-not-auto` | No filtering (auto-detected as non-invertible) |
-| (none) | 50% grayscale only |
-
-The CSS applies:
-```css
-figure img.invert,
-figure img.invert-auto {
-    filter: grayscale(50%) invert(100%) brightness(95%) hue-rotate(180deg);
-}
-figure img:not(.invert):not(.invert-auto) {
-    filter: grayscale(50%);
-}
-```
-
-All filters are removed on hover to show original image. SVG images with `.invert` classes maintain their inversion on hover (they look wrong uninverted).
-
-### `.dark-mode-invert` Utility Class
-
-Any element can opt into dark mode inversion by adding this class. The actual filter is controlled by the `--dark-mode-invert-filter` CSS variable, allowing per-element customization:
-
-```css
-audio {
-    --dark-mode-invert-filter: invert(1) brightness(1.5) contrast(1.5);
-}
-```
-
-Used by: list bullet points, inline icons, horizontal rules, audio elements, loading spinners, and more.
+Observers are spawned both on initial content and on dynamically loaded content (transclusions, popups).
 
 ---
 
 ## Configuration
 
-### Mode Options Array
+### Trigger Element Selectors
+
+| Selector | Purpose |
+|----------|---------|
+| `.dark-mode-enable-when-here` | Element triggers dark mode when scrolled into view |
+| `.light-mode-re-enable-when-here` | Element re-enables light mode when scrolled into view |
+
+### Mode Selector State
+
+| Property | Purpose |
+|----------|---------|
+| `modeSelector` | Reference to main toolbar widget element |
+| `modeSelectorInteractable` | Boolean flag for rate limiting |
+
+### Selected Mode Note
 
 ```javascript
-modeOptions: [
-    // [name, shortLabel, unselectedLabel, selectedLabel, description, iconName]
-    [ "auto", "Auto", "Auto Light/Dark", "Auto Light/Dark", "Set light or dark...", "adjust-solid" ],
-    [ "light", "Light", "Light Mode", "Light Mode", "Light mode at all times...", "sun-solid" ],
-    [ "dark", "Dark", "Dark Mode", "Dark Mode", "Dark mode at all times...", "moon-solid" ]
-]
+selectedModeOptionNote: " [This option is currently selected.]"
 ```
 
-### localStorage Key
-
-- **Key:** `"dark-mode-setting"`
-- **Values:** `"light"` or `"dark"` (absence = auto)
-
-### CSS Variables
-
-All theme colors are CSS custom properties on `:root`, prefixed with `--GW-`. The dark mode stylesheet redefines ~100+ variables. Key ones:
-
-- `--GW-body-background-color`: `#000` (pure black)
-- `--GW-body-text-color`: `#fff` (pure white)
-
-These are the primary values in the generated CSS. Some alternative color schemes may use softer values like `#161616`/`#f1f1f1` to reduce OLED scrolling jank, but the default dark mode uses pure black and white.
+Appended to the tooltip of the currently selected mode button.
 
 ---
 
@@ -226,37 +246,41 @@ These are the primary values in the generated CSS. Some alternative color scheme
 
 | Event | When | Payload |
 |-------|------|---------|
-| `DarkMode.didLoad` | After `dark-mode.js` finishes loading | none |
-| `DarkMode.didSetMode` | After mode is set | `{ previousMode }` |
-| `DarkMode.computedModeDidChange` | When displayed mode changes (including system preference changes in auto mode) | none |
+| `DarkMode.didLoad` | After script finishes loading | none |
 
 ### Events Listened
 
 | Event | Handler |
 |-------|---------|
-| `DarkMode.didSetMode` | Updates mode selector widget state |
+| `DarkMode.didSetMode` | Updates mode selector state |
 
-### Media Queries Used
+### Dependencies
 
-- `GW.mediaQueries.systemDarkModeActive` — `matchMedia("(prefers-color-scheme: dark)")`
+**From `dark-mode-initial.js`:**
+- `DarkMode.currentMode()`
+- `DarkMode.computedMode()`
+- `DarkMode.setMode()`
+- `DarkMode.savedMode()`
 
-### Shared State
+**From `initial.js`:**
+- `GW.notificationCenter`
+- `GW.pageToolbar`
+- `GW.svg()`
+- `GW.mediaQueries.systemDarkModeActive`
+- `doWhenMatchMedia()`
+- `doIfAllowed()`
+- `lazyLoadObserver()`
+- `processMainContentAndAddRewriteProcessor()`
 
-- `GW.pageToolbar` — Used to inject the mode selector widget
-- `GW.notificationCenter` — Event system
-- `localStorage["dark-mode-setting"]` — Persisted preference
-
-### Body Class Detection
-
-If `<body>` has class `dark-mode`, `DarkMode.defaultMode` is set to `"dark"`. This allows pages to force dark mode by default.
+**From `utility.js`:**
+- `elementFromHTML()`
 
 ---
 
 ## See Also
 
-- [dark-mode-initial-js](dark-mode-initial-js) - Early-loading bootstrap that prevents FOUC
-- [dark-mode-adjustments-css](dark-mode-adjustments-css) - Image filters and color adjustments for dark mode
-- [colors-css](colors-css) - CSS custom properties this module controls
-- [initial-js](initial-js) - Defines `GW.mediaQueries.systemDarkModeActive` and `doWhenMatchMedia()`
-- [reader-mode-js](reader-mode-js) - Similar tri-state mode selector pattern
-- [special-occasions-js](special-occasions-js) - Listens to dark mode changes for holiday theming
+- [dark-mode-initial-js](/frontend/dark-mode-initial-js) - Core dark mode logic and FOUC prevention
+- [initial-js](/frontend/initial-js) - Core utilities and notification center
+- [reader-mode-js](/frontend/reader-mode-js) - Similar tri-state mode selector pattern
+- [colors-css](/frontend/colors-css) - CSS custom properties controlled by dark mode
+- [dark-mode-adjustments-css](/frontend/dark-mode-adjustments-css) - Image filters for dark mode

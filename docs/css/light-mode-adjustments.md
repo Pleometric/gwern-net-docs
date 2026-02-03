@@ -12,9 +12,9 @@ Light mode pattern and texture URLs for popup title bars and scrollbars.
 
 ## Overview
 
-This is a minimal stylesheet (8 lines) that defines light-mode-specific visual patterns, primarily for textured backgrounds in popup title bars and scrollbar checkerboard patterns. It exists as a complement to `dark-mode-adjustments.css`, ensuring that light mode has the correct texture references.
+This is a short stylesheet that defines light-mode-specific visual patterns (popup title bars, checkerboard scrollbars) and includes a small `@media` rule for `.poem` and `.editorial`. It complements `dark-mode-adjustments.css`, ensuring that light mode has the correct texture references.
 
-The file exclusively sets CSS custom properties pointing to image assets (GIFs with 2x pixel density for crisp rendering). These patterns add subtle visual texture to otherwise flat UI elements, enhancing depth perception without adding visual noise.
+The file mostly sets CSS custom properties pointing to image assets (GIFs with 2x pixel density for crisp rendering), plus a small layout tweak under `@media`. These patterns add subtle visual texture to otherwise flat UI elements, enhancing depth perception without adding visual noise.
 
 ## Key Variables
 

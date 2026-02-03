@@ -1,7 +1,7 @@
 
 # popups.js
 
-**Path:** `js/popups.js` | **Language:** JavaScript | **Lines:** ~2,700
+**Path:** `js/popups.js` | **Language:** JavaScript | **Lines:** ~2,800
 
 Hover-triggered popup windows with full window-management capabilities (pinning, tiling, minimizing).
 
@@ -24,7 +24,15 @@ Key design decisions: popups use Shadow DOM for content isolation (preventing st
 Initializes the popup system. Creates the popup container, registers global event listeners (Escape key, scroll, mousemove), and fires `Popups.setupDidComplete`.
 
 **Called by:** Page initialization
-**Calls:** `cleanup()`, creates popup container element
+**Calls:** `cleanup()`, creates popup container element, sets up tiling control keys
+
+---
+
+### `Popups.cleanup()`
+
+Removes popup container and all event listeners. Fires `Popups.cleanupDidComplete`.
+
+**Called by:** `setup()`, page cleanup
 
 ---
 
@@ -74,7 +82,7 @@ Returns the popup element, or undefined if preparation failed.
 
 ### `Popups.despawnPopup(popup)`
 
-Removes a popup from the page. Fires `popupWillDespawn` before removal.
+Removes a popup from the page. Fires `popupWillDespawn` before removal. Updates minimized popup arrangement if the despawned popup was minimized.
 
 **Called by:** Timer callback, close button, Escape key, various cleanup paths
 
@@ -112,6 +120,18 @@ Returns array of all visible popups, sorted by z-index (back to front). Excludes
 
 ---
 
+### `Popups.allMinimizedPopups()`
+
+Returns array of all minimized popups, sorted by z-index.
+
+---
+
+### `Popups.allUnminimizedPopups()`
+
+Returns array of all unminimized popups, sorted by z-index.
+
+---
+
 ### State Query Methods
 
 | Method | Returns |
@@ -122,6 +142,48 @@ Returns array of all visible popups, sorted by z-index (back to front). Excludes
 | `popupIsCollapsed(popup)` | `true` if popup has `.collapsed` class |
 | `popupIsMinimized(popup)` | `true` if popup has `.minimized` class |
 | `popupWasResized(popup)` | `true` if popup has `.resized` class |
+| `popupIsResizeable(popup)` | `true` if popup can be resized |
+
+---
+
+### State Modification Methods
+
+| Method | Effect |
+|--------|--------|
+| `pinPopup(popup)` | Pin popup in place |
+| `unpinPopup(popup)` | Unpin popup |
+| `zoomPopup(popup, zoomState)` | Zoom to specified region |
+| `unzoomPopup(popup)` | Restore from zoom |
+| `collapsePopup(popup, options)` | Collapse to title bar only |
+| `uncollapsePopup(popup, options)` | Expand from collapsed |
+| `minimizePopup(popup)` | Minimize to dock |
+| `unminimizePopup(popup)` | Restore from minimized |
+| `minimizeOrUnminimizePopup(popup)` | Toggle minimize state |
+| `focusPopup(popup)` | Bring to focus |
+| `unfocusPopup(popup)` | Remove focus |
+| `bringPopupToFront(popup)` | Raise z-index |
+
+---
+
+### Visibility Container Methods
+
+| Method | Effect |
+|--------|--------|
+| `hidePopupContainer()` | Hide all popups (sets visibility: hidden) |
+| `unhidePopupContainer()` | Show all popups |
+| `popupContainerIsVisible()` | Returns visibility state |
+
+---
+
+### Content State Methods
+
+| Method | Effect |
+|--------|--------|
+| `setPopFrameStateLoading(popup)` | Show loading spinner |
+| `setPopFrameStateLoadingFailed(popup)` | Show error message |
+| `clearPopFrameState(popup)` | Clear loading/failed state |
+| `popFrameStateLoading(popup)` | **Bug:** references `popin` instead of `popup`, so it throws rather than checking |
+| `popFrameStateLoadingFailed(popup)` | Check if failed |
 
 ---
 
@@ -177,6 +239,9 @@ Popup state is tracked via CSS classes on both the popup element and its `.shado
 | `fading` | In fadeout animation |
 | `loading` | Content loading |
 | `loading-failed` | Content failed to load |
+| `unminimized` | Transitioning from minimized |
+| `mini-title-bar` | Using compact title bar |
+| `hidden` | Visibility hidden |
 
 Use `Popups.addClassesToPopFrame()` and `Popups.removeClassesFromPopFrame()` to modify both the popup and its shadow body simultaneously.
 
@@ -190,6 +255,29 @@ Use `Popups.addClassesToPopFrame()` and `Popups.removeClassesFromPopFrame()` to 
 3. **Zooming:** Position calculated from zoom region (e.g., `top-left` = 0,0)
 4. **Restoring:** Returns to saved `originalXPosition`/`originalYPosition`
 5. **Unminimizing:** Returns to saved `previousXPosition`/`previousYPosition`
+
+### Minimized Popup Arrangement
+
+Minimized popups are arranged either vertically or horizontally depending on available space:
+
+```javascript
+minimizedPopupsArrangements: {
+    vertical: {
+        minimizedPopupWidth: 480
+    },
+    horizontal: {
+        minimizedPopupMinWidth: 320,
+        minimizedPopupMaxWidth: 640
+    }
+}
+```
+
+The arrangement algorithm:
+1. Selects vertical if popup width fits in side margin; otherwise horizontal
+2. For horizontal: calculates width to fit all popups, within min/max bounds
+3. Assigns `data-minimized-popup-id` for ordering
+4. Sets position and width for each minimized popup
+5. Wraps to multiple rows if needed (horizontal only)
 
 ---
 
@@ -230,6 +318,8 @@ popup.spawningTarget = target;
 // Shadow body -> Popup (for containingPopFrame)
 popup.body.popup = popup;
 popup.document.popup = popup;
+popup.contentView.popup = popup;
+popup.scrollView.popup = popup;
 ```
 
 ### Timer-Based Hover Lifecycle
@@ -250,6 +340,23 @@ target.popupFadeTimer = setTimeout(() => {
 
 // On re-enter: clear all timers
 Popups.clearPopupTimers(target);
+```
+
+### Hover Events Disable on Scroll
+
+To prevent accidental popup spawning during scroll:
+
+```javascript
+// On scroll: disable hover events
+addScrollListener(Popups.disablePopupHoverEventsOnScroll = (event) => {
+    Popups.hoverEventsActive = false;
+}, { name: "disablePopupHoverEventsOnScrollListener" });
+
+// On mousemove: re-enable hover events
+addMousemoveListener(Popups.enablePopupHoverEventsOnMousemove = (event) => {
+    if (Popups.popupBeingDragged == null && Popups.popupBeingResized == null)
+        Popups.hoverEventsActive = true;
+}, { name: "enablePopupHoverEventsOnMousemoveListener" });
 ```
 
 ### Title Bar Component Factory
@@ -286,6 +393,7 @@ All configuration lives in the `Popups` object:
 | `popupTriggerDelay` | `750` | ms before popup spawns |
 | `popupFadeoutDelay` | `100` | ms before fadeout starts |
 | `popupFadeoutDuration` | `250` | ms of fadeout animation |
+| `minimizedPopupWidth` | `480` | Default minimized popup width |
 | `popupTilingControlKeys` | `"aswdqexzfrcvtgb"` | Keyboard shortcuts (localStorage) |
 
 Minimized popup dimensions are in `minimizedPopupsArrangements`:
@@ -308,7 +416,7 @@ Minimized popup dimensions are in `minimizedPopupsArrangements`:
 
 ### Events Listened
 
-The module registers handlers via `GW.notificationCenter.addHandlerForEvent()` for its own events to coordinate behavior (e.g., despawning non-stack popups when a new one spawns).
+The module registers handlers via `GW.notificationCenter.addHandlerForEvent()` for its own events to coordinate behavior (e.g., despawning non-stack popups when a new one spawns, adding scroll listeners to spawned popups).
 
 ### Hooks for Targets
 
@@ -327,6 +435,7 @@ target.specialPopupTriggerDelay = 500;           // custom spawn delay (ms or fu
 - `Popups.popupBeingDragged`: Currently dragged popup (or null)
 - `Popups.popupBeingResized`: Currently resized popup (or null)
 - `Popups.hoverEventsActive`: Disabled during scroll, re-enabled on mousemove
+- `Popups.minimizedPopupsReservedRect`: Reserved area for minimized popups
 
 ### Coordinate with extracts.js
 
@@ -337,13 +446,14 @@ target.specialPopupTriggerDelay = 500;           // custom spawn delay (ms or fu
 
 ---
 
-## Additional Features (Not Covered in Detail)
+## Additional Features
 
 - **Dragging:** Title bar mousedown initiates drag; pins popup automatically
 - **Resizing:** Edge/corner mousedown on pinned popups; uses `edgeOrCorner()` to determine direction
 - **Tiling:** Keyboard shortcuts (default: `aswdqexzfrcvtgb`) zoom popups to screen regions
 - **Minimizing:** Popups dock at screen bottom in configurable arrangements (vertical/horizontal)
 - **Z-ordering:** `bringPopupToFront()`, `sendPopupToBack()`, focus management
+- **Window resize handling:** Repositions pinned popups on window resize
 
 ---
 

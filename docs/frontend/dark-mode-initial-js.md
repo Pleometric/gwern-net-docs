@@ -1,7 +1,7 @@
 
 # dark-mode-initial.js
 
-**Path:** `js/dark-mode-initial.js` | **Language:** JavaScript | **Lines:** ~117
+**Path:** `js/dark-mode-initial.js` | **Language:** JavaScript | **Lines:** ~139
 
 > Early-loading dark mode bootstrap that prevents flash of unstyled content (FOUC)
 
@@ -23,31 +23,45 @@ A key design decision: the system works even with JavaScript disabled. The CSS u
 
 Returns the currently selected mode by reading the `media` attribute of switched elements.
 
-**Called by:** `DarkMode.setMode`, `DarkMode.saveMode`, event handlers
+**Called by:** `DarkMode.setMode`, event handlers
 **Calls:** `document.querySelector`
 
 ---
 
-### `DarkMode.setMode(selectedMode?) → void`
+### `DarkMode.savedMode() → "auto" | "light" | "dark"`
 
-Sets the display mode. Defaults to `DarkMode.defaultMode` (normally "auto").
+Returns the mode saved in localStorage. Returns `"auto"` if no preference is stored.
 
-1. Remembers previous mode
-2. Saves to localStorage via `saveMode()`
-3. Updates `media` attribute on all switched elements
-4. Fires `DarkMode.didSetMode` event
-
-**Called by:** Immediate execution (2x: once on load, once after body exists), `dark-mode.js` button handlers
-**Calls:** `DarkMode.saveMode`, `GW.notificationCenter.fireEvent`
+**Called by:** `DarkMode.setMode` (on initial load), `dark-mode.js` observers
+**Calls:** `localStorage.getItem`
 
 ---
 
-### `DarkMode.saveMode(newMode?) → void`
+### `DarkMode.saveMode(newMode) → void`
 
 Persists mode to localStorage. Auto mode removes the key entirely (localStorage absence = auto).
 
-**Called by:** `DarkMode.setMode`
+**Called by:** `DarkMode.setMode` (when `save = true`)
 **Calls:** `localStorage.setItem` / `localStorage.removeItem`
+
+---
+
+### `DarkMode.setMode(selectedMode?, save = false) → void`
+
+Sets the display mode.
+
+1. Remembers previous mode
+2. Returns early if mode unchanged
+3. Updates `media` attribute on all switched elements
+4. Optionally saves to localStorage
+5. Fires `DarkMode.didSetMode` event
+
+**Parameters:**
+- `selectedMode` — Mode to set (`"auto"`, `"light"`, or `"dark"`). Returns if undefined.
+- `save` — If `true`, persists to localStorage
+
+**Called by:** Immediate execution, body exists callback, `dark-mode.js` button handlers
+**Calls:** `DarkMode.saveMode`, `GW.notificationCenter.fireEvent`
 
 ---
 
@@ -58,9 +72,13 @@ Returns the actual displayed mode (not the setting). When mode is "auto", checks
 ```javascript
 // Returns "dark" if:
 //   modeSetting == "dark", OR
-//   modeSetting == "auto" AND system dark mode is active
+//   modeSetting == "auto" AND systemDarkModeActive == true
 // Otherwise returns "light"
 ```
+
+**Parameters:**
+- `modeSetting` — Mode setting to compute from (defaults to `currentMode()`)
+- `systemDarkModeActive` — System dark mode state (defaults to current media query)
 
 **Called by:** Event handlers, `dark-mode.js` widget
 **Calls:** `GW.mediaQueries.systemDarkModeActive.matches`
@@ -73,7 +91,7 @@ Returns the actual displayed mode (not the setting). When mode is "auto", checks
 
 The core mechanism controls theme by manipulating `media` attributes on `<style>` and `<link>` elements:
 
-**Switched Elements:**
+**Switched Elements (`switchedElementsSelector`):**
 - `#inlined-styles-colors-dark` — Dark mode CSS variables
 - `#favicon-dark` — Dark mode favicon
 - `#favicon-apple-touch-dark` — Dark mode Apple touch icon
@@ -90,13 +108,14 @@ The core mechanism controls theme by manipulating `media` attributes on `<style>
 
 ```
 Phase 1: Script Load (synchronous, blocking)
-├── DarkMode.setMode() — Apply saved preference immediately
+├── DarkMode.setMode(DarkMode.savedMode()) — Apply saved preference immediately
 └── Prevents FOUC
 
 Phase 2: Body Exists (via doWhenBodyExists callback)
 ├── Check <body> class for "dark-mode"
-├── If present, override defaultMode to "dark"
-└── DarkMode.setMode() — Reapply with potentially new default
+├── If present, set pageDefaultMode to "dark"
+├── If currentMode is "auto" and pageDefaultMode is set
+└── DarkMode.setMode(pageDefaultMode) — Apply page default
 ```
 
 ### Event Wiring
@@ -117,31 +136,35 @@ The file executes `setMode()` at the top level (not in an event handler):
 
 ```javascript
 //  Activate saved mode.
-DarkMode.setMode();
+DarkMode.setMode(DarkMode.savedMode());
 ```
 
 This runs synchronously during HTML parsing, before render. The browser applies the correct `media` attributes before painting.
 
-### Body Class Override
+### Page Default Mode Override
 
 Some pages force dark mode via markup:
 
 ```javascript
 doWhenBodyExists(() => {
     if (document.body.classList.contains("dark-mode"))
-        DarkMode.defaultMode = "dark";
-    DarkMode.setMode();
+        DarkMode.pageDefaultMode = "dark";
+
+    // Page default mode takes effect if the user hasn't picked a mode.
+    if (   DarkMode.currentMode() == "auto"
+        && DarkMode.pageDefaultMode != null)
+        DarkMode.setMode(DarkMode.pageDefaultMode);
 });
 ```
 
-This allows per-page dark mode forcing while still respecting explicit user overrides stored in localStorage.
+This allows per-page dark mode forcing while still respecting explicit user overrides stored in localStorage. The `pageDefaultMode` property is separate from the saved user preference.
 
 ### Careful Change Detection
 
 The event system only fires `computedModeDidChange` when the actual displayed mode changes, not just the setting:
 
 ```javascript
-let previousComputedMode = DarkMode.computedMode(info.previousMode, ...);
+let previousComputedMode = DarkMode.computedMode(eventInfo.previousMode, GW.mediaQueries.systemDarkModeActive.matches);
 if (previousComputedMode != DarkMode.computedMode())
     GW.notificationCenter.fireEvent("DarkMode.computedModeDidChange");
 ```
@@ -152,13 +175,11 @@ This prevents spurious events when switching between "auto" and the mode it woul
 
 ## Configuration
 
-### `DarkMode.defaultMode`
+### `DarkMode.pageDefaultMode`
 
-Default: `"auto"`
+Default: `null`
 
-Can be overridden by:
-- Body class `dark-mode` → sets to `"dark"`
-- Extended by `dark-mode.js` for additional logic
+Set to `"dark"` if `<body>` has class `dark-mode`. Used to force dark mode on specific pages when user hasn't explicitly chosen a mode.
 
 ### `DarkMode.switchedElementsSelector`
 
@@ -216,18 +237,22 @@ Map of mode names to their `media` attribute values:
 
 ### Extended By
 
-`dark-mode.js` adds to the `DarkMode` object:
+`dark-mode.js` extends the `DarkMode` object with:
 - `setup()` — Injects UI widget
 - `modeSelectorHTML()` — Generates widget markup
 - `modeSelectButtonClicked()` — Button handler
-- Scroll-triggered dark mode activation
+- `injectModeSelector()` — Widget injection
+- `activateModeSelector()` — Widget event binding
+- `updateModeSelectorState()` — Widget state updates
+- `spawnObservers()` — Scroll-triggered mode activation
+- Mode options configuration array
 
 ---
 
 ## See Also
 
-- [dark-mode-js](dark-mode-js) - Main dark mode module with UI widget
-- [dark-mode-adjustments-css](dark-mode-adjustments-css) - CSS that dark mode activates
-- [initial-js](initial-js) - Defines `GW.notificationCenter`, `doWhenBodyExists`, `doWhenMatchMedia`
-- [reader-mode-initial-js](reader-mode-initial-js) - Similar early-loading pattern for reader mode
-- [colors-css](colors-css) - Color variable definitions toggled by this module
+- [dark-mode-js](/frontend/dark-mode-js) - Main dark mode module with UI widget
+- [dark-mode-adjustments-css](/frontend/dark-mode-adjustments-css) - CSS that dark mode activates
+- [initial-js](/frontend/initial-js) - Defines `GW.notificationCenter`, `doWhenBodyExists`, `doWhenMatchMedia`
+- [reader-mode-initial-js](/frontend/reader-mode-initial-js) - Similar early-loading pattern for reader mode
+- [colors-css](/frontend/colors-css) - Color variable definitions toggled by this module

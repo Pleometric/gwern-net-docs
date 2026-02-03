@@ -1,7 +1,7 @@
 
 # Typography.hs
 
-**Path:** `build/Typography.hs` | **Language:** Haskell | **Lines:** ~440
+**Path:** `build/Typography.hs` | **Language:** Haskell | **Lines:** ~443
 
 Pandoc AST transforms for text typography: citations, date ranges, rulers, title case.
 
@@ -23,7 +23,7 @@ The implementation follows Pandoc's standard pattern: use `walk` or `walkM` to t
 
 Main entry point for full typography processing. Applies all transforms including time-sensitive date annotations.
 
-**Called by:** `hakyll.hs`, `LinkMetadata.hs`, `Annotation.hs`
+**Called by:** `hakyll.hs`, `generateLinkBibliography.hs`, `generateBacklinks.hs`, `GenerateSimilar.hs`
 
 ### typographyTransformPermanent :: Pandoc -> Pandoc
 
@@ -47,7 +47,7 @@ typographyTransformPermanent =
 
 Typeset an HTML string for display. Parses HTML to Pandoc, applies transforms, renders back to HTML.
 
-**Called by:** `Annotation.hs`, `XOfTheDay.hs`
+**Called by:** `LinkMetadata.hs`, `XOfTheDay.hs`
 
 ### typesetHtmlFieldPermanent :: Bool -> String -> String
 
@@ -77,7 +77,7 @@ titlecase' "Foo's bar"
 
 De-duplicate link IDs by appending `-2`, `-3`, etc. For auto-generated pages where duplicate annotations appear.
 
-**Called by:** `generateLinkBibliography.hs`, `generateBacklinks.hs`
+**Called by:** `generateDirectory.hs`
 
 ### mergeSpaces :: [Inline] -> [Inline]
 

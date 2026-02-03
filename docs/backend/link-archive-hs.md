@@ -13,10 +13,10 @@
 
 LinkArchive.hs implements "preemptive local archiving"—the strategy of mirroring external URLs to local copies before they die. When gwern.net links to an external page, the system archives it to `/doc/www/` and rewrites the link to point to the local copy. This prevents link rot from affecting readers and ensures cited sources remain accessible.
 
-The archive currently holds ~47GB across ~14,000+ snapshots (as of 2023), growing continuously. Archives are created using SingleFile (a Chromium extension that serializes DOMs to self-contained HTML files) or direct PDF downloads. The system is intentionally conservative: new URLs wait 60 days before archiving to allow content to stabilize, and many domains are whitelisted to skip archiving entirely.
+The archive currently holds ~47GB across ~14,000+ snapshots (as of 2023), growing continuously. Archives are created using SingleFile (a Chromium extension that serializes DOMs to self-contained HTML files) or direct PDF downloads. The system is intentionally conservative: automatic archiving currently considers only URLs seen within the last 60 days (older items are excluded by the filter), and many domains are whitelisted to skip archiving entirely.
 
 Key design decisions:
-- **Delayed archiving**: URLs are only archived 60+ days after first being seen, avoiding archiving draft posts or volatile content
+- **Delayed archiving**: Automatic archiving currently includes only items seen in the last 60 days (items 60+ days old are excluded by the filter)
 - **SHA1 file naming**: Archive paths are `doc/www/$DOMAIN/SHA1($URL).html`, enabling deterministic lookup without database queries
 - **Whitelist-heavy**: ~800+ domain patterns are skipped (Wikipedia, interactive services, video sites, etc.)
 - **Dual-link system**: HTML links to local archive, but JS rewrites to original on page load (best of both worlds for readers)
@@ -181,7 +181,6 @@ transformURLsForArchiving url =
   $ openReviewForumToPdf -- openreview.net/forum?id=X → openreview.net/pdf?id=X
   $ redditToOldReddit    -- www.reddit.com → old.reddit.com
   $ twitterToLocalNitter -- x.com → localhost:8081 (local Nitter instance)
-  $ mediumToFreedium     -- medium.com → freedium.cfd (paywall bypass)
   $ fandomToAntifandom   -- *.fandom.com → antifandom.com (clean frontend)
   $ waybackToIfFrame     -- web.archive.org/web/123/ → web.archive.org/web/123if_/ (no toolbar)
   $ lesswrongToGW        -- lesswrong.com → greaterwrong.com
@@ -244,7 +243,7 @@ This means items are archived *before* they reach the delay threshold, not after
 ### Config.LinkArchive.hs
 
 #### `archiveDelay :: Integer`
-Days to wait before archiving (default: 60).
+Maximum age window for automatic archiving (default: 60 days). Items older than this are excluded by `archiveItemDue`.
 
 #### `whiteList :: String -> Bool`
 Returns `True` if URL should never be archived. Checks:

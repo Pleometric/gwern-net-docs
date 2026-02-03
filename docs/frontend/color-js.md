@@ -60,11 +60,11 @@ Converts from any supported color space back to RGB.
 
 ### `Color.rgbaFromString(colorString) → {red, green, blue, alpha}`
 
-Parses hex or rgba() color strings into component values (0-255 for RGB, 0-1 for alpha).
+Parses hex or rgba() color strings into component values (0-255 for RGB; alpha is parsed with `parseInt`, so fractional values are truncated).
 
 ```javascript
 Color.rgbaFromString("#ff8000")  // → {red: 255, green: 128, blue: 0, alpha: 1.0}
-Color.rgbaFromString("rgba(255, 128, 0, 0.5)")  // → {red: 255, green: 128, blue: 0, alpha: 0.5}
+Color.rgbaFromString("rgba(255, 128, 0, 0.5)")  // → {red: 255, green: 128, blue: 0, alpha: 0}
 ```
 
 ---

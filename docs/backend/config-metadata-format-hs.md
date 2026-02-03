@@ -31,7 +31,7 @@ The module also contains author-cleaning rules (for normalizing author names scr
 
 ### `htmlRewriteRegexpBefore :: [(String, String)]`
 
-Regex patterns applied before fixed-string rewrites. Currently contains 1 rule.
+Regex patterns applied before fixed-string rewrites. Currently contains 2 rules.
 
 **Used by:** [Metadata.Format](metadata-format-hs) via `sedMany`
 **Example:** `("\\(JEL [A-Z][0-9][0-9]+\\)\\.?", "")` — remove JEL classification codes

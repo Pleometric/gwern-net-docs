@@ -26,7 +26,7 @@ Returns a versioned href string for a static asset.
 - `$file_name` (string) - Base name without extension (e.g., `"style"`)
 - `$file_extension` (string) - Extension with leading dot (e.g., `".css"`)
 
-**Returns:** String in format `"/static/{name}{ext}?v={mtime}"`
+**Returns:** Quoted string for HTML embedding: `"/static/{name}{ext}?v={mtime}"` (includes the surrounding quotes)
 
 **Behavior:**
 1. Checks for `{$file_name}-VERSIONED{$extension}` in `$static_root`
