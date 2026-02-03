@@ -11,7 +11,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://gwern-analysis.example.com',
+  url: 'https://gwern.pleometric.net',
   baseUrl: '/',
 
   onBrokenLinks: 'warn',

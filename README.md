@@ -2,7 +2,7 @@
 
 Unofficial technical documentation for the [gwern.net](https://gwern.net) codebase.
 
-**[View the Documentation](https://your-username.github.io/gwern-net-docs)** (update after deployment)
+**[View the Documentation](https://gwern.pleometric.net)**
 
 ---
 
