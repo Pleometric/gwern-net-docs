@@ -23,15 +23,7 @@ This is a Docusaurus site containing 180+ documentation files covering the entir
 
 ## Why does this exist?
 
-[gwern.net](https://gwern.net) is a long-form essay site by [Gwern Branwen](https://gwern.net/about), known for rigorous research essays on AI, statistics, psychology, and more. What makes it technically interesting is its sophisticated custom infrastructure:
-
-- **Hover popups** showing link previews and citations without leaving the page
-- **Inline transclusion** embedding content from other pages
-- **Margin sidenotes** keeping annotations visible alongside text
-- **Automatic bibliography generation** from link metadata
-- **Preemptive link archiving** mirroring external links locally to prevent link rot
-
-The backend uses [Hakyll](https://jaspervdj.be/hakyll/) (Haskell) with [Pandoc](https://pandoc.org/) for Markdown processing. The frontend is a custom vanilla JavaScript framework built around a pub/sub event system. The codebase has been in active development for over a decade.
+[gwern.net](https://gwern.net) is a long-form essay site by [Gwern Branwen](https://gwern.net/about), known for rigorous research essays on AI, statistics, psychology, and more. What makes it technically interesting is its sophisticated custom infrastructure which has been in active development for over a decade. The backend uses [Hakyll](https://jaspervdj.be/hakyll/) (Haskell) with [Pandoc](https://pandoc.org/) for Markdown processing. The frontend is a custom vanilla JavaScript framework built around a pub/sub event system.
 
 I started this project out of curiosity after reading Gwern's site for years. The [source code is on GitHub](https://github.com/gwern/gwern.net) but it's large and constantly evolving. These docs aim to make exploration easier and serve as a map for anyone (human or AI) wanting to understand how it all works.
 
@@ -44,15 +36,15 @@ These docs are based on gwern.net commit [`57e5aa5df`](https://github.com/gwern/
 
 ## How These Docs Were Created
 
-1. **Initial mapping**: I read through the codebase and wrote notes on the architecture and key files
+1. I read through the codebase and wrote notes on the architecture and key files
 
-2. **Documentation generation**: Multiple [Claude Opus 4.5](https://www.anthropic.com/claude) agents documented different parts of the codebase in parallel, using my notes as a guide
+2. Multiple [Claude Opus 4.5](https://www.anthropic.com/claude) agents documented different parts of the codebase in parallel, using my notes as a guide
 
-3. **Manual review**: I reviewed and edited the generated documentation for accuracy and completeness
+3. I reviewed and edited the generated documentation for accuracy and completeness
 
-4. **Automated verification**: [OpenAI Codex 5.2](https://openai.com) performed claim verification, cross-referencing 92 specific technical claims against the actual source code
+4. Multiple [OpenAI Codex 5.2](https://openai.com) agents performed claim verification, cross-referencing 92 specific technical claims against the actual source code.
 
-5. **Corrections applied**: All verified corrections were implemented and the overview documents updated
+5. All verified corrections were manually reviewed then implemented and the overview documents updated
 
 ### Disclaimer
 
