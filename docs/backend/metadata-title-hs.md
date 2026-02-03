@@ -13,7 +13,7 @@ Metadata.Title handles the extraction and cleaning of titles from external web p
 
 The module serves the annotation system by providing clean, human-readable titles for links. Titles flow through: (1) HTML download and parsing via `download-title.sh`, (2) separator-based truncation to remove site names, (3) blocklist filtering for known-bad patterns, and (4) optional AI cleanup via `title-cleaner.py` for edge cases that survive rule-based filtering.
 
-A key design decision is the strict substring requirement for AI-cleaned titles: any cleaned title must be a strict substring of the original, preventing LLM confabulation or rewrites. The module also provides `tooltipToMetadata` for reverse-parsing citation tooltips back into structured (title, author, date) tuples, and `wikipediaURLToTitle` for converting Wikipedia URLs into readable titles.
+A key design decision is the strict substring requirement for AI-cleaned titles: any cleaned title must be a strict substring of the rule-cleaned `title'` (not the raw original), preventing LLM confabulation or rewrites. The module also provides `tooltipToMetadata` for reverse-parsing citation tooltips back into structured (title, author, date) tuples, and `wikipediaURLToTitle` for converting Wikipedia URLs into readable titles.
 
 ---
 
@@ -112,7 +112,7 @@ URL
             ▼
 ┌─────────────────────────┐
 │  Substring validation   │  LLM result must be substring
-│  (anti-confabulation)   │  of original
+│  (anti-confabulation)   │  of `title'`
 └───────────┴─────────────┘
 ```
 
@@ -159,7 +159,7 @@ This handles patterns like:
 
 ### Strict Substring Anti-Confabulation
 
-The LLM cleanup has a safety check: cleaned titles must be substrings of the original:
+The LLM cleanup has a safety check: cleaned titles must be substrings of `title'`:
 
 ```haskell
 if titleCleaned /= title' && titleCleaned `isInfixOf` title'

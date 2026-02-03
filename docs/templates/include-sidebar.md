@@ -14,7 +14,7 @@ The `sidebar.html` include file defines the persistent left-side navigation pane
 
 The sidebar contains two main components: the site logo (which doubles as a homepage link) and a vertical list of six navigation links covering the main areas of the site. The logo uses an inline SVG reference rather than a direct image embed, allowing for theme-aware styling and efficient caching via SVG sprites.
 
-The navigation links include semantic microdata attributes (`rel="me"`, `rel="author"`, `rel="contents"`) to improve SEO and provide machine-readable context about the site structure and authorship.
+Some navigation links include semantic `rel` attributes: the logo has `rel="home me contents"`, Site/Me use `rel="author"`, and Patreon uses `rel="me"`; the remaining links have no `rel` attributes.
 
 ## Content Structure
 

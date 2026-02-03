@@ -9,7 +9,7 @@
 
 ## Overview
 
-Config.Tags is a pure configuration module that defines the gwern.net tag taxonomy. It contains no business logic—just data tables that map between canonical tag paths, display names, URL shortcuts, and typo corrections.
+Config.Tags defines the gwern.net tag taxonomy and includes small bits of logic (predicates for blacklists and URL tagging, plus auto-generated short/long tag maps) alongside the data tables.
 
 The module serves three primary purposes: (1) normalizing user-entered tags to canonical forms (e.g., "gpt-4" → "ai/nn/transformer/gpt/4"), (2) converting internal hierarchical paths to human-readable display names (e.g., "anime/eva" → `<em>NGE</em>`), and (3) guessing tags from URLs when scraping external links. The extensive alias tables (~200 entries in `tagsShort2LongRewrites` alone) reflect years of accumulated typo corrections and naming conventions.
 

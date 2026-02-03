@@ -27,7 +27,7 @@ The design system organizes colors into 30+ semantic categories:
 - **Typography**: Headings, lists, dropcaps
 
 ### Content Blocks
-- **Blockquotes**: Border and background colors for 4 nesting levels
+- **Blockquotes**: Border colors for 4 nesting levels; background colors for 3 levels
 - **Abstracts**: Border styling
 - **Block context highlighting**: Background for highlighted spans
 - **Collapse blocks**: Disclosure buttons (regular and in-blockquote variants)
@@ -72,9 +72,9 @@ The design system organizes colors into 30+ semantic categories:
 - **Image focus**: Drop shadow on hover
 
 ### Pop-frames System
-- **Popups**: 15 variables for backgrounds, borders, shadows, title bars, scrollbars, focused states
+- **Popups**: 21 variables for backgrounds, borders, shadows, title bars, scrollbars, focused states
 - **Popins**: Backgrounds, borders, backdrops, title bars, scrollbars, stack counters
-- **Extracts options dialog**: 11 variables for the configuration UI
+- **Extracts options dialog**: 12 variables for the configuration UI
 - **Object popframes**: Background colors
 
 ### Admonitions
@@ -276,7 +276,7 @@ The dark mode color system is **generated, not hand-authored**:
 
 1. **Generation script** (`build/color-scheme-convert.php` or similar) reads `colors.css`
 2. **Transforms each color** using algorithmic rules and multiple color-space conversions (Lab/YCC/Oklab/Oklch) via a bit-flag recipe (lightness/hue inversion, colorization) rather than a simple HSL inversion
-3. **Outputs `dark-mode-GENERATED.css`** with all variables redefined under `:root`
+3. **Outputs `colors-dark-GENERATED.css`** with all variables redefined under `:root` (then `build_mode_css.php` concatenates it with `dark-mode-adjustments.css` into `dark-mode-GENERATED.css`)
 4. **Manual adjustments** can override specific variables in `dark-mode-adjustments.css`
 
 ### Dark Mode Adjustments
@@ -290,7 +290,7 @@ The dark mode color system is **generated, not hand-authored**:
 
 **Division of labor:**
 - `colors.css` → defines light mode palette (150+ variables)
-- `dark-mode-GENERATED.css` → redefines all color variables for dark mode (auto-generated)
+- `dark-mode-GENERATED.css` → concatenation of `colors-dark-GENERATED.css` and `dark-mode-adjustments.css`
 - `dark-mode-adjustments.css` → manual CSS rules for images, filters, and edge cases
 
 ### Usage in Component Stylesheets
@@ -319,15 +319,12 @@ a:hover {
 
 The color generation happens during the **build process** (`sync.sh`):
 
-```bash
-# Pseudo-code representation
-php build/color-scheme-convert.php \
-  --input css/colors.css \
-  --output css/dark-mode-GENERATED.css \
-  --mode invert-hsl
-```
+The build does this in two steps:
 
-This ensures the dark mode stylesheet is always in sync with the light mode source of truth.
+1. `color-scheme-convert.php` generates `css/colors-dark-GENERATED.css` from `css/colors.css`.
+2. `build_mode_css.php` concatenates `colors-dark-GENERATED.css` with `dark-mode-adjustments.css` into `css/dark-mode-GENERATED.css`.
+
+This ensures the dark mode stylesheet stays in sync with the light mode source of truth while layering dark-mode adjustments on top.
 
 ### JavaScript Interactions
 

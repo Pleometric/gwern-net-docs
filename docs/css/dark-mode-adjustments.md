@@ -14,15 +14,15 @@ Dark mode color and filter overrides for gwern.net's dark theme.
 
 This stylesheet contains all the color and visual adjustments necessary to transform gwern.net from its default light theme to a dark theme. It's applied when the user toggles dark mode via the theme switcher in the page toolbar.
 
-Rather than duplicating all styles, this file strategically overrides CSS custom properties defined in `colors.css` and applies color inversion filters to images and certain UI elements. The dark mode uses a near-black background (`#161616`) instead of pure black to prevent pixel response time issues on OLED screens and reduce eye strain from excessive contrast.
+Rather than duplicating all styles, this file strategically overrides CSS custom properties defined in `colors.css` and applies color inversion filters to images and certain UI elements. The dark mode overrides set `--GW-body-background-color: #161616` and `--GW-body-text-color: #f1f1f1`.
 
 The file is relatively compact (~160 lines) because it leverages the existing color variable system—most components automatically adapt when their color variables are changed. The file also handles special cases like image filtering (with progressive enhancement on hover) and icon inversions.
 
 ## Key Selectors/Variables
 
 ### Core Colors (`:root` overrides)
-- `--GW-body-background-color: #161616`: Near-black background (not pure #000 to avoid OLED jank)
-- `--GW-body-text-color: #f1f1f1`: Near-white text (not pure #fff to reduce contrast harshness)
+- `--GW-body-background-color: #161616`
+- `--GW-body-text-color: #f1f1f1`
 
 ### Pattern/Texture Variables
 - `--GW-popups-popup-title-bar-pattern`: Dotted pattern for popup title bars (dark variant)
@@ -43,7 +43,7 @@ The sophisticated image filtering system in dark mode:
   - Converts photos to dark-friendly versions while preserving recognizability
   - Hover removes filter to show original
 
-- **Non-invertible images** (no class or `.invert-not`):
+- **Non-invertible images** (no class):
   - `filter: grayscale(50%)` - Desaturated but not inverted
   - Hover removes filter
 
@@ -52,7 +52,7 @@ The sophisticated image filtering system in dark mode:
 
 - **Image alt-text**: Inverted separately to maintain readability
 
-- **Transition behavior**: 0.25s ease filter transition, with 0.25s delay on hover restoration
+- **Transition behavior**: A filter transition is defined, but later rules set `transition: none` for `figure img` and variants, disabling transitions for those images
 
 ### Special Elements
 
@@ -64,9 +64,7 @@ The sophisticated image filtering system in dark mode:
 
 ## Loading
 
-This stylesheet is loaded dynamically by `dark-mode.js` when the user enables dark mode. It's injected as a `<link>` element in the document `<head>` and removed when switching back to light mode.
-
-The loading is instant (no fade-in) to avoid jarring visual transitions. Dark mode preference is persisted to localStorage so returning visitors see their preferred theme immediately.
+This stylesheet is concatenated into `dark-mode-GENERATED.css` at build time and inlined in the head include. JavaScript toggles the `media` attribute on the inlined dark-mode style block to force dark, force light, or follow system preference.
 
 ---
 
@@ -74,6 +72,6 @@ The loading is instant (no fade-in) to avoid jarring visual transitions. Dark mo
 
 - [colors](/css/colors) - Base color variable definitions that this file overrides
 - [light-mode-adjustments](/css/light-mode-adjustments) - Light mode pattern/texture URLs
-- [dark-mode-js](/frontend/dark-mode-js) - JavaScript that toggles dark mode and loads/unloads this stylesheet
+- [dark-mode-js](/frontend/dark-mode-js) - JavaScript that toggles dark mode via media attributes
 - [build-mode-css](/php/build-mode-css) - PHP script that generates mode CSS files
 - [color-scheme-convert](/php/color-scheme-convert) - Oklch color transformation for dark mode generation

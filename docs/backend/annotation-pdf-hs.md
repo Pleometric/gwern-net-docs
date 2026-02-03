@@ -11,7 +11,7 @@
 
 Annotation/PDF.hs handles metadata extraction for locally-hosted PDF files on gwern.net. When a PDF link is encountered that lacks annotation data, this module attempts to populate title, author, date, and DOI fields by parsing the PDF's embedded metadata via `exiftool`, then optionally enriches the annotation with an abstract fetched from the Crossref API.
 
-The module occupies a specific niche in the annotation pipeline: it's invoked by `Annotation.linkDispatcherURL` when processing `.pdf` URLs. Unlike web scrapers that parse HTML, this module relies entirely on embedded PDF metadata and external DOI resolution. It returns `Left Permanent` only when **all** extracted fields are empty; missing files trigger an error.
+The module occupies a specific niche in the annotation pipeline: it's invoked by `Annotation.linkDispatcherURL` when processing `.pdf` URLs. Unlike web scrapers that parse HTML, this module relies entirely on embedded PDF metadata and external DOI resolution. It returns `Left Permanent` only when Title/Author/Date/DOI are all empty (the `Creator` field does not count); missing files trigger an error.
 
 Key design decisions include preferring the longer of `Author` vs `Creator` fields (since PDF metadata conventions vary), using Crossref as the sole source for abstracts, and appending page-number suffixes to titles when linking to specific PDF pages.
 
@@ -27,7 +27,7 @@ Main entry point. Extracts metadata from a PDF file at the given path.
 - `md` — The existing metadata database (passed through to `doi2Abstract` for paragraph processing)
 - `p` — Local file path (e.g., `/doc/ai/2023-smith.pdf` or `/doc/ai/2023-smith.pdf#page=5`)
 
-**Returns:** `Right (path, metadataItem)` on success with extracted title, author, date, DOI, and abstract; `Left Permanent` only when all extracted fields are empty (missing files `error`).
+**Returns:** `Right (path, metadataItem)` on success with extracted title, author, date, DOI, and abstract; `Left Permanent` only when Title/Author/Date/DOI are all empty (missing files `error`).
 
 **Called by:** `Annotation.linkDispatcherURL` (when path has `.pdf` extension)
 **Calls:** `exiftool` (via shell), `doi2Abstract`, `cleanAuthors`, `linkAutoHtml5String`, `pageNumberParse`
@@ -185,7 +185,7 @@ None. This module is stateless and performs pure I/O operations.
 |-----------|--------|
 | Empty path argument | `error` (fatal, should never happen) |
 | PDF file doesn't exist | `error` (fatal, invalid path) |
-| No metadata extracted | `Left Permanent` |
+| No Title/Author/Date/DOI extracted | `Left Permanent` |
 | Crossref request fails | Prints red error, returns `Nothing` for abstract |
 | DOI too short (\<7 chars) | Skips Crossref lookup |
 

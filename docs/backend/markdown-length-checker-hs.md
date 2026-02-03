@@ -9,7 +9,7 @@
 
 ## Overview
 
-This is a simple linting tool that scans Markdown files for code blocks containing lines longer than 110 characters. The rationale is that excessively long lines in code examples indicate source code that could benefit from refactoring for clarity and readability.
+This is a simple linting tool that scans Markdown files for code blocks containing lines at least 110 characters long. The rationale is that excessively long lines in code examples indicate source code that could benefit from refactoring for clarity and readability.
 
 The script uses Pandoc to parse Markdown into an AST, then queries all `CodeBlock` elements to find lines exceeding the threshold. It's designed for batch processing via `find -exec`, making it easy to scan an entire documentation tree.
 

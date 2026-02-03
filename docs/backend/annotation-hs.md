@@ -32,7 +32,7 @@ Main entry point. Takes existing metadata DB and a Pandoc `Link` inline, returns
 -- > linkDispatcher md (Link nullAttr [] ("https://arxiv.org/abs/2512.03750",""))
 ```
 
-Called by: `LinkMetadata.getMetadataItem` (line 499)
+Called by: `LinkMetadata.annotateLink`
 Calls: `linkDispatcherURL`, `tooltipToMetadata`, `guessAuthorDateFromPath`, `reformatTitle`
 
 ### `tooltipToMetadata :: Path -> String -> (String, String, String)`
@@ -216,7 +216,7 @@ whitelist = ["Guys and Dolls", "A critique of pure reason"]
 
 ### Upstream (callers)
 
-- **LinkMetadata.hs:499** - `getMetadataItem` calls `linkDispatcher` for unknown URLs
+- **LinkMetadata.hs** - `annotateLink` calls `linkDispatcher` for unknown URLs
 - **LinkMetadata.hs** imports `gwern` directly for forced re-scrapes
 
 ### Downstream (callees)
@@ -263,7 +263,7 @@ whitelist = ["Guys and Dolls", "A critique of pure reason"]
 
 ## See Also
 
-- [LinkMetadata.hs](/backend/link-metadata-hs) - Calls linkDispatcher, manages the metadata database
+- [LinkMetadata.hs](/backend/link-metadata-hs) - Calls linkDispatcher via `annotateLink`, manages the metadata database
 - [LinkMetadataTypes.hs](/backend/link-metadata-types-hs) - Core type definitions (Failure, MetadataItem)
 - [Annotation/Arxiv.hs](/backend/annotation-arxiv-hs) - arXiv paper scraper
 - [Annotation/Biorxiv.hs](/backend/annotation-biorxiv-hs) - bioRxiv/medRxiv scraper

@@ -176,7 +176,7 @@ link.specialPopupTriggerDelay = () => {
 
 ### Dual Trigger Element Deactivation
 
-The auto-deactivation uses both a primary observer and a backup observer. If the page lacks the primary trigger elements (e.g., no "#see-also" section), the backup observer on `#footer-decoration-container` ensures deactivation still happens.
+The auto-deactivation uses both a primary observer and a backup observer; the backup observer on `#footer-decoration-container` is always created, not only when the primary trigger elements are absent.
 
 ---
 

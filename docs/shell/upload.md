@@ -79,7 +79,7 @@ cloudflare-expire "$TARGET_DIR/$(basename "$FILE")" > /dev/null  # Clear CDN cac
 
 ## Usage
 
-**Temporary upload (90-day expiration):**
+**Temporary upload (no automatic expiration in script):**
 ```bash
 ./upload.sh screenshot.png
 # → https://gwern.net/doc/www/misc/2026-01-07-screenshot.png

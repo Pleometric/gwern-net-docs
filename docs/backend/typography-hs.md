@@ -71,7 +71,7 @@ titlecase' "Foo's bar"
 -- → "Foo's Bar"
 ```
 
-**Called by:** `Annotation.hs`, `Blog.hs`, `LinkMetadata.hs`
+**Called by:** `Blog.hs`, `LinkMetadata.hs`, `generateLinkBibliography.hs`
 
 ### identUniquefy :: Pandoc -> Pandoc
 
@@ -120,6 +120,8 @@ mergeSpaces               -- Clean up again
 linkIcon / linkLive       -- Add link decorations
     ↓
 parseRawAllClean          -- Final cleanup
+    ↓
+imageCaptionLinebreak     -- Second pass after raw cleanup
     ↓
 dateRangeDuration         -- [Temporary only] Add duration subscripts
 ```

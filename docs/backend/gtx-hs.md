@@ -298,7 +298,7 @@ Dates must be ISO 8601 format or parseable by `guessDateFromString`:
 - `2024`, `2024-03`, `2024-03-15` → valid
 - `March 15, 2024` → parsed to `2024-03-15`
 
-Invalid dates that can't be parsed cause `readGTXSlow` to error rather than silently return empty string.
+If `guessDateFromString` returns an empty string, `fixDate` leaves the original date unchanged. `readGTXSlow` only errors when a non-empty parsed date is still malformed.
 
 ### Tag Validation
 

@@ -45,7 +45,7 @@ The delegated function performs extensive checks across four GTX databases (`me.
 - URLs must be non-empty and start with `h` (http/https), `/` (local), `mailto:`, `irc://`, or `rsync://`
 - No double slashes in local paths (`//` disallowed)
 - No spaces or em-dashes in URLs
-- No trailing `#`, `?`, or `&` (except local pages with range includes)
+- No trailing `#` (allowed only for local paths); trailing `?` or `&` is always rejected
 - Local file references must exist on disk (checked for `me.gtx`/`full.gtx`/`half.gtx`)
 - Normalized URLs (http/https stripped) must be unique in `me.gtx`/`full.gtx`
 

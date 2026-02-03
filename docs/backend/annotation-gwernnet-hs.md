@@ -199,11 +199,11 @@ gwerntoplevelDocAbstract = do
 Files with these extensions are never scraped:
 
 ```haskell
-["avi", "bmp", "conf", "css", "csv", "doc", "docx", "ebt", "epub",
+ ["avi", "bmp", "conf", "css", "csv", "doc", "docx", "ebt", "el", "epub",
  "gif", "hi", "hs", "htm", "html", "ico", "idx", "img",
  "jpeg", "jpg", "js", "json", "jsonl", "maff", "mdb", "mht",
  "mp3", "mp4", "mkv", "o", "ods", "opml", "pack", "md", "patch",
- "php", "png", "r", "rm", "sh", "svg", "swf", "tar", "ttf", "txt",
+ "php", "png", "py", "r", "rm", "sh", "svg", "swf", "tar", "ttf", "txt",
  "wav", "webm", "xcf", "xls", "xlsx", "xml", "xz", "zip", "sqlite",
  "par2", "pkl", "h5", "t7", "weights"]
 ```

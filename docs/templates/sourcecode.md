@@ -12,7 +12,7 @@ Minimal Pandoc template for syntax-highlighted source code previews.
 
 The `sourcecode.html5` template is a stripped-down Pandoc HTML5 template used specifically for generating syntax-highlighted previews of source code files. Unlike the full `default.html` Hakyll template, this template provides minimal scaffolding - just enough HTML structure to display Pandoc's syntax-highlighted code with proper styling.
 
-This template is used when gwern.net needs to display raw source code files (e.g., linking to `.js`, `.py`, `.hs` files) in a readable, syntax-highlighted format rather than as plain text. The template relies on Server-Side Includes (SSI) to inject shared CSS/JS resources via `/static/include/inlined-standalone.html`, ensuring consistent styling with the rest of the site.
+This template is used when gwern.net needs to display raw source code files (e.g., linking to `.js`, `.py`, `.hs` files) in a readable, syntax-highlighted format rather than as plain text. The template relies on Server-Side Includes (SSI) to inject shared CSS resources via `/static/include/inlined-standalone.html`, ensuring consistent styling with the rest of the site.
 
 The template is intentionally minimal to keep the focus on the code itself. It includes basic metadata (author, date) support from Pandoc variables but doesn't include the full metadata apparatus of `default.html`.
 
@@ -34,7 +34,7 @@ The template is intentionally minimal to keep the focus on the code itself. It i
 - `$for(css)$`: Loops through CSS files to include
   - Each CSS file rendered as: `<link rel="stylesheet" href="$css$">`
 - SSI block: `<!--#include virtual="/static/include/inlined-standalone.html" -->`
-  - Provides inlined critical CSS/JS for standalone pages
+- Provides inlined color CSS plus external `head.css`/`style.css` links (no JS)
   - Ensures syntax highlighting styles are available
 
 ### Content Block

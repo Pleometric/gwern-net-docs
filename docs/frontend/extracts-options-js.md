@@ -13,7 +13,7 @@ extracts-options.js handles user preferences for gwern.net's popup/popin extract
 
 The module extends the `Extracts` object (defined in extracts.js) with option-related functionality. It supports two modes—"on" (popups/popins enabled) and "off" (disabled)—and automatically adapts UI labels based on whether the system is running in popup mode (desktop) or popin mode (mobile). The mode selector can appear in the toolbar as a full widget or inline as a compact button pair.
 
-A notable UX feature is the "disable from popup" flow: clicking the eye-slash button inside a popup dismisses all popups, expands the toolbar, flashes the mode selector widget, then auto-clicks the "Off" button after a delay. This teaches users where the setting lives while respecting their intent to disable.
+A notable UX feature is the "disable from popup" flow: clicking the eye-slash button inside a popup dismisses all popups, expands the toolbar, flashes the mode selector widget, then directly calls `Extracts.disableExtractPopFrames()` after a delay. This teaches users where the setting lives while respecting their intent to disable.
 
 ---
 
@@ -188,7 +188,7 @@ This teaches users where the setting lives while providing smooth visual feedbac
 |----------|-------|---------|
 | `popFramesDisableDespawnDelay` | 1000ms | Delay before toolbar animation starts |
 | `popFramesDisableWidgetFlashStayDuration` | 3000ms | How long toolbar widget stays highlighted |
-| `popFramesDisableAutoToggleDelay` | 1000ms | Delay before auto-clicking "Off" button |
+| `popFramesDisableAutoToggleDelay` | 1000ms | Delay before calling `disableExtractPopFrames()` |
 
 ### localStorage Keys
 

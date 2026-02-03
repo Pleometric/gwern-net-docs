@@ -71,7 +71,7 @@ Write changed file(s)
 ```haskell
 type MetadataList = [(String, MetadataItem)]
 -- where MetadataItem is a 7-tuple:
--- (title, author, date, doi, datecreated, [tags], abstract)
+-- (title, author, date, dateCreated, keyValues, tags, abstract)
 ```
 
 ### Core Functions

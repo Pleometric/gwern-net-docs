@@ -12,7 +12,7 @@ Site-wide string replacement tool for maintaining and updating URLs across the g
 
 ## Overview
 
-This script performs fixed-string (literal, non-regex) search-and-replace operations across the entire gwern.net corpus, including Markdown files, Haskell source code, GTX annotations, JavaScript, CSS, and HTML templates. It's the primary tool for maintaining link hygiene, updating URLs when sites change domains, and fixing typos or outdated references.
+This script performs fixed-string (literal, non-regex) search-and-replace operations across the core gwern.net corpus: Markdown files, Haskell source code, GTX annotations, and HTML templates. JavaScript/CSS are not part of the replacement target set; they are only searched in the post-replacement `gw` check.
 
 The script includes numerous safety checks and special-case handling: it validates input to prevent dangerous rewrites, automatically upgrades HTTP→HTTPS for entire domains (not just individual URLs), handles special anchor cases (like adding affiliation tags), and excludes problematic files like auto-generated code and temporary files.
 
@@ -22,7 +22,7 @@ After performing replacements, it runs a case-insensitive search to show any rem
 
 - **`EXCLUDE`**: Base blacklist of files to never modify (temporary files, vendored code)
 - **`EXCLUDE_SEARCH`**: Additional exclusions for search (auto-generated files, metadata)
-- **`EXCLUDE_SEARCH_AND_REPLACE`**: Full exclusion list for replacements (includes databases)
+- **`EXCLUDE_SEARCH_AND_REPLACE`**: Full exclusion list for replacements (specific Haskell/include files)
 - **`stringReplace`**: Compiled Haskell utility for fast parallel string replacement
 - **`gwhttp`**: Helper function for HTTP→HTTPS domain upgrades (defined in `bash.sh`)
 - **`gw()`**: Post-replacement search function to find remaining variants

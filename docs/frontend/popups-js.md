@@ -30,7 +30,7 @@ Initializes the popup system. Creates the popup container, registers global even
 
 ### `Popups.cleanup()`
 
-Removes popup container and all event listeners. Fires `Popups.cleanupDidComplete`.
+Removes popup container and most event listeners. The window resize listener added in `setup()` is not removed. Fires `Popups.cleanupDidComplete`.
 
 **Called by:** `setup()`, page cleanup
 
@@ -273,7 +273,7 @@ minimizedPopupsArrangements: {
 ```
 
 The arrangement algorithm:
-1. Selects vertical if popup width fits in side margin; otherwise horizontal
+1. Selects vertical if popup width fits in side margin; otherwise horizontal (also selects horizontal when `window.innerHeight >= (window.innerWidth - minimizedPopupWidth)`)
 2. For horizontal: calculates width to fit all popups, within min/max bounds
 3. Assigns `data-minimized-popup-id` for ordering
 4. Sets position and width for each minimized popup

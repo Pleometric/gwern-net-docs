@@ -9,7 +9,7 @@
 
 ## Overview
 
-`default.css` is the main stylesheet for gwern.net, containing styles for below-the-fold features and interactive components. Unlike [initial-css](initial-css) which provides critical above-the-fold styles inlined in the HTML, this file is bundled into `style-GENERATED.css` during the build process. The combined stylesheet is then loaded asynchronously using the `media="print" onload="this.media='all'"` pattern for improved page load performance.
+`default.css` is the main stylesheet for gwern.net, containing styles for below-the-fold features and interactive components. Unlike [initial-css](initial-css) which is bundled into `head.css` and linked in the head, this file is bundled into `style-GENERATED.css` during the build process. The combined stylesheet is then loaded asynchronously using the `media="print" onload="this.media='all'"` pattern for improved page load performance.
 
 The file implements sophisticated styling for the site's signature features: margin sidenotes, popup windows (popups), inline content expansions (popins), collapsible sections, footnotes, code blocks, tables, image focus overlays, and the page toolbar. It extensively uses CSS custom properties (CSS variables) prefixed with `--GW-*` for theming and layout configuration.
 

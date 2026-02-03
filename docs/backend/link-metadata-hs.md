@@ -52,14 +52,14 @@ readLinkMetadata = do
   return final
 ```
 
-**Called by:** hakyll.hs (main build), most annotation consumers
+**Called by:** link-prioritize.hs, generateLinkBibliography.hs, and other tooling
 **Calls:** GTX.readGTXFast
 
 ### readLinkMetadataSlow → IO Metadata
 
 Slow loading with postprocessing (tag validation, date parsing, author canonicalization).
 
-**Called by:** readLinkMetadataAndCheck, walkAndUpdateLinkMetadataGTX
+**Called by:** hakyll.hs (main build)
 **Calls:** GTX.readGTXSlow
 
 ### readLinkMetadataAndCheck → IO Metadata
@@ -81,7 +81,6 @@ Full validation pass that checks for:
 Walks a Pandoc Block, marking each Link/Image as annotated or not by adding CSS classes:
 - `link-annotated` - full annotation available
 - `link-annotated-partial` - partial metadata only
-- `link-annotated-not` - explicitly no annotation
 
 Also assigns unique link IDs via `generateID`.
 
@@ -270,7 +269,7 @@ All gwern.net URLs are normalized to local paths (`/doc/foo.pdf` not `https://gw
 lookupFallback :: Metadata -> String -> (FilePath, MetadataItem)
 ```
 
-For URLs like `/doc/2020-paper.pdf#google` where the annotation is stored with the fragment, this falls back to prefix matching to find annotations for fragment-less base URLs.
+For URLs where the stored metadata key is a longer URL (including fragments), this falls back to prefix matching using the provided URL as the prefix; it does not strip fragments to find a base URL.
 
 ---
 

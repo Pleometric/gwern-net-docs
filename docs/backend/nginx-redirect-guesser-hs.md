@@ -13,7 +13,7 @@ This utility assists in maintaining gwern.net's large nginx redirect configurati
 
 The approach is pragmatic rather than sophisticated: instead of machine learning or complex pattern matching, it uses Levenshtein distance to find similar URLs in the existing redirect corpus. About half of the generated rules are usable directly; the rest require manual review. This reflects the reality that URL errors are varied and ad-hoc—past attempts at clever regexes often backfired.
 
-The tool reads broken URLs from stdin, consults both the existing redirect configs (`nginx.conf`, `nginx-broken.conf`) and the site's actual file tree, then emits new redirect rules sorted by confidence (failures first, then by edit distance).
+The tool reads broken URLs from stdin, consults the existing redirect maps (`static/nginx/redirect/move.conf`, `static/nginx/redirect/broken.conf`) and the site's actual file tree, then emits new redirect rules sorted by confidence (failures first, then by edit distance).
 
 ---
 
@@ -43,7 +43,7 @@ stdin (broken URLs)
         ↓
 ┌───────┴────────┐
 │  Load files    │  Load existing redirects
-│  from C.root   │  from nginx.conf files
+│  from C.root   │  from redirect map files
 └───────┬────────┘
         ↓
    diffAndRank per URL

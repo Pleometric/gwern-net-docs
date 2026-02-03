@@ -9,7 +9,7 @@ Determines which external URLs can be shown as live iframe previews based on dom
 
 ## Overview
 
-LinkLive.hs decides at compile-time which external links can be previewed as live iframes (rather than requiring annotations or forcing full page loads). When a URL passes the whitelist checks, the module adds the CSS class `link-live` to the link. The frontend JavaScript (`content.js`) reads this class to enable iframe-based popups.
+LinkLive.hs decides at compile-time which external links can be previewed as live iframes (rather than requiring annotations or forcing full page loads). When a URL passes the whitelist checks, the module adds the CSS class `link-live` to the link. The frontend JavaScript (per the module comment, `extracts-contents.js`; implemented in `content.js`) reads this class to enable iframe-based popups.
 
 The challenge is that most external websites *cannot* be iframed: they set `X-Frame-Options` headers, use JavaScript that breaks in frames, have mixed HTTP/HTTPS content, or have unusable layouts (giant sticky headers, etc.). Gwern estimates only about 25% of external links work as live popups. Rather than disappointing readers with broken previews, the site whitelists domains that have been manually verified to work.
 
@@ -223,7 +223,7 @@ If gwern.net has a local mirror of the page (via `LinkArchive.hs`), the popup ca
 
 ### Runtime Integration (Frontend)
 
-`content.js` checks for `link-live` class:
+`extracts-contents.js` (implemented in `content.js`) checks for `link-live` class:
 
 ```javascript
 // content.js:465

@@ -13,7 +13,7 @@
 
 The tool orchestrates the complete pipeline: reading existing embeddings and metadata, identifying pages that need embeddings, calling the OpenAI API to generate new embeddings, building an RP-tree spatial index for fast nearest-neighbor search, computing similarity rankings, reordering results for coherence, and writing out HTML fragments to `metadata/annotation/similar/`.
 
-The system is designed for incremental updates—it only embeds new/modified pages, supports watch-mode for immediate updates during annotation workflows, and can operate in several modes: full rebuild, embedding-only, or update-missing-only. This makes it practical for a large corpus (thousands of documents) without re-embedding everything on each run.
+The system is designed for incremental updates—it only embeds **missing** pages, supports watch-mode for immediate updates during annotation workflows, and can operate in several modes: full rebuild, embedding-only, or update-missing-only. This makes it practical for a large corpus (thousands of documents) without re-embedding everything on each run.
 
 ---
 
@@ -76,8 +76,8 @@ This watches annotation database files (`.gtx`) and immediately embeds new annot
 
 **Embedding tuple** (from `GenerateSimilar`):
 ```haskell
-type Embedding = (FilePath, String, String, String, [Double])
--- (path, title, author, date, 1536-dim vector)
+type Embedding = (String, Integer, String, String, [Double])
+-- (url/path, ModifiedJulianDay age, embedded text, model id, vector)
 ```
 
 **Forest**: RP-tree spatial index built from embeddings for fast approximate nearest-neighbor search.
@@ -92,8 +92,7 @@ type Embedding = (FilePath, String, String, String, [Double])
 
 **Phase 1: Embedding**
 - Filter items without abstracts (can't embed empty content)
-- Exclude index pages (`/index`)
-- Prioritize recently modified items
+- Embed entries missing from the embeddings DB (no modification-time prioritization)
 - Batch at most 2000 embeddings per run (API cost control)
 - Use `embed` from `GenerateSimilar` to create embeddings (includes backlinks context)
 
@@ -106,7 +105,7 @@ type Embedding = (FilePath, String, String, String, [Double])
 **Phase 3: HTML Generation**
 - Call `writeOutMatch` to generate HTML fragment
 - Fragments stored in `metadata/annotation/similar/URLENCODED.html` (max 274 chars filename)
-- Includes Google Scholar link fallback if few similar items found
+- Search links (Google Scholar/Google/Context) are appended when metadata has a title/abstract; not conditional on "few" results
 
 ---
 
@@ -116,7 +115,7 @@ type Embedding = (FilePath, String, String, String, [Double])
 
 The tool uses `missingEmbeddings` to identify annotation URLs not yet embedded, then `similaritemExistsP` to check for existing HTML fragments. This two-level check allows:
 - New annotations to be embedded immediately
-- Existing items with outdated similarity files to be regenerated
+- Existing items missing similarity files to be regenerated
 - Full rebuilds to refresh all similarity rankings
 
 ### Batching and Parallelization
@@ -180,7 +179,6 @@ Via `maxEmbedAtOnce` constant:
 ### Called By
 
 - **[sync-sh](sync-sh)**: Nightly rebuild phase
-- **`preprocess-markdown.hs`**: Single-shot mode for immediate annotation updates
 - **Watch daemon**: `inotifywait`-based embedding-on-write
 
 ### Calls

@@ -45,14 +45,14 @@ Returns:
 Each line contains semicolon-separated fields:
 
 ```
-<label>; <authors_cite>; <year>; <cite_key>; <colored_url>; <tags>; "<title>"; (<authors_truncated>); <date>; <abstract>; <generated_url>
+<label>; <authors_cite>; <year>; <authors_raw>; <colored_url>; <tags>; "<title>"; (<authors_truncated>); <date>; <abstract>; <generated_url>
 ```
 
 Where:
 - **label**: Source file (`m`=me.gtx, `f`=full.gtx, `h`=half.gtx, `a`=auto.gtx)
 - **authors_cite**: Citation format (e.g., "Smith et al")
 - **year**: First 4 chars of date
-- **cite_key**: Citation key (usually author-year)
+- **authors_raw**: Raw author string from metadata (`c`)
 - **colored_url**: Green ANSI-colored URL
 - **tags**: Array of tag strings
 - **title**: Purple ANSI-colored quoted title

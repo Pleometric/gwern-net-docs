@@ -18,7 +18,7 @@ The script is used as part of the `sort-by-magic` workflow, which reorders annot
 
 Input format is newline-delimited: first line is the parent tag (e.g., `psychology`), second line is a space-separated blacklist of already-used tags, and remaining lines are article titles. Titles are shuffled before processing to reduce ordering effects.
 
-The output is a single suggested tag (or a short list of candidates) in gwern.net tag format: lowercase, alphanumeric-only, hyphen-separated, singular, command-line and URL-safe.
+The output is a single suggested tag in gwern.net tag format: lowercase, alphanumeric-only, hyphen-separated, singular, command-line and URL-safe.
 
 ## Key Functions
 

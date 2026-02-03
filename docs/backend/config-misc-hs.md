@@ -210,7 +210,7 @@ This pattern repeats: get UTC time, convert to local timezone, extract needed co
 
 ### Extension Mapping Structure
 
-`fileExtensionToEnglish` uses a simple association list lookup. The mapping prepends "." to keys for matching, allowing callers to pass either ".pdf" or "pdf".
+`fileExtensionToEnglish` uses a simple association list lookup. Keys include the dot (e.g., ".pdf"), so callers must pass the extension with the dot; there is no dot-normalization.
 
 ---
 

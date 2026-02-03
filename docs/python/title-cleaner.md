@@ -25,7 +25,7 @@ The cleaning process is conservative: when uncertain, it returns the original ti
 - **Main processing**: Reads input from stdin or command-line argument, sends to GPT-5-mini
 - **Extensive prompt examples**: 600+ few-shot examples covering common title problems
 - **Output format**: Returns cleaned title or empty string (never adds commentary)
-- **Markdown-to-HTML conversion**: Converts `*foo*` → `<em>foo</em>` and `Best-of-n` → `Best-of-<em>n</em>`
+- **Markdown-to-HTML conversion**: Converts `*foo*` → `<em>foo</em>` (inline markdown only)
 
 **Common title problems handled:**
 - Site name suffixes: "Article Title - The New York Times" → "Article Title"

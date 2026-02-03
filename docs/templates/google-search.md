@@ -184,9 +184,7 @@ body {
 
 ## Responsive Design
 
-### Mobile Breakpoint: 649px
-
-No mobile-specific styles in this file, suggesting the base design is already mobile-friendly. The flexbox layout and em-based sizing provide natural responsiveness.
+No explicit mobile breakpoint or `@media` rules are defined; responsiveness comes from the base flexbox layout and em-based sizing.
 
 ### Font Sizing
 

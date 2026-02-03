@@ -12,7 +12,7 @@ Development-only asset serving script with automatic rebuild on file changes.
 
 `asset.php` is a PHP script designed exclusively for development environments that serves static assets (JavaScript and CSS files) while automatically triggering the build system's pre-commit hook when Git detects changes. This creates a live-reload-like experience during development without requiring manual rebuild commands.
 
-The script operates as a dynamic asset server that intercepts requests for `.js` and `.css` files, runs the pre-commit build hook if there are uncommitted changes, and then serves the requested file with the appropriate MIME type. This workflow enables developers to see their changes reflected immediately when refreshing the browser.
+The script operates as a dynamic asset server that serves whatever file is passed via `?f=...`, runs the pre-commit build hook if there are uncommitted changes, and then serves the requested file. It only specializes the MIME type for `.js` and `.css`; other files default to `text/plain`.
 
 **CRITICAL WARNING**: This script is explicitly marked for development use only and should never be deployed to production. It executes Git commands and shell operations that could pose security risks in a production environment.
 

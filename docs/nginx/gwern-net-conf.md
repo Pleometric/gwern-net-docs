@@ -14,7 +14,7 @@ Main nginx web server configuration file for serving gwern.net with extensive UR
 
 This is the primary nginx configuration file for the gwern.net web server, containing over 1,100 lines of sophisticated request handling logic. The configuration serves multiple critical functions: it implements a novel LLM-friendly Markdown API, manages hundreds of URL redirects for site reorganizations and bot traffic cleanup, enforces security policies, and optimizes content delivery with aggressive caching.
 
-The file is organized into several major sections: subdomain canonicalization, Markdown content negotiation for AI agents, extensive URL rewrite rules to handle historical site reorganizations, bot traffic filtering, MIME type definitions, caching directives, and a Lua-based fallback handler for case-insensitive file matching. This configuration represents years of accumulated fixes for broken links, defensive measures against web scrapers, and optimizations for both human and machine readers.
+The file is organized into several major sections: subdomain canonicalization, Markdown content negotiation for AI agents, extensive URL rewrite rules to handle historical site reorganizations, bot traffic filtering, MIME type definitions, caching directives, and a Lua-based fallback handler for case-insensitive file matching (currently disabled). This configuration represents years of accumulated fixes for broken links, defensive measures against web scrapers, and optimizations for both human and machine readers.
 
 A particularly notable feature is the Markdown API system, which allows LLM-based agents to request page content in Markdown format instead of compiled HTML by including `text/markdown` in their Accept header. This reduces bandwidth and provides more semantic content for AI consumption, serving as a forward-looking approach to machine-readable web content.
 
@@ -83,7 +83,7 @@ The configuration contains hundreds of rewrite rules organized into categories:
 
 Extended MIME type definitions beyond nginx defaults:
 - `text/markdown` for `.md` files
-- Academic/archival: `.epub`, `.mdb`, `.odt`, `.opml`, `.djvu`
+- Academic/archival: `.epub`, `.mdb`, `.odt`, `.opml`
 - Programming: `.hs` (Haskell), `.py`, `.R`, `.php`, `.c`
 - Fonts: `.woff2`, `.ttf`, `.otf`
 - Binary/data: `.h5` (HDF5), `.sqlite`, `.wasm`, `.pkl`, `.weights`
@@ -111,7 +111,7 @@ Extended MIME type definitions beyond nginx defaults:
 
 ### Directory Browsing
 
-- `autoindex on` - Enables directory listings, particularly useful for `/doc/*` browsing
+- `# autoindex on;` is present but commented out, so directory listings are not enabled
 
 ### Special Location Handlers
 
@@ -122,12 +122,12 @@ Extended MIME type definitions beyond nginx defaults:
 - `/blog/YYYY/index` → `/blog/index#YYYY` - Redirects to anchored main blog index
 
 **Backslash URL Cleanup:**
-- Lua-based handler to strip trailing backslashes (`\` or `%5C`) from URLs
+- Backslash cleanup uses an nginx `if` rewrite for trailing `\`; the `%5C` handler is commented out (no Lua here)
 - Common issue from improperly escaped URLs in external sites
 
 ### Fallback Handler
 
-Advanced 404 handling using Lua scripting:
+Advanced 404 handling using Lua scripting (handler exists but `try_files ... @fallback` is commented out, so it is inactive):
 
 1. **Index file fallback:** `/foo/index.html` or `/foo/index.htm` → `/foo/index`
 2. **Case-insensitive matching:** Checks if lowercase version of URL exists on disk
@@ -163,7 +163,7 @@ Extensive rules identify and redirect spurious bot traffic:
 
 ### Dynamic Lowercase Fallback
 
-The Lua-based fallback handler provides intelligent case-insensitive URL matching without creating ambiguity or incorrect redirects. It only redirects when:
+The Lua-based fallback handler (currently inactive) provides intelligent case-insensitive URL matching without creating ambiguity or incorrect redirects. It only redirects when:
 - The requested URL contains uppercase letters
 - A lowercase version of the exact file exists on disk
 - This prevents false positives while handling common link capitalization errors

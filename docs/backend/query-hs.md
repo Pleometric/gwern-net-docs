@@ -13,7 +13,7 @@ Query.hs provides a collection of functions for querying Pandoc abstract syntax 
 
 The module builds on Pandoc's `queryWith` and `query` functions from `Text.Pandoc.Walk`, which traverse the AST and accumulate results from pattern-matching functions. Most functions follow a simple pattern: walk the document, match on `Link` or `Image` inlines, and extract the relevant tuple of data.
 
-A key design decision is that all link extraction first runs through `convertInterwikiLinks` (from the Interwiki module), normalizing shorthand wiki-style links to full URLs before extraction. The module also filters out "inflation URLs" (links starting with `$` or `₿`) which are handled specially elsewhere.
+A key design decision is that most link extraction helpers run through `convertInterwikiLinks` (from the Interwiki module), normalizing shorthand wiki-style links to full URLs before extraction. (Exceptions: `extractLinksInlines` and `extractImages` operate directly on the provided inlines.) The module also filters out "inflation URLs" (links starting with `$` or `₿`) which are handled specially elsewhere.
 
 ---
 

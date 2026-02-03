@@ -173,7 +173,7 @@ annotateFirstDefinitions doc = evalState (walkM addFirstDefn doc) S.empty
 To disable auto-linking on a page (e.g., /modafinil shouldn't link "modafinil" to itself), add a hidden link:
 
 ```markdown
-[null](/modafinil){.display-none} <!-- LinkAuto override: disable self-linking -->
+[null](/modafinil){.display-not} <!-- LinkAuto override: disable self-linking -->
 ```
 
 The `filterDefinitions` pass sees this URL exists and removes the pattern.

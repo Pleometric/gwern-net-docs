@@ -10,7 +10,7 @@ Git pre-commit hook that orchestrates the build pipeline for CSS, JavaScript, fo
 
 ## Overview
 
-This script is the central orchestrator for gwern.net's asset build pipeline, triggered automatically before each git commit. It follows a dependency-aware build order, processing only files that have changed since the last commit (unless `--force` is specified). The script builds everything from raw source files to production-ready, versioned, and inlined assets.
+This script is the central orchestrator for gwern.net's asset build pipeline, triggered automatically before each git commit. It follows a dependency-aware build order, processing only **staged** changes since the last commit via `git diff-index --cached HEAD` (unless `--force` is specified). The script builds everything from raw source files to production-ready, versioned, and inlined assets.
 
 The build proceeds in stages: first fonts and colors, then icons and versioned assets, then unified CSS/JS bundles, and finally the SSI-included HTML fragments that get injected into page templates. Each stage only runs if its source files have been modified, and successful builds automatically stage the generated files for commit.
 

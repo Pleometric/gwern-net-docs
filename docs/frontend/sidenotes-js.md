@@ -58,7 +58,7 @@ Recalculates and applies positions for all sidenotes. The heavy lifter—runs th
 
 ### `Sidenotes.updateSidenotePositionsIfNeeded()`
 
-Queues a position update on the next available animation frame if one isn't already queued. Uses `requestIdleCallback` for debouncing.
+Queues a position update via `requestIdleCallback` if one isn't already queued.
 
 ### `Sidenotes.slideSidenoteIntoView(sidenote, toCitation)`
 

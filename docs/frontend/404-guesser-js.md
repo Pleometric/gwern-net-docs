@@ -13,7 +13,7 @@ slug: 404-guesser-js
 
 ## Overview
 
-The 404 guesser provides a user-friendly enhancement to gwern.net's 404 error pages by automatically suggesting similar URLs that the user might have intended to visit. When a user lands on a non-existent page (such as `/rubiiks-cube` instead of `/rubiks-cube`), the script fetches the site's sitemap, compares the invalid URL against all valid URLs using a bounded Levenshtein distance algorithm, and presents the top 10 most similar matches.
+The 404 guesser provides a user-friendly enhancement to gwern.net's 404 error pages by automatically suggesting similar URLs that the user might have intended to visit. When a user lands on a non-existent page (such as `/rubiiks-cube` instead of `/rubiks-cube`), the script fetches the site's sitemap, computes basename matches and full-path matches separately (each sorted by edit distance), concatenates those lists, dedupes, and then presents the first 10 suggestions.
 
 The implementation is optimized for performance despite gwern.net's large sitemap (37,000+ URLs, 4.7MB uncompressed). It uses a bounded edit distance calculation that typically completes in ~3 seconds, and the sitemap compresses well (to ~0.5MB) making the bandwidth cost comparable to loading a couple of images. The script intelligently handles both full-path matching and basename-only matching as a fallback, catching cases where directory paths are wrong or missing.
 
@@ -214,4 +214,3 @@ This is acceptable for gwern.net's controlled environment but would need hardeni
 **Author:** Gwern Branwen
 **License:** CC-0
 **Last Updated:** 2025-03-03
-

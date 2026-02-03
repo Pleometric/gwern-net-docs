@@ -47,18 +47,19 @@ The core AST transformation pipeline. Applies all content transforms to a parsed
 **Calls:** (in order)
 1. `linkAuto` - Auto-link citations like "Brock et al 2018"
 2. `convertInterwikiLinks` - Expand `[WP:topic](WP:topic)` syntax
-3. `footnoteAnchorChecker` - Warn on malformed footnotes
-4. `createAnnotations` - Trigger annotation generation
+3. `footnoteAnchorChecker` - Warn on malformed footnotes (non-index pages only)
+4. `createAnnotations` - Trigger annotation generation (non-index pages only)
 5. `addPageLinkWalk` - Mark local links
-6. `addSizeToLinks` - Add file size metadata
-7. `hasAnnotation` - Add link-annotated class
-8. `localizeLink` - Rewrite to archived versions
-9. `nominalToRealInflationAdjuster` - Adjust dollar amounts for inflation
+6. `nominalToRealInflationAdjuster` - Adjust dollar amounts for inflation (non-index pages only)
+7. `addSizeToLinks` - Add file size metadata
+8. `hasAnnotation` - Add link-annotated class
+9. `localizeLink` - Rewrite to archived versions
 10. `typographyTransformTemporary` - Typography fixes
 11. `headerSelflinkAndSanitize` - Make headers self-linking
-12. `wrapInParagraphs` - Convert Plain to Para blocks
-13. `imageLinkHeightWidthSet` - Add image dimensions
-14. `addCanPrefetch` - Mark prefetchable links
+12. `addPageLinkWalk` - Re-mark local links after header rewrite
+13. `wrapInParagraphs` - Convert Plain to Para blocks
+14. `imageLinkHeightWidthSet` - Add image dimensions
+15. `addCanPrefetch` - Mark prefetchable links
 
 ---
 
@@ -255,13 +256,13 @@ The template context includes `$refMapTimestamp$` set to the most recently modif
 Required:
 - `title` - Page title (can include HTML like `<em>`)
 - `created` - ISO date (YYYY-MM-DD)
+- `status` - Writing stage: abandoned/notes/draft/in progress/finished
+- `description` - Page summary
 
 Optional:
 - `modified` - Last edit date
-- `status` - Writing stage: abandoned/notes/draft/in progress/finished
 - `confidence` - Certainty: certain/highly likely/likely/possible/unlikely/remote
 - `importance` - Topic significance: 1-10
-- `description` - Page summary
 - `author` - If not Gwern
 - `thumbnail` - OG image path
 - `thumbnail-text` - Alt text for thumbnail

@@ -140,7 +140,7 @@ Errors include the message context and the actual duplicate values, making debug
 All public functions follow the same pattern:
 1. Return the input unchanged if valid (enables chaining)
 2. Throw with `error` if duplicates found
-3. Include module/function name in error message for easy grep
+3. Emit a simple duplicate list error message (no module/function prefix)
 
 ---
 

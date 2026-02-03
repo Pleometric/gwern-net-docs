@@ -11,7 +11,7 @@
 
 Tags.hs manages gwern.net's taxonomy system where tags are **directory paths** under `/doc/`. A tag like `ai/nn/transformer/gpt` corresponds to the actual directory `/doc/ai/nn/transformer/gpt/` on disk. This conflation of tags and filesystem structure enables annotations to be "tagged" by placing files in directories, while also supporting cross-tagging through the annotation database.
 
-The module handles four main concerns: **tag validation** (ensuring tags are lowercase alphanumeric with hyphens/slashes), **tag normalization** (expanding short forms like "gpt4" → "ai/nn/transformer/gpt/4"), **tag rendering** (converting tags to clickable Pandoc links with abbreviated display names), and **tag inference** (guessing tags from file paths and URLs).
+The module handles four main concerns: **tag validation** (ensuring tags are lowercase alphanumeric with hyphens/slashes/dots), **tag normalization** (expanding short forms like "gpt4" → "ai/nn/transformer/gpt/4"), **tag rendering** (converting tags to clickable Pandoc links with abbreviated display names), and **tag inference** (guessing tags from file paths and URLs).
 
 Configuration lives in `Config/Tags.hs`, which contains ~1000 lines of mapping tables for short→long tag expansions, display abbreviations, URL-based tag inference rules, and the test suite. This separation keeps the logic clean while allowing extensive customization of the tag vocabulary.
 
@@ -48,11 +48,10 @@ The fuzzy tag matcher. Given a short/ambiguous tag input, returns the canonical 
 
 1. Exact match in tag list
 2. Lookup in `tagsShort2Long` petnames ("gpt4" → "ai/nn/transformer/gpt/4")
-3. Prefix match (including against `tagsShort2Long`)
-4. Suffix match (including against `tagsShort2Long`)
-5. Infix match (including against `tagsShort2Long`)
-6. Rewrite `.`→`/` and `-`→`/`, then retry matches
-7. Levenshtein edit distance (max 3) for typo correction
+3. Suffix/infix/partial path-segment matches (including against `tagsShort2Long` values)
+4. Suffix/prefix/infix matches against the full tag list
+5. Rewrite `.`→`/` and `-`→`/`, then retry matches
+6. Levenshtein edit distance (max 3) for typo correction
 
 ```haskell
 guessTagFromShort [] allTags "gpt4"        -- → "ai/nn/transformer/gpt/4"
@@ -187,7 +186,14 @@ User Input (e.g. "gpt4")
 │           │ Not found   │
 │           ▼             │
 │  ┌────────────────────┐ │
-│  │ Prefix/Suffix/Infix│─┼──Found──► Return first match
+│  │ Suffix/Infix/Path  │─┼──Found──► Return first match
+│  │ segment (short tags)│ │
+│  └────────────────────┘ │
+│           │ Not found   │
+│           ▼             │
+│  ┌────────────────────┐ │
+│  │ Suffix/Prefix/Infix│─┼──Found──► Return first match
+│  │ (full tag list)    │ │
 │  └────────────────────┘ │
 │           │ Not found   │
 │           ▼             │

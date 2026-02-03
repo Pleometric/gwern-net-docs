@@ -14,7 +14,7 @@ The script handles two loading strategies:
 1. **Range-based loading** (preferred): Uses HTTP Range requests to fetch only needed byte ranges from the embedded tarball
 2. **Full-response loading** (fallback): Downloads the entire file when the server doesn't support Range requests
 
-When a `.gwtar.html` file is opened, this script parses the embedded tarball structure, extracts the main HTML page, and progressively loads assets as they're needed—replacing network URLs with blob URLs created from the extracted data.
+When a `.gwtar.html` file is opened, this script uses the precomputed `assets` manifest (plus `overhead`) to compute byte ranges; it does not parse tar headers at runtime. It progressively loads assets as they're needed—replacing network URLs with blob URLs created from the extracted data.
 
 ---
 

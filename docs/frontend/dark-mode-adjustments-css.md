@@ -11,7 +11,7 @@
 
 `dark-mode-adjustments.css` handles the visual adaptation of images, icons, and UI elements for dark mode. It primarily applies CSS filters for visual content that can't be easily recolored through variables alone, and also overrides a small set of color variables (e.g., body background/text) for dark mode tuning.
 
-The file implements a sophisticated three-tier image handling strategy: invertible images (diagrams, charts) get full inversion with hue rotation; non-invertible images (artwork, photos) get grayscale only; and manually-marked images can opt out entirely. All filters are removed on hover to let users see the original.
+The file implements a sophisticated three-tier image handling strategy: invertible images (diagrams, charts) get full inversion with hue rotation; non-invertible images (artwork, photos) get grayscale only; and manually-marked images can opt out entirely. All filters are removed on hover to let users see the original, except for elements marked `.drop-filter-on-hover-not`.
 
 A key design principle evident throughout is **performance over purity**—the background color is slightly off-black (`#161616` instead of `#000000`) to prevent pixel toggling jank on OLED displays, and filter transitions are carefully controlled to avoid layout thrashing.
 
@@ -39,7 +39,7 @@ Images follow a strict precedence order:
 2. **`.invert` / `.invert-auto`** - Full inversion treatment (grayscale + invert + hue-rotate)
 3. **No class** - Grayscale only (default for photos/artwork)
 
-The `-auto` suffix variants are automatically applied by server-side logic (likely in the annotation/typography pipeline), while unsuffixed classes are manually authored.
+The `-auto` suffix variants are applied client-side by the `invertOrNot` logic, while unsuffixed classes are manually authored.
 
 ### Admonition Icons
 Each admonition type has specific filter rules:

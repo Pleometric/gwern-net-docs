@@ -18,7 +18,7 @@ The tool serves a dual purpose:
 1. **Error detection**: Catches typos like `class="collpase"` instead of `class="collapse"`
 2. **Documentation**: The whitelist itself becomes living documentation of gwern.net's HTML/CSS architecture
 
-The script is called in `sync.sh` during the build process. It checks both classes and data-attribute *keys* (not values, which vary too much). IDs are prefixed with `id:` to eliminate ambiguity when checking against class/data-attribute whitelists (an ID matching a class name is often an error).
+The script is called in `sync.sh` during the build process. It checks both classes and data-attribute *keys* (not values, which vary too much). ID extraction code exists (with `id:` prefixes) but is currently commented out, so IDs are not emitted.
 
 ## Key Functions
 

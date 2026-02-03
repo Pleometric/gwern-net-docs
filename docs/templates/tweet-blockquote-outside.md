@@ -59,6 +59,8 @@ The template produces this structure:
 
 The `<blockquote>` wrapper provides citation semantics. Inside, the structure mirrors the non-blockquote variant: attribution metadata in a `<p>` tag followed by tweet content in a `<div>`.
 
+**Template caveat:** The tweet link `title` attribute uses a malformed placeholder (`<<{tweetLinkHref>>`), so the tweet URL is not interpolated as shown in the example.
+
 ---
 
 ## See Also

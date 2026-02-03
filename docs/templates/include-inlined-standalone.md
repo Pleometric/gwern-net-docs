@@ -14,12 +14,12 @@ The `inlined-standalone.html` include file is an alternative to `inlined-asset-l
 
 This approach is used for pages that may be:
 - Archived or distributed as single HTML files
-- Viewed offline without server access
+- More self-contained but still requires external CSS assets
 - Embedded in contexts where external resource loading is unreliable
 - Distributed via email or saved locally by users
 - Used in reader modes or print views
 
-The trade-off is increased HTML file size in exchange for complete portability and guaranteed styling without network dependencies.
+The trade-off is increased HTML file size in exchange for more self-contained inline color variables, but it still relies on external CSS.
 
 ## Content Structure
 
@@ -55,14 +55,14 @@ Unlike `inlined-head.html`, this variant loads `head.css` as an external resourc
 - No `media="print"` trick for async loading
 - Loaded synchronously, will block rendering
 - Ensures complete styling before page displays
-- Acceptable trade-off for standalone/offline contexts where progressive loading is less critical
+- Acceptable trade-off for standalone contexts where progressive loading is less critical
 
 ### Standalone Context Implications
 
 The lack of performance optimizations (media query tricks, defer attributes) suggests this variant prioritizes:
 1. **Completeness** over speed
 2. **Reliability** over optimization
-3. **Offline functionality** over progressive enhancement
+3. **Reliability** over progressive enhancement (still requires CSS assets)
 
 ## Integration
 
@@ -92,12 +92,10 @@ The decision of which variant to use is made during the Hakyll build process bas
 - Single-article distributions
 - Print/PDF generation targets
 - Email newsletter versions
-- Offline documentation
+- Documentation with fewer dynamic dependencies
 
 **Why Bundle Everything**:
-- No dependency on CDN or server availability
-- Survives link rot and server migrations
-- Works in restricted network environments
+- Fewer dependencies on dynamic includes
 - Ensures visual consistency in uncontrolled contexts
 
 ### Performance Characteristics
@@ -105,7 +103,7 @@ The decision of which variant to use is made during the Hakyll build process bas
 **Advantages**:
 - Guaranteed complete styling on first render
 - No FOUC (Flash of Unstyled Content)
-- No network requests for stylesheets after initial load
+- CSS still loads via external `<link>` tags
 - Predictable rendering behavior
 
 **Disadvantages**:
