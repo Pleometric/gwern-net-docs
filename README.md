@@ -23,16 +23,15 @@ This is a Docusaurus site containing 180+ documentation files covering the entir
 
 ## Why does this exist?
 
-[gwern.net](https://gwern.net) is a long-form essay site by [Gwern Branwen](https://gwern.net/about), known for rigorous research essays on AI, statistics, psychology, and more. What makes it technically interesting is its sophisticated custom infrastructure which has been in active development for over a decade. The backend uses [Hakyll](https://jaspervdj.be/hakyll/) (Haskell) with [Pandoc](https://pandoc.org/) for Markdown processing. The frontend is a custom vanilla JavaScript framework built around a pub/sub event system.
+[gwern.net](https://gwern.net) is a long-form essay site by [Gwern Branwen](https://gwern.net/about), with frontend development by [Said Achmiz](https://www.yourmagicisworking.net/). The site is known for rigorous research essays on AI, statistics, psychology, and more. What makes it technically interesting is its sophisticated custom infrastructure which has been in active development for over a decade. The backend uses [Hakyll](https://jaspervdj.be/hakyll/) (Haskell) with [Pandoc](https://pandoc.org/) for Markdown processing. The frontend is a custom vanilla JavaScript framework built around a pub/sub event system.
 
 I started this project out of curiosity after reading Gwern's site for years. The [source code is on GitHub](https://github.com/gwern/gwern.net) but it's large and constantly evolving. These docs aim to make exploration easier and serve as a map for anyone (human or AI) wanting to understand how it all works.
 
-## Source Repositories
+## Source Repository
 
 - **Main site**: [github.com/gwern/gwern.net](https://github.com/gwern/gwern.net)
-- **Said Achmiz** (frontend author): [github.com/achmizs](https://github.com/achmizs)
 
-These docs are based on gwern.net commit [`57e5aa5df`](https://github.com/gwern/gwern.net/commit/57e5aa5df) (2025-02-01).
+These docs are based on commit [`57e5aa5df`](https://github.com/gwern/gwern.net/commit/57e5aa5df) (2025-02-01).
 
 ## How These Docs Were Created
 
@@ -54,13 +53,13 @@ These docs are unofficial and not affiliated with Gwern Branwen or Said Achmiz. 
 
 ### View Online
 
-Visit the deployed site (link TBD after GitHub Pages setup).
+**https://gwern.pleometric.net**
 
 ### Run Locally
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/gwern-net-docs.git
+git clone https://github.com/Pleometric/gwern-net-docs.git
 cd gwern-net-docs
 
 # Install dependencies
@@ -84,9 +83,9 @@ Static files will be generated in the `build/` directory.
 
 | Section | Description |
 |---------|-------------|
-| [Architecture at a Glance](docs/overview/architecture-at-a-glance.md) | High-level overview of build-time and runtime phases |
-| [Page Lifecycle](docs/overview/page-lifecycle.md) | How a Markdown file becomes an interactive web page |
-| [Functional Taxonomy](docs/overview/component-taxonomy.md) | Every file organized by function with importance scores |
+| [Architecture at a Glance](https://gwern.pleometric.net/overview/architecture-at-a-glance) | High-level overview of build-time and runtime phases |
+| [Page Lifecycle](https://gwern.pleometric.net/overview/page-lifecycle) | How a Markdown file becomes an interactive web page |
+| [Functional Taxonomy](https://gwern.pleometric.net/overview/component-taxonomy) | Every file organized by function with importance scores |
 
 ### By Category
 
