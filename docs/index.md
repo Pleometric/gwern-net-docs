@@ -21,7 +21,7 @@ Unofficial technical documentation for the [gwern.net](https://gwern.net) codeba
 
 ## What is gwern.net?
 
-gwern.net is a long-form essay site by pseudonymous writer Gwern Branwen, covering topics ranging from statistics and psychology to AI, genetics, and internet culture. The site has been actively maintained since 2010 and is known for its rigorous, heavily-cited research essays that often run tens of thousands of words.
+gwern.net is a long-form essay site by pseudonymous writer Gwern Branwen, covering topics ranging from statistics and psychology to AI, genetics, and internet culture. The site has been actively maintained since January 2009 (~17 years) and is known for its rigorous, heavily-cited research essays that often run tens of thousands of words.
 
 What makes gwern.net technically interesting is its sophisticated custom infrastructure. The site features hover popups that show link previews and citations without leaving the page, inline transclusion (embedding content from other pages), margin sidenotes, automatic bibliography generation, and a preemptive link archiving system that mirrors external links locally to prevent link rot.
 
@@ -33,7 +33,7 @@ Gwern himself has written extensively about the site's design and implementation
 
 I started this project out of sheer curiosity. I've been reading Gwern's site for a long time and always found his website-as-process approach to writing admirable, so I wanted to understand how it all worked under the hood.
 
-The site's [codebase is available on GitHub](https://github.com/gwern/gwern.net). It's quite large and has been in active development by Gwern and Said Achmiz for over a decade. They're constantly updating the repo, so things change all the time. Thankfully, the code itself is filled with comments, which helped guide me as I tried to document everything.
+The site's [codebase is available on GitHub](https://github.com/gwern/gwern.net). It's quite large and has been in active development by Gwern and Said Achmiz since January 2009 (~17 years). They're constantly updating the repo, so things change all the time. Thankfully, the code itself is filled with comments, which helped guide me as I tried to document everything.
 
 My intent here is simply to make source code exploration easier and give curious readers a sense for how things work. These docs are also meant to serve as a map for any agents you might want to throw at the codebase, so you can ask questions yourself.
 
