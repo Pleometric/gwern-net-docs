@@ -48,10 +48,17 @@ tags: [AI, scaling]
 Deep learning's surprising effectiveness may be explained by...
 ```
 
-Annotations live separately in GTX files (a custom tab-separated format):
+Annotations live separately in GTX files (a custom line-based format with `---` record delimiters):
 
 ```
-https://arxiv.org/abs/2001.08361	Scaling Laws for Neural Language Models	Kaplan et al 2020	2020-01-23	We study empirical scaling laws...	AI/scaling
+---
+https://arxiv.org/abs/2001.08361
+Scaling Laws for Neural Language Models
+Kaplan et al 2020
+2020-01-23
+
+AI/scaling
+We study empirical scaling laws...
 ```
 
 **Why separate files?** Annotations are reused across hundreds of essays. Storing them centrally enables:

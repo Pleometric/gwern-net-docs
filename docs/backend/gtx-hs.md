@@ -5,6 +5,8 @@
 
 > Custom plain-text format for storing link annotations
 
+**Note:** GTX is a line-based format. Fields are separated by newlines, and records are separated by `---` lines.
+
 ---
 
 ## Overview
