@@ -442,27 +442,47 @@ GW.contentDidInject (eventListeners phase)
 
 ### Runtime Transforms
 
-| Handler | What | Why |
-|---------|------|-----|
-| `wrapImages` | Wrap `<img>` in `<figure>` | Consistent figure structure |
-| `makeTablesSortable` | Enable column sorting | Interactive data exploration |
-| `hyphenate` | Add soft hyphens | Better text flow |
-| Link icon management | Enable/disable icons | Context-dependent display |
+The site registers ~140 content handlers across multiple JS files. These run on page load and when new content is injected (e.g., into popups).
+
+| Category | Count | Examples |
+|----------|-------|----------|
+| Images/Figures | ~18 | `wrapImages`, `wrapFigures`, `setMediaElementDimensions`, `requestImageInversionJudgments` |
+| Annotations/Backlinks | ~15 | `rewriteTruncatedAnnotations`, `bindSectionHighlightEventsToAnnotatedLinks`, `rectifyLinkBibliographyContextLinks` |
+| Links | ~10 | `setLinkIconStates`, `setLinkHoverColors`, `qualifyAnchorLinks`, `addSpecialLinkClasses` |
+| TOC | ~9 | `injectTOCCollapseToggleButton`, `updateTOCVisibility`, `rewriteDirectoryIndexTOC` |
+| Footnotes | ~9 | `injectFootnoteSelfLinks`, `bindNoteHighlightEventsToCitations`, `rewriteFootnoteBackLinks` |
+| Poetry/Epigraphs | ~9 | `processPoems`, `wrapCaesuraMarksInPoems`, `designateEpigraphAttributions` |
+| Sidenotes | ~8 | `setMarginNoteStyle`, `constructSidenotesWhenMainPageContentDidInject` |
+| Typography | ~7 | `hyphenate`, `iconifyUnicodeIconGlyphs`, `rectifyTypographyInBodyText` |
+| Collapse blocks | ~6 | `prepareCollapseBlocks`, `activateCollapseBlockDisclosureButtons` |
+| Tables | ~4 | `makeTablesSortable`, `wrapTables`, `rectifyFullWidthTableWrapperStructure` |
+| Lists/Blockquotes | ~4 | `designateListTypes`, `paragraphizeListTextNodes`, `designateBlockquoteLevels` |
+| Code blocks | ~4 | `wrapPreBlocks`, `addCodeBlockLineClasses`, `rectifyCodeBlockClasses` |
+| Dropwords | ~4 | `rewriteDropcaps`, `activateDynamicGraphicalDropcaps`, `linkifyDropcaps` |
+| Math | ~4 | `unwrapMathBlocks`, `addBlockButtonsToMathBlocks`, `activateMathBlockButtons` |
+| Video | ~3 | `setVideoPosters`, `lazyLoadVideoPosters`, `enableVideoClickToPlay` |
+| Layout | ~3 | `applyBlockLayoutClassesInMainDocument`, `completePageLayout` |
+| Embeds/Iframes | ~3 | `markLoadedEmbeds`, `applyIframeScrollFix`, `setUpSearchIframe` |
+| Transclusion | ~2 | `handleTranscludes` |
+| Misc | ~10+ | `rewriteInterviews`, `wrapMarginNotes`, `rewriteInflationAdjusters` |
+
+Most handlers live in [`rewrite.js`](/frontend/rewrite-js) (~117), with others in [`collapse.js`](/frontend/collapse-js), [`sidenotes.js`](/frontend/sidenotes-js), [`layout.js`](/frontend/layout-js), [`transclude.js`](/frontend/transclude-js), and [`extracts.js`](/frontend/extracts-js).
 
 ### Popup System
 
 When you hover an annotated link:
 
-1. `extracts.js` detects the link type (annotation, local page, etc.)
-2. After 750ms delay, `popups.js` spawns a popup frame
-3. `content.js` fetches annotation HTML from `/metadata/annotation/`
-4. `transclude.js` resolves any include-links in the annotation
-5. `rewrite.js` handlers transform the popup content
-6. Popup displays with smart positioning
+1. `extracts.js` detects the link type and prepares the extract
+2. `popups.js` spawns a popup frame (after delay)
+3. `transclude.js` handles content embedding
+4. `content.js` fetches annotation HTML from `/metadata/annotation/`
+5. `layout.js` / `transclude.js` / `rewrite.js` transform the content
+6. `popups.js` displays the popup with smart positioning
+7. Additional `rewrite.js` handlers run post-display
 
-**Why client-side enhancement?** Some transforms depend on viewport size, user preferences, or dynamic state that can't be known at build time.
+**Why client-side enhancement?** Primarily because doing this at build time would require fetching and embedding the entire transitive closure of linked content—the build would take forever and HTML files would be enormous. Additionally, some transforms depend on viewport size, user preferences, or dynamic state that can't be known at build time.
 
-**Deeper dive:** [extracts.js](/frontend/extracts-js), [popups.js](/frontend/popups-js), [transclude.js](/frontend/transclude-js)
+**Deeper dive:** [extracts.js](/frontend/extracts-js), [popups.js](/frontend/popups-js), [transclude.js](/frontend/transclude-js), [layout.js](/frontend/layout-js)
 
 ## A Link's Complete Journey
 
