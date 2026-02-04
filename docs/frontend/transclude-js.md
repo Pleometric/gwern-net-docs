@@ -9,7 +9,7 @@ Dynamic content embedding system - fetches content from other pages and injects 
 
 ## Overview
 
-Transclusion is a core Zettelkasten feature that lets you embed content from other pages inline rather than just linking to them. When you put an include-link like `<a class="include" href="/sidenote#comparisons"></a>` in a page, this module replaces that link with the actual content of the `#comparisons` section from `/sidenote`.
+Transclusion is a feature (inspired by [Project Xanadu](https://en.wikipedia.org/wiki/Project_Xanadu), [English Wikipedia](https://en.wikipedia.org/wiki/English_Wikipedia), [Everything2](https://en.wikipedia.org/wiki/Everything2), and [Urticator.net](http://www.urticator.net/)) that lets you embed content from other pages inline rather than just linking to them. When you put an include-link like `<a class="include" href="/sidenote#comparisons"></a>` in a page, this module replaces that link with the actual content of the `#comparisons` section from `/sidenote`.
 
 The module handles three major concerns:
 

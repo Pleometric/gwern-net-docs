@@ -85,7 +85,7 @@ This keeps the code modular. The popup system doesn't need to know about the sid
 
 **Annotations**: Every link can have rich metadata attached (title, author, date, abstract, tags). During build time, scrapers fetch this information from sources like arXiv, Wikipedia, and PDFs. At runtime, this data appears in hover popups.
 
-**Transclusion**: Pages can embed content from other pages inline. This Zettelkasten-inspired feature lets you reference related content without the reader leaving the page.
+**Transclusion**: Pages can embed content from other pages inline. This feature (inspired by [Project Xanadu](https://en.wikipedia.org/wiki/Project_Xanadu), [English Wikipedia](https://en.wikipedia.org/wiki/English_Wikipedia), [Everything2](https://en.wikipedia.org/wiki/Everything2), and [Urticator.net](http://www.urticator.net/)) lets you reference related content without the reader leaving the page.
 
 **Sidenotes**: Footnotes are converted to margin notes on wide screens, keeping annotations visible alongside the text they reference.
 
