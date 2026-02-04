@@ -25,7 +25,7 @@ gwern.net is a long-form essay site by pseudonymous writer Gwern Branwen, coveri
 
 What makes gwern.net technically interesting is its sophisticated custom infrastructure. The site features hover popups that show link previews and citations without leaving the page, inline transclusion (embedding content from other pages), margin sidenotes, automatic bibliography generation, and a preemptive link archiving system that mirrors external links locally to prevent link rot.
 
-The backend is built with [Hakyll](https://jaspervdj.be/hakyll/), a static site generator written in Haskell, combined with [Pandoc](https://pandoc.org/) for Markdown processing. Custom Haskell modules transform the content during build time, handling everything from typography fixes to annotation scraping. The frontend is a custom vanilla JavaScript framework (no React, Vue, etc.) built around a pub/sub event system that coordinates popups, transclusion, theming, and dozens of other features.
+The backend is built with [Hakyll](https://jaspervdj.be/hakyll/), a static site generator written in Haskell, combined with [Pandoc](https://pandoc.org/) for Markdown processing. Custom Haskell modules transform the content during build time, handling everything from typography fixes to annotation scraping. The frontend, written by [Said Achmiz](https://github.com/achmizs), is a custom vanilla JavaScript framework (no React, Vue, etc.) built around a pub/sub event system that coordinates popups, transclusion, theming, and dozens of other features.
 
 ## Why This Documentation?
 
