@@ -23,7 +23,7 @@ This is a Docusaurus site containing 180+ documentation files covering the entir
 
 ## Why does this exist?
 
-[gwern.net](https://gwern.net) is a long-form essay site by [Gwern Branwen](https://gwern.net/about), with frontend development by [Said Achmiz](https://www.yourmagicisworking.net/). The site is known for rigorous research essays on AI, statistics, psychology, and more. What makes it technically interesting is its sophisticated custom infrastructure which has been in active development since January 2009 (~17 years). The backend uses [Hakyll](https://jaspervdj.be/hakyll/) (Haskell) with [Pandoc](https://pandoc.org/) for Markdown processing. The frontend is a custom vanilla JavaScript framework built around a pub/sub event system.
+[gwern.net](https://gwern.net) is a long-form essay site by [Gwern Branwen](https://gwern.net/about), with frontend development by [Said Achmiz](https://github.com/achmizs). The site is known for rigorous research essays on AI, statistics, psychology, and more. What makes it technically interesting is its sophisticated custom infrastructure which has been in active development since January 2009 (~17 years). The backend uses [Hakyll](https://jaspervdj.be/hakyll/) (Haskell) with [Pandoc](https://pandoc.org/) for Markdown processing. The frontend is a custom vanilla JavaScript framework built around a pub/sub event system.
 
 I started this project out of curiosity after reading Gwern's site for years. The [source code is on GitHub](https://github.com/gwern/gwern.net) but it's large and constantly evolving. These docs aim to make exploration easier and serve as a map for anyone (human or AI) wanting to understand how it all works.
 
