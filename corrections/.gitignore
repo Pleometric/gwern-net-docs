@@ -1,0 +1,4 @@
+# Keep only canonical ledger in git
+*
+!mistakes-ledger.jsonl
+!.gitignore
