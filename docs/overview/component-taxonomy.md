@@ -401,7 +401,9 @@ Supporting code, configuration, templates, and server setup.
 | [upload](/shell/upload) | 2 | File upload with processing |
 | [download-title](/shell/download-title) | 2 | Download and extract title |
 | [gwsed](/shell/gwsed) | 2 | Site-wide string replacement |
+| [substack-check](/shell/substack-check) | 2 | Substack domain detection/filtering |
 | [compress-gif](/shell/compress-gif) | 2 | GIF compression optimization |
+| [compress-jpg](/shell/compress-jpg) | 2 | JPG compression optimization |
 | [compress-png](/shell/compress-png) | 2 | PNG compression optimization |
 
 ### Configuration Modules
@@ -437,7 +439,7 @@ Supporting code, configuration, templates, and server setup.
 | File | Score | Role |
 |------|-------|------|
 | [include-footer](/templates/include-footer) | 3 | Footer include |
-| [include-sidebar](/templates/include-sidebar) | 3 | Sidebar include |
+| [include-navbar](/templates/include-navbar) | 3 | Navbar include |
 | [include-inlined-asset-links](/templates/include-inlined-asset-links) | 2 | Asset link include |
 | [include-inlined-head](/templates/include-inlined-head) | 2 | Head include |
 | [include-inlined-standalone](/templates/include-inlined-standalone) | 2 | Standalone include |

@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 
 :::info Source Version
-These docs are based on gwern.net commit [`57e5aa5df`](https://github.com/gwern/gwern.net/commit/57e5aa5df) (2026-02-01)
+These docs are based on gwern.net commit [`d6a316c32`](https://github.com/gwern/gwern.net/commit/d6a316c32461c76e3a5917f55abeed998bb3656a) (2026-02-08)
 :::
 
 # Codebase Documentation for gwern.net

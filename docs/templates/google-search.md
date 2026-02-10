@@ -357,4 +357,4 @@ Coordinates with:
 - [extracts.js](/frontend/extracts-js) - Popup/embed content coordinator
 - [content.js](/frontend/content-js) - Content type definitions and handlers
 - [default.html](/templates/default) - Main page template that may link to search
-- [include-sidebar](/templates/include-sidebar) - Sidebar that may contain search links
+- [include-navbar](/templates/include-navbar) - Navbar that may contain search links

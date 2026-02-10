@@ -31,7 +31,7 @@ I started this project out of curiosity after reading Gwern's site for years. Th
 
 - **Main site**: [github.com/gwern/gwern.net](https://github.com/gwern/gwern.net)
 
-These docs are based on commit [`57e5aa5df`](https://github.com/gwern/gwern.net/commit/57e5aa5df) (2025-02-01).
+These docs are based on commit [`d6a316c32`](https://github.com/gwern/gwern.net/commit/d6a316c32461c76e3a5917f55abeed998bb3656a) (2026-02-08).
 
 ## How These Docs Were Created
 

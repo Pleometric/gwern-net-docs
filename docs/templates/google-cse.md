@@ -166,4 +166,4 @@ The page uses:
 - [transclude.js](/frontend/transclude-js) - May embed this page into other contexts
 - [extracts.js](/frontend/extracts-js) - Coordinates popup/embed behavior
 - [default.html](/templates/default) - Main page template that may link to search
-- [include-sidebar](/templates/include-sidebar) - Sidebar that may contain search links
+- [include-navbar](/templates/include-navbar) - Navbar that may contain search links

@@ -78,7 +78,7 @@ The footer interacts with several frontend systems:
 ## See Also
 
 - [default.html](/templates/default) - Main page template that includes the footer via SSI
-- [include-sidebar](/templates/include-sidebar) - Companion site-wide navigation component
+- [include-navbar](/templates/include-navbar) - Companion site-wide navigation component
 - [include-inlined-head](/templates/include-inlined-head) - Critical CSS/JS inlined in head
 - [transclude.js](/frontend/transclude-js) - Handles `.include` element content loading
 - [dark-mode.js](/frontend/dark-mode-js) - Theme system that processes `.dark-mode-invert`

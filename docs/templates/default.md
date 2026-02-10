@@ -10,7 +10,7 @@ Main Hakyll template for all standard gwern.net pages.
 
 ## Overview
 
-The `default.html` template is the primary HTML wrapper for all gwern.net content pages. It provides the complete HTML document structure, including the `<head>` section with extensive metadata (Dublin Core, OpenGraph, Twitter Cards, Google Scholar citations), Server-Side Include (SSI) directives for performance-critical resources, and the `<body>` layout with sidebar, article content, and footer.
+The `default.html` template is the primary HTML wrapper for all gwern.net content pages. It provides the complete HTML document structure, including the `<head>` section with extensive metadata (Dublin Core, OpenGraph, Twitter Cards, Google Scholar citations), Server-Side Include (SSI) directives for performance-critical resources, and the `<body>` layout with navbar, article content, and footer.
 
 This template is invoked for all regular pages (essays, essays, notes) and also for 404 pages; `error404` is a metadata flag that toggles special-case behavior within the template. It implements a sophisticated metadata system that supports rich social media previews, academic citation, and SEO optimization. The template uses conditional Hakyll variables to customize behavior based on page type (e.g., displaying different metadata fields for the index page versus article pages).
 
@@ -42,7 +42,7 @@ The template heavily relies on SSI (Server-Side Includes) to inline critical CSS
 
 - `<!--#include virtual="/static/include/inlined-head.html" -->`: Critical CSS/JS inlined for performance
 - `<!--#include virtual="/static/include/inlined-asset-links.html" -->`: Preload/prefetch resource hints
-- `<!--#include virtual="/static/include/sidebar.html" -->`: Navigation sidebar
+- `<!--#include virtual="/static/include/navbar.html" -->`: Navigation navbar
 - `<!--#include virtual="/static/include/footer.html" -->`: Site footer
 
 ### Content Blocks
@@ -79,7 +79,7 @@ The template expects specific CSS class conventions:
 
 - [hakyll.hs](/backend/hakyll-hs) - Hakyll build system that invokes this template
 - [include-footer](/templates/include-footer) - Footer component included via SSI
-- [include-sidebar](/templates/include-sidebar) - Sidebar navigation included via SSI
+- [include-navbar](/templates/include-navbar) - Navbar navigation included via SSI
 - [include-inlined-head](/templates/include-inlined-head) - Critical CSS/JS inlined in document head
 - [include-inlined-asset-links](/templates/include-inlined-asset-links) - Deferred asset loading
 - [sourcecode.html5](/templates/sourcecode) - Alternative template for syntax-highlighted code
