@@ -1,5 +1,5 @@
 ---
-title: gwern.net Page Lifecycle
+title: Page Lifecycle
 description: Step-by-step documentation of how a gwern.net Markdown page becomes rendered HTML through preprocessing, Hakyll, Pandoc transforms, validation, deployment, and browser runtime code.
 sidebar_position: 0
 ---
