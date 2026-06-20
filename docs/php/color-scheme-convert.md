@@ -1,12 +1,24 @@
 ---
+title: "color-scheme-convert.php"
+description: "This sophisticated script implements color space transformations to automatically generate alternate color schemes (particularly dark modes) from a source CSS file."
 sidebar_position: 5
 ---
 
 # color-scheme-convert.php
 
-**Path:** `build/color-scheme-convert.php` | **Language:** PHP | **Lines:** 650
+This sophisticated script implements color space transformations to automatically generate alternate color schemes (particularly dark modes) from a source CSS file.
 
-Transforms CSS color values through various color spaces to generate dark mode or alternate color scheme stylesheets.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/color-scheme-convert.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>650</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/color-scheme-convert.php">build/color-scheme-convert.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around color-scheme-convert.
+</div>
 
 ## Overview
 
@@ -122,7 +134,8 @@ The use of perceptually uniform color spaces (Lab, Oklab) ensures that "lightnes
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [build-mode-css](/php/build-mode-css) - PHP script that invokes this color converter
 - [colors](/css/colors) - Base color definitions (input to this script)
@@ -130,3 +143,4 @@ The use of perceptually uniform color spaces (Lab, Oklab) ensures that "lightnes
 - [dark-mode-js](/frontend/dark-mode-js) - Client-side theme toggling
 - [color-js](/frontend/color-js) - JavaScript equivalent for runtime color transforms
 - [sync-sh](/backend/sync-sh) - Build orchestrator that runs CSS generation
+</details>

@@ -1,12 +1,24 @@
 ---
+title: "inlined-standalone.html"
+description: "The inlined-standalone.html include file is an alternative to inlined-asset-links.html designed for \"standalone\" pages that need to be more self-contained."
 sidebar_position: 5
 ---
 
 # inlined-standalone.html
 
-**Path:** `include/inlined-standalone.html` | **Language:** HTML/CSS | **Lines:** 347
+The inlined-standalone.html include file is an alternative to inlined-asset-links.html designed for "standalone" pages that need to be more self-contained.
 
-Standalone page variant that inlines core color variables but still links `head.css` and `style.css` externally.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>include/inlined-standalone.html</code></div>
+  <div><strong>Language</strong>HTML/CSS</div>
+  <div><strong>Lines</strong>347</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/include/inlined-standalone.html">include/inlined-standalone.html</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around inlined-standalone.
+</div>
 
 ## Overview
 
@@ -122,7 +134,8 @@ The decision of which variant to use is made during the Hakyll build process bas
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [default.html](/templates/default) - Main page template for regular pages
 - [include-inlined-head](/templates/include-inlined-head) - Critical inline resources
@@ -130,3 +143,4 @@ The decision of which variant to use is made during the Hakyll build process bas
 - [sourcecode.html5](/templates/sourcecode) - Source code template that uses standalone includes
 - [hakyll.hs](/backend/hakyll-hs) - Static site generator that determines page variants
 - [colors.css](/css/colors) - CSS custom properties bundled inline
+</details>

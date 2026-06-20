@@ -1,10 +1,23 @@
+---
+title: "Utext.hs"
+description: "Converts Pandoc documents and metadata strings into Unicode-rich plain text for social cards and other non-HTML contexts."
+---
+
 # Utext.hs
 
-**Path:** `build/Utext.hs` | **Language:** Haskell | **Lines:** 773
+Converts Pandoc documents and metadata strings into Unicode-rich plain text for social cards and other non-HTML contexts.
 
-> Converts Pandoc documents and metadata strings into Unicode-rich plain text for social cards and other non-HTML contexts.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Utext.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>773</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Utext.hs">build/Utext.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Utext.
+</div>
 
 ## Overview
 
@@ -18,9 +31,11 @@ Pure conversion functions include `pandocToUtext`, `inlinesToUtext`, `inlineToUt
 
 The IO API, including `pandocToUtextIO`, `rawText2UtextIO`, `rawHtml2UtextIO`, and `rawMarkdown2UtextIO`, uses `latex2unicode.py` for math conversion before rendering.
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 Rendering style state and tests live in [Config.Utext](/backend/config-utext-hs). `Utext.hs` imports `Config.Utext.defaultStyle`, `Style`, and `traceLimit`.
+</details>
 
 ## Limitations
 

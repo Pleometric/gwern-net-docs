@@ -1,10 +1,23 @@
+---
+title: "compressPNG"
+description: "compressPNG optimizes PNG files through a two-stage process: first lossy color quantization with pngnq, then lossless compression with optipng."
+---
+
 # compressPNG
 
-**Path:** `build/compressPNG` | **Language:** Bash | **Lines:** 124
+compressPNG optimizes PNG files through a two-stage process: first lossy color quantization with pngnq, then lossless compression with optipng.
 
-Lossy and lossless PNG compression using pngnq and optipng with intelligent replacement.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/compressPNG</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>124</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/compressPNG">build/compressPNG</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing shell automation, compression, upload/download helpers, linting, or preprocessing around compressPNG.
+</div>
 
 ## Overview
 
@@ -127,13 +140,15 @@ done
 
 ---
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
 | `N` | 14 | Max parallel jobs for directory processing |
 
 ---
+</details>
 
 ## Dependencies
 
@@ -198,8 +213,10 @@ fi
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [compressGIF](/shell/compress-gif) - Similar script for GIF compression
 - [sync.sh](/backend/sync-sh) - Main build script that may call image optimizers
 - [Image.hs](/backend/image-hs) - Haskell image processing utilities
+</details>

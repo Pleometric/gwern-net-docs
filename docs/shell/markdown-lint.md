@@ -1,14 +1,24 @@
 ---
+title: "markdown-lint.sh"
+description: "This script performs extensive quality control on gwern.net Markdown files, running dozens of checks for syntax errors, broken links, style violations, metadata completeness, and."
 sidebar_position: 5
 ---
 
 # markdown-lint.sh
 
-**Path:** `build/markdown-lint.sh` | **Language:** Bash | **Lines:** 134
+This script performs extensive quality control on gwern.net Markdown files, running dozens of checks for syntax errors, broken links, style violations, metadata completeness, and.
 
-Comprehensive linter for Markdown files, checking for common errors, style violations, and metadata quality.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/markdown-lint.sh</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>134</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/markdown-lint.sh">build/markdown-lint.sh</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing shell automation, compression, upload/download helpers, linting, or preprocessing around markdown-lint.
+</div>
 
 ## Overview
 
@@ -145,7 +155,8 @@ After Pandoc compilation, validates:
 - `linkExtractor`: Custom Haskell link parser
 - `runghc`: Haskell interpreter for inline scripts
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [sync.sh](/backend/sync-sh) - Build process that runs linting
 - [preprocessMarkdown.hs](/backend/preprocess-markdown-hs) - Markdown preprocessing pipeline
@@ -153,3 +164,4 @@ After Pandoc compilation, validates:
 - [markdown-length-checker.hs](/backend/markdown-length-checker-hs) - Line length validator
 - [markdown-footnote-length.hs](/backend/markdown-footnote-length-hs) - Footnote size analyzer
 - [anchor-checker.php](/php/anchor-checker) - HTML anchor validation
+</details>

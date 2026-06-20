@@ -1,11 +1,23 @@
+---
+title: "Annotation.Biorxiv"
+description: "Scrapes metadata from bioRxiv and medRxiv preprint pages using Dublin Core meta tags"
+---
 
 # Annotation.Biorxiv
 
-**Path:** `build/Annotation/Biorxiv.hs` | **Language:** Haskell | **Lines:** 59
+Scrapes metadata from bioRxiv and medRxiv preprint pages using Dublin Core meta tags
 
-> Scrapes metadata from bioRxiv and medRxiv preprint pages using Dublin Core meta tags
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Annotation/Biorxiv.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>59</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Annotation/Biorxiv.hs">build/Annotation/Biorxiv.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Annotation.Biorxiv.
+</div>
 
 ## Overview
 
@@ -90,7 +102,8 @@ Low-level extractors that pattern match on `TagOpen` with attribute lists. Error
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### PDF URL Short-Circuit
 
@@ -122,8 +135,10 @@ let abstractRaw' = if not (null abstractRaw) then abstractRaw
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 No direct configuration. Behavior is controlled by:
 
@@ -132,6 +147,7 @@ No direct configuration. Behavior is controlled by:
 - **Abstract processing:** Delegated to `cleanAbstractsHTML` and `processParagraphizer`
 
 ---
+</details>
 
 ## Integration Points
 
@@ -177,7 +193,8 @@ Returns standard `MetadataItem` 7-tuple:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Annotation.hs](/backend/annotation-hs) - Parent dispatcher that routes URLs to this scraper
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Stores extracted annotations in the metadata database
@@ -188,3 +205,4 @@ Returns standard `MetadataItem` 7-tuple:
 - [Paragraph.hs](/backend/paragraph-hs) - LLM-based paragraph splitting for abstracts
 
 ---
+</details>

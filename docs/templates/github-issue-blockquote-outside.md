@@ -1,12 +1,24 @@
 ---
+title: "github-issue-blockquote-outside.tmpl"
+description: "This template generates the HTML structure for displaying GitHub issue content in popups and transclusions."
 sidebar_position: 10
 ---
 
 # github-issue-blockquote-outside.tmpl
 
-**Path:** `template/include/github-issue-blockquote-outside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 3
+This template generates the HTML structure for displaying GitHub issue content in popups and transclusions.
 
-Template fragment for rendering GitHub issue content with a blockquote wrapper.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/include/github-issue-blockquote-outside.tmpl</code></div>
+  <div><strong>Language</strong>HTML5/Pandoc</div>
+  <div><strong>Lines</strong>3</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/include/github-issue-blockquote-outside.tmpl">template/include/github-issue-blockquote-outside.tmpl</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around github-issue-blockquote-outside.tmpl.
+</div>
 
 ## Overview
 
@@ -35,7 +47,8 @@ The outer `<blockquote>` provides semantic meaning and default citation styling.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [github-issue-blockquote-not.tmpl](/templates/github-issue-blockquote-not) - Variant without blockquote wrapper
 - [annotation-blockquote-not.tmpl](/templates/annotation-blockquote-not) - Similar pattern for annotations
@@ -44,3 +57,4 @@ The outer `<blockquote>` provides semantic meaning and default citation styling.
 - [popups.js](/frontend/popups-js) - Handles popup windowing and positioning
 - [transclude.js](/frontend/transclude-js) - Handles inline content transclusion
 - [extracts.js](/frontend/extracts-js) - Coordinator for displaying popup/transclude content
+</details>

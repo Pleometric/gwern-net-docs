@@ -1,10 +1,23 @@
+---
+title: "remove-duplicates.py"
+description: "Lints and optionally prunes duplicate nginx redirect map keys."
+---
+
 # remove-duplicates.py
 
-**Path:** `nginx/redirect/remove-duplicates.py` | **Language:** Python | **Lines:** 331
+Lints and optionally prunes duplicate nginx redirect map keys.
 
-> Lints and optionally prunes duplicate nginx redirect `map` keys.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>nginx/redirect/remove-duplicates.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>331</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/nginx/redirect/remove-duplicates.py">nginx/redirect/remove-duplicates.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing server routing, redirects, deployment configuration, or Nginx behavior around remove-duplicates.
+</div>
 
 ## Overview
 

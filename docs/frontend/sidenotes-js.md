@@ -1,11 +1,23 @@
+---
+title: "sidenotes.js"
+description: "Dynamically positions footnotes as margin sidenotes with collision avoidance"
+---
 
 # sidenotes.js
 
-**Path:** `js/sidenotes.js` | **Language:** JavaScript | **Lines:** 1325
+Dynamically positions footnotes as margin sidenotes with collision avoidance
 
-> Dynamically positions footnotes as margin sidenotes with collision avoidance
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/sidenotes.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>1325</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/sidenotes.js">js/sidenotes.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around sidenotes.
+</div>
 
 ## Overview
 
@@ -170,7 +182,8 @@ The `mediaQueries.viewportWidthBreakpoint` media query triggers:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Collision Avoidance via Push-Up Recursion
 
@@ -264,8 +277,10 @@ requestIdleCallback(() => {
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 Defined at the top of the `Sidenotes` object:
 
@@ -290,6 +305,7 @@ Sidenotes.mediaQueries = {
 ```
 
 ---
+</details>
 
 ## Integration Points
 
@@ -330,7 +346,8 @@ Sidenotes.mediaQueries = {
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [layout.js](/frontend/layout-js) - Block layout system that triggers sidenote repositioning
 - [rewrite.js](/frontend/rewrite-js) - DOM transforms including citation highlight bindings
@@ -339,3 +356,4 @@ Sidenotes.mediaQueries = {
 - [transclude.js](/frontend/transclude-js) - Content transclusion for sidenote content
 - [extracts.js](/frontend/extracts-js) - Popup system (alternative to sidenotes)
 - [typography.js](/frontend/typography-js) - Text processing used in sidenote captions
+</details>

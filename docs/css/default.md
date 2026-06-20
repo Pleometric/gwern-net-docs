@@ -1,14 +1,24 @@
 ---
+title: "default.css"
+description: "This is gwern.net's largest stylesheet, a massive generated file with approximately 7,500 lines covering every component, widget, and interactive element not included in the."
 sidebar_position: 2
 ---
 
 # default.css
 
-**Path:** `css/default.css` | **Language:** CSS | **Lines:** 7679
+This is gwern.net's largest stylesheet, a massive generated file with approximately 7,500 lines covering every component, widget, and interactive element not included in the.
 
-The main stylesheet containing all non-critical component styles for gwern.net.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/default.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>7679</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/default.css">css/default.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing styling, layout, typography, color, or mode-specific CSS around default.
+</div>
 
 ## Overview
 
@@ -143,7 +153,8 @@ Because this is a generated file, it may include redundant or legacy styles that
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [initial](/css/initial) - Critical inline styles loaded first
 - [colors](/css/colors) - Color variable definitions
@@ -152,3 +163,4 @@ Because this is a generated file, it may include redundant or legacy styles that
 - [popups-js](/frontend/popups-js) - JavaScript for popup window management
 - [sidenotes-js](/frontend/sidenotes-js) - JavaScript for sidenote positioning
 - [collapse-js](/frontend/collapse-js) - JavaScript for collapse block behavior
+</details>

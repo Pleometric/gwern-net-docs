@@ -1,10 +1,23 @@
+---
+title: "compressGIF"
+description: "compressGIF optimizes GIF files using the gifsicle tool, but only replaces the original when the savings are worthwhile (>10% reduction)."
+---
+
 # compressGIF
 
-**Path:** `build/compressGIF` | **Language:** Bash | **Lines:** 71
+compressGIF optimizes GIF files using the gifsicle tool, but only replaces the original when the savings are worthwhile (>10% reduction).
 
-Lossless GIF compression script using gifsicle with intelligent file replacement.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/compressGIF</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>71</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/compressGIF">build/compressGIF</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing shell automation, compression, upload/download helpers, linting, or preprocessing around compressGIF.
+</div>
 
 ## Overview
 
@@ -177,8 +190,10 @@ This is why the threshold-based replacement is essential—without it, every GIF
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [compressPNG](/shell/compress-png) - Similar script for PNG compression
 - [sync.sh](/backend/sync-sh) - Main build script that may call image optimizers
 - [Image.hs](/backend/image-hs) - Haskell image processing utilities
+</details>

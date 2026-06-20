@@ -1,14 +1,24 @@
 ---
+title: "gwern.net.conf"
+description: "This is the primary nginx configuration file for the gwern.net web server, containing over 1,100 lines of sophisticated request handling logic."
 sidebar_position: 1
 ---
 
 # gwern.net.conf
 
-**Path:** `nginx/gwern.net.conf` | **Language:** Nginx | **Lines:** 1675
+This is the primary nginx configuration file for the gwern.net web server, containing over 1,100 lines of sophisticated request handling logic.
 
-Main nginx web server configuration file for serving gwern.net with extensive URL rewrites, Markdown API support, and bot protection.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>nginx/gwern.net.conf</code></div>
+  <div><strong>Language</strong>Nginx</div>
+  <div><strong>Lines</strong>1675</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/nginx/gwern.net.conf">nginx/gwern.net.conf</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing server routing, redirects, deployment configuration, or Nginx behavior around gwern.net.
+</div>
 
 ## Overview
 
@@ -193,7 +203,8 @@ Server-Side Includes allow updating site-wide elements (headers, footers, naviga
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [redirect-nginx](/nginx/redirect-nginx) - Nginx map with 12,000+ URL redirect rules
 - [redirect-nginx-broken](/nginx/redirect-nginx-broken) - Nginx map for broken/malicious URL handling
@@ -202,3 +213,4 @@ Server-Side Includes allow updating site-wide elements (headers, footers, naviga
 - [rsyncd.conf](/nginx/rsyncd-conf) - Rsync daemon for dataset distribution
 - [default.html](/templates/default) - Main template with SSI directives this config processes
 - [sync.sh](/backend/sync-sh) - Build and deployment orchestrator
+</details>

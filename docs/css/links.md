@@ -1,14 +1,24 @@
 ---
+title: "links.css"
+description: "This stylesheet implements gwern.net's distinctive link iconography system, which adds small visual indicators after links to denote their type, source domain, or file format."
 sidebar_position: 4
 ---
 
 # links.css
 
-**Path:** `css/links.css` | **Language:** CSS | **Lines:** 1100
+This stylesheet implements gwern.net's distinctive link iconography system, which adds small visual indicators after links to denote their type, source domain, or file format.
 
-Comprehensive link icon and annotation indicator system for external and specialized links.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/links.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>1100</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/links.css">css/links.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing styling, layout, typography, color, or mode-specific CSS around links.
+</div>
 
 ## Overview
 
@@ -89,7 +99,8 @@ This file is loaded **asynchronously** after initial page render as part of the 
 
 The icons are generated server-side by the Haskell build system (LinkIcon.hs module), which analyzes URLs and assigns appropriate `data-link-icon` attributes. This CSS then styles those attributes.
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [links.css (Frontend)](/frontend/links-css) - Frontend documentation for the link icon system
 - [LinkIcon.hs](/backend/link-icon-hs) - Server-side Haskell module that assigns link icons
@@ -97,3 +108,4 @@ The icons are generated server-side by the Haskell build system (LinkIcon.hs mod
 - [build_icon_sprite_file.php](/php/build-icon-sprite-file) - Generates the SVG sprite sheet
 - [default.css](/css/default) - Main stylesheet that imports link styles
 - [extracts.js](/frontend/extracts-js) - Handles popup annotations that the indicator system marks
+</details>

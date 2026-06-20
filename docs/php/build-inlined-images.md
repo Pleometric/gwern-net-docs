@@ -1,12 +1,24 @@
 ---
+title: "build_inlined_images.php"
+description: "This script converts image files (SVG and bitmap formats) into CSS custom properties with data URIs, enabling critical images to be embedded directly into stylesheets."
 sidebar_position: 5
 ---
 
 # build_inlined_images.php
 
-**Path:** `build/build_inlined_images.php` | **Language:** PHP | **Lines:** 85
+This script converts image files (SVG and bitmap formats) into CSS custom properties with data URIs, enabling critical images to be embedded directly into stylesheets.
 
-Generates CSS custom property definitions containing base64-encoded images.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/build_inlined_images.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>85</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/build_inlined_images.php">build/build_inlined_images.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around build_inlined_images.
+</div>
 
 ## Overview
 
@@ -87,7 +99,8 @@ The generated CSS files are imported into `head.css` and `style.css`, making the
 }
 ```
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Image.hs](/backend/image-hs) - Server-side image processing pipeline
 - [sync.sh](/backend/sync-sh) - Build orchestrator that calls this script
@@ -96,3 +109,4 @@ The generated CSS files are imported into `head.css` and `style.css`, making the
 - [colors.css](/css/colors) - CSS that uses inlined image variables
 - [initial.css](/css/initial) - Initial CSS that may include inlined images
 - [image-focus.js](/frontend/image-focus-js) - Client-side image handling
+</details>

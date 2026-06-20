@@ -1,11 +1,23 @@
+---
+title: "Config.Tags"
+description: "Tag system configuration: aliases, hierarchy mappings, and display formatting"
+---
 
 # Config.Tags
 
-**Path:** `build/Config/Tags.hs` | **Language:** Haskell | **Lines:** 1003
+Tag system configuration: aliases, hierarchy mappings, and display formatting
 
-> Tag system configuration: aliases, hierarchy mappings, and display formatting
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/Tags.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>1003</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/Tags.hs">build/Config/Tags.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.Tags.
+</div>
 
 ## Overview
 
@@ -132,7 +144,8 @@ User input (annotation, URL, directory path)
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 **Hierarchical tag paths**: Tags use slash-separated paths that mirror both the site's directory structure and conceptual taxonomy. "ai/nn/transformer/gpt/4/poetry" encodes: domain (AI) → architecture (neural network) → family (transformer) → model (GPT) → version (4) → content type (poetry).
 
@@ -143,8 +156,10 @@ User input (annotation, URL, directory path)
 **Aggressive typo tolerance**: The 3-character edit distance combined with ~200 explicit typo mappings means common errors like "gpt4" or "transfomer" resolve correctly.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration is compile-time via the literal tables in this module. To add:
 
@@ -154,6 +169,7 @@ All configuration is compile-time via the literal tables in this module. To add:
 - **Block a tag**: Add to `tagGuessBlacklist` or `tagListBlacklist`
 
 ---
+</details>
 
 ## Integration Points
 
@@ -171,7 +187,8 @@ All configuration is compile-time via the literal tables in this module. To add:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Tags.hs](/backend/tags-hs) - Core tag manipulation logic consuming this configuration
 - [guessTag.hs](/backend/guess-tag-hs) - CLI tool using `tagsShort2Long` for tag expansion
@@ -180,3 +197,4 @@ All configuration is compile-time via the literal tables in this module. To add:
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Metadata management with tag support
 - [Hakyll.hs](/backend/hakyll-hs) - Site generator that renders tag links
 - [Utils.hs](/backend/utils-hs) - Provides `anyPrefix` and `anyInfix` helpers
+</details>

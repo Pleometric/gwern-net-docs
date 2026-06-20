@@ -1,14 +1,24 @@
 ---
+title: "dark-mode-adjustments.css"
+description: "This stylesheet contains all the color and visual adjustments necessary to transform gwern.net from its default light theme to a dark theme."
 sidebar_position: 5
 ---
 
 # dark-mode-adjustments.css
 
-**Path:** `css/dark-mode-adjustments.css` | **Language:** CSS | **Lines:** 173
+This stylesheet contains all the color and visual adjustments necessary to transform gwern.net from its default light theme to a dark theme.
 
-Dark mode color and filter overrides for gwern.net's dark theme.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/dark-mode-adjustments.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>173</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/dark-mode-adjustments.css">css/dark-mode-adjustments.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing styling, layout, typography, color, or mode-specific CSS around dark-mode-adjustments.
+</div>
 
 ## Overview
 
@@ -68,10 +78,12 @@ This stylesheet is concatenated into `dark-mode-GENERATED.css` at build time and
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [colors](/css/colors) - Base color variable definitions that this file overrides
 - [light-mode-adjustments](/css/light-mode-adjustments) - Light mode pattern/texture URLs
 - [dark-mode-js](/frontend/dark-mode-js) - JavaScript that toggles dark mode via media attributes
 - [build-mode-css](/php/build-mode-css) - PHP script that generates mode CSS files
 - [color-scheme-convert](/php/color-scheme-convert) - Oklch color transformation for dark mode generation
+</details>

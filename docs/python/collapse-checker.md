@@ -1,14 +1,24 @@
 ---
+title: "collapse-checker.py"
+description: "Gwern.net uses \"collapses\" (disclosure widgets similar to ) to manage page complexity and allow readers to opt into levels of detail."
 sidebar_position: 4
 ---
 
 # collapse-checker.py
 
-**Path:** `build/collapse-checker.py` | **Language:** Python | **Lines:** 133
+Gwern.net uses "collapses" (disclosure widgets similar to ) to manage page complexity and allow readers to opt into levels of detail.
 
-Detects HTML blocks with `collapse` class that are too small and should not be collapsed.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/collapse-checker.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>133</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/collapse-checker.py">build/collapse-checker.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around collapse-checker.
+</div>
 
 ## Overview
 
@@ -63,7 +73,8 @@ python collapse-checker.py './metadata/annotation/https%3A%2F%2Fexample.com%2Fpa
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [collapse.js](/frontend/collapse-js) - Frontend JavaScript that handles collapse interactions
 - [daterange-checker.py](/python/daterange-checker) - Similar LLM-based validation tool
@@ -71,3 +82,4 @@ python collapse-checker.py './metadata/annotation/https%3A%2F%2Fexample.com%2Fpa
 - [sync.sh](/backend/sync-sh) - Build orchestrator that runs validation checks
 - [Annotation.hs](/backend/annotation-hs) - Backend annotation system generating collapse content
 - [transclude.js](/frontend/transclude-js) - Transclusion system with lazy-loaded collapses
+</details>

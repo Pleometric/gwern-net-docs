@@ -1,11 +1,23 @@
+---
+title: "changeTag.hs"
+description: "CLI tool for batch add/remove operations on link tags across metadata databases"
+---
 
 # changeTag.hs
 
-**Path:** `build/app/changeTag.hs` | **Language:** Haskell (runghc script) | **Lines:** 147
+CLI tool for batch add/remove operations on link tags across metadata databases
 
-> CLI tool for batch add/remove operations on link tags across metadata databases
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/app/changeTag.hs</code></div>
+  <div><strong>Language</strong>Haskell (runghc script)</div>
+  <div><strong>Lines</strong>147</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/app/changeTag.hs">build/app/changeTag.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around changeTag.
+</div>
 
 ## Overview
 
@@ -98,7 +110,8 @@ When modifying, only one file is written (the one containing the link), except f
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Tag Negation
 
@@ -152,8 +165,10 @@ addNewLink tag p = do
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 No external configuration. Paths are hardcoded:
 
@@ -168,6 +183,7 @@ No external configuration. Paths are hardcoded:
 Uses `Config.Misc.root` for path normalization.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -192,7 +208,8 @@ Uses `Config.Misc.root` for path normalization.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Tags.hs](/backend/tags-hs) - Tag utilities and fuzzy matching via `guessTagFromShort`
 - [Config.Tags](/backend/config-tags-hs) - Tag configuration with aliases and display names
@@ -201,3 +218,4 @@ Uses `Config.Misc.root` for path normalization.
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database manager
 - [Annotation.hs](/backend/annotation-hs) - URL-to-scraper dispatcher for new annotations
 - [Hakyll.hs](/backend/hakyll-hs) - Site generator consuming tag data
+</details>

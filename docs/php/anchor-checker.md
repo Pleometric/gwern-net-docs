@@ -1,12 +1,24 @@
 ---
+title: "anchor-checker.php"
+description: "This quality assurance tool scans HTML files to find broken local anchors (fragment identifiers like section-name)."
 sidebar_position: 6
 ---
 
 # anchor-checker.php
 
-**Path:** `build/anchor-checker.php` | **Language:** PHP | **Lines:** 173
+This quality assurance tool scans HTML files to find broken local anchors (fragment identifiers like section-name).
 
-Validates local fragment identifiers in HTML files to detect broken internal links.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/anchor-checker.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>173</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/anchor-checker.php">build/anchor-checker.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around anchor-checker.
+</div>
 
 ## Overview
 
@@ -144,10 +156,12 @@ fi
 - **Duplicate bad anchors**: De-duplicated in output via `array_unique()`
 - **Non-standard name attributes**: Accepts `name` on various elements for compatibility
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [hakyll.hs](/backend/hakyll-hs) - Site generator that produces HTML files to validate
 - [sync.sh](/backend/sync-sh) - Build orchestrator that invokes anchor checking
 - [markdown-lint.sh](/shell/markdown-lint) - Markdown linting that complements anchor checking
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation system that creates internal links
 - [LinkBacklink.hs](/backend/link-backlink-hs) - Backlink system creating anchor targets
+</details>

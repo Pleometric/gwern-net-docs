@@ -1,11 +1,23 @@
+---
+title: "Config.LinkSuggester"
+description: "Configuration for link suggestion filtering and whitelisting in Emacs integration"
+---
 
 # Config.LinkSuggester
 
-**Path:** `build/Config/LinkSuggester.hs` | **Language:** Haskell | **Lines:** 1275
+Configuration for link suggestion filtering and whitelisting in Emacs integration
 
-> Configuration for link suggestion filtering and whitelisting in Emacs integration
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/LinkSuggester.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>1275</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/LinkSuggester.hs">build/Config/LinkSuggester.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.LinkSuggester.
+</div>
 
 ## Overview
 
@@ -101,7 +113,8 @@ The whitelist is a list of `(URL, [anchors])` tuples covering:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Negative Filtering vs Positive Whitelisting
 
@@ -127,8 +140,10 @@ filter (\(k,_) -> (k /= "") && (T.head k == '/' || isURI (T.unpack k)))
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Tuning Parameters
 
@@ -153,6 +168,7 @@ For URL filtering, add to the prefix/exact lists in `filterURLs`.
 For anchor filtering, add to `badAnchorStrings` or extend the regex patterns.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -170,7 +186,8 @@ This is a pure configuration module—no side effects. It's imported by the actu
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [linkSuggester](/backend/link-suggester-hs) - Main script that consumes this configuration
 - [linkExtractor](/backend/link-extractor-hs) - Extracts URLs for suggestion processing
@@ -178,3 +195,4 @@ This is a pure configuration module—no side effects. It's imported by the actu
 - [LinkID.hs](/backend/link-id-hs) - Citation ID generation for link deduplication
 - [Annotation.hs](/backend/annotation-hs) - Uses link suggestions during annotation processing
 - [Typography.hs](/backend/typography-hs) - Text transformation that may interact with anchor formatting
+</details>

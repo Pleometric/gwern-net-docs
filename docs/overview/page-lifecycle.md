@@ -8,6 +8,41 @@ sidebar_position: 0
 
 How a gwern.net page transforms from Markdown source to rendered HTML in the browser—and why each step exists.
 
+## At a Glance
+
+The lifecycle is easiest to read as two connected systems: the build-time compiler that turns Markdown into HTML, and the browser runtime that adds interactive reading features after deploy.
+
+<div className="lifecycle-flow">
+  <span>Markdown + YAML</span>
+  <span>sync.sh preprocessing</span>
+  <span>Generated content</span>
+  <span>Hakyll rules</span>
+  <span>Pandoc AST</span>
+  <span>Custom transforms</span>
+  <span>HTML + templates</span>
+  <span>Post-processing</span>
+  <span>Validation + deploy</span>
+  <span>Browser runtime</span>
+</div>
+
+<div className="phase-grid">
+  <div className="phase-card">
+    <h3>Authoring Inputs</h3>
+    <p>Markdown pages, YAML frontmatter, GTX annotations, templates, and source metadata enter the pipeline.</p>
+  </div>
+  <div className="phase-card">
+    <h3>Build-Time Expansion</h3>
+    <p>Shell scripts, generators, Hakyll, and Pandoc normalize links, create derived pages, and enrich the document AST.</p>
+  </div>
+  <div className="phase-card">
+    <h3>Output Hardening</h3>
+    <p>Rendered HTML is post-processed, checked, deployed, and cache-purged before readers see it.</p>
+  </div>
+  <div className="phase-card">
+    <h3>Runtime Behavior</h3>
+    <p>Frontend modules attach popups, annotations, sidenotes, transclusion, layout helpers, and mode controls in the browser.</p>
+  </div>
+</div>
 
 ## The Big Picture
 

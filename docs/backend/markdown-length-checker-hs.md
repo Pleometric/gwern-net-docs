@@ -1,11 +1,23 @@
+---
+title: "markdown-length-checker.hs"
+description: "Validates that code blocks in Markdown files don't contain overly long lines"
+---
 
 # markdown-length-checker.hs
 
-**Path:** `build/markdown-length-checker.hs` | **Language:** Haskell (runghc script) | **Lines:** 35
+Validates that code blocks in Markdown files don't contain overly long lines
 
-> Validates that code blocks in Markdown files don't contain overly long lines
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/markdown-length-checker.hs</code></div>
+  <div><strong>Language</strong>Haskell (runghc script)</div>
+  <div><strong>Lines</strong>35</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/markdown-length-checker.hs">build/markdown-length-checker.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around markdown-length-checker.
+</div>
 
 ## Overview
 
@@ -75,7 +87,8 @@ The `topDown longCodeLines` traversal visits every `Block` in the document. For 
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Pandoc AST Querying
 
@@ -94,8 +107,10 @@ The 110-character limit is hardcoded in `longCodeLines`. This value is a reasona
 Parse failures are reported but don't halt batch processing. The error message includes the problematic file path and Pandoc's error details.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Setting | Location | Default | Notes |
 |---------|----------|---------|-------|
@@ -103,6 +118,7 @@ Parse failures are reported but don't halt batch processing. The error message i
 | Pandoc extensions | `processLint` | `pandocExtensions` | Full extension set for gwern.net compatibility |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -128,10 +144,12 @@ Empty output means all code blocks pass. Non-empty output shows the full `CodeBl
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [hakyll.hs](/backend/hakyll-hs) - Main site generator using Pandoc AST
 - [sync.sh](/backend/sync-sh) - Build orchestrator (potential integration point)
 - [markdown-lint.sh](/shell/markdown-lint) - Linting script that may invoke this tool
 - [markdown-footnote-length.hs](/backend/markdown-footnote-length-hs) - Related footnote length checker
 - [Typography.hs](/backend/typography-hs) - Pandoc AST transformations
+</details>

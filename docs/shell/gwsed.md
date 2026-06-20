@@ -1,14 +1,24 @@
 ---
+title: "gwsed.sh"
+description: "This script performs fixed-string (literal, non-regex) search-and-replace operations across the core gwern.net corpus: Markdown files, Haskell source code, GTX annotations, and."
 sidebar_position: 3
 ---
 
 # gwsed.sh
 
-**Path:** `build/gwsed.sh` | **Language:** Bash | **Lines:** 75
+This script performs fixed-string (literal, non-regex) search-and-replace operations across the core gwern.net corpus: Markdown files, Haskell source code, GTX annotations, and.
 
-Site-wide string replacement tool for maintaining and updating URLs across the gwern.net codebase.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/gwsed.sh</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>75</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/gwsed.sh">build/gwsed.sh</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing shell automation, compression, upload/download helpers, linting, or preprocessing around gwsed.
+</div>
 
 ## Overview
 
@@ -88,7 +98,8 @@ $ gwsed.sh "/doc/ai/2024-smith.pdf" "/doc/ai/2024-smith.pdf#anthropic"
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [sync.sh](/backend/sync-sh) - Build system that may trigger rewrites
 - [StringReplace.hs](/backend/string-replace-hs) - Haskell utility for parallel string replacement
@@ -96,3 +107,4 @@ $ gwsed.sh "/doc/ai/2024-smith.pdf" "/doc/ai/2024-smith.pdf#anthropic"
 - [upload.sh](/shell/upload) - File upload that may require URL updates
 - [download-title.sh](/shell/download-title) - Title extraction for URL updates
 - [bash.sh](/backend/bash-sh) - Common shell functions including `gwhttp` helper
+</details>

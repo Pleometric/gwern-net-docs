@@ -1,11 +1,23 @@
+---
+title: "Annotation/PDF.hs"
+description: "Extracts metadata from local PDF files using exiftool and fetches abstracts from Crossref"
+---
 
 # Annotation/PDF.hs
 
-**Path:** `build/Annotation/PDF.hs` | **Language:** Haskell | **Lines:** 72
+Extracts metadata from local PDF files using exiftool and fetches abstracts from Crossref
 
-> Extracts metadata from local PDF files using exiftool and fetches abstracts from Crossref
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Annotation/PDF.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>72</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Annotation/PDF.hs">build/Annotation/PDF.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Annotation/PDF.
+</div>
 
 ## Overview
 
@@ -97,7 +109,8 @@ The returned tuple follows the standard gwern.net format:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Author/Creator Field Selection
 
@@ -127,8 +140,10 @@ let title = titleBase ++ (if null pageNumber' || null titleBase
 Each metadata field requires a separate `exiftool` invocation (5 total: Title, Author, Creator, Date, DOI). These run sequentially in the current implementation—a potential optimization point.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Crossref User-Agent
 
@@ -145,6 +160,7 @@ This identifies the scraper to Crossref per their API guidelines.
 The module calls `C.cd` at the start to ensure consistent working directory for `exiftool` path resolution.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -193,7 +209,8 @@ The distinction between `error` (programming bug) and `Left Permanent` (expected
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Annotation.hs](/backend/annotation-hs) - URL-to-scraper dispatcher that routes to this module
 - [Annotation/Gwernnet.hs](/backend/annotation-gwernnet-hs) - Calls this module for .pdf files
@@ -202,3 +219,4 @@ The distinction between `error` (programming bug) and `Left Permanent` (expected
 - [Metadata/Format.hs](/backend/metadata-format-hs) - String cleaning utilities (processDOI, trimTitle)
 - [Metadata/Author.hs](/backend/metadata-author-hs) - Author name normalization via cleanAuthors
 - [Paragraph.hs](/backend/paragraph-hs) - LLM-based paragraph splitting for Crossref abstracts
+</details>

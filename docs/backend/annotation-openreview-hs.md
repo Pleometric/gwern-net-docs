@@ -1,11 +1,23 @@
+---
+title: "Annotation.OpenReview"
+description: "Scrapes academic paper metadata from OpenReview.net conference papers"
+---
 
 # Annotation.OpenReview
 
-**Path:** `build/Annotation/OpenReview.hs` | **Language:** Haskell | **Lines:** 40
+Scrapes academic paper metadata from OpenReview.net conference papers
 
-> Scrapes academic paper metadata from OpenReview.net conference papers
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Annotation/OpenReview.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>40</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Annotation/OpenReview.hs">build/Annotation/OpenReview.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Annotation.OpenReview.
+</div>
 
 ## Overview
 
@@ -96,7 +108,8 @@ Returns a 7-tuple:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### URL Normalization
 
@@ -132,8 +145,10 @@ let desc' = cleanAbstractsHTML $ processArxivAbstract desc
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 No direct configuration options. Behavior is controlled by:
 
@@ -142,6 +157,7 @@ No direct configuration options. Behavior is controlled by:
 - Author normalization rules in `Metadata.Author`
 
 ---
+</details>
 
 ## Integration Points
 
@@ -171,7 +187,8 @@ OpenReview links display a distinctive "OR" icon in red (`#8c1b13`), matching th
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Annotation.hs](/backend/annotation-hs) - URL dispatcher that routes to this module
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Metadata database manager
@@ -182,3 +199,4 @@ OpenReview links display a distinctive "OR" icon in red (`#8c1b13`), matching th
 - [Paragraph.hs](/backend/paragraph-hs) - LLM-based paragraph splitting for abstracts
 
 ---
+</details>

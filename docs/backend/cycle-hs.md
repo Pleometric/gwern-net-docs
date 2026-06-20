@@ -1,11 +1,23 @@
+---
+title: "Cycle.hs"
+description: "Detects and prevents infinite loops in rewrite rule graphs"
+---
 
 # Cycle.hs
 
-**Path:** `build/Cycle.hs` | **Language:** Haskell | **Lines:** 50
+Detects and prevents infinite loops in rewrite rule graphs
 
-> Detects and prevents infinite loops in rewrite rule graphs
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Cycle.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>50</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Cycle.hs">build/Cycle.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Cycle.
+</div>
 
 ## Overview
 
@@ -109,7 +121,8 @@ This is O(n²) in the number of rules but rule lists are small (\<1000) and this
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Strongly Connected Components for Cycle Detection
 
@@ -131,8 +144,10 @@ The module supports two complementary approaches:
 - **Runtime**: `testInfixRewriteLoops` + `fixedPoint` detect actual infinite loops during transformation
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 Test cases live in `Config/Misc.hs`:
 
@@ -150,6 +165,7 @@ Covers:
 - Acyclic graphs
 
 ---
+</details>
 
 ## Integration Points
 
@@ -189,7 +205,8 @@ Databases validated with this module include:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [rewrite.js](/frontend/rewrite-js) - Frontend URL rewriting that benefits from cycle-free configs
 - [hakyll.hs](/backend/hakyll-hs) - Build system that uses validated rewrite rules
@@ -197,3 +214,4 @@ Databases validated with this module include:
 - [Test.hs](/backend/test-hs) - Build-time validation runner
 - [Tags.hs](/backend/tags-hs) - Uses cycle checking for tag rewrites
 - [Interwiki.hs](/backend/interwiki-hs) - Uses cycle checking for redirect rules
+</details>

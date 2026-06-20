@@ -1,11 +1,23 @@
+---
+title: "rename.hs"
+description: "Generates shell commands for safely renaming pages across the gwern.net codebase"
+---
 
 # rename.hs
 
-**Path:** `build/rename.hs` | **Language:** Haskell | **Lines:** 14
+Generates shell commands for safely renaming pages across the gwern.net codebase
 
-> Generates shell commands for safely renaming pages across the gwern.net codebase
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/rename.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>14</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/rename.hs">build/rename.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around rename.
+</div>
 
 ## Overview
 
@@ -56,7 +68,8 @@ Each step targets a different link format:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 **Code generation over direct action**: Rather than executing the rename itself, the script outputs commands for the user to run. This allows inspection before execution—critical since a broken rename can corrupt many files.
 
@@ -65,8 +78,10 @@ Each step targets a different link format:
 **Hidden file convention**: The `.{path}.md` naming suggests gwern.net may use hidden files for certain content, or this is a quirk of the local directory structure.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 None. The script is hardcoded to:
 - Assume files are `.md` with leading dots
@@ -74,6 +89,7 @@ None. The script is hardcoded to:
 - Append redirects to `~/wiki/static/nginx/redirect/move.conf`
 
 ---
+</details>
 
 ## Integration Points
 
@@ -114,10 +130,12 @@ $ runghc rename.hs /spaced-repetition /srs | bash
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Utils.hs](/backend/utils-hs) - Core utilities for string manipulation and file operations
 - [stringReplace.hs](/backend/string-replace-hs) - Parallel string replacement utility for batch processing
 - [sync.sh](/backend/sync-sh) - Build orchestrator that may invoke page renames
 - [redirectGuesser](/backend/nginx-redirect-guesser-hs) - Generates nginx redirect rules for broken URLs
 - [gwern.net.conf](/nginx/gwern-net-conf) - Nginx configuration where redirects are stored
+</details>

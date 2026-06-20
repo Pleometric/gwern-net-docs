@@ -1,11 +1,23 @@
+---
+title: "Config.LinkLive"
+description: "Domain whitelist/blacklist configuration for iframe-able \"live\" link popups"
+---
 
 # Config.LinkLive
 
-**Path:** `build/Config/LinkLive.hs` | **Language:** Haskell | **Lines:** 4618
+Domain whitelist/blacklist configuration for iframe-able "live" link popups
 
-> Domain whitelist/blacklist configuration for iframe-able "live" link popups
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/LinkLive.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>4618</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/LinkLive.hs">build/Config/LinkLive.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.LinkLive.
+</div>
 
 ## Overview
 
@@ -129,7 +141,8 @@ The `goodLinks` and `badLinks` lists serve dual purposes:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Conservative Blocking
 
@@ -152,8 +165,10 @@ Some platforms block iframes site-wide via configuration:
 - Most academic publishers (`.oxfordjournals.org`, etc.)
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration is compile-time constants in this file. To add a new domain:
 
@@ -171,6 +186,7 @@ All configuration is compile-time constants in this file. To add a new domain:
 4. Verify the page renders correctly in the iframe (no headers blocking, no JS errors, readable content)
 
 ---
+</details>
 
 ## Integration Points
 
@@ -191,7 +207,8 @@ None—this is a pure configuration module with no mutable state or IO.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkLive.hs](/backend/link-live-hs) - The logic module that consumes this configuration
 - [extracts.js](/frontend/extracts-js) - Frontend coordinator for popup behavior
@@ -199,3 +216,4 @@ None—this is a pure configuration module with no mutable state or IO.
 - [popups.js](/frontend/popups-js) - Desktop popup windowing system
 - [Interwiki.hs](/backend/interwiki-hs) - Wikipedia-specific popup class handling
 - [Typography.hs](/backend/typography-hs) - Transform pipeline that applies link-live classes
+</details>

@@ -1,11 +1,23 @@
+---
+title: "Config.Metadata.Author"
+description: "Configuration data for author name canonicalization and linking"
+---
 
 # Config.Metadata.Author
 
-**Path:** `build/Config/Metadata/Author.hs` | **Language:** Haskell | **Lines:** 3635
+Configuration data for author name canonicalization and linking
 
-> Configuration data for author name canonicalization and linking
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/Metadata/Author.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>3635</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/Metadata/Author.hs">build/Config/Metadata/Author.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.Metadata.Author.
+</div>
 
 ## Overview
 
@@ -149,7 +161,8 @@ The `#` suffix is stripped before display but used for link lookup.
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Wikipedia as Default
 
@@ -180,8 +193,10 @@ This reduces maintenance burden for frequently-cited authors.
 The `authorPrioritize` function (in `Metadata.Author`) identifies high-frequency unlinkified authors, weighted by backlink count. This guides manual effort toward the most impactful additions.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration is inline in this file as Haskell data literals. To add:
 
@@ -214,6 +229,7 @@ canonicalsWithInitials = [
 ```
 
 ---
+</details>
 
 ## Integration Points
 
@@ -236,7 +252,8 @@ canonicalsWithInitials = [
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Metadata/Author.hs](/backend/metadata-author-hs) - Processing logic that consumes this config
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation system using author data
@@ -244,3 +261,4 @@ canonicalsWithInitials = [
 - [Annotation.hs](/backend/annotation-hs) - Calls cleanAuthors during scraping
 - [Config/Metadata/Format.hs](/backend/config-metadata-format-hs) - Companion format configuration
 - [Config/Metadata/Title.hs](/backend/config-metadata-title-hs) - Companion title configuration
+</details>

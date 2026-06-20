@@ -1,11 +1,23 @@
+---
+title: "Config/LinkIcon.hs"
+description: "URL-to-icon mapping rules: ~700 domain patterns, color constants, and validation test cases"
+---
 
 # Config/LinkIcon.hs
 
-**Path:** `build/Config/LinkIcon.hs` | **Language:** Haskell | **Lines:** 1390
+URL-to-icon mapping rules: ~700 domain patterns, color constants, and validation test cases
 
-> URL-to-icon mapping rules: ~700 domain patterns, color constants, and validation test cases
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/LinkIcon.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>1390</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/LinkIcon.hs">build/Config/LinkIcon.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config/LinkIcon.
+</div>
 
 ## Overview
 
@@ -116,7 +128,8 @@ yellowPG       = "#aa873b"  -- Project Gutenberg
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Organizational Overrides (Highest Priority)
 
@@ -200,8 +213,10 @@ linkIconRulesColors u
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Adding a New Domain
 
@@ -234,6 +249,7 @@ linkIconRulesColors u
 - Single Unicode characters use the literal character: `"ψ"`, `"𝛘"`, `"∇"`
 
 ---
+</details>
 
 ## Integration Points
 
@@ -261,7 +277,8 @@ Uses `Utils.isHostOrArchive` for archive-aware domain matching and `Utils.extens
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkIcon.hs](/backend/link-icon-hs) - Parent module that applies these rules
 - [build_icon_sprite_file.php](/php/build-icon-sprite-file) - Generates the SVG sprite sheet
@@ -270,3 +287,4 @@ Uses `Utils.isHostOrArchive` for archive-aware domain matching and `Utils.extens
 - [Utils.hs](/backend/utils-hs) - URL parsing utilities (isHostOrArchive, extension)
 - [Typography.hs](/backend/typography-hs) - Calls LinkIcon during Pandoc transforms
 - [Test.hs](/backend/test-hs) - Validates test cases at build time
+</details>

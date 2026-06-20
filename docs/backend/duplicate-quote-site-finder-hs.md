@@ -1,11 +1,23 @@
+---
+title: "duplicatequotesitefinder.hs"
+description: "Near-duplicate detection for quote and site-of-the-day databases using Levenshtein edit distance"
+---
 
 # duplicatequotesitefinder.hs
 
-**Path:** `build/duplicatequotesitefinder.hs` | **Language:** Haskell | **Lines:** 46
+Near-duplicate detection for quote and site-of-the-day databases using Levenshtein edit distance
 
-> Near-duplicate detection for quote and site-of-the-day databases using Levenshtein edit distance
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/duplicatequotesitefinder.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>46</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/duplicatequotesitefinder.hs">build/duplicatequotesitefinder.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around duplicatequotesitefinder.
+</div>
 
 ## Overview
 
@@ -78,7 +90,8 @@ main
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Brute-Force Pairwise Comparison
 
@@ -102,8 +115,10 @@ Sites use a much tighter threshold (3 edits) than quotes (18 edits). This reflec
 Short quotes are excluded (`length q > 26`) to avoid false positives. Very short strings will naturally have small edit distances even when semantically distinct.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration is via compile-time constants:
 
@@ -118,6 +133,7 @@ Database paths come from `Config.XOfTheDay`:
 - `siteDBPath` = `metadata/sites.hs`
 
 ---
+</details>
 
 ## Integration Points
 
@@ -149,10 +165,12 @@ Human review is required to determine if matches are true duplicates.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [XOfTheDay.hs](/backend/x-of-the-day-hs) - The system that uses these databases
 - [Utils.hs](/backend/utils-hs) - Shared utility functions
 - [sync.sh](/backend/sync-sh) - Build orchestrator (may invoke this as a lint step)
 - [Test.hs](/backend/test-hs) - Test suite that validates quote/site databases
 - [Unique.hs](/backend/unique-hs) - Uniqueness checking utilities
+</details>

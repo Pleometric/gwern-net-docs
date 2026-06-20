@@ -1,12 +1,24 @@
 ---
+title: "annotation-blockquote-outside.tmpl"
+description: "This template produces an annotation layout where the entire annotation content - including title, author/date, abstract, thumbnail, and file includes - is wrapped within a."
 sidebar_position: 3
 ---
 
 # annotation-blockquote-outside.tmpl
 
-**Path:** `template/include/annotation-blockquote-outside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 23
+This template produces an annotation layout where the entire annotation content - including title, author/date, abstract, thumbnail, and file includes - is wrapped within a.
 
-Template for rendering annotations with a blockquote element wrapping the entire annotation.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/include/annotation-blockquote-outside.tmpl</code></div>
+  <div><strong>Language</strong>HTML5/Pandoc</div>
+  <div><strong>Lines</strong>23</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/include/annotation-blockquote-outside.tmpl">template/include/annotation-blockquote-outside.tmpl</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around annotation-blockquote-outside.tmpl.
+</div>
 
 ## Overview
 
@@ -96,7 +108,8 @@ This makes the template appropriate for contexts where annotations should be vis
 - **vs. blockquote-not**: Identical structure except outer container is `<blockquote>` vs `<div>`
 - **vs. partial-inline**: Includes all annotation fields rather than just title/author
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [annotation-blockquote-inside.tmpl](/templates/annotation-blockquote-inside) - Variant with abstract in blockquote inside title paragraph
 - [pop-frame-title-standard.tmpl](/templates/pop-frame-title-standard) - Template for popup title bar
@@ -105,3 +118,4 @@ This makes the template appropriate for contexts where annotations should be vis
 - [extracts-annotations.js](/frontend/extracts-annotations-js) - Frontend annotation type handling
 - [Annotation.hs](/backend/annotation-hs) - Backend scraping and processing of annotation metadata
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Backend metadata database management
+</details>

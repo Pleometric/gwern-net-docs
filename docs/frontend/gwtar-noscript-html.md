@@ -1,10 +1,23 @@
+---
+title: "gwtar_noscript.html"
+description: "gwtarnoscript.html provides the error messaging UI for the gwtar self-extracting archive format."
+---
+
 # gwtar_noscript.html
 
-**Path:** `build/gwtar_noscript.html` | **Language:** HTML | **Lines:** 13
+gwtarnoscript.html provides the error messaging UI for the gwtar self-extracting archive format.
 
-Fallback content displayed when a `.gwtar.html` file cannot be loaded normally.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/gwtar_noscript.html</code></div>
+  <div><strong>Language</strong>HTML</div>
+  <div><strong>Lines</strong>13</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/gwtar_noscript.html">build/gwtar_noscript.html</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around gwtar_noscript.
+</div>
 
 ## Overview
 
@@ -129,7 +142,9 @@ The JavaScript loader (`gwtar.js`) manipulates this content's visibility based o
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [gwtar.js](/frontend/gwtar-js) - JavaScript loader that controls this content
 - [sync.sh](/backend/sync-sh) - Build process that assembles gwtar files
+</details>

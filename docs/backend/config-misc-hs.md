@@ -1,11 +1,23 @@
+---
+title: "Config.Misc"
+description: "Global constants, date utilities, and miscellaneous configuration values used throughout the build system"
+---
 
 # Config.Misc
 
-**Path:** `build/Config/Misc.hs` | **Language:** Haskell | **Lines:** 284
+Global constants, date utilities, and miscellaneous configuration values used throughout the build system
 
-> Global constants, date utilities, and miscellaneous configuration values used throughout the build system
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/Misc.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>284</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/Misc.hs">build/Config/Misc.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.Misc.
+</div>
 
 ## Overview
 
@@ -214,7 +226,8 @@ This pattern repeats: get UTC time, convert to local timezone, extract needed co
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 **Pragmatic `unsafePerformIO`:** The module accepts the tradeoff of impure-under-the-hood constants for API ergonomics. Build runs are short enough that "current year" genuinely won't change mid-execution.
 
@@ -225,8 +238,10 @@ This pattern repeats: get UTC time, convert to local timezone, extract needed co
 **Domain-Specific Cleanup:** The Arxiv abstract cleaning shows deep domain knowledge—"significant" is overused academic puffery, but "significant margin" should become "large margin" not just disappear.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 Most values are hardcoded constants. Key tuning points:
 
@@ -240,6 +255,7 @@ Most values are hardcoded constants. Key tuning points:
 The `minFileSizeWarning` comment notes it should be bumped ~10%/year as bandwidth improves.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -256,7 +272,8 @@ Key consumers:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Hakyll.hs](/backend/hakyll-hs) - Site generator using `root`, `author`, and date constants
 - [Typography.hs](/backend/typography-hs) - Uses date constants for formatting
@@ -265,3 +282,4 @@ Key consumers:
 - [Config.Tags](/backend/config-tags-hs) - Related configuration module for the tag system
 - [Config.Paragraph](/backend/config-paragraph-hs) - Related configuration for paragraph splitting
 - [Utils.hs](/backend/utils-hs) - Core utilities that consume these configuration values
+</details>

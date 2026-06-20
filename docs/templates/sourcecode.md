@@ -1,12 +1,24 @@
 ---
+title: "pandoc/sourcecode.html5"
+description: "The sourcecode.html5 template is a stripped-down Pandoc HTML5 template used specifically for generating syntax-highlighted previews of source code files."
 sidebar_position: 4
 ---
 
 # pandoc/sourcecode.html5
 
-**Path:** `template/pandoc/sourcecode.html5` | **Language:** HTML5/Pandoc | **Lines:** 38
+The sourcecode.html5 template is a stripped-down Pandoc HTML5 template used specifically for generating syntax-highlighted previews of source code files.
 
-Minimal Pandoc template for syntax-highlighted source code previews.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/pandoc/sourcecode.html5</code></div>
+  <div><strong>Language</strong>HTML5/Pandoc</div>
+  <div><strong>Lines</strong>38</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/pandoc/sourcecode.html5">template/pandoc/sourcecode.html5</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around pandoc/sourcecode.
+</div>
 
 ## Overview
 
@@ -86,7 +98,8 @@ body.file-preview-source-code {
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [default.html](/templates/default) - Main Hakyll page template for regular content
 - [template-html5-articleedit.html5](/templates/template-html5-articleedit) - Full-featured Pandoc HTML5 template
@@ -94,3 +107,4 @@ body.file-preview-source-code {
 - [hakyll.hs](/backend/hakyll-hs) - Build system that compiles source code previews
 - [initial.js](/frontend/initial-js) - JavaScript initialization for syntax highlighting
 - [colors.css](/css/colors) - CSS custom properties for syntax highlighting colors
+</details>

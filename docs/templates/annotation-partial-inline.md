@@ -1,12 +1,24 @@
 ---
+title: "annotation-partial-inline.tmpl"
+description: "This template produces a compact, inline annotation format suitable for embedding within text flow."
 sidebar_position: 4
 ---
 
 # annotation-partial-inline.tmpl
 
-**Path:** `template/include/annotation-partial-inline.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 12
+This template produces a compact, inline annotation format suitable for embedding within text flow.
 
-Template for rendering minimal inline annotations containing only title and author/date information.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/include/annotation-partial-inline.tmpl</code></div>
+  <div><strong>Language</strong>HTML5/Pandoc</div>
+  <div><strong>Lines</strong>12</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/include/annotation-partial-inline.tmpl">template/include/annotation-partial-inline.tmpl</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around annotation-partial-inline.tmpl.
+</div>
 
 ## Overview
 
@@ -86,7 +98,8 @@ This template is ideal for:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [annotation-blockquote-not.tmpl](/templates/annotation-blockquote-not) - Full annotation without blockquote wrapper
 - [Annotation.hs](/backend/annotation-hs) - Scrapes and processes annotation metadata
@@ -95,3 +108,4 @@ This template is ideal for:
 - [popups.js](/frontend/popups-js) - Popup system that displays annotations
 - [extracts.js](/frontend/extracts-js) - Coordinates annotation popup display
 - [content.js](/frontend/content-js) - Content type routing for annotations
+</details>

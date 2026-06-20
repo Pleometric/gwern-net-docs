@@ -1,12 +1,24 @@
 ---
+title: "wikipedia-entry-blockquote-not.tmpl"
+description: "This template generates the HTML structure for displaying Wikipedia article excerpts in popups and transclusions without using a element."
 sidebar_position: 14
 ---
 
 # wikipedia-entry-blockquote-not.tmpl
 
-**Path:** `template/include/wikipedia-entry-blockquote-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 7
+This template generates the HTML structure for displaying Wikipedia article excerpts in popups and transclusions without using a element.
 
-Template fragment for rendering Wikipedia entry content without a blockquote wrapper.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/include/wikipedia-entry-blockquote-not.tmpl</code></div>
+  <div><strong>Language</strong>HTML5/Pandoc</div>
+  <div><strong>Lines</strong>7</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/include/wikipedia-entry-blockquote-not.tmpl">template/include/wikipedia-entry-blockquote-not.tmpl</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around wikipedia-entry-blockquote-not.tmpl.
+</div>
 
 ## Overview
 
@@ -41,7 +53,8 @@ The optional thumbnail appears first (when present), followed by the title in a 
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [wikipedia-entry-blockquote-inside.tmpl](/templates/wikipedia-entry-blockquote-inside) - Variant with blockquote around content
 - [wikipedia-entry-blockquote-title-not.tmpl](/templates/wikipedia-entry-blockquote-title-not) - Variant with blockquote but no title
@@ -51,3 +64,4 @@ The optional thumbnail appears first (when present), followed by the title in a 
 - [extracts.js](/frontend/extracts-js) - Popup/transclude content display coordinator
 - [popups.js](/frontend/popups-js) - Popup rendering system
 - [content.js](/frontend/content-js) - Content type routing and template selection
+</details>

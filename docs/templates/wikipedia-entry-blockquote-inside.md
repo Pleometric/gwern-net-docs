@@ -1,12 +1,24 @@
 ---
+title: "wikipedia-entry-blockquote-inside.tmpl"
+description: "This template generates the HTML structure for displaying Wikipedia article excerpts in popups and transclusions."
 sidebar_position: 13
 ---
 
 # wikipedia-entry-blockquote-inside.tmpl
 
-**Path:** `template/include/wikipedia-entry-blockquote-inside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 9
+This template generates the HTML structure for displaying Wikipedia article excerpts in popups and transclusions.
 
-Template fragment for rendering Wikipedia entry content with blockquote inside the container.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/include/wikipedia-entry-blockquote-inside.tmpl</code></div>
+  <div><strong>Language</strong>HTML5/Pandoc</div>
+  <div><strong>Lines</strong>9</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/include/wikipedia-entry-blockquote-inside.tmpl">template/include/wikipedia-entry-blockquote-inside.tmpl</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around wikipedia-entry-blockquote-inside.tmpl.
+</div>
 
 ## Overview
 
@@ -43,7 +55,8 @@ The title appears as an introduction with a colon, followed by a blockquote cont
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [wikipedia-entry-blockquote-not.tmpl](/templates/wikipedia-entry-blockquote-not) - Variant without blockquote wrapper
 - [wikipedia-entry-blockquote-title-not.tmpl](/templates/wikipedia-entry-blockquote-title-not) - Variant with blockquote but no title
@@ -53,3 +66,4 @@ The title appears as an introduction with a colon, followed by a blockquote cont
 - [extracts.js](/frontend/extracts-js) - Popup/transclude content display coordinator
 - [popups.js](/frontend/popups-js) - Popup rendering system
 - [content.js](/frontend/content-js) - Content type routing
+</details>

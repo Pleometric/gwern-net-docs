@@ -1,8 +1,23 @@
+---
+title: "google-search.html"
+description: "google-search.html is a standalone HTML page that provides a customized search interface for gwern.net using Google's standard search engine."
+---
+
 # google-search.html
 
-**Path:** `google-search.html` | **Language:** HTML | **Lines:** 161
+google-search.html is a standalone HTML page that provides a customized search interface for gwern.net using Google's standard search engine.
 
-Custom Google Search form interface for gwern.net with site filtering options.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>google-search.html</code></div>
+  <div><strong>Language</strong>HTML</div>
+  <div><strong>Lines</strong>161</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/google-search.html">google-search.html</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around google-search.
+</div>
 
 ## Overview
 
@@ -350,7 +365,8 @@ Coordinates with:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [google-cse.html](/templates/google-cse) - Google Custom Search Engine alternative implementation
 - [popups.js](/frontend/popups-js) - Popup system that displays search interfaces
@@ -358,3 +374,4 @@ Coordinates with:
 - [content.js](/frontend/content-js) - Content type definitions and handlers
 - [misc.js](/frontend/misc-js) - Runtime widget registration for the search pop-frame
 - [rewrite.js](/frontend/rewrite-js) - Injected search iframe setup and submit override
+</details>

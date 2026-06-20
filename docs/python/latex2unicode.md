@@ -1,14 +1,24 @@
 ---
+title: "latex2unicode.py"
+description: "latex2unicode.py addresses a major pain point in scientific web publishing: rendering TeX math expressions without heavyweight JavaScript libraries or font dependencies."
 sidebar_position: 2
 ---
 
 # latex2unicode.py
 
-**Path:** `build/latex2unicode.py` | **Language:** Python | **Lines:** 368
+latex2unicode.py addresses a major pain point in scientific web publishing: rendering TeX math expressions without heavyweight JavaScript libraries or font dependencies.
 
-Converts LaTeX/TeX math expressions into native Unicode + HTML for lightweight, natural-looking mathematical typography in web browsers.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/latex2unicode.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>368</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/latex2unicode.py">build/latex2unicode.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around latex2unicode.
+</div>
 
 ## Overview
 
@@ -51,7 +61,8 @@ echo 'asymptotically square root n' | OPENAI_API_KEY="sk-XXX" python latex2unico
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Typography.hs](/backend/typography-hs) - Backend Pandoc filters for processing mathematical content
 - [popups.js](/frontend/popups-js) - Frontend that displays the converted math expressions
@@ -59,3 +70,4 @@ echo 'asymptotically square root n' | OPENAI_API_KEY="sk-XXX" python latex2unico
 - [Annotation.hs](/backend/annotation-hs) - Annotation system that may use converted math
 - [sync.sh](/backend/sync-sh) - Build orchestrator that processes mathematical content
 - [rewrite.js](/frontend/rewrite-js) - Frontend text processing for math rendering
+</details>

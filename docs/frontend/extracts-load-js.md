@@ -1,11 +1,23 @@
+---
+title: "extracts-load.js"
+description: "Bootstrap module that configures and initializes the extracts/popup system"
+---
 
 # extracts-load.js
 
-**Path:** `js/extracts-load.js` | **Language:** JavaScript | **Lines:** 49
+Bootstrap module that configures and initializes the extracts/popup system
 
-> Bootstrap module that configures and initializes the extracts/popup system
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/extracts-load.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>49</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/extracts-load.js">js/extracts-load.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around extracts-load.
+</div>
 
 ## Overview
 
@@ -258,7 +270,8 @@ The `Extracts.didLoad` event follows the notification center pattern used throug
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [extracts.js](/frontend/extracts-js) - Main extracts system that this module initializes
 - [extracts-annotations.js](/frontend/extracts-annotations-js) - Annotation extract type definitions
@@ -267,3 +280,4 @@ The `Extracts.didLoad` event follows the notification center pattern used throug
 - [popups.js](/frontend/popups-js) - Desktop popup windowing system
 - [popovers.js](/frontend/popovers-js) - Mobile popover system
 - [initial.js](/frontend/initial-js) - GW namespace providing setup infrastructure
+</details>

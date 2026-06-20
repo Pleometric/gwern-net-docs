@@ -1,11 +1,23 @@
+---
+title: "Config.Paragraph"
+description: "Configuration constants for GPT-4o paragraph-splitting behavior"
+---
 
 # Config.Paragraph
 
-**Path:** `build/Config/Paragraph.hs` | **Language:** Haskell | **Lines:** 30
+Configuration constants for GPT-4o paragraph-splitting behavior
 
-> Configuration constants for GPT-4o paragraph-splitting behavior
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/Paragraph.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>30</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/Paragraph.hs">build/Config/Paragraph.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.Paragraph.
+</div>
 
 ## Overview
 
@@ -39,7 +51,8 @@ This module has no internal architecture—it consists entirely of two exported 
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 **Test fixture as configuration:** The whitelist serves dual purposes: it ensures specific important documents always get paragraph splitting applied, and it provides a diverse test corpus for the GPT-4o splitting feature. The comment "testing: unique list, all URLs" explicitly notes this.
 
@@ -48,8 +61,10 @@ This module has no internal architecture—it consists entirely of two exported 
 **Deliberately heterogeneous corpus:** The whitelist spans many domains and content types—academic PDFs, blog posts, Reddit, government docs, arxiv preprints—likely to ensure the paragraph splitter handles diverse formatting gracefully.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Constant | Value | Purpose |
 |----------|-------|---------|
@@ -59,6 +74,7 @@ This module has no internal architecture—it consists entirely of two exported 
 The values are hardcoded. To change them, edit this file directly.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -67,7 +83,8 @@ The values are hardcoded. To change them, edit this file directly.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Paragraph.hs](/backend/paragraph-hs) - Main paragraph-splitting module that consumes this configuration
 - [Typography.hs](/backend/typography-hs) - Related text transformation module
@@ -75,3 +92,4 @@ The values are hardcoded. To change them, edit this file directly.
 - [Hakyll.hs](/backend/hakyll-hs) - Site generator integrating paragraph processing
 - [sync.sh](/backend/sync-sh) - Build orchestration that invokes paragraph splitting
 - [Utils.hs](/backend/utils-hs) - Core utilities used alongside paragraph processing
+</details>

@@ -1,11 +1,23 @@
+---
+title: "GenerateSimilar.hs"
+description: "Embedding-based semantic similarity system for generating \"Similar Links\" recommendations"
+---
 
 # GenerateSimilar.hs
 
-**Path:** `build/GenerateSimilar.hs` | **Language:** Haskell | **Lines:** 1610
+Embedding-based semantic similarity system for generating "Similar Links" recommendations
 
-> Embedding-based semantic similarity system for generating "Similar Links" recommendations
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/GenerateSimilar.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>1610</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/GenerateSimilar.hs">build/GenerateSimilar.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around GenerateSimilar.
+</div>
 
 ## Overview
 
@@ -136,7 +148,8 @@ Distances are sorted ascending: `0` means identical direction, `1` means orthogo
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Document Formatting
 
@@ -183,8 +196,10 @@ clusterIntoSublist es list =
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 From `Config/GenerateSimilar.hs`:
 
@@ -198,6 +213,7 @@ From `Config/GenerateSimilar.hs`:
 | `blackList` | `/index`, `/changelog`, etc. | Exclude pathological matches |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -229,7 +245,8 @@ curl "https://api.openai.com/v1/engines/$ENGINE/embeddings" \
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config.GenerateSimilar](/backend/config-generate-similar-hs) - Configuration constants for embedding parameters and thresholds
 - [generateSimilarLinks.hs](/backend/generate-similar-links-hs) - CLI entry point that uses GenerateSimilar functions
@@ -238,3 +255,4 @@ curl "https://api.openai.com/v1/engines/$ENGINE/embeddings" \
 - [LinkBacklink.hs](/backend/link-backlink-hs) - Backlinks database used to enrich embedding context
 - [sync.sh](/backend/sync-sh) - Build orchestrator that schedules similarity generation
 - [extracts.js](/frontend/extracts-js) - Frontend displaying similar links in annotation popups
+</details>

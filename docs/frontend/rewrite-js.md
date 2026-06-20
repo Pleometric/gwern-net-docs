@@ -1,11 +1,23 @@
+---
+title: "rewrite.js"
+description: "DOM transformation pipeline—registers dozens of handlers that run on content load/inject to enhance raw HTML"
+---
 
 # rewrite.js
 
-**Path:** `js/rewrite.js` | **Language:** JavaScript | **Lines:** 4803
+DOM transformation pipeline—registers dozens of handlers that run on content load/inject to enhance raw HTML
 
-> DOM transformation pipeline—registers dozens of handlers that run on content load/inject to enhance raw HTML
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/rewrite.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>4803</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/rewrite.js">js/rewrite.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around rewrite.
+</div>
 
 ## Overview
 
@@ -344,7 +356,8 @@ These are defined in utility.js and used throughout rewrite.js:
 
 ---
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 **Hyphenopoly** configuration (lines ~2368-2377):
 ```javascript
@@ -366,6 +379,7 @@ Hyphenopoly.config({
 - `linkPrefetchExclusionSelector`: `.prefetch-not`, `.has-content`
 
 ---
+</details>
 
 ## Integration Points
 
@@ -403,7 +417,8 @@ Hyphenopoly.config({
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [initial.js](/frontend/initial-js) - Notification center and handler registration that rewrite.js depends on
 - [rewrite-initial.js](/frontend/rewrite-initial-js) - Fast non-block-layout processors that run before rewrite.js
@@ -414,3 +429,4 @@ Hyphenopoly.config({
 - [extracts.js](/frontend/extracts-js) - Pop-frame extraction system that uses rewrite handlers
 - [dark-mode.js](/frontend/dark-mode-js) - Dark mode system for theme-aware styling
 - [misc.js](/frontend/misc-js) - Image utilities and aux-links helpers
+</details>

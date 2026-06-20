@@ -1,11 +1,23 @@
+---
+title: "preprocessMarkdown.hs"
+description: "Standalone preprocessor that transforms Markdown abstracts into cleaned HTML with interwiki expansion and recommendations"
+---
 
 # preprocessMarkdown.hs
 
-**Path:** `build/app/preprocessMarkdown.hs` | **Language:** Haskell | **Lines:** 47
+Standalone preprocessor that transforms Markdown abstracts into cleaned HTML with interwiki expansion and recommendations
 
-> Standalone preprocessor that transforms Markdown abstracts into cleaned HTML with interwiki expansion and recommendations
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/app/preprocessMarkdown.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>47</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/app/preprocessMarkdown.hs">build/app/preprocessMarkdown.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around preprocessMarkdown.
+</div>
 
 ## Overview
 
@@ -96,7 +108,8 @@ This validation catches two common errors:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Standalone Document Processing
 
@@ -139,8 +152,10 @@ matchList ++
 The `collapse` class allows the recommendations to be hidden by default on pages where they might be distracting.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Setting | Source | Purpose |
 |---------|--------|---------|
@@ -150,6 +165,7 @@ The `collapse` class allows the recommendations to be hidden by default on pages
 | `C.cd` | Config.Misc | Working directory path |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -177,7 +193,8 @@ Reads (via `singleShotRecommendations`):
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [hakyll.hs](/backend/hakyll-hs) - Main build system that uses similar transforms
 - [sync.sh](/backend/sync-sh) - Build orchestrator that may invoke this tool
@@ -185,3 +202,4 @@ Reads (via `singleShotRecommendations`):
 - [Interwiki.hs](/backend/interwiki-hs) - Interwiki link expansion
 - [GenerateSimilar.hs](/backend/generate-similar-hs) - Embedding-based recommendations
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Metadata and abstract handling
+</details>

@@ -1,12 +1,24 @@
 ---
+title: "navbar.html"
+description: "navbar.html defines the persistent navigation bar included on standard pages."
 sidebar_position: 2
 ---
 
 # navbar.html
 
-**Path:** `include/navbar.html` | **Language:** HTML | **Lines:** 13
+navbar.html defines the persistent navigation bar included on standard pages.
 
-Site-wide top navigation include with logo and primary section links.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>include/navbar.html</code></div>
+  <div><strong>Language</strong>HTML</div>
+  <div><strong>Lines</strong>13</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/include/navbar.html">include/navbar.html</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around navbar.
+</div>
 
 ## Overview
 
@@ -60,10 +72,11 @@ Related code paths:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [default.html](/templates/default) - Main page template that includes navbar
 - [include-footer](/templates/include-footer) - Companion bottom-of-page include
 - [special-occasions.js](/frontend/special-occasions-js) - Seasonal navbar/logo behaviors
 - [initial.css](/frontend/initial-css) - Core navbar styling rules
-
+</details>

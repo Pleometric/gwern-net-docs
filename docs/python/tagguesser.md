@@ -1,14 +1,24 @@
 ---
+title: "tagguesser.py"
+description: "Gwern.net organizes thousands of annotated links into hierarchical tag taxonomies (like psychology/smell, ai/scaling, fiction/science-fiction)."
 sidebar_position: 7
 ---
 
 # tagguesser.py
 
-**Path:** `build/tagguesser.py` | **Language:** Python | **Lines:** 58
+Gwern.net organizes thousands of annotated links into hierarchical tag taxonomies (like psychology/smell, ai/scaling, fiction/science-fiction).
 
-Suggests taxonomic tags for clusters of link annotations based on their titles using GPT-4.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/tagguesser.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>58</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/tagguesser.py">build/tagguesser.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around tagguesser.
+</div>
 
 ## Overview
 
@@ -72,7 +82,8 @@ Article Title 3
 - **1-2 words max**: Keeps tags concise and scannable
 - **Singular form**: Consistency with gwern.net tag conventions
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database manager
 - [GTX.hs](/backend/gtx-hs) - Annotation storage format
@@ -80,3 +91,4 @@ Article Title 3
 - [title-cleaner.py](/python/title-cleaner) - Cleans scraped titles before tag analysis
 - [paragraphizer.py](/python/paragraphizer) - Companion LLM-based text processing
 - [italicizer.py](/python/italicizer) - Companion LLM-based formatting
+</details>

@@ -1,11 +1,23 @@
+---
+title: "Typography.hs"
+description: "Typography.hs applies typographic transformations to Pandoc documents during the gwern.net build process."
+---
 
 # Typography.hs
 
-**Path:** `build/Typography.hs` | **Language:** Haskell | **Lines:** 513
+Typography.hs applies typographic transformations to Pandoc documents during the gwern.net build process.
 
-Pandoc AST transforms for text typography: citations, date ranges, rulers, title case.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Typography.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>513</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Typography.hs">build/Typography.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Typography.
+</div>
 
 ## Overview
 
@@ -153,7 +165,8 @@ With `cycleCount = 3`, rulers cycle through classes `horizontal-rule-nth-1`, `ho
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Pandoc AST Walking
 
@@ -199,8 +212,10 @@ The `parseRawAllClean` pass later removes these wrapper spans.
 4. Add test cases to `Config/Typography.hs`
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 **Path:** `Config/Typography.hs`
 
@@ -215,6 +230,7 @@ The `parseRawAllClean` pass later removes these wrapper spans.
 | `maxDateSecond` | 2100 | Latest year to recognize as date |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -242,7 +258,8 @@ The `parseRawAllClean` pass later removes these wrapper spans.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config.Typography](/backend/config-typography-hs) - Configuration constants, test cases, and whitelists for typography transforms
 - [typography.js](/frontend/typography-js) - Client-side typography processing (smart quotes, dashes, ellipses)
@@ -252,3 +269,4 @@ The `parseRawAllClean` pass later removes these wrapper spans.
 - [Columns.hs](/backend/columns-hs) - Other Pandoc AST transformations for list layout
 - [LinkIcon.hs](/backend/link-icon-hs) - Link icon annotation called during typography pipeline
 - [LinkLive.hs](/backend/link-live-hs) - Live preview popups called during typography pipeline
+</details>

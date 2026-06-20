@@ -1,11 +1,23 @@
+---
+title: "LinkBacklink.hs"
+description: "Utility functions for reading and writing the backlinks database"
+---
 
 # LinkBacklink.hs
 
-**Path:** `build/LinkBacklink.hs` | **Language:** Haskell | **Lines:** 129
+Utility functions for reading and writing the backlinks database
 
-> Utility functions for reading and writing the backlinks database
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/LinkBacklink.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>129</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/LinkBacklink.hs">build/LinkBacklink.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around LinkBacklink.
+</div>
 
 ## Overview
 
@@ -101,7 +113,8 @@ All snippet filenames end with `.html` to ensure correct MIME type handling.
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Anchor Truncation for Page-Level Grouping
 
@@ -120,8 +133,10 @@ For on-site pages (paths starting with `/`), backlinks strips anchors before loo
 The `isPagePath` check distinguishes top-level pages (which need anchor stripping and context links) from external URLs and annotation targets.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Config | Location | Default | Purpose |
 |--------|----------|---------|---------|
@@ -137,6 +152,7 @@ The `backlinkBlackList` function filters out:
 - Example URLs: `https://example.com`
 
 ---
+</details>
 
 ## Integration Points
 
@@ -165,7 +181,8 @@ Generated snippets live in `metadata/annotation/{type}/`:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [generateBacklinks.hs](/backend/generate-backlinks-hs) - The generator executable that creates and populates the backlinks database
 - [hakyll.hs](/backend/hakyll-hs) - Build system that uses backlink paths for template rendering
@@ -173,3 +190,4 @@ Generated snippets live in `metadata/annotation/{type}/`:
 - [Annotation.hs](/backend/annotation-hs) - URL-to-scraper routing for annotation generation
 - [GenerateSimilar.hs](/backend/generate-similar-hs) - Uses backlinks to enrich embedding context
 - [Config.Misc](/backend/config-misc-hs) - Contains backlinkBlackList and sectionize settings
+</details>

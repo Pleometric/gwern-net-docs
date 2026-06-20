@@ -1,11 +1,23 @@
+---
+title: "initial.js"
+description: "Site-wide initialization and custom pub/sub event system (notification center)"
+---
 
 # initial.js
 
-**Path:** `js/initial.js` | **Language:** JavaScript | **Lines:** 1354
+Site-wide initialization and custom pub/sub event system (notification center)
 
-> Site-wide initialization and custom pub/sub event system (notification center)
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/initial.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>1354</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/initial.js">js/initial.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around initial.
+</div>
 
 ## Overview
 
@@ -353,7 +365,8 @@ GW.notificationCenter = {
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Handler Phases
 
@@ -420,8 +433,10 @@ GW.contentDidInjectEventFlags = {
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Media Queries
 
@@ -457,6 +472,7 @@ GW.setLogLevel(2, true);  // Level 2, persist to localStorage
 ```
 
 ---
+</details>
 
 ## Integration Points
 
@@ -493,7 +509,8 @@ GW.setLogLevel(2, true);  // Level 2, persist to localStorage
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [rewrite.js](/frontend/rewrite-js) - Primary consumer of the notification center; defines most content handlers
 - [content.js](/frontend/content-js) - Content loading system that triggers contentDidLoad events
@@ -502,3 +519,4 @@ GW.setLogLevel(2, true);  // Level 2, persist to localStorage
 - [extracts.js](/frontend/extracts-js) - Extract/popup system that depends on the notification center
 - [transclude.js](/frontend/transclude-js) - Uses transclude phase of GW.contentDidLoad for inline embedding
 - [popovers.js](/frontend/popovers-js) - Mobile popup variant that uses the same event system
+</details>

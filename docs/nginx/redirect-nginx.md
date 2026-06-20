@@ -1,10 +1,23 @@
+---
+title: "move.conf"
+description: "move.conf is a massive nginx map configuration file containing 12,810 redirect rules that handle URL canonicalization, historical page moves, file reorganizations, and path."
+---
+
 # move.conf
 
-**Path:** `nginx/redirect/move.conf` | **Language:** Nginx | **Lines:** 12896
+move.conf is a massive nginx map configuration file containing 12,810 redirect rules that handle URL canonicalization, historical page moves, file reorganizations, and path.
 
-Nginx redirect map configuration for gwern.net URL canonicalization and historical redirects.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>nginx/redirect/move.conf</code></div>
+  <div><strong>Language</strong>Nginx</div>
+  <div><strong>Lines</strong>12896</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/nginx/redirect/move.conf">nginx/redirect/move.conf</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing server routing, redirects, deployment configuration, or Nginx behavior around move.
+</div>
 
 ## Overview
 
@@ -368,7 +381,8 @@ This file is likely:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [redirect-nginx-broken](/nginx/redirect-nginx-broken) - Broken URL and security-related redirects
 - [gwern.net.conf](/nginx/gwern-net-conf) - Main nginx config that includes these redirect maps
@@ -376,6 +390,7 @@ This file is likely:
 - [LinkArchive.hs](/backend/link-archive-hs) - Link archival and URL management system
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Link metadata database (tracks canonical URLs)
 - [sync.sh](/backend/sync-sh) - Build/deploy script that syncs nginx configs
+</details>
 
 ## Summary Statistics
 

@@ -1,11 +1,23 @@
+---
+title: "utility.js"
+description: "General-purpose utility functions used throughout the gwern.net frontend"
+---
 
 # utility.js
 
-**Path:** `js/utility.js` | **Language:** JavaScript | **Lines:** 1886
+General-purpose utility functions used throughout the gwern.net frontend
 
-> General-purpose utility functions used throughout the gwern.net frontend
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/utility.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>1886</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/utility.js">js/utility.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around utility.
+</div>
 
 ## Overview
 
@@ -399,7 +411,8 @@ The file includes polyfills for:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Consistent Options Pattern
 
@@ -426,12 +439,15 @@ Rather than `GW.utils.first(arr)`, the codebase uses `arr.first`. This reads mor
 `newDocument()` is the standard way to create DOM content from strings, nodes, or other fragments. Many functions return DocumentFragments rather than elements, allowing flexible composition.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 No configuration—these are pure utilities.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -449,7 +465,8 @@ Must load before all other gwern JS modules. It's typically the first or second 
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [initial.js](/frontend/initial-js) - GW namespace and notification center; loads alongside utility.js
 - [rewrite.js](/frontend/rewrite-js) - Heavy user of DOM manipulation utilities (wrapElement, unwrap, newElement)
@@ -457,3 +474,4 @@ Must load before all other gwern JS modules. It's typically the first or second 
 - [content.js](/frontend/content-js) - Uses doAjax for fetching content from server
 - [popups.js](/frontend/popups-js) - Uses geometry functions and element creation utilities
 - [extracts.js](/frontend/extracts-js) - Uses URL utilities and DOM manipulation helpers
+</details>

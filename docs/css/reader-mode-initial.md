@@ -1,14 +1,24 @@
 ---
+title: "reader-mode-initial.css"
+description: "This stylesheet (157 lines) implements a focused reading mode that strips away navigation, metadata, sidebars, and visual flourishes to present a clean, minimal reading."
 sidebar_position: 7
 ---
 
 # reader-mode-initial.css
 
-**Path:** `css/reader-mode-initial.css` | **Language:** CSS | **Lines:** 162
+This stylesheet (157 lines) implements a focused reading mode that strips away navigation, metadata, sidebars, and visual flourishes to present a clean, minimal reading.
 
-Minimal styling overrides for gwern.net's "reader mode" - a distraction-free reading experience.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/reader-mode-initial.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>162</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/reader-mode-initial.css">css/reader-mode-initial.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing styling, layout, typography, color, or mode-specific CSS around reader-mode-initial.
+</div>
 
 ## Overview
 
@@ -89,10 +99,12 @@ The styles are scoped to only apply when `body.reader-mode-active` class is pres
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [reader-mode-js](/frontend/reader-mode-js) - JavaScript that toggles reader mode and manages masked links
 - [reader-mode-initial-js](/frontend/reader-mode-initial-js) - Early reader mode bootstrap
 - [initial](/css/initial) - Base styles that reader mode selectively overrides
 - [dark-mode-adjustments](/css/dark-mode-adjustments) - Dark mode styling that works alongside reader mode
 - [colors](/css/colors) - Color variables referenced by reader mode styles
+</details>

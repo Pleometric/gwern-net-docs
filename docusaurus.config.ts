@@ -63,11 +63,6 @@ const config: Config = {
     image: siteImage,
     metadata: [
       {name: 'description', content: siteDescription},
-      {
-        name: 'keywords',
-        content:
-          'gwern.net, Gwern Branwen, Hakyll, Pandoc, Haskell static site, link annotations, hover popups, static site architecture, codebase documentation',
-      },
       {property: 'og:site_name', content: siteTitle},
       {property: 'og:title', content: siteTitle},
       {property: 'og:description', content: siteDescription},

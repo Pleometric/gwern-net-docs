@@ -1,14 +1,24 @@
 ---
+title: "compressJPG"
+description: "compressJPG optimizes.jpg /.jpeg files with a two-step pipeline:"
 sidebar_position: 2
 ---
 
 # compressJPG
 
-**Path:** `build/compressJPG` | **Language:** Bash | **Lines:** 83
+compressJPG optimizes.jpg /.jpeg files with a two-step pipeline:
 
-JPEG compression helper that rewrites files only when savings exceed a threshold.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/compressJPG</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>83</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/compressJPG">build/compressJPG</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing shell automation, compression, upload/download helpers, linting, or preprocessing around compressJPG.
+</div>
 
 ## Overview
 
@@ -52,9 +62,10 @@ Temporary files are cleaned up at the end of each iteration.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [compress-gif](/shell/compress-gif) - GIF optimization companion
 - [compress-png](/shell/compress-png) - PNG optimization companion
 - [upload](/shell/upload) - Upload pipeline that may rely on pre-compressed assets
-
+</details>

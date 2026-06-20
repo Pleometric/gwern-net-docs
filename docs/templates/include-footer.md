@@ -1,12 +1,24 @@
 ---
+title: "footer.html"
+description: "The footer.html include file defines the bottom-of-page footer that appears on every page of gwern.net."
 sidebar_position: 1
 ---
 
 # footer.html
 
-**Path:** `include/footer.html` | **Language:** HTML | **Lines:** 17
+The footer.html include file defines the bottom-of-page footer that appears on every page of gwern.net.
 
-Site-wide footer component with navigation controls and dynamic daily content.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>include/footer.html</code></div>
+  <div><strong>Language</strong>HTML</div>
+  <div><strong>Lines</strong>17</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/include/footer.html">include/footer.html</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around footer.
+</div>
 
 ## Overview
 
@@ -75,7 +87,8 @@ The footer interacts with several frontend systems:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [default.html](/templates/default) - Main page template that includes the footer via SSI
 - [include-navbar](/templates/include-navbar) - Companion site-wide navigation component
@@ -84,3 +97,4 @@ The footer interacts with several frontend systems:
 - [dark-mode.js](/frontend/dark-mode-js) - Theme system that processes `.dark-mode-invert`
 - [content.js](/frontend/content-js) - Content type system for handling loaded fragments
 - [gwern.net.conf](/nginx/gwern-net-conf) - Nginx config that processes SSI includes
+</details>

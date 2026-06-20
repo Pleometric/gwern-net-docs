@@ -1,14 +1,24 @@
 ---
+title: "date-guesser.py"
+description: "Many strings—page titles, abstracts, URLs, file names—contain dates in wildly varying formats."
 sidebar_position: 2
 ---
 
 # date-guesser.py
 
-**Path:** `build/date-guesser.py` | **Language:** Python | **Lines:** 858
+Many strings—page titles, abstracts, URLs, file names—contain dates in wildly varying formats.
 
-Extracts publication dates in standardized YYYY[-MM[-DD]] format from natural language inputs, URLs, and structured metadata.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/date-guesser.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>858</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/date-guesser.py">build/date-guesser.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around date-guesser.
+</div>
 
 ## Overview
 
@@ -59,7 +69,8 @@ echo "Updated: 2 days ago" | OPENAI_API_KEY="sk-XXX" python date-guesser.py
 - Wikipedia articles (returns empty—no meaningful date)
 - Product numbers, ISBNs, postal codes, room numbers (ignored)
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Metadata/Date.hs](/backend/metadata-date-hs) - Haskell module that calls this script
 - [Annotation.hs](/backend/annotation-hs) - Uses date guessing for new annotations
@@ -67,3 +78,4 @@ echo "Updated: 2 days ago" | OPENAI_API_KEY="sk-XXX" python date-guesser.py
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database manager
 - [title-cleaner.py](/python/title-cleaner) - Companion LLM-based title cleanup
 - [paragraphizer.py](/python/paragraphizer) - Companion LLM-based paragraph splitting
+</details>

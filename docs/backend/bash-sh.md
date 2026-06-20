@@ -1,11 +1,23 @@
+---
+title: "bash.sh"
+description: "Shell helper function library for gwern.net wiki operations"
+---
 
 # bash.sh
 
-**Path:** `build/bash.sh` | **Language:** Bash | **Lines:** 1999
+Shell helper function library for gwern.net wiki operations
 
-> Shell helper function library for gwern.net wiki operations
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/bash.sh</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>1999</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/bash.sh">build/bash.sh</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around bash.
+</div>
 
 ## Overview
 
@@ -311,7 +323,8 @@ gwmv old new
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Parallel Processing
 
@@ -348,8 +361,10 @@ complete -W "$GWERNNET_DIRS_FULL ..." gwtag upload
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Environment Variables
 
@@ -377,6 +392,7 @@ shopt -s nocasematch  # Case-insensitive matching (local to pdf-append)
 - `curl` / `jq` - API calls
 
 ---
+</details>
 
 ## Integration Points
 
@@ -405,10 +421,12 @@ Functions like `everyNDays`, `sort_by_lastmodified`, `wrap`, and color helpers a
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [sync.sh](/backend/sync-sh) - Build orchestrator that sources this library
 - [hakyll.hs](/backend/hakyll-hs) - Core site generator invoked by sync.sh
 - [LinkArchive.hs](/backend/link-archive-hs) - Archive URL database used by mvuri
 - [changeTag.hs](/backend/change-tag-hs) - Tag modification tool invoked by gwtag
 - [GTX.hs](/backend/gtx-hs) - GTX file format used by annotation functions
+</details>

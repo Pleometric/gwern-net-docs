@@ -1,11 +1,23 @@
+---
+title: "special-occasions.css"
+description: "Holiday and special event theming (Halloween, Christmas, April Fools, Easter)"
+---
 
 # special-occasions.css
 
-**Path:** `css/special-occasions.css` | **Language:** CSS | **Lines:** 384
+Holiday and special event theming (Halloween, Christmas, April Fools, Easter)
 
-> Holiday and special event theming (Halloween, Christmas, April Fools, Easter)
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/special-occasions.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>384</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/special-occasions.css">css/special-occasions.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around special-occasions.
+</div>
 
 ## Overview
 
@@ -461,7 +473,8 @@ Logo selection supports:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [special-occasions-js](special-occasions-js) - Date detection, class application, logo injection, SVG colorization
 - [dark-mode-js](dark-mode-js) - Mode computation and change events that trigger theme updates
@@ -483,3 +496,4 @@ Logo selection supports:
 4. **Performance:** All themes use CSS custom properties, so changing themes is instant—just swapping variables. The only performance cost is the logo image load (mitigated by responsive image selection and version hashing).
 
 5. **Accessibility:** Color changes maintain WCAG contrast ratios. The glow effects on Christmas text are subtle (1-2px) and don't interfere with readability.
+</details>

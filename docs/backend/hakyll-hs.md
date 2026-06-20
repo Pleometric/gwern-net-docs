@@ -1,11 +1,23 @@
+---
+title: "hakyll.hs"
+description: "Hakyll-based static site generator entry point orchestrating Pandoc transforms and template rendering"
+---
 
 # hakyll.hs
 
-**Path:** `build/app/hakyll.hs` | **Language:** Haskell | **Lines:** 602
+Hakyll-based static site generator entry point orchestrating Pandoc transforms and template rendering
 
-> Hakyll-based static site generator entry point orchestrating Pandoc transforms and template rendering
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/app/hakyll.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>602</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/app/hakyll.hs">build/app/hakyll.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around hakyll.
+</div>
 
 ## Overview
 
@@ -174,7 +186,8 @@ The main template `default.html` (186 lines) handles:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Index Page Detection
 
@@ -230,8 +243,10 @@ wrapInParagraphs = walk go
 The template context includes `$refMapTimestamp$` set to the most recently modified file in `metadata/annotation/id/`. This is used for cache-busting the `/ref/` annotation lookup system.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Environment Variables
 
@@ -273,6 +288,7 @@ Optional:
 - `placeholder` - Skips footer SSI
 
 ---
+</details>
 
 ## Integration Points
 
@@ -315,7 +331,8 @@ The local custom imports include:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [sync.sh](/backend/sync-sh) - Build orchestrator that invokes hakyll.hs
 - [preprocess-markdown.hs](/backend/preprocess-markdown-hs) - Standalone Markdown preprocessor
@@ -323,3 +340,4 @@ The local custom imports include:
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database manager
 - [Utils.hs](/backend/utils-hs) - Shared utility functions
 - [Test.hs](/backend/test-hs) - Test suite run during SLOW builds
+</details>

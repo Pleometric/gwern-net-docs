@@ -1,11 +1,23 @@
+---
+title: "Config.Metadata.Format"
+description: "Massive collection of HTML rewrite rules for cleaning and normalizing abstract text"
+---
 
 # Config.Metadata.Format
 
-**Path:** `build/Config/Metadata/Format.hs` | **Language:** Haskell | **Lines:** 1941
+Massive collection of HTML rewrite rules for cleaning and normalizing abstract text
 
-> Massive collection of HTML rewrite rules for cleaning and normalizing abstract text
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/Metadata/Format.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>1941</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/Metadata/Format.hs">build/Config/Metadata/Format.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.Metadata.Format.
+</div>
 
 ## Overview
 
@@ -147,7 +159,8 @@ The `fixedPoint` wrapper ensures rules are applied until the output stabilizes, 
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Fixed-Point Iteration
 
@@ -181,8 +194,10 @@ Hundreds of rules convert specific LaTeX math spans to Unicode/HTML:
 This is more reliable than generic LaTeX parsing for the common cases.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All rules are defined as constant lists at module level. To add a new rule:
 
@@ -193,6 +208,7 @@ All rules are defined as constant lists at module level. To add a new rule:
 Rule ordering within lists matters for fixed-string rewrites (earlier rules apply first).
 
 ---
+</details>
 
 ## Integration Points
 
@@ -213,7 +229,8 @@ All annotation scrapers eventually call `cleanAbstractsHTML`:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Metadata/Format.hs](/backend/metadata-format-hs) - Applies these rules via cleanAbstractsHTML
 - [Metadata/Author.hs](/backend/metadata-author-hs) - Applies author-cleaning rules
@@ -222,3 +239,4 @@ All annotation scrapers eventually call `cleanAbstractsHTML`:
 - [Annotation/Biorxiv.hs](/backend/annotation-biorxiv-hs) - Scraper that uses these rules
 - [Config/Metadata/Author.hs](/backend/config-metadata-author-hs) - Companion author configuration
 - [Config/Metadata/Title.hs](/backend/config-metadata-title-hs) - Companion title configuration
+</details>

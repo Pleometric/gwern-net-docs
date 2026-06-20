@@ -1,11 +1,23 @@
+---
+title: "checkMetadata.hs"
+description: "Standalone executable for validating annotation metadata databases"
+---
 
 # checkMetadata.hs
 
-**Path:** `build/app/checkMetadata.hs` | **Language:** Haskell | **Lines:** 8
+Standalone executable for validating annotation metadata databases
 
-> Standalone executable for validating annotation metadata databases
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/app/checkMetadata.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>8</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/app/checkMetadata.hs">build/app/checkMetadata.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around checkMetadata.
+</div>
 
 ## Overview
 
@@ -86,7 +98,8 @@ The delegated function performs extensive checks across four GTX databases (`me.
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Fail-Fast Error Reporting
 
@@ -105,14 +118,17 @@ unless (null warnings) $ printRed "Warning:" >> printGreen (show warnings)
 Validation respects the merge hierarchy: `me.gtx > full.gtx > half.gtx > auto.gtx`. Stricter checks apply to hand-curated databases (`me.gtx`, `full.gtx`) than auto-generated ones.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 - **`Config.Misc.gtxKeyValueKeyNames`**: Whitelist of valid key names in key-value pairs
 - **`Config.Metadata.Author.authorWhitelist`**: Author names that bypass odd-character checks
 - **`Config.currentYear`**: Used to validate dates aren't too far in the future
 
 ---
+</details>
 
 ## Integration Points
 
@@ -134,10 +150,12 @@ Validation respects the merge hierarchy: `me.gtx > full.gtx > half.gtx > auto.gt
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Contains the `readLinkMetadataAndCheck` implementation
 - [GTX.hs](/backend/gtx-hs) - GTX file format parser for annotation databases
 - [Annotation.hs](/backend/annotation-hs) - Creates annotation entries that this module validates
 - [sync.sh](/backend/sync-sh) - Build orchestrator that runs metadata validation
 - [Test.hs](/backend/test-hs) - Test suite that includes metadata validation
+</details>

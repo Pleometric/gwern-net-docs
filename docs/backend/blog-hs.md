@@ -1,11 +1,23 @@
+---
+title: "Blog.hs"
+description: "Generates standalone blog pages from authored annotations and directory indexes"
+---
 
 # Blog.hs
 
-**Path:** `build/Blog.hs` | **Language:** Haskell | **Lines:** 271
+Generates standalone blog pages from authored annotations and directory indexes
 
-> Generates standalone blog pages from authored annotations and directory indexes
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Blog.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>271</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Blog.hs">build/Blog.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Blog.
+</div>
 
 ## Overview
 
@@ -115,7 +127,8 @@ Creates `/blog/newest.md` with the 29 most recent posts in a two-column bulleted
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Recursive Blog Posts
 
@@ -141,8 +154,10 @@ Blog post pages use specific transclusion classes:
 For non-local URLs, adds `rel='canonical'` to indicate the original source.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Constants (hardcoded in module)
 
@@ -163,6 +178,7 @@ For non-local URLs, adds `rel='canonical'` to indicate the original source.
 - `C.author` / `C.authorL` - Author name variants
 
 ---
+</details>
 
 ## Integration Points
 
@@ -204,7 +220,8 @@ Error messages include the specific offending entries for debugging.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Hakyll.hs](/backend/hakyll-hs) - Site generator that calls this module during builds
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database providing blog content
@@ -213,3 +230,4 @@ Error messages include the specific offending entries for debugging.
 - [transclude.js](/frontend/transclude-js) - Client-side transclusion that renders blog posts
 - [XOfTheDay.hs](/backend/x-of-the-day-hs) - Related daily content rotation system
 - [Typography.hs](/backend/typography-hs) - Text processing for blog titles
+</details>

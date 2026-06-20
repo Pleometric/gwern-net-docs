@@ -1,10 +1,23 @@
+---
+title: "compressVideo"
+description: "Recompresses poorly-compressed MP4 videos for web hosting."
+---
+
 # compressVideo
 
-**Path:** `build/compressVideo` | **Language:** Bash | **Lines:** 245
+Recompresses poorly-compressed MP4 videos for web hosting.
 
-> Recompresses poorly-compressed MP4 videos for web hosting.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/compressVideo</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>245</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/compressVideo">build/compressVideo</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing shell automation, compression, upload/download helpers, linting, or preprocessing around compressVideo.
+</div>
 
 ## Overview
 
@@ -20,9 +33,10 @@ The script probes the first video stream with `ffprobe`, detects codec/tag/HDR s
 - Other inputs are encoded with `libx265`, default `CRF=26`, `-preset slow`, AAC audio, `hvc1` tagging, and `+faststart`.
 - The original is normally replaced only when the output beats the default size-reduction threshold of 20 percent, except for compatibility fixes such as HDR-to-SDR.
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 Environment variables include `CRF`, `AUDIO_BITRATE`, `SIZE_REDUCTION_THRESHOLD`, and `FORCE`.
 
 Dependencies listed in the source are `ffmpeg` with `libx265` and `libzimg`, `ffprobe`, `awk`, and GNU coreutils.
-
+</details>

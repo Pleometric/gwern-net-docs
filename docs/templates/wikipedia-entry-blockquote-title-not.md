@@ -1,12 +1,24 @@
 ---
+title: "wikipedia-entry-blockquote-title-not.tmpl"
+description: "This template generates the HTML structure for displaying Wikipedia article excerpts in popups and transclusions where only the article content is shown within a, without a title."
 sidebar_position: 15
 ---
 
 # wikipedia-entry-blockquote-title-not.tmpl
 
-**Path:** `template/include/wikipedia-entry-blockquote-title-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 8
+This template generates the HTML structure for displaying Wikipedia article excerpts in popups and transclusions where only the article content is shown within a, without a title.
 
-Template fragment for rendering Wikipedia entry content with blockquote but no title.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/include/wikipedia-entry-blockquote-title-not.tmpl</code></div>
+  <div><strong>Language</strong>HTML5/Pandoc</div>
+  <div><strong>Lines</strong>8</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/include/wikipedia-entry-blockquote-title-not.tmpl">template/include/wikipedia-entry-blockquote-title-not.tmpl</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around wikipedia-entry-blockquote-title-not.tmpl.
+</div>
 
 ## Overview
 
@@ -43,7 +55,8 @@ The structure is streamlined: an outer container div, then a blockquote containi
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [wikipedia-entry-blockquote-inside.tmpl](/templates/wikipedia-entry-blockquote-inside) - Variant with title and blockquote
 - [wikipedia-entry-blockquote-not.tmpl](/templates/wikipedia-entry-blockquote-not) - Variant with title but no blockquote
@@ -53,3 +66,4 @@ The structure is streamlined: an outer container div, then a blockquote containi
 - [extracts.js](/frontend/extracts-js) - Popup/transclude content display coordinator
 - [popups.js](/frontend/popups-js) - Popup rendering system
 - [content.js](/frontend/content-js) - Content type routing and template selection
+</details>

@@ -1,11 +1,23 @@
+---
+title: "Test.hs"
+description: "Centralized test suite validating configuration files, metadata databases, and module unit tests"
+---
 
 # Test.hs
 
-**Path:** `build/Test.hs` | **Language:** Haskell | **Lines:** 299
+Centralized test suite validating configuration files, metadata databases, and module unit tests
 
-> Centralized test suite validating configuration files, metadata databases, and module unit tests
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Test.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>299</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Test.hs">build/Test.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Test.
+</div>
 
 ## Overview
 
@@ -98,7 +110,8 @@ Returns empty list if all items pass; returns failing items otherwise.
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Centralized Config Testing
 
@@ -143,8 +156,10 @@ c <- Interwiki.isWPDisambig "Mercury"
 These verify that article-existence and disambiguation checking works correctly.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 Test.hs itself has no configuration. It tests configs from these modules:
 
@@ -168,6 +183,7 @@ Test.hs itself has no configuration. It tests configs from these modules:
 | `Config.Paragraph` | Paragraph whitelist |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -245,7 +261,8 @@ All regex patterns from configs are compiled to catch syntax errors:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [hakyll.hs](/backend/hakyll-hs) - Build system that invokes tests during SLOW builds
 - [Utils.hs](/backend/utils-hs) - Utility functions with unit tests
@@ -253,3 +270,4 @@ All regex patterns from configs are compiled to catch syntax errors:
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Metadata database being validated
 - [Typography.hs](/backend/typography-hs) - Typography functions with unit tests
 - [Cycle.hs](/backend/cycle-hs) - Cycle detection tested here
+</details>

@@ -1,14 +1,24 @@
 ---
+title: "italicizer.py"
+description: "italicizer.py solves a common problem in web publishing: loss of italic formatting when extracting titles and text from PDFs, HTML pages, or APIs."
 sidebar_position: 1
 ---
 
 # italicizer.py
 
-**Path:** `build/italicizer.py` | **Language:** Python | **Lines:** 1547
+italicizer.py solves a common problem in web publishing: loss of italic formatting when extracting titles and text from PDFs, HTML pages, or APIs.
 
-LLM-based script to add missing italics formatting to text using semantic understanding of English writing conventions.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/italicizer.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>1547</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/italicizer.py">build/italicizer.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around italicizer.
+</div>
 
 ## Overview
 
@@ -46,7 +56,8 @@ echo "Herman Melville" | OPENAI_API_KEY="sk-XXX" python italicizer.py
 - **Italicize**: Book/movie/TV titles, periodicals, long poems, ship/plane/spaceship names, unfamiliar foreign words, scientific names, variables, musical terms
 - **Don't italicize**: Personal/location names, software, short works, loanwords, brands, punctuation outside phrases, acronyms
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Annotation.hs](/backend/annotation-hs) - Calls processItalicizer during title processing
 - [Metadata/Title.hs](/backend/metadata-title-hs) - Title extraction that may use italicization
@@ -54,3 +65,4 @@ echo "Herman Melville" | OPENAI_API_KEY="sk-XXX" python italicizer.py
 - [paragraphizer.py](/python/paragraphizer) - Companion LLM-based text processing
 - [date-guesser.py](/python/date-guesser) - Companion LLM-based date extraction
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database that stores formatted titles
+</details>

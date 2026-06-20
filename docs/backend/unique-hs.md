@@ -1,11 +1,23 @@
+---
+title: "Unique.hs"
+description: "Runtime uniqueness checking for configuration lists to catch duplicates early"
+---
 
 # Unique.hs
 
-**Path:** `build/Unique.hs` | **Language:** Haskell | **Lines:** 69
+Runtime uniqueness checking for configuration lists to catch duplicates early
 
-> Runtime uniqueness checking for configuration lists to catch duplicates early
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Unique.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>69</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Unique.hs">build/Unique.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Unique.
+</div>
 
 ## Overview
 
@@ -144,7 +156,8 @@ All public functions follow the same pattern:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Identity-on-Success
 
@@ -171,12 +184,15 @@ urlRewrites = isUniqueKeys
 The `isUniqueKeys3`, `isUniqueKeys4`, and `isUniqueMiddle3` functions exist because Haskell tuples aren't iterable and there's no generic "get nth element" operation. Each tuple arity needs its own function.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 This module has no configuration. It's a pure validation library.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -206,7 +222,8 @@ All validators require `Ord` on the elements being checked (for Set operations) 
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Utils.hs](/backend/utils-hs) - Core utilities that Unique complements for validation
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Uses uniqueness checks on annotation databases
@@ -214,3 +231,4 @@ All validators require `Ord` on the elements being checked (for Set operations) 
 - [Config.Misc](/backend/config-misc-hs) - Configuration constants using uniqueness validation
 - [Config.Tags](/backend/config-tags-hs) - Tag configuration with unique key constraints
 - [sync.sh](/backend/sync-sh) - Build orchestrator relying on validated configurations
+</details>

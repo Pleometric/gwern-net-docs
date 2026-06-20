@@ -1,11 +1,23 @@
+---
+title: "linkSuggester"
+description: "Generates an Emacs-compatible link suggestion database from site-wide anchor/URL pairs"
+---
 
 # linkSuggester
 
-**Path:** `build/app/linkSuggester.hs` | **Language:** Haskell | **Lines:** 113
+Generates an Emacs-compatible link suggestion database from site-wide anchor/URL pairs
 
-> Generates an Emacs-compatible link suggestion database from site-wide anchor/URL pairs
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/app/linkSuggester.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>113</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/app/linkSuggester.hs">build/app/linkSuggester.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around linkSuggester.
+</div>
 
 ## Overview
 
@@ -83,7 +95,8 @@ output file (first CLI argument)
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Multi-Stage Filtering with Audit Trail
 
@@ -125,8 +138,10 @@ sortBy (\(t1,_) (t2,_) ->
 This ensures "reinforcement learning" matches before "learning".
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration lives in `Config/LinkSuggester.hs`:
 
@@ -154,6 +169,7 @@ All configuration lives in `Config/LinkSuggester.hs`:
 - In explicit blacklist (~400 common words/phrases like "for example", "ADHD", "see also")
 
 ---
+</details>
 
 ## Integration Points
 
@@ -190,7 +206,8 @@ The generated file is loaded via `load-file` in Emacs. The `markdown-rewrites` v
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config.LinkSuggester](/backend/config-link-suggester-hs) - Filtering rules and whitelists for suggestions
 - [linkExtractor](/backend/link-extractor-hs) - Simpler URL extraction tool
@@ -198,3 +215,4 @@ The generated file is loaded via `load-file` in Emacs. The `markdown-rewrites` v
 - [LinkID.hs](/backend/link-id-hs) - Citation ID generation for deduplication
 - [Query.hs](/backend/query-hs) - URL extraction utilities
 - [Interwiki.hs](/backend/interwiki-hs) - Interwiki link expansion
+</details>

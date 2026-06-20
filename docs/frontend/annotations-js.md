@@ -1,11 +1,23 @@
+---
+title: "annotations.js"
+description: "Client-side annotation data layer: fetches, parses, and caches link metadata from the server's /metadata/annotation/ API"
+---
 
 # annotations.js
 
-**Path:** `js/annotations.js` | **Language:** JavaScript | **Lines:** 445
+Client-side annotation data layer: fetches, parses, and caches link metadata from the server's /metadata/annotation/ API
 
-> Client-side annotation data layer: fetches, parses, and caches link metadata from the server's `/metadata/annotation/` API
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/annotations.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>445</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/annotations.js">js/annotations.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around annotations.
+</div>
 
 ## Overview
 
@@ -186,7 +198,8 @@ Annotations.cachedReferenceData = {
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Double URL Encoding
 
@@ -235,8 +248,10 @@ let titleLinkHref = (titleLink.dataset.hrefMobile && GW.isMobile())
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Property | Value | Purpose |
 |----------|-------|---------|
@@ -246,6 +261,7 @@ let titleLinkHref = (titleLink.dataset.hrefMobile && GW.isMobile())
 | `loadingFailedString` | `"LOADING_FAILED"` | Sentinel for cached failures |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -305,7 +321,8 @@ The hover delay (25ms) prevents unnecessary loads when the cursor passes over li
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [extracts.js](/frontend/extracts-js) - Pop-frame system that displays annotations
 - [popups.js](/frontend/popups-js) - Popup positioning and rendering
@@ -316,3 +333,4 @@ The hover delay (25ms) prevents unnecessary loads when the cursor passes over li
 - [Annotation.hs](/backend/annotation-hs) - Server-side annotation scraping dispatcher
 
 ---
+</details>

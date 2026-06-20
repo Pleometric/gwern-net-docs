@@ -1,14 +1,24 @@
 ---
+title: "linkArchive.sh"
+description: "This script implements gwern.net's preemptive local archiving system, which creates permanent local copies of linked web pages to prevent link rot."
 sidebar_position: 4
 ---
 
 # linkArchive.sh
 
-**Path:** `build/linkArchive.sh` | **Language:** Bash | **Lines:** 190
+This script implements gwern.net's preemptive local archiving system, which creates permanent local copies of linked web pages to prevent link rot.
 
-Archives web pages and PDFs locally using SingleFile snapshots for preemptive link preservation.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/linkArchive.sh</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>190</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/linkArchive.sh">build/linkArchive.sh</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing shell automation, compression, upload/download helpers, linting, or preprocessing around linkArchive.
+</div>
 
 ## Overview
 
@@ -117,7 +127,8 @@ doc/www/
 - `ocrmypdf`, `pdftk`: PDF processing (optional)
 - `php` with `deconstruct_singlefile.php`: Large file decomposition (optional)
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkArchive.hs](/backend/link-archive-hs) - Haskell integration and database management
 - [Config.LinkArchive](/backend/config-link-archive-hs) - URL whitelists and transformation rules
@@ -125,3 +136,4 @@ doc/www/
 - [sync.sh](/backend/sync-sh) - Build process coordination
 - [hakyll.hs](/backend/hakyll-hs) - Build system that triggers archive operations
 - [gwsed.sh](/shell/gwsed) - URL rewriting that may trigger archiving
+</details>

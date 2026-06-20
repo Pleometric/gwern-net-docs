@@ -1,10 +1,23 @@
+---
+title: "gwtar.js"
+description: "gwtar.js is the JavaScript engine powering the.gwtar.html format—a portable, self-contained HTML file that bundles a webpage with all its assets (images, audio, scripts,."
+---
+
 # gwtar.js
 
-**Path:** `build/gwtar.js` | **Language:** JavaScript | **Lines:** 711
+gwtar.js is the JavaScript engine powering the.gwtar.html format—a portable, self-contained HTML file that bundles a webpage with all its assets (images, audio, scripts,.
 
-Self-extracting archive loader that enables offline viewing of gwern.net pages with lazy-loaded assets.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/gwtar.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>711</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/gwtar.js">build/gwtar.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around gwtar.
+</div>
 
 ## Overview
 
@@ -180,7 +193,8 @@ The gwtar format is created by the build system, which:
 
 ---
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 The script expects global variables defined in the HTML prefix:
 
@@ -191,6 +205,7 @@ var totalArchiveSize = 123456;  // Total file size
 ```
 
 ---
+</details>
 
 ## Browser Compatibility
 
@@ -200,9 +215,11 @@ var totalArchiveSize = 123456;  // Total file size
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [gwtar_noscript.html](/frontend/gwtar-noscript-html) - Error messages and noscript fallback
 - [sync.sh](/backend/sync-sh) - Build system that may generate gwtar files
 - [rewrite.js](/frontend/rewrite-js) - Main site JavaScript that gwtar pages include
 - [initial.js](/frontend/initial-js) - Early initialization code
+</details>

@@ -1,12 +1,24 @@
 ---
+title: "svg_strip_background.php"
+description: "This utility script removes background rectangles that span the entire canvas of an SVG image."
 sidebar_position: 4
 ---
 
 # svg_strip_background.php
 
-**Path:** `build/svg_strip_background.php` | **Language:** PHP | **Lines:** 29
+This utility script removes background rectangles that span the entire canvas of an SVG image.
 
-Removes full-size background rectangles from SVG files.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/svg_strip_background.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>29</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/svg_strip_background.php">build/svg_strip_background.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around svg_strip_background.
+</div>
 
 ## Overview
 
@@ -101,7 +113,8 @@ Files are modified in-place, so make backups if needed.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [svg_squeeze.php](/php/svg-squeeze) - Reduces SVG file size by rounding coordinate precision
 - [build_icon_sprite_file.php](/php/build-icon-sprite-file) - May call this script before combining SVGs into a sprite
@@ -109,3 +122,4 @@ Files are modified in-place, so make backups if needed.
 - [build_unified_assets.php](/php/build_unified_assets) - References optimized SVG assets
 - [sync.sh](/backend/sync-sh) - Build orchestrator for SVG processing pipeline
 - [LinkIcon.hs](/backend/link-icon-hs) - Backend system using SVG icons
+</details>

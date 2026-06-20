@@ -1,14 +1,24 @@
 ---
+title: "download-title.sh"
+description: "This script is a simple utility that fetches a URL and parses its HTML to extract the element text."
 sidebar_position: 1
 ---
 
 # download-title.sh
 
-**Path:** `build/download-title.sh` | **Language:** Bash | **Lines:** 53
+This script is a simple utility that fetches a URL and parses its HTML to extract the element text.
 
-Downloads a URL and extracts the HTML page title for metadata generation.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/download-title.sh</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>53</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/download-title.sh">build/download-title.sh</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing shell automation, compression, upload/download helpers, linting, or preprocessing around download-title.
+</div>
 
 ## Overview
 
@@ -56,7 +66,8 @@ The dream of an alpine waterway – Swiss National Museum - Swiss history blog
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Metadata/Title.hs](/backend/metadata-title-hs) - Backend title processing in Haskell
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Uses titles in annotation database
@@ -64,3 +75,4 @@ The dream of an alpine waterway – Swiss National Museum - Swiss history blog
 - [sync.sh](/backend/sync-sh) - Build orchestrator that coordinates metadata generation
 - [upload.sh](/shell/upload) - File upload script that extracts titles
 - [gwsed.sh](/shell/gwsed) - Site-wide string replacement for updating URLs
+</details>

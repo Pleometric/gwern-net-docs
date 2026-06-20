@@ -1,11 +1,23 @@
+---
+title: "XOfTheDay.hs"
+description: "Daily rotating featured content system: quotes, sites, and annotations"
+---
 
 # XOfTheDay.hs
 
-**Path:** `build/XOfTheDay.hs` | **Language:** Haskell | **Lines:** 152
+Daily rotating featured content system: quotes, sites, and annotations
 
-> Daily rotating featured content system: quotes, sites, and annotations
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/XOfTheDay.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>152</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/XOfTheDay.hs">build/XOfTheDay.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around XOfTheDay.
+</div>
 
 ## Overview
 
@@ -110,7 +122,8 @@ annotated :: ArchiveMetadata -> String -> String  -- generates Pandoc include li
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Coupon Collector Efficiency
 
@@ -140,8 +153,10 @@ snegate (a,b,s) = (a,b,not s)
 Bulk reset is `S.map snegate db`. The Set operations ensure no duplicates and make the "find-and-replace" pattern clean.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All paths and thresholds live in `Config.XOfTheDay`:
 
@@ -160,6 +175,7 @@ All paths and thresholds live in `Config.XOfTheDay`:
 The `siteBlackList` is extensive—major platforms (GitHub, Reddit, Wikipedia, arxiv), news sites, gwern.net itself, and various common domains that wouldn't make interesting "discoveries."
 
 ---
+</details>
 
 ## Integration Points
 
@@ -194,7 +210,8 @@ Both `quoted` and `sited` run content through `typesetHtmlField` from Typography
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config.XOfTheDay](/backend/config-x-of-the-day-hs) - Configuration: paths, thresholds, and domain blacklist
 - [Hakyll.hs](/backend/hakyll-hs) - Site generator that invokes XOTD generation
@@ -203,3 +220,4 @@ Both `quoted` and `sited` run content through `typesetHtmlField` from Typography
 - [LinkArchive.hs](/backend/link-archive-hs) - `localizeLink` and `readArchiveMetadata`
 - [transclude.js](/frontend/transclude-js) - Client-side transclusion of output snippets
 - [Blog.hs](/backend/blog-hs) - Related content generation system for blog posts
+</details>

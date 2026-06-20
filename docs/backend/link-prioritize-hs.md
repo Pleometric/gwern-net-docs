@@ -1,11 +1,23 @@
+---
+title: "link-prioritize.hs"
+description: "Ranks unannotated links by usage frequency to prioritize manual annotation work"
+---
 
 # link-prioritize.hs
 
-**Path:** `build/link-prioritize.hs` | **Language:** Haskell | **Lines:** 93
+Ranks unannotated links by usage frequency to prioritize manual annotation work
 
-> Ranks unannotated links by usage frequency to prioritize manual annotation work
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/link-prioritize.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>93</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/link-prioritize.hs">build/link-prioritize.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around link-prioritize.
+</div>
 
 ## Overview
 
@@ -77,7 +89,8 @@ readBacklinksDB → frequency count → filter unannotated → sort → output
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Threshold-Based Annotation Detection
 
@@ -96,8 +109,10 @@ when (M.size db < 1000) $ error "..."
 Guards against running with a corrupted or partially-loaded database, which would produce misleading results.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Setting | Location | Effect |
 |---------|----------|--------|
@@ -105,6 +120,7 @@ Guards against running with a corrupted or partially-loaded database, which woul
 | Annotation threshold | Hardcoded (100) | Min abstract length to count as "annotated" |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -128,7 +144,8 @@ link-prioritize.hs 50
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [linkExtractor](/backend/link-extractor-hs) - Extracts URLs from Markdown files (typical input source)
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database manager
@@ -136,3 +153,4 @@ link-prioritize.hs 50
 - [linkSuggester](/backend/link-suggester-hs) - Related tool for link suggestion generation
 - [LinkID.hs](/backend/link-id-hs) - Citation ID generation used in backlinks
 - [linkTitler](/backend/link-titler-hs) - Adds titles to links that need annotation
+</details>

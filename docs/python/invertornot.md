@@ -1,14 +1,24 @@
 ---
+title: "invertornot.py"
+description: "invertornot.py was a prototype solution to one of the hardest problems in dark-mode implementations: deciding whether images should be inverted/negated or just dimmed."
 sidebar_position: 4
 ---
 
 # invertornot.py
 
-**Path:** `build/invertornot.py` | **Language:** Python | **Lines:** 96
+invertornot.py was a prototype solution to one of the hardest problems in dark-mode implementations: deciding whether images should be inverted/negated or just dimmed.
 
-Experimental GPT-4-Vision script for classifying images for dark-mode inversion. **Now obsoleted by InvertOrNot.com.**
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/invertornot.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>96</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/invertornot.py">build/invertornot.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around invertornot.
+</div>
 
 ## Overview
 
@@ -50,7 +60,8 @@ Note: the script currently ignores CLI arguments and uses a hardcoded `image_pat
 - Asks: "This is the inverted image... Does it look OK? Respond YES/NO."
 - max_tokens: 300 (minimal, as response is just YES/NO)
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Image.hs](/backend/image-hs) - Server-side image processing including inversion detection
 - [image-focus.js](/frontend/image-focus-js) - Client-side image lightbox
@@ -59,3 +70,4 @@ Note: the script currently ignores CLI arguments and uses a hardcoded `image_pat
 - [image-margin-checker.py](/python/image-margin-checker) - Another GPT-4-Vision image analysis tool
 - [rewrite.js](/frontend/rewrite-js) - DOM transformation handlers that apply inversion CSS
 - **InvertOrNot.com**: The production solution replacing this script
+</details>

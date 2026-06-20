@@ -1,11 +1,23 @@
+---
+title: "Annotation.Gwernnet"
+description: "Local gwern.net page scraper for extracting metadata from local essays and sections"
+---
 
 # Annotation.Gwernnet
 
-**Path:** `build/Annotation/Gwernnet.hs` | **Language:** Haskell | **Lines:** 278
+Local gwern.net page scraper for extracting metadata from local essays and sections
 
-> Local gwern.net page scraper for extracting metadata from local essays and sections
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Annotation/Gwernnet.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>278</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Annotation/Gwernnet.hs">build/Annotation/Gwernnet.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Annotation.Gwernnet.
+</div>
 
 ## Overview
 
@@ -127,7 +139,8 @@ type MetadataItem = (String, String, String, String, [(String,String)], [String]
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Blacklist-Driven Early Returns
 
@@ -191,8 +204,10 @@ gwerntoplevelDocAbstract = do
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Extension Blacklist (line 60-67)
 
@@ -232,6 +247,7 @@ No `--location` flag: redirects are intentionally not followed to prevent duplic
 Dates of "N/A" or "2009-01-01" are treated as missing (2009-01-01 is a legacy placeholder).
 
 ---
+</details>
 
 ## Integration Points
 
@@ -281,7 +297,8 @@ Annotations include special HTML classes for downstream rendering:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Annotation.hs](/backend/annotation-hs) - Parent dispatcher that routes to this module
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Manages the metadata database
@@ -290,3 +307,4 @@ Annotations include special HTML classes for downstream rendering:
 - [Metadata/Format.hs](/backend/metadata-format-hs) - cleanAbstractsHTML and regex patterns
 - [Metadata/Author.hs](/backend/metadata-author-hs) - Author name normalization
 - [Metadata/Date.hs](/backend/metadata-date-hs) - Date validation
+</details>

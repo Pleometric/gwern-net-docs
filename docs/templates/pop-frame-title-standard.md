@@ -1,12 +1,24 @@
 ---
+title: "pop-frame-title-standard.tmpl"
+description: "This template produces the title link element that appears in the header/title bar of popup windows (popups and popovers)."
 sidebar_position: 5
 ---
 
 # pop-frame-title-standard.tmpl
 
-**Path:** `template/include/pop-frame-title-standard.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 6
+This template produces the title link element that appears in the header/title bar of popup windows (popups and popovers).
 
-Template for rendering the title bar of popup frames in the gwern.net popup system.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/include/pop-frame-title-standard.tmpl</code></div>
+  <div><strong>Language</strong>HTML5/Pandoc</div>
+  <div><strong>Lines</strong>6</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/include/pop-frame-title-standard.tmpl">template/include/pop-frame-title-standard.tmpl</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around pop-frame-title-standard.tmpl.
+</div>
 
 ## Overview
 
@@ -85,7 +97,8 @@ The `popframe-title-link` class enables:
 - **Responsive layout**: Title bar adapts to popup width
 - **Interaction states**: Hover, focus, and active states for accessibility
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [popups.js](/frontend/popups-js) - Popup windowing system that uses this template
 - [extracts.js](/frontend/extracts-js) - Popup/popover coordinator that populates title content
@@ -93,3 +106,4 @@ The `popframe-title-link` class enables:
 - [annotation-blockquote-inside.tmpl](/templates/annotation-blockquote-inside) - Template for popup content with nested blockquote
 - [annotation-blockquote-outside.tmpl](/templates/annotation-blockquote-outside) - Template for popup content with outer blockquote
 - [Annotation.hs](/backend/annotation-hs) - Backend annotation processing that generates popup data
+</details>

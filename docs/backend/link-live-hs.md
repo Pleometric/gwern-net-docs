@@ -1,11 +1,23 @@
+---
+title: "LinkLive.hs"
+description: "LinkLive.hs decides at compile-time which external links can be previewed as live iframes (rather than requiring annotations or forcing full page loads)."
+---
 
 # LinkLive.hs
 
-**Path:** `build/LinkLive.hs` | **Language:** Haskell | **Lines:** 155
+LinkLive.hs decides at compile-time which external links can be previewed as live iframes (rather than requiring annotations or forcing full page loads).
 
-Determines which external URLs can be shown as live iframe previews based on domain whitelists.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/LinkLive.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>155</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/LinkLive.hs">build/LinkLive.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around LinkLive.
+</div>
 
 ## Overview
 
@@ -172,7 +184,8 @@ miscUrlRules u
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Why Whitelist Instead of Blacklist?
 
@@ -202,8 +215,10 @@ Links with `data-url-archive` always get `link-live`:
 If gwern.net has a local mirror of the page (via `LinkArchive.hs`), the popup can use that instead of the live external site.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Setting | Location | Effect |
 |---------|----------|--------|
@@ -212,6 +227,7 @@ If gwern.net has a local mirror of the page (via `LinkArchive.hs`), the popup ca
 | `linkLivePrioritizeBlacklist` | Config/LinkLive.hs | Domains to never suggest for testing |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -241,7 +257,8 @@ When detected, the popup system creates an iframe instead of fetching/transformi
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config.LinkLive](/backend/config-link-live-hs) - Domain whitelist/blacklist configuration consumed by this module
 - [popups.js](/frontend/popups-js) - Frontend popup system that uses `link-live` class
@@ -251,3 +268,4 @@ When detected, the popup system creates an iframe instead of fetching/transformi
 - [Typography.hs](/backend/typography-hs) - Calls `linkLive` in the transform pipeline
 - [Interwiki.hs](/backend/interwiki-hs) - Wikipedia URL handling and `wpPopupClasses`
 - [LinkArchive.hs](/backend/link-archive-hs) - Local archive system providing fallback for live links
+</details>

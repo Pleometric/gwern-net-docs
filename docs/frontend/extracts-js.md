@@ -1,11 +1,23 @@
+---
+title: "extracts.js"
+description: "extracts.js is the orchestration layer for gwern.net's popup/popover system."
+---
 
 # extracts.js
 
-**Path:** `js/extracts.js` | **Language:** JavaScript | **Lines:** 952
+extracts.js is the orchestration layer for gwern.net's popup/popover system.
 
-Coordinator that bridges content providers with popup/popover display systems.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/extracts.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>952</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/extracts.js">js/extracts.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around extracts.
+</div>
 
 ## Overview
 
@@ -145,7 +157,8 @@ Where behavior must differ, the system uses suffixed functions:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### The preparePopup Callback
 
@@ -208,8 +221,10 @@ targetsMatch: (targetA, targetB) => {
 Two targets "match" if they have the same identifier AND the same type. This prevents duplicate popups and allows recursive pop-frames to avoid self-referential loops.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Local Storage Keys
 
@@ -228,6 +243,7 @@ Two targets "match" if they have the same identifier AND the same type. This pre
 - `hooklessLinksContainersSelector` — Where to skip indicator hook injection
 
 ---
+</details>
 
 ## Integration Points
 
@@ -301,7 +317,8 @@ Type-specific examples:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [popups.js](/frontend/popups-js) - Desktop popup display system with windowing capabilities
 - [popovers.js](/frontend/popovers-js) - Mobile popover display system for touch devices
@@ -311,3 +328,4 @@ Type-specific examples:
 - [extracts-load.js](/frontend/extracts-load-js) - Bootstrap module that initializes the extract system
 - [content.js](/frontend/content-js) - Content loading and caching system
 - [annotations.js](/frontend/annotations-js) - Annotation data access layer
+</details>

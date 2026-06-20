@@ -1,11 +1,23 @@
+---
+title: "misc.js"
+description: "Utility modules and UI components: inject triggers, image handling, clipboard, toolbar, floating header, and miscellaneous helpers"
+---
 
 # misc.js
 
-**Path:** `js/misc.js` | **Language:** JavaScript | **Lines:** 2737
+Utility modules and UI components: inject triggers, image handling, clipboard, toolbar, floating header, and miscellaneous helpers
 
-> Utility modules and UI components: inject triggers, image handling, clipboard, toolbar, floating header, and miscellaneous helpers
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/misc.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>2737</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/misc.js">js/misc.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around misc.
+</div>
 
 ## Overview
 
@@ -348,7 +360,8 @@ setup(widgetType):
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Placeholder-Based Deferred Rendering
 
@@ -395,8 +408,10 @@ GW.notificationCenter.addHandlerForEvent("Popups.popupDidSpawn", handler, {
 Pattern used throughout for targeted one-shot event handling.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Page Toolbar Timing
 
@@ -446,6 +461,7 @@ GW.outlineOrNotAPIEndpoint = "https://api.obormot.net/outlineornot/url";
 ```
 
 ---
+</details>
 
 ## Integration Points
 
@@ -485,7 +501,8 @@ GW.outlineOrNotAPIEndpoint = "https://api.obormot.net/outlineornot/url";
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [initial.js](/frontend/initial-js) - `GW` namespace, notification center, and scroll state
 - [rewrite.js](/frontend/rewrite-js) - DOM rewrite handlers (TOC updates, dropcaps)
@@ -494,3 +511,4 @@ GW.outlineOrNotAPIEndpoint = "https://api.obormot.net/outlineornot/url";
 - [extracts.js](/frontend/extracts-js) - Pop-frame coordinator (widget links are extract targets)
 - [dark-mode.js](/frontend/dark-mode-js) - Dark mode system (image inversion integration)
 - [console.js](/frontend/console-js) - Developer console utility module
+</details>

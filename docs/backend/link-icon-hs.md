@@ -1,11 +1,23 @@
+---
+title: "LinkIcon.hs"
+description: "Assigns visual icons to links based on URL/domain patterns at compile-time"
+---
 
 # LinkIcon.hs
 
-**Path:** `build/LinkIcon.hs` + `build/Config/LinkIcon.hs` | **Language:** Haskell | **Lines:** 1,620 (230 + 1,390)
+Assigns visual icons to links based on URL/domain patterns at compile-time
 
-> Assigns visual icons to links based on URL/domain patterns at compile-time
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/LinkIcon.hs</code><br /><code>build/Config/LinkIcon.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>1,620 (230 + 1,390)</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/LinkIcon.hs">build/LinkIcon.hs</a><br /><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/LinkIcon.hs">build/Config/LinkIcon.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around LinkIcon.
+</div>
 
 ## Overview
 
@@ -104,7 +116,8 @@ The `u''` function uses `isHostOrArchive` to handle local archive rewrites. When
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Archive-Aware Matching
 
@@ -150,8 +163,10 @@ isValidIconType "NB"   "text,quad"  -- ERROR: only 2 chars
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All patterns live in `Config/LinkIcon.hs`:
 
@@ -175,6 +190,7 @@ purpleHaskell  = "#5e5086"  -- Haskell
 ```
 
 ---
+</details>
 
 ## Integration Points
 
@@ -225,7 +241,8 @@ When `LinkArchive.hs` rewrites a URL to local archive, it preserves the original
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config.LinkIcon](/backend/config-link-icon-hs) - URL-to-icon mapping rules, color constants, and test cases
 - [build_icon_sprite_file.php](/php/build-icon-sprite-file) - Combines SVG icons into sprite sheet
@@ -234,3 +251,4 @@ When `LinkArchive.hs` rewrites a URL to local archive, it preserves the original
 - [Typography.hs](/backend/typography-hs) - Parent module that calls linkIcon during Pandoc transforms
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Also applies linkIcon when building annotation popups
 - [hakyll.hs](/backend/hakyll-hs) - Build pipeline that invokes icon processing
+</details>

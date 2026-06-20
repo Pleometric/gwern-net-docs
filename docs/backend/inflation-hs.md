@@ -1,11 +1,23 @@
+---
+title: "Inflation.hs"
+description: "Automatic inflation adjustment for historical dollar amounts and Bitcoin exchange rates"
+---
 
 # Inflation.hs
 
-**Path:** `build/Inflation.hs` | **Language:** Haskell | **Lines:** 239
+Automatic inflation adjustment for historical dollar amounts and Bitcoin exchange rates
 
-> Automatic inflation adjustment for historical dollar amounts and Bitcoin exchange rates
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Inflation.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>239</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Inflation.hs">build/Inflation.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Inflation.
+</div>
 
 ## Overview
 
@@ -136,7 +148,8 @@ nominalToRealInflationAdjuster
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Minimum Threshold Suppression
 
@@ -186,8 +199,10 @@ bitcoinAdjust cy oldBitcoinAmount oldDate =
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Config/Inflation.hs (~1,098 lines)
 
@@ -215,6 +230,7 @@ To update rates:
 The last available rate is carried forward indefinitely, so stale data degrades gracefully.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -255,7 +271,8 @@ Data attributes enable JS-based dynamic updates or tooltips.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config.Inflation](/backend/config-inflation-hs) - Raw inflation data (CPI/PCE rates, Bitcoin history)
 - [hakyll.hs](/backend/hakyll-hs) - Main build pipeline that calls inflation transforms
@@ -263,3 +280,4 @@ Data attributes enable JS-based dynamic updates or tooltips.
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation processing pipeline
 - [Interwiki.hs](/backend/interwiki-hs) - Similar pseudo-URL link syntax
 - [Config.Misc](/backend/config-misc-hs) - Provides `currentYear` for calculations
+</details>

@@ -1,10 +1,23 @@
+---
+title: "popovers.js"
+description: "Mobile/touch pop-frame provider for inline link previews, replacing the old popins.js module."
+---
+
 # popovers.js
 
-**Path:** `js/popovers.js` | **Language:** JavaScript | **Lines:** 733
+Mobile/touch pop-frame provider for inline link previews, replacing the old popins.js module.
 
-> Mobile/touch pop-frame provider for inline link previews, replacing the old `popins.js` module.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/popovers.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>733</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/popovers.js">js/popovers.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around popovers.
+</div>
 
 ## Overview
 
@@ -53,8 +66,10 @@ Scrolls the popover body so a target element becomes visible.
 
 With the default `remove = false`, delegates removal to browser history by calling `history.back()`. With `remove = true` (used from the `popstate` handler), fires `Popovers.popoverWillDespawn`, detaches the popover from its target, removes it from the stack, and restores scroll state without another history navigation.
 
-## Related Files
+<details className="generated-section">
+<summary>Related Files</summary>
 
 - [extracts.js](/frontend/extracts-js) chooses between `Popups` and `Popovers`.
 - [extracts-content.js](/frontend/extracts-content-js) provides content handlers consumed by pop-frame providers.
 - [popups.js](/frontend/popups-js) is the desktop hover/window provider.
+</details>

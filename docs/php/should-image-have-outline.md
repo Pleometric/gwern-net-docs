@@ -1,12 +1,24 @@
 ---
+title: "should_image_have_outline.php"
+description: "This script analyzes images (PNG, JPEG, SVG) to automatically decide whether they need a border/outline for proper visual separation from the page background."
 sidebar_position: 5
 ---
 
 # should_image_have_outline.php
 
-**Path:** `build/should_image_have_outline.php` | **Language:** PHP | **Lines:** 188
+This script analyzes images (PNG, JPEG, SVG) to automatically decide whether they need a border/outline for proper visual separation from the page background.
 
-Heuristic analyzer that determines whether an image should have a CSS outline for better contrast.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/should_image_have_outline.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>188</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/should_image_have_outline.php">build/should_image_have_outline.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around should_image_have_outline.
+</div>
 
 ## Overview
 
@@ -123,7 +135,8 @@ Called by **Image.hs** during Hakyll build:
 4. If output is "0", adds class="outline-not"
 5. If exit code is non-zero, logs error and falls back to default behavior
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Image.hs](/backend/image-hs) - Haskell module that calls this script during HTML generation
 - [build_inlined_images.php](/php/build-inlined-images) - Related PHP image processing
@@ -132,3 +145,4 @@ Called by **Image.hs** during Hakyll build:
 - [compressPNG](/shell/compress-png) - PNG compression optimization
 - [image-focus.js](/frontend/image-focus-js) - Client-side image lightbox
 - [Typography.hs](/backend/typography-hs) - AST transforms that may involve images
+</details>

@@ -182,18 +182,6 @@ a:hover {
 .markdown h4 {
   border-bottom: 1px solid var(--ifm-font-color-secondary);
   padding-bottom: 0.2rem;
-  margin-left: 1.5rem;
-}
-
-/* Indent content following h4 - break chain at headings */
-.markdown h4 + :not(h2, h3, h4),
-.markdown h4 + :not(h2, h3, h4) + :not(h2, h3, h4),
-.markdown h4 + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4),
-.markdown h4 + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4),
-.markdown h4 + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4),
-.markdown h4 + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4),
-.markdown h4 + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) + :not(h2, h3, h4) {
-  margin-left: 1.5rem;
 }
 
 /* Make headings slightly more prominent */
@@ -250,6 +238,9 @@ blockquote {
 
 table {
   border-collapse: collapse;
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
   width: 100%;
 }
 
@@ -257,11 +248,15 @@ table th,
 table td {
   border: 1px solid var(--ifm-table-border-color);
   padding: 0.5rem 0.75rem;
+  vertical-align: top;
 }
 
 table th {
   background: rgba(0, 0, 0, 0.05);
   font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 [data-theme="dark"] table th {
@@ -388,7 +383,7 @@ table th {
    ======================================== */
 
 .theme-doc-markdown {
-  max-width: 800px;
+  max-width: 960px;
 }
 
 /* Add some breathing room */
@@ -409,4 +404,168 @@ article {
 .card:hover {
   box-shadow: none;
   border-color: var(--ifm-font-color-base);
+}
+
+/* ========================================
+   Documentation UI helpers
+   ======================================== */
+
+.doc-meta {
+  border: 1px solid var(--ifm-table-border-color);
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 1.25rem 0;
+}
+
+.doc-meta > div {
+  border-right: 1px solid var(--ifm-table-border-color);
+  padding: 0.75rem;
+}
+
+.doc-meta > div:last-child {
+  border-right: 0;
+}
+
+.doc-meta strong {
+  color: var(--ifm-font-color-secondary);
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+}
+
+.doc-meta code {
+  word-break: break-word;
+}
+
+.source-link {
+  color: var(--ifm-font-color-secondary);
+  font-size: 0.78rem;
+}
+
+.read-when {
+  border-left: 3px solid var(--ifm-font-color-base);
+  margin: 1rem 0 1.5rem;
+  padding-left: 1rem;
+}
+
+.read-when strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.hub-grid,
+.taxonomy-grid,
+.phase-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin: 1.25rem 0 2rem;
+}
+
+.hub-card,
+.taxonomy-card,
+.phase-card {
+  border: 1px solid var(--ifm-table-border-color);
+  padding: 1rem;
+}
+
+.hub-card h3,
+.taxonomy-card h3,
+.phase-card h3 {
+  border-bottom: 0;
+  font-size: 1rem;
+  margin: 0 0 0.45rem;
+  padding-bottom: 0;
+}
+
+.hub-card p,
+.taxonomy-card p,
+.phase-card p {
+  margin-bottom: 0;
+}
+
+.score-badge,
+.status-badge {
+  border: 1px solid var(--ifm-font-color-base);
+  display: inline-block;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-right: 0.25rem;
+  min-width: 1.55rem;
+  padding: 0.22rem 0.35rem;
+  text-align: center;
+}
+
+.score-badge.score-5,
+.status-badge.status-critical {
+  background: var(--ifm-font-color-base);
+  color: var(--ifm-background-color);
+}
+
+.dense-table table {
+  font-size: 0.86rem;
+}
+
+.dense-table table th,
+.dense-table table td {
+  padding: 0.35rem 0.5rem;
+}
+
+.lifecycle-flow {
+  border: 1px solid var(--ifm-table-border-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 2rem;
+  padding: 1rem;
+}
+
+.lifecycle-flow span {
+  border: 1px solid var(--ifm-table-border-color);
+  display: inline-block;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.84rem;
+  padding: 0.35rem 0.55rem;
+}
+
+.lifecycle-flow span:not(:last-child)::after {
+  color: var(--ifm-font-color-secondary);
+  content: "->";
+  margin-left: 0.5rem;
+}
+
+.generated-section {
+  background: transparent;
+  border: 1px solid var(--ifm-table-border-color);
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+}
+
+.generated-section summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.generated-section summary:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 760px) {
+  .doc-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .doc-meta > div {
+    border-bottom: 1px solid var(--ifm-table-border-color);
+    border-right: 0;
+  }
+
+  .doc-meta > div:last-child {
+    border-bottom: 0;
+  }
 }

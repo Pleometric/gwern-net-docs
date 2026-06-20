@@ -1,14 +1,24 @@
 ---
+title: "rsyncd.conf"
+description: "This configuration file defines four rsync modules that mirror large public datasets for research and preservation purposes."
 sidebar_position: 3
 ---
 
 # rsyncd.conf
 
-**Path:** `nginx/rsyncd.conf` | **Language:** Config | **Lines:** 33
+This configuration file defines four rsync modules that mirror large public datasets for research and preservation purposes.
 
-Rsync daemon configuration providing read-only public access to large dataset mirrors hosted by gwern.net.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>nginx/rsyncd.conf</code></div>
+  <div><strong>Language</strong>Config</div>
+  <div><strong>Lines</strong>33</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/nginx/rsyncd.conf">nginx/rsyncd.conf</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing server routing, redirects, deployment configuration, or Nginx behavior around rsyncd.
+</div>
 
 ## Overview
 
@@ -146,10 +156,12 @@ rsync -avz gwern.net::twdne/ ./thiswaifudoesnotexist/
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [gwern.net.conf](/nginx/gwern-net-conf) - Main nginx configuration for gwern.net
 - [twdne.conf](/nginx/twdne-conf) - HTTP access to TWDNE archive (complements rsync)
 - [memoriam.sh](/nginx/memoriam-sh) - Memorial header script (different server component)
 - [redirect-nginx](/nginx/redirect-nginx) - URL redirect rules
 - [sync.sh](/backend/sync-sh) - Build/deploy script that may update rsync modules
+</details>

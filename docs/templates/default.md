@@ -1,12 +1,24 @@
 ---
+title: "default.html"
+description: "The default.html template is the primary HTML wrapper for all gwern.net content pages."
 sidebar_position: 1
 ---
 
 # default.html
 
-**Path:** `template/default.html` | **Language:** HTML5/Pandoc | **Lines:** 186
+The default.html template is the primary HTML wrapper for all gwern.net content pages.
 
-Main Hakyll template for all standard gwern.net pages.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/default.html</code></div>
+  <div><strong>Language</strong>HTML5/Pandoc</div>
+  <div><strong>Lines</strong>186</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/default.html">template/default.html</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around default.
+</div>
 
 ## Overview
 
@@ -75,7 +87,8 @@ The template expects specific CSS class conventions:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [hakyll.hs](/backend/hakyll-hs) - Hakyll build system that invokes this template
 - [include-footer](/templates/include-footer) - Footer component included via SSI
@@ -85,3 +98,4 @@ The template expects specific CSS class conventions:
 - [sourcecode.html5](/templates/sourcecode) - Alternative template for syntax-highlighted code
 - [template-html5-articleedit.html5](/templates/template-html5-articleedit) - Standalone Pandoc HTML5 template
 - [gwern.net.conf](/nginx/gwern-net-conf) - Nginx config that processes SSI directives
+</details>

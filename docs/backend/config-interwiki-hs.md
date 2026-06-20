@@ -1,11 +1,23 @@
+---
+title: "Config.Interwiki"
+description: "Wikipedia redirect bypass database and interwiki link test cases"
+---
 
 # Config.Interwiki
 
-**Path:** `build/Config/Interwiki.hs` | **Language:** Haskell | **Lines:** 6048
+Wikipedia redirect bypass database and interwiki link test cases
 
-> Wikipedia redirect bypass database and interwiki link test cases
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/Interwiki.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>6048</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/Interwiki.hs">build/Config/Interwiki.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.Interwiki.
+</div>
 
 ## Overview
 
@@ -94,7 +106,8 @@ The redirects fall into distinct categories:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### The `wp` Helper
 
@@ -133,8 +146,10 @@ testCases = [
 This tests the full transformation: shortcut expansion, class assignment, URL construction.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 This module IS the configuration. Key tuning points:
 
@@ -166,6 +181,7 @@ The [interwiki-hs](interwiki-hs) module runs validation:
 3. **URL validity**: All targets produce valid URLs
 
 ---
+</details>
 
 ## Integration Points
 
@@ -194,10 +210,12 @@ None. Pure data module with no mutable state.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Interwiki.hs](/backend/interwiki-hs) - The transformation logic that consumes this data
 - [Interwiki.hs](/backend/interwiki-hs) - Applies redirects and expands explicit interwiki shorthand in Markdown
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Uses Wikipedia URLs for annotation lookup
 - [Typography.hs](/backend/typography-hs) - Also performs Pandoc AST transformations
 - [hakyll.hs](/backend/hakyll-hs) - Build system that orchestrates link processing
+</details>

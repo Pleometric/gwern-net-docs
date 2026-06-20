@@ -1,11 +1,23 @@
+---
+title: "extracts-options.js"
+description: "User preference UI and persistence for enabling/disabling the popup/popover system."
+---
 
 # extracts-options.js
 
-**Path:** `js/extracts-options.js` | **Language:** JavaScript | **Lines:** 274
+User preference UI and persistence for enabling/disabling the popup/popover system.
 
-> User preference UI and persistence for enabling/disabling the popup/popover system.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/extracts-options.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>274</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/extracts-options.js">js/extracts-options.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around extracts-options.
+</div>
 
 ## Overview
 
@@ -128,7 +140,8 @@ This means popup and popover preferences are stored separately—disabling popup
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Button State Management
 
@@ -179,8 +192,10 @@ The "disable from popup" button orchestrates a complex animation sequence:
 This teaches users where the setting lives while providing smooth visual feedback.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Timing Constants
 
@@ -200,6 +215,7 @@ This teaches users where the setting lives while providing smooth visual feedbac
 Note: Keys are defined in extracts.js as `popupsDisabledLocalStorageItemKey` and `popoversDisabledLocalStorageItemKey`. This module references them dynamically.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -230,7 +246,8 @@ Note: Keys are defined in extracts.js as `popupsDisabledLocalStorageItemKey` and
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [extracts.js](/frontend/extracts-js) - Main extract system that defines setup/cleanup lifecycle
 - [popups.js](/frontend/popups-js) - Desktop popup display system
@@ -238,3 +255,4 @@ Note: Keys are defined in extracts.js as `popupsDisabledLocalStorageItemKey` and
 - [extracts-load.js](/frontend/extracts-load-js) - Bootstrap module that triggers setup
 - [initial.js](/frontend/initial-js) - GW namespace and notification center
 - [dark-mode.js](/frontend/dark-mode-js) - Similar options pattern for theme preferences
+</details>

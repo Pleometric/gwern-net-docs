@@ -1,11 +1,23 @@
+---
+title: "stringReplace.hs"
+description: "Parallel exact string search-and-replace utility for batch file processing"
+---
 
 # stringReplace.hs
 
-**Path:** `build/stringReplace.hs` | **Language:** Haskell | **Lines:** 46
+Parallel exact string search-and-replace utility for batch file processing
 
-> Parallel exact string search-and-replace utility for batch file processing
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/stringReplace.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>46</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/stringReplace.hs">build/stringReplace.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around stringReplace.
+</div>
 
 ## Overview
 
@@ -84,7 +96,8 @@ When reading from stdin, filenames are deduplicated using `nubOrd` (O(n log n) v
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Exact Matching by Design
 
@@ -117,8 +130,10 @@ if isDirectory then return ()
 Directories are silently skipped rather than erroring. This enables convenient shell usage like `stringReplace foo bar *` where globs may include directories.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 No configuration files. Behavior is controlled entirely by command-line arguments.
 
@@ -130,6 +145,7 @@ ghc -O2 -threaded stringReplace.hs -o stringReplace
 ```
 
 ---
+</details>
 
 ## Integration Points
 
@@ -150,10 +166,12 @@ find ./docs -name "*.html" -type f | ./stringReplace 'http://old-url' 'https://n
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Utils.hs](/backend/utils-hs) - Core utility module with `replace` and `sed` functions for in-memory operations
 - [Typography.hs](/backend/typography-hs) - Text transformation module with similar string processing
 - [sync.sh](/backend/sync-sh) - Build orchestrator that calls this utility for batch file processing
 - [Hakyll.hs](/backend/hakyll-hs) - Site generator that may use string replacement for post-processing
 - [rename.hs](/backend/rename-hs) - Page renaming utility that generates similar replacement commands
+</details>

@@ -1,12 +1,24 @@
 ---
+title: "build_mode_css.php"
+description: "This script orchestrates the generation of color mode stylesheets for gwern.net's light/dark theme system."
 sidebar_position: 3
 ---
 
 # build_mode_css.php
 
-**Path:** `build/build_mode_css.php` | **Language:** PHP | **Lines:** 22
+This script orchestrates the generation of color mode stylesheets for gwern.net's light/dark theme system.
 
-Generates light and dark mode CSS files from base color definitions.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/build_mode_css.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>22</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/build_mode_css.php">build/build_mode_css.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around build_mode_css.
+</div>
 
 ## Overview
 
@@ -67,7 +79,8 @@ The generated mode-specific CSS files are inlined into HTML templates to provide
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [color-scheme-convert](/php/color-scheme-convert) - Oklch color space transformation utility
 - [dark-mode-js](/frontend/dark-mode-js) - Client-side theme switcher
@@ -75,3 +88,4 @@ The generated mode-specific CSS files are inlined into HTML templates to provide
 - [dark-mode-adjustments](/css/dark-mode-adjustments) - Dark mode adjustments combined with generated colors
 - [light-mode-adjustments](/css/light-mode-adjustments) - Light mode adjustments combined with base colors
 - [sync-sh](/backend/sync-sh) - Build orchestrator that invokes this script
+</details>

@@ -1,13 +1,23 @@
+---
+title: "LinkAuto.hs"
+description: "Archived automatic hyperlink insertion for predefined terms, phrases, and citations"
+---
 
 # LinkAuto.hs
 
-**Path:** `build/old/LinkAuto.hs` | **Language:** Haskell | **Lines:** 1311
+Archived automatic hyperlink insertion for predefined terms, phrases, and citations
 
-> Archived automatic hyperlink insertion for predefined terms, phrases, and citations
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/old/LinkAuto.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>1311</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/old/LinkAuto.hs">build/old/LinkAuto.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
-**Status:** archived under `build/old/`; no active `build/LinkAuto.hs` or `build/Config/LinkAuto.hs` remains in the current source tree.
-
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around LinkAuto.
+</div>
 
 ## Overview
 
@@ -124,7 +134,8 @@ This ensures word-boundary matching: "GAN" matches " GAN," but not "StyleGAN".
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Longest-First Priority
 
@@ -179,8 +190,10 @@ To disable auto-linking on a page (e.g., /modafinil shouldn't link "modafinil" t
 The `filterDefinitions` pass sees this URL exists and removes the pattern.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Config/LinkAuto.hs Pattern Categories
 
@@ -233,6 +246,7 @@ definitionsValidate defs
 ```
 
 ---
+</details>
 
 ## Integration Points
 
@@ -267,7 +281,8 @@ When active, LinkAuto was intended to run:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config.LinkAuto](/backend/config-link-auto-hs) - Regex patterns and URL mappings for auto-linking
 - [Interwiki.hs](/backend/interwiki-hs) - Current interwiki expansion module
@@ -275,3 +290,4 @@ When active, LinkAuto was intended to run:
 - [hakyll.hs](/backend/hakyll-hs) - Current build system; it no longer runs LinkAuto
 - [Annotation.hs](/backend/annotation-hs) - Current annotation dispatcher; it no longer processes annotations through `linkAutoHtml5String`
 - [rewrite.js](/frontend/rewrite-js) - Client-side equivalent for dynamic content
+</details>

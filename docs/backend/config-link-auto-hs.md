@@ -1,13 +1,23 @@
+---
+title: "Config.LinkAuto"
+description: "Archived configuration data for the old auto-linking system: regex patterns and URL mappings"
+---
 
 # Config.LinkAuto
 
-**Path:** `build/old/LinkAuto.hs` | **Language:** Haskell | **Lines:** 1311
+Archived configuration data for the old auto-linking system: regex patterns and URL mappings
 
-> Archived configuration data for the old auto-linking system: regex patterns and URL mappings
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/old/LinkAuto.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>1311</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/old/LinkAuto.hs">build/old/LinkAuto.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
-**Status:** archived with `LinkAuto` in `build/old/`; no active `build/Config/LinkAuto.hs` remains in the current source tree.
-
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.LinkAuto.
+</div>
 
 ## Overview
 
@@ -87,7 +97,8 @@ Tests verify:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Pattern Categories
 
@@ -125,8 +136,10 @@ Multiple StyleGAN entries, each mapping to the correct paper.
 Matches both the common name and the academic citation format.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Performance Warning
 
@@ -148,6 +161,7 @@ Too many patterns cause exponential slowdown. The comment in the config notes:
 5. Consider removing an obsolete entry to stay under the limit
 
 ---
+</details>
 
 ## Integration Points
 
@@ -173,7 +187,8 @@ The URLs use gwern.net conventions:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkAuto.hs](/backend/link-auto-hs) - Archived module that applied these patterns
 - [Interwiki.hs](/backend/interwiki-hs) - Current interwiki expansion module
@@ -181,3 +196,4 @@ The URLs use gwern.net conventions:
 - [Typography.hs](/backend/typography-hs) - Current text transformation module
 - [hakyll.hs](/backend/hakyll-hs) - Current build system; it no longer runs LinkAuto
 - [Test.hs](/backend/test-hs) - Current validation harness for active modules/configs
+</details>

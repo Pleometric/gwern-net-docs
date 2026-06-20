@@ -1,10 +1,23 @@
+---
+title: "broken.conf"
+description: "nginx-broken.conf is a comprehensive nginx map configuration containing 28,822 redirect rules specifically designed to handle broken URLs, malicious crawler requests, typos, and."
+---
+
 # broken.conf
 
-**Path:** `nginx/redirect/broken.conf` | **Language:** Nginx | **Lines:** 29352
+nginx-broken.conf is a comprehensive nginx map configuration containing 28,822 redirect rules specifically designed to handle broken URLs, malicious crawler requests, typos, and.
 
-Nginx redirect map configuration for handling broken, malicious, and malformed URLs on gwern.net.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>nginx/redirect/broken.conf</code></div>
+  <div><strong>Language</strong>Nginx</div>
+  <div><strong>Lines</strong>29352</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/nginx/redirect/broken.conf">nginx/redirect/broken.conf</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing server routing, redirects, deployment configuration, or Nginx behavior around broken.
+</div>
 
 ## Overview
 
@@ -579,7 +592,8 @@ nginx -s reload
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [redirect-nginx](/nginx/redirect-nginx) - Legitimate content move redirects
 - [gwern.net.conf](/nginx/gwern-net-conf) - Main nginx config that includes these redirect maps
@@ -587,6 +601,7 @@ nginx -s reload
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Link metadata database with canonical URLs
 - [LinkArchive.hs](/backend/link-archive-hs) - Link archival system (may track broken links)
 - [sync.sh](/backend/sync-sh) - Build/deploy script that syncs nginx configs
+</details>
 
 ## Philosophy: Embrace the Chaos
 

@@ -1,14 +1,24 @@
 ---
+title: "memoriam.sh"
+description: "memoriam.sh is a memorial system that honors notable figures by displaying their names in HTTP response headers on specific dates corresponding to their deaths."
 sidebar_position: 4
 ---
 
 # memoriam.sh
 
-**Path:** `nginx/memoriam.sh` | **Language:** Bash | **Lines:** 177
+memoriam.sh is a memorial system that honors notable figures by displaying their names in HTTP response headers on specific dates corresponding to their deaths.
 
-Bash script that generates a daily-rotating `X-Clacks-Overhead` HTTP header to commemorate deceased scientists, writers, and intellectuals.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>nginx/memoriam.sh</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>177</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/nginx/memoriam.sh">nginx/memoriam.sh</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing server routing, redirects, deployment configuration, or Nginx behavior around memoriam.
+</div>
 
 ## Overview
 
@@ -212,13 +222,15 @@ The tradition became popular enough that Mozilla Firefox and other projects brie
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [gwern.net.conf](/nginx/gwern-net-conf) - Main nginx config that includes the generated memorial header
 - [twdne.conf](/nginx/twdne-conf) - Another nginx config (memorial header not included here)
 - [rsyncd.conf](/nginx/rsyncd-conf) - Rsync daemon config (separate service)
 - [sync.sh](/backend/sync-sh) - Build orchestrator (may trigger memorial regeneration)
 - [default.html](/templates/default) - Page template served with memorial headers
+</details>
 
 ## Example Header Values by Month
 

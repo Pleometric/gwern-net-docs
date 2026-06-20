@@ -1,11 +1,23 @@
+---
+title: "annotation-dump.hs"
+description: "CLI utility for querying and grepping the annotation database"
+---
 
 # annotation-dump.hs
 
-**Path:** `build/annotation-dump.hs` | **Language:** Haskell | **Lines:** 68
+CLI utility for querying and grepping the annotation database
 
-> CLI utility for querying and grepping the annotation database
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/annotation-dump.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>68</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/annotation-dump.hs">build/annotation-dump.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around annotation-dump.
+</div>
 
 ## Overview
 
@@ -121,7 +133,8 @@ This prevents noise from auto-generated stub entries.
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Dual Database Strategy
 
@@ -165,6 +178,7 @@ Uses `authorsToCite` for smart author formatting:
 Truncates author lists with ellipsis if too long.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -202,7 +216,8 @@ Truncates author lists with ellipsis if too long.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Manages the annotation database
 - [LinkMetadataTypes.hs](/backend/link-metadata-types-hs) - Core type definitions (MetadataItem, Path)
@@ -212,3 +227,4 @@ Truncates author lists with ellipsis if too long.
 - [Tags.hs](/backend/tags-hs) - Tag validation
 
 ---
+</details>

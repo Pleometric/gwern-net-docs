@@ -1,10 +1,23 @@
+---
+title: "gwernnet.cabal"
+description: "gwernnet.cabal is the central build configuration for all Haskell code in the gwern.net build system."
+---
+
 # gwernnet.cabal
 
-**Path:** `build/gwernnet.cabal` | **Language:** Cabal | **Lines:** 190
+gwernnet.cabal is the central build configuration for all Haskell code in the gwern.net build system.
 
-Cabal build configuration defining the gwern.net Haskell library and executables.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/gwernnet.cabal</code></div>
+  <div><strong>Language</strong>Cabal</div>
+  <div><strong>Lines</strong>190</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/gwernnet.cabal">build/gwernnet.cabal</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around gwernnet.
+</div>
 
 ## Overview
 
@@ -332,9 +345,11 @@ cabal run hakyll -- ...  # Run with arguments
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [hakyll.hs](/backend/hakyll-hs) - Main site generator
 - [sync.sh](/backend/sync-sh) - Build orchestration script
 - [Text.Regex](/backend/text-regex-hs) - Vendored regex module
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Core metadata system
+</details>

@@ -1,11 +1,23 @@
+---
+title: "colors.css"
+description: "Light mode color design tokens"
+---
 
 # colors.css
 
-**Path:** `css/colors.css` | **Language:** CSS | **Lines:** 329
+Light mode color design tokens
 
-> Light mode color design tokens
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/colors.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>329</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/colors.css">css/colors.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around colors.
+</div>
 
 ## Overview
 
@@ -337,7 +349,8 @@ JavaScript (particularly `dark-mode-initial.js`) interacts with this system:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [dark-mode-adjustments-css](dark-mode-adjustments-css) - Image filters and non-color dark mode fixes
 - [initial-css](initial-css) - Core layout styles that use these color variables
@@ -346,3 +359,4 @@ JavaScript (particularly `dark-mode-initial.js`) interacts with this system:
 - [color-js](color-js) - JavaScript color space conversion utilities
 - [color-scheme-convert](../php/color-scheme-convert) - PHP script that generates dark mode colors
 - [special-occasions-css](special-occasions-css) - Holiday themes that override these colors
+</details>

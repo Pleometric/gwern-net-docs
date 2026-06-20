@@ -1,11 +1,23 @@
+---
+title: "dark-mode-adjustments.css"
+description: "Dark mode filter adjustments for images and icons"
+---
 
 # dark-mode-adjustments.css
 
-**Path:** `css/dark-mode-adjustments.css` | **Language:** CSS | **Lines:** 173
+Dark mode filter adjustments for images and icons
 
-> Dark mode filter adjustments for images and icons
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/dark-mode-adjustments.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>173</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/dark-mode-adjustments.css">css/dark-mode-adjustments.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around dark-mode-adjustments.
+</div>
 
 ## Overview
 
@@ -327,7 +339,8 @@ SVG images retain their inversion filter on hover (lines 94-97), while raster im
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [dark-mode-js](dark-mode-js) - Toggle controller, preference persistence
 - [dark-mode-initial-js](dark-mode-initial-js) - Early-loading dark mode bootstrap
@@ -335,3 +348,4 @@ SVG images retain their inversion filter on hover (lines 94-97), while raster im
 - [build-mode-css](../php/build-mode-css) - PHP script that combines colors with adjustments
 - [initial-css](initial-css) - Core styles that reference these color variables
 - [popups-js](popups-js) - Uses the `.popframe.loading` spinner styles
+</details>

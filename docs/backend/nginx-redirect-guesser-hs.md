@@ -1,11 +1,23 @@
+---
+title: "redirectGuesser"
+description: "Semi-automated nginx redirect rule generator for fixing 404 errors"
+---
 
 # redirectGuesser
 
-**Path:** `build/app/redirectGuesser.hs` | **Language:** Haskell | **Lines:** 154
+Semi-automated nginx redirect rule generator for fixing 404 errors
 
-> Semi-automated nginx redirect rule generator for fixing 404 errors
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/app/redirectGuesser.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>154</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/app/redirectGuesser.hs">build/app/redirectGuesser.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around redirectGuesser.
+</div>
 
 ## Overview
 
@@ -73,7 +85,8 @@ stdout (nginx rules)
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Regex Escaping for nginx
 
@@ -105,8 +118,10 @@ nubOrd . filter (`S.notMember` existingLines) $ generated
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Constants
 
@@ -121,6 +136,7 @@ nubOrd . filter (`S.notMember` existingLines) $ generated
 - `C.root` — Site root directory for file enumeration
 
 ---
+</details>
 
 ## Integration Points
 
@@ -162,7 +178,8 @@ The empty destination (`""`) signals to the reviewer that this URL needs manual 
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [404-guesser.js](/frontend/404-guesser-js) - Client-side counterpart using same Levenshtein algorithm
 - [Config.Misc](/backend/config-misc-hs) - Provides site root path constant
@@ -170,3 +187,4 @@ The empty destination (`""`) signals to the reviewer that this URL needs manual 
 - [sync.sh](/backend/sync-sh) - Build orchestrator that may invoke this during maintenance
 - [rename.hs](/backend/rename-hs) - Related tool that generates redirect rules during page renames
 - [gwern.net.conf](/nginx/gwern-net-conf) - Nginx configuration file where redirects are stored
+</details>

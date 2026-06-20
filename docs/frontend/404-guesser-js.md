@@ -1,15 +1,25 @@
 ---
+title: "404-guesser.js"
+description: "Enhances 404 error pages with intelligent URL suggestions based on Levenshtein distance"
 id: 404-guesser-js
 slug: 404-guesser-js
 ---
 
 # 404-guesser.js
 
-**Path:** `js/404-guesser.js` | **Language:** JavaScript | **Lines:** 220
+Enhances 404 error pages with intelligent URL suggestions based on Levenshtein distance
 
-> Enhances 404 error pages with intelligent URL suggestions based on Levenshtein distance
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/404-guesser.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>220</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/404-guesser.js">js/404-guesser.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around 404-guesser.
+</div>
 
 ## Overview
 
@@ -94,7 +104,8 @@ function injectSuggestions(currentPath, suggestedUrlStrings)
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Bounded Levenshtein Distance
 
@@ -139,6 +150,7 @@ Despite the 4.7MB sitemap size, the feature is deemed worthwhile:
 - For legitimate users, 0.5MB + 3 seconds is faster than manually searching Google
 
 ---
+</details>
 
 ## Integration Points
 
@@ -168,7 +180,8 @@ The script injects a section with ID `guessed-urls` containing a header, descrip
 
 ---
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Constants
 
@@ -189,6 +202,7 @@ const sitemapURL = location.origin + "/sitemap.xml";
 - `wrapInColumnsIfMoreEntriesThan: 3` - Column layout threshold
 
 ---
+</details>
 
 ## Security Notes
 
@@ -200,7 +214,8 @@ This is acceptable for gwern.net's controlled environment but would need hardeni
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [redirectGuesser](/backend/nginx-redirect-guesser-hs) - Server-side counterpart using same Levenshtein algorithm
 - [extracts.js](/frontend/extracts-js) - Popup system integration for suggestion links
@@ -214,3 +229,4 @@ This is acceptable for gwern.net's controlled environment but would need hardeni
 **Author:** Gwern Branwen
 **License:** CC-0
 **Last Updated:** 2025-03-03
+</details>

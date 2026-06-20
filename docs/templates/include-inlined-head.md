@@ -1,12 +1,24 @@
 ---
+title: "inlined-head.html"
+description: "The inlined-head.html include file contains critical above-the-fold CSS that must be loaded before the page renders."
 sidebar_position: 3
 ---
 
 # inlined-head.html
 
-**Path:** `include/inlined-head.html` | **Language:** HTML/CSS | **Lines:** 852
+The inlined-head.html include file contains critical above-the-fold CSS that must be loaded before the page renders.
 
-Critical CSS inlined in the document `<head>` for optimal initial page load; JavaScript is linked externally.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>include/inlined-head.html</code></div>
+  <div><strong>Language</strong>HTML/CSS</div>
+  <div><strong>Lines</strong>852</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/include/inlined-head.html">include/inlined-head.html</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around inlined-head.
+</div>
 
 ## Overview
 
@@ -154,7 +166,8 @@ The inlining happens at serve-time via nginx SSI, though the content itself is s
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [default.html](/templates/default) - Main page template that includes this via SSI
 - [include-inlined-asset-links](/templates/include-inlined-asset-links) - Deferred non-critical assets
@@ -163,3 +176,4 @@ The inlining happens at serve-time via nginx SSI, though the content itself is s
 - [colors.css](/css/colors) - CSS custom property definitions
 - [initial.js](/frontend/initial-js) - Critical JavaScript initialization
 - [gwern.net.conf](/nginx/gwern-net-conf) - Nginx config that processes SSI includes
+</details>

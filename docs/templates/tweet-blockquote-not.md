@@ -1,12 +1,24 @@
 ---
+title: "tweet-blockquote-not.tmpl"
+description: "This template generates the HTML structure for displaying Twitter/X post content in popups and transclusions without using a element."
 sidebar_position: 11
 ---
 
 # tweet-blockquote-not.tmpl
 
-**Path:** `template/include/tweet-blockquote-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 20
+This template generates the HTML structure for displaying Twitter/X post content in popups and transclusions without using a element.
 
-Template fragment for rendering tweet content without a blockquote wrapper.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/include/tweet-blockquote-not.tmpl</code></div>
+  <div><strong>Language</strong>HTML5/Pandoc</div>
+  <div><strong>Lines</strong>20</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/include/tweet-blockquote-not.tmpl">template/include/tweet-blockquote-not.tmpl</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around tweet-blockquote-not.tmpl.
+</div>
 
 ## Overview
 
@@ -64,7 +76,8 @@ The layout emphasizes attribution (author and timestamp links) followed by conte
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [tweet-blockquote-outside.tmpl](/templates/tweet-blockquote-outside) - Variant with blockquote wrapper for citation contexts
 - [annotation-blockquote-not.tmpl](/templates/annotation-blockquote-not) - Similar "no-blockquote" pattern for annotations
@@ -73,3 +86,4 @@ The layout emphasizes attribution (author and timestamp links) followed by conte
 - [extracts.js](/frontend/extracts-js) - Displays popup/transclude content
 - [popups.js](/frontend/popups-js) - Popup positioning and rendering
 - [content.js](/frontend/content-js) - Content type routing and template selection
+</details>

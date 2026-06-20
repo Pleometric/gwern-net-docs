@@ -1,11 +1,23 @@
+---
+title: "Query.hs"
+description: "Query.hs provides a collection of functions for querying Pandoc abstract syntax trees to extract structural elements - primarily links (URLs, anchor text, tooltips), images, and."
+---
 
 # Query.hs
 
-**Path:** `build/Query.hs` | **Language:** Haskell | **Lines:** 140
+Query.hs provides a collection of functions for querying Pandoc abstract syntax trees to extract structural elements - primarily links (URLs, anchor text, tooltips), images, and.
 
-Utility module for extracting links, images, and URLs from Pandoc AST documents.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Query.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>140</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Query.hs">build/Query.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Query.
+</div>
 
 ## Overview
 
@@ -216,7 +228,8 @@ extractURLWith (pattern match on Link)
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Filtered Extraction
 
@@ -254,12 +267,15 @@ listContainsAnchor _ _ = []
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 No external configuration. Behavior is determined entirely by function parameters.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -290,7 +306,8 @@ No external configuration. Behavior is determined entirely by function parameter
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Utils.hs](/backend/utils-hs) - Core utility module providing `inlinesToText` and Pandoc helpers
 - [Hakyll.hs](/backend/hakyll-hs) - Site generator that uses Query for link extraction
@@ -298,3 +315,4 @@ No external configuration. Behavior is determined entirely by function parameter
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Uses extracted links for metadata lookup
 - [Typography.hs](/backend/typography-hs) - Another Pandoc AST manipulation module
 - [Paragraph.hs](/backend/paragraph-hs) - Uses `extractURLs` for link processing
+</details>

@@ -1,11 +1,23 @@
+---
+title: "Config.LinkID"
+description: "Configuration for citation ID generation overrides and affiliation anchor lists"
+---
 
 # Config.LinkID
 
-**Path:** `build/Config/LinkID.hs` | **Language:** Haskell | **Lines:** 27
+Configuration for citation ID generation overrides and affiliation anchor lists
 
-> Configuration for citation ID generation overrides and affiliation anchor lists
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/LinkID.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>27</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/LinkID.hs">build/Config/LinkID.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.LinkID.
+</div>
 
 ## Overview
 
@@ -69,7 +81,8 @@ The module is purely declarative—two exported constant lists with no computati
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Affiliation-Based Duplicate Detection
 
@@ -93,8 +106,10 @@ generateID md url author date
 This makes overrides absolute—no fallback or combination with automatic generation.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 Both lists are edited directly in source. Adding new entries:
 
@@ -123,6 +138,7 @@ linkIDOverrides = [
 | linkIDOverrides | Values must not contain `.` |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -144,7 +160,8 @@ The lists are compiled into the Hakyll build executable. Changes require rebuild
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkID.hs](/backend/link-id-hs) - ID generation logic that consumes these configs
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Metadata database that uses affiliation detection
@@ -152,3 +169,4 @@ The lists are compiled into the Hakyll build executable. Changes require rebuild
 - [hakyll.hs](/backend/hakyll-hs) - Build system that generates ID databases
 - [linkSuggester](/backend/link-suggester-hs) - Uses citation IDs for deduplication
 - [linkExtractor](/backend/link-extractor-hs) - Extracts URLs that receive IDs
+</details>

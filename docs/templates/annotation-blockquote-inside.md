@@ -1,12 +1,24 @@
 ---
+title: "annotation-blockquote-inside.tmpl"
+description: "This template produces a specialized annotation layout used when the annotation content needs to be rendered with the abstract contained within a element that follows the title."
 sidebar_position: 1
 ---
 
 # annotation-blockquote-inside.tmpl
 
-**Path:** `template/include/annotation-blockquote-inside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 28
+This template produces a specialized annotation layout used when the annotation content needs to be rendered with the abstract contained within a element that follows the title.
 
-Template for rendering annotations where the abstract blockquote follows the title paragraph.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/include/annotation-blockquote-inside.tmpl</code></div>
+  <div><strong>Language</strong>HTML5/Pandoc</div>
+  <div><strong>Lines</strong>28</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/include/annotation-blockquote-inside.tmpl">template/include/annotation-blockquote-inside.tmpl</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around annotation-blockquote-inside.tmpl.
+</div>
 
 ## Overview
 
@@ -82,7 +94,8 @@ Notable conditions:
 3. **Thumbnail placement**: Only appears inside blockquote when abstract exists
 4. **File includes**: Rendered inside blockquote if abstract present, outside otherwise
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [annotation-blockquote-outside.tmpl](/templates/annotation-blockquote-outside) - Variant with blockquote wrapping entire annotation
 - [pop-frame-title-standard.tmpl](/templates/pop-frame-title-standard) - Template for popup title bar
@@ -91,3 +104,4 @@ Notable conditions:
 - [extracts-annotations.js](/frontend/extracts-annotations-js) - Frontend annotation type handling
 - [Annotation.hs](/backend/annotation-hs) - Backend scraping and processing of annotation metadata
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Backend metadata database management
+</details>

@@ -1,13 +1,23 @@
+---
+title: "LinkArchive.hs"
+description: "External link localization for preemptive link-rot prevention"
+---
 
 # LinkArchive.hs
 
-**Path:** `build/LinkArchive.hs` | **Language:** Haskell | **Lines:** 394
+External link localization for preemptive link-rot prevention
 
-> External link localization for preemptive link-rot prevention
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/LinkArchive.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>394</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/LinkArchive.hs">build/LinkArchive.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
-**Config:** `build/Config/LinkArchive.hs` | **Lines:** ~700+ (mostly whitelist)
-
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around LinkArchive.
+</div>
 
 ## Overview
 
@@ -169,7 +179,8 @@ Anchors (`#fragment`) are stripped for hashing but preserved in the final link.
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### URL Transformation Pipeline
 
@@ -237,8 +248,10 @@ archiveItemDue _     (Right _)        = False  -- already been tried
 This means items are archived *before* they reach the delay threshold, not after. Items that exceed 60 days are excluded from archiving (they may be considered stale or require manual review).
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Config.LinkArchive.hs
 
@@ -278,6 +291,7 @@ The whitelist (`whiteListMatchesFixed`) skips domains for various reasons:
 | Low-quality archives | onlinelibrary.wiley.com (broken JS) |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -405,7 +419,8 @@ Complex pages may exceed the 200s timeout. Manually archive with browser extensi
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config.LinkArchive](/backend/config-link-archive-hs) - URL whitelist, transformation rules, and archive configuration
 - [linkArchive.sh](/shell/link-archive) - Shell script that performs actual SingleFile/PDF archiving
@@ -414,3 +429,4 @@ Complex pages may exceed the 200s timeout. Manually archive with browser extensi
 - [sync.sh](/backend/sync-sh) - Build system that triggers archive operations
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Calls localizeLink during Pandoc transforms
 - [popups.js](/frontend/popups-js) - Frontend uses data-url-original for [original] links
+</details>

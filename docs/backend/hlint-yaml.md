@@ -1,10 +1,23 @@
+---
+title: ".hlint.yaml"
+description: "HLint configuration for gwern.net's Haskell build code."
+---
+
 # .hlint.yaml
 
-**Path:** `build/.hlint.yaml` | **Language:** YAML | **Lines:** 47
+HLint configuration for gwern.net's Haskell build code.
 
-> HLint configuration for gwern.net's Haskell build code.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/.hlint.yaml</code></div>
+  <div><strong>Language</strong>YAML</div>
+  <div><strong>Lines</strong>47</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/.hlint.yaml">build/.hlint.yaml</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around .hlint.
+</div>
 
 ## Overview
 

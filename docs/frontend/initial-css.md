@@ -1,11 +1,23 @@
+---
+title: "initial.css"
+description: "Core critical-path CSS for above-the-fold rendering and fundamental typography"
+---
 
 # initial.css
 
-**Path:** `css/initial.css` | **Language:** CSS | **Lines:** 2710
+Core critical-path CSS for above-the-fold rendering and fundamental typography
 
-> Core critical-path CSS for above-the-fold rendering and fundamental typography
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/initial.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>2710</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/initial.css">css/initial.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around initial.
+</div>
 
 ## Overview
 
@@ -360,7 +372,8 @@ The stylesheet uses a sophisticated cascade of breakpoints for different layout 
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [colors-css](colors-css) - Color variable definitions and SVG data URIs
 - [default-css](default-css) - Deferred non-critical styles
@@ -370,3 +383,4 @@ The stylesheet uses a sophisticated cascade of breakpoints for different layout 
 - [collapse-js](collapse-js) - TOC collapse/expand behavior
 - [initial-js](initial-js) - Critical-path JavaScript (web font loading, etc.)
 - [dark-mode-js](dark-mode-js) - Theme switching that affects these styles
+</details>

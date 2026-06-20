@@ -1,11 +1,23 @@
+---
+title: "markdown-footnote-length.hs"
+description: "Linter that warns about overly long footnotes in Markdown files"
+---
 
 # markdown-footnote-length.hs
 
-**Path:** `build/markdown-footnote-length.hs` | **Language:** Haskell | **Lines:** 29
+Linter that warns about overly long footnotes in Markdown files
 
-> Linter that warns about overly long footnotes in Markdown files
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/markdown-footnote-length.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>29</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/markdown-footnote-length.hs">build/markdown-footnote-length.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around markdown-footnote-length.
+</div>
 
 ## Overview
 
@@ -76,7 +88,8 @@ TIO.putStrLn ─────► Print warning if > 2400 chars
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Bottom-Up Monadic Traversal
 
@@ -95,8 +108,10 @@ let md = runPure $ writePlain def (Pandoc nullMeta cntnts)
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Length Threshold
 
@@ -113,6 +128,7 @@ when (T.length md' > 2400) $ ...
 To change it, modify the source directly.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -135,10 +151,12 @@ To change it, modify the source directly.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [hakyll.hs](/backend/hakyll-hs) - Main build system with footnote processing
 - [Typography.hs](/backend/typography-hs) - AST transforms including footnote formatting
 - [markdown-lint.sh](/shell/markdown-lint) - Linting script that invokes this tool
 - [markdown-length-checker.hs](/backend/markdown-length-checker-hs) - Related line length validator
 - [sync.sh](/backend/sync-sh) - Build orchestrator (potential integration point)
+</details>

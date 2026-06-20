@@ -1,11 +1,23 @@
+---
+title: "reader-mode-initial.js"
+description: "Early reader mode bootstrap that prevents FOUC by activating before full JS loads"
+---
 
 # reader-mode-initial.js
 
-**Path:** `js/reader-mode-initial.js` | **Language:** JavaScript | **Lines:** 54
+Early reader mode bootstrap that prevents FOUC by activating before full JS loads
 
-> Early reader mode bootstrap that prevents FOUC by activating before full JS loads
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/reader-mode-initial.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>54</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/reader-mode-initial.js">js/reader-mode-initial.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around reader-mode-initial.
+</div>
 
 ## Overview
 
@@ -85,7 +97,8 @@ Page Load
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### FOUC Prevention via Early Activation
 
@@ -130,8 +143,10 @@ GW.notificationCenter.addHandlerForEvent("ReaderMode.didLoad", (eventInfo) => {
 This ensures the full `setMode()` (from `reader-mode.js`) runs after everything is in place, re-syncing any state if needed.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Property | Default | Description |
 |----------|---------|-------------|
@@ -142,6 +157,7 @@ This ensures the full `setMode()` (from `reader-mode.js`) runs after everything 
 **Values:** `"on"`, `"off"`, or absent (defaults to auto)
 
 ---
+</details>
 
 ## Integration Points
 
@@ -170,10 +186,12 @@ This ensures the full `setMode()` (from `reader-mode.js`) runs after everything 
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [reader-mode-js](reader-mode-js) - Full reader mode UI and interactions (loads later)
 - [reader-mode-css](reader-mode-css) - CSS styles for reader mode visuals
 - [dark-mode-initial-js](dark-mode-initial-js) - Same split-module FOUC prevention pattern
 - [initial-js](initial-js) - Provides `doWhenBodyExists` and notification center
 - [initial-css](initial-css) - Core styles that interact with reader mode
+</details>

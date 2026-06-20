@@ -1,14 +1,24 @@
 ---
+title: "initial.css"
+description: "This is gwern.net's most important stylesheet, containing the foundational CSS that defines the site's visual identity."
 sidebar_position: 3
 ---
 
 # initial.css
 
-**Path:** `css/initial.css` | **Language:** CSS | **Lines:** 2710
+This is gwern.net's most important stylesheet, containing the foundational CSS that defines the site's visual identity.
 
-Core layout, typography, and critical above-the-fold styles loaded inline in the document head.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/initial.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>2710</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/initial.css">css/initial.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing styling, layout, typography, color, or mode-specific CSS around initial.
+</div>
 
 ## Overview
 
@@ -82,7 +92,8 @@ The inline strategy is justified by:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [default](/css/default) - Non-critical styles loaded asynchronously
 - [colors](/css/colors) - Color variable definitions
@@ -90,3 +101,4 @@ The inline strategy is justified by:
 - [reader-mode-initial](/css/reader-mode-initial) - Reader mode styling
 - [sidenotes-js](/frontend/sidenotes-js) - JavaScript that positions margin notes
 - [dark-mode-js](/frontend/dark-mode-js) - Switches between light/dark color schemes
+</details>

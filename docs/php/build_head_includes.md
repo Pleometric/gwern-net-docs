@@ -1,12 +1,24 @@
 ---
+title: "build_head_includes.php"
+description: "This script creates inlined-head.html, a server-side include (SSI) file that contains critical resources needed for initial page render."
 sidebar_position: 3
 ---
 
 # build_head_includes.php
 
-**Path:** `build/build_head_includes.php` | **Language:** PHP | **Lines:** 91
+This script creates inlined-head.html, a server-side include (SSI) file that contains critical resources needed for initial page render.
 
-Generates an inlined HTML include file for the document `<head>` with critical CSS, external JS tags, and preload hints.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/build_head_includes.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>91</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/build_head_includes.php">build/build_head_includes.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around build_head_includes.
+</div>
 
 ## Overview
 
@@ -112,7 +124,8 @@ AddOutputFilter INCLUDES .shtml
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [build_body_includes.php](/php/build_body_includes) - Generates body-end includes for deferred resources
 - [build_standalone_includes.php](/php/build_standalone_includes) - Generates includes for standalone pages without JS
@@ -121,3 +134,4 @@ AddOutputFilter INCLUDES .shtml
 - [build_paths.php](/php/build_paths) - Directory path constants for file resolution
 - [sync.sh](/backend/sync-sh) - Orchestrates the build pipeline
 - [pre-commit-hook.php](/php/pre-commit-hook) - Git hook that triggers include regeneration
+</details>

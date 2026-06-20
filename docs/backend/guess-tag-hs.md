@@ -1,11 +1,23 @@
+---
+title: "guessTag.hs"
+description: "CLI tool for expanding short or partial tag names to full tag paths"
+---
 
 # guessTag.hs
 
-**Path:** `build/app/guessTag.hs` | **Language:** Haskell | **Lines:** 10
+CLI tool for expanding short or partial tag names to full tag paths
 
-> CLI tool for expanding short or partial tag names to full tag paths
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/app/guessTag.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>10</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/app/guessTag.hs">build/app/guessTag.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around guessTag.
+</div>
 
 ## Overview
 
@@ -53,7 +65,8 @@ The function iterates to a fixed point, allowing chained rewrites.
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Disambiguation via Blacklist
 
@@ -74,8 +87,10 @@ Attempting to use these as input raises an error, forcing explicit full tags.
 The Levenshtein-based fallback uses a maximum distance of 3 edits (`tagTypoMaxDistance`), catching common typos without false positives on unrelated tags.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration lives in `Config/Tags.hs`:
 
@@ -88,6 +103,7 @@ All configuration lives in `Config/Tags.hs`:
 | `shortTagTestSuite` | Test cases for validation |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -106,7 +122,8 @@ Used during annotation entry to normalize user-typed tags before storing in the 
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Tags.hs](/backend/tags-hs) - Core tag manipulation logic (where `guessTagFromShort` is defined)
 - [Config.Tags](/backend/config-tags-hs) - Tag abbreviations, aliases, and configuration tables
@@ -114,3 +131,4 @@ Used during annotation entry to normalize user-typed tags before storing in the 
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Stores normalized tags in the annotation database
 - [Hakyll.hs](/backend/hakyll-hs) - Site generator using tag expansion
 - [GTX.hs](/backend/gtx-hs) - Annotation format storing tag assignments
+</details>

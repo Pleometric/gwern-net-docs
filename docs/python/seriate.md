@@ -1,10 +1,23 @@
+---
+title: "seriate.py"
+description: "seriate.py implements seriation—a generalized form of sorting where items are arranged in a meaningful order that may not follow a strict comparison function."
+---
+
 # seriate.py
 
-**Path:** `build/seriate.py` | **Language:** Python | **Lines:** 212
+seriate.py implements seriation—a generalized form of sorting where items are arranged in a meaningful order that may not follow a strict comparison function.
 
-LLM-powered semantic sorting that arranges list items in "logical order" via iterative reordering.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/seriate.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>212</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/seriate.py">build/seriate.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around seriate.
+</div>
 
 ## Overview
 
@@ -140,7 +153,8 @@ def is_permutation(a, b):
 
 ---
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Setting | Value | Purpose |
 |---------|-------|---------|
@@ -149,6 +163,7 @@ def is_permutation(a, b):
 | Max iterations | 5 | Prevent infinite loops |
 
 ---
+</details>
 
 ## Error Handling
 
@@ -214,8 +229,10 @@ References:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Annotation.hs](/backend/annotation-hs) - Metadata that might benefit from seriation
 - [embed.sh](/shell/embed) - Another LLM-powered text utility (embeddings)
 - [Tags.hs](/backend/tags-hs) - Tag organization that could use seriation
+</details>

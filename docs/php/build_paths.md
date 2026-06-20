@@ -1,12 +1,24 @@
 ---
+title: "build_paths.php"
+description: "This is a simple configuration file that establishes the canonical directory structure for the gwern.net build system."
 sidebar_position: 1
 ---
 
 # build_paths.php
 
-**Path:** `build/build_paths.php` | **Language:** PHP | **Lines:** 14
+This is a simple configuration file that establishes the canonical directory structure for the gwern.net build system.
 
-Defines global directory path constants used throughout the PHP build system.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/build_paths.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>14</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/build_paths.php">build/build_paths.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around build_paths.
+</div>
 
 ## Overview
 
@@ -51,7 +63,8 @@ Used by:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [build_variables.php](/php/build_variables) - Shared state for tracking updated files
 - [build_functions.php](/php/build_functions) - Utility functions using these paths
@@ -59,3 +72,4 @@ Used by:
 - [version_asset_links.php](/php/version_asset_links) - Asset versioning that depends on these paths
 - [build_head_includes.php](/php/build_head_includes) - Include generator using path constants
 - [sync.sh](/backend/sync-sh) - Build orchestrator with parallel path structure
+</details>

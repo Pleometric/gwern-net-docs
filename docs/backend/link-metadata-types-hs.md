@@ -1,11 +1,23 @@
+---
+title: "LinkMetadataTypes.hs"
+description: "Core type definitions for the annotation and link metadata system"
+---
 
 # LinkMetadataTypes.hs
 
-**Path:** `build/LinkMetadataTypes.hs` | **Language:** Haskell | **Lines:** 39
+Core type definitions for the annotation and link metadata system
 
-> Core type definitions for the annotation and link metadata system
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/LinkMetadataTypes.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>39</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/LinkMetadataTypes.hs">build/LinkMetadataTypes.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around LinkMetadataTypes.
+</div>
 
 ## Overview
 
@@ -195,7 +207,8 @@ The tuple-based `MetadataItem` trades named access for positional access. While 
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Either for Archival State
 
@@ -217,12 +230,15 @@ This encoding is compact and pattern-matches cleanly.
 Sizes are stored with pre-computed percentiles to enable UI display ("this PDF is larger than 90% of PDFs on the site"). Percentiles are computed separately per category to give meaningful comparisons.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 No runtime configuration. Type definitions are compile-time constants.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -253,7 +269,8 @@ Types defined here are used for:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [GTX.hs](/backend/gtx-hs) - GTX file format parser/writer
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database manager
@@ -263,3 +280,4 @@ Types defined here are used for:
 - [annotations.js](/frontend/annotations-js) - Frontend annotation data layer
 
 ---
+</details>

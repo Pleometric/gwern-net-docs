@@ -1,11 +1,23 @@
+---
+title: "LinkMetadata.hs"
+description: "LinkMetadata.hs orchestrates the annotation system that makes gwern.net's popups work."
+---
 
 # LinkMetadata.hs
 
-**Path:** `build/LinkMetadata.hs` | **Language:** Haskell | **Lines:** 882
+LinkMetadata.hs orchestrates the annotation system that makes gwern.net's popups work.
 
-The brain of gwern.net's annotation system - loads, creates, validates, and caches link metadata that powers popup annotations.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/LinkMetadata.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>882</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/LinkMetadata.hs">build/LinkMetadata.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around LinkMetadata.
+</div>
 
 ## Overview
 
@@ -224,7 +236,8 @@ let partialScoring = 0 < sum [length (drop 2 ts),
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Left-Biased Map Union for Priority
 
@@ -272,8 +285,10 @@ lookupFallback :: Metadata -> String -> (FilePath, MetadataItem)
 For URLs where the stored metadata key is a longer URL (including fragments), this falls back to prefix matching using the provided URL as the prefix; it does not strip fragments to find a base URL.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### From Config.Misc
 
@@ -294,6 +309,7 @@ For URLs where the stored metadata key is a longer URL (including fragments), th
 - URL > 273 chars triggers truncation warning
 
 ---
+</details>
 
 ## Integration Points
 
@@ -327,7 +343,8 @@ The HTML fragments written to `metadata/annotation/` are fetched by `popups.js` 
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Annotation.hs](/backend/annotation-hs) - URL-to-scraper dispatcher for fetching new annotations
 - [LinkMetadataTypes.hs](/backend/link-metadata-types-hs) - Core type definitions (MetadataItem, Path, Failure)
@@ -337,3 +354,4 @@ The HTML fragments written to `metadata/annotation/` are fetched by `popups.js` 
 - [Annotation/Biorxiv.hs](/backend/annotation-biorxiv-hs) - bioRxiv/medRxiv scraper
 - [Annotation/Gwernnet.hs](/backend/annotation-gwernnet-hs) - Local gwern.net page scraper
 - [Metadata/Format.hs](/backend/metadata-format-hs) - Abstract HTML cleaning utilities
+</details>

@@ -1,12 +1,24 @@
 ---
+title: "build_asset_versions.php"
+description: "This script creates a version manifest for static assets (icons, logos, fonts) that enables browser cache invalidation when files change."
 sidebar_position: 2
 ---
 
 # build_asset_versions.php
 
-**Path:** `build/build_asset_versions.php` | **Language:** PHP | **Lines:** 52
+This script creates a version manifest for static assets (icons, logos, fonts) that enables browser cache invalidation when files change.
 
-Generates a JavaScript object mapping asset URLs to modification timestamps for cache busting.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/build_asset_versions.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>52</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/build_asset_versions.php">build/build_asset_versions.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around build_asset_versions.
+</div>
 
 ## Overview
 
@@ -86,7 +98,8 @@ No command-line arguments required. The script:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [build_unified_assets.php](/php/build_unified_assets) - Includes the generated file in the head JS bundle
 - [build_functions.php](/php/build_functions) - `VersionedAssetHref()` function uses modification times for CSS/JS versioning
@@ -95,3 +108,4 @@ No command-line arguments required. The script:
 - [sync.sh](/backend/sync-sh) - Orchestrates the build pipeline and ensures correct execution order
 - [pre-commit-hook.php](/php/pre-commit-hook) - Git hook that triggers version regeneration
 - [initial.js](/frontend/initial-js) - Consumes `GW.assetVersions` for runtime asset URL construction
+</details>

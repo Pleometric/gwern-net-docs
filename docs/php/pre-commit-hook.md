@@ -1,12 +1,24 @@
 ---
+title: "pre-commit.hook.php"
+description: "This script is the central orchestrator for gwern.net's asset build pipeline, triggered automatically before each git commit."
 sidebar_position: 1
 ---
 
 # pre-commit.hook.php
 
-**Path:** `build/pre-commit.hook.php` | **Language:** PHP | **Lines:** 220
+This script is the central orchestrator for gwern.net's asset build pipeline, triggered automatically before each git commit.
 
-Git pre-commit hook that orchestrates the build pipeline for CSS, JavaScript, fonts, and icons.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/pre-commit.hook.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>220</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/pre-commit.hook.php">build/pre-commit.hook.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around pre-commit.hook.
+</div>
 
 ## Overview
 
@@ -82,7 +94,8 @@ php build/pre-commit.hook.php --force
 
 The hook is typically symlinked from `.git/hooks/pre-commit` to `build/pre-commit.hook.php`.
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [sync.sh](/backend/sync-sh) - Main build orchestrator that calls this script
 - [build_unified_assets.php](/php/build_unified_assets) - Unified CSS/JS concatenation
@@ -90,3 +103,4 @@ The hook is typically symlinked from `.git/hooks/pre-commit` to `build/pre-commi
 - [build_variables.php](/php/build_variables) - Shared build configuration
 - [build_font_css.php](/php/build-font-css) - Font CSS generation
 - [build_icon_sprite_file.php](/php/build-icon-sprite-file) - Icon sprite generation
+</details>

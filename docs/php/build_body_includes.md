@@ -1,12 +1,24 @@
 ---
+title: "build_body_includes.php"
+description: "This script creates inlined-asset-links.html, a server-side include (SSI) file containing and tags for the main CSS and JavaScript bundles."
 sidebar_position: 4
 ---
 
 # build_body_includes.php
 
-**Path:** `build/build_body_includes.php` | **Language:** PHP | **Lines:** 53
+This script creates inlined-asset-links.html, a server-side include (SSI) file containing and tags for the main CSS and JavaScript bundles.
 
-Generates versioned `<link>` and `<script>` tags for deferred CSS and JavaScript loaded at document end.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/build_body_includes.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>53</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/build_body_includes.php">build/build_body_includes.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around build_body_includes.
+</div>
 
 ## Overview
 
@@ -91,7 +103,8 @@ AddOutputFilter INCLUDES .shtml
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [build_unified_assets.php](/php/build_unified_assets) - Creates the `style.css` and `script.js` bundles referenced here
 - [build_head_includes.php](/php/build_head_includes) - Generates head includes for critical inlined resources
@@ -100,3 +113,4 @@ AddOutputFilter INCLUDES .shtml
 - [build_functions.php](/php/build_functions) - Provides `VersionedAssetHref()` for cache-busting URL generation
 - [sync.sh](/backend/sync-sh) - Orchestrates the build pipeline
 - [pre-commit-hook.php](/php/pre-commit-hook) - Git hook that triggers include regeneration
+</details>

@@ -1,11 +1,23 @@
+---
+title: "Annotation.hs"
+description: "Annotation.hs is the routing layer that decides how to fetch metadata for a given URL."
+---
 
 # Annotation.hs
 
-**Path:** `build/Annotation.hs` | **Language:** Haskell | **Lines:** 290
+Annotation.hs is the routing layer that decides how to fetch metadata for a given URL.
 
-URL-to-scraper dispatcher for metadata extraction
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Annotation.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>290</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Annotation.hs">build/Annotation.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Annotation.
+</div>
 
 ## Overview
 
@@ -97,7 +109,8 @@ type MetadataItem = (String, String, String, String, [(String,String)], [String]
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Guard-Clause Routing
 
@@ -133,6 +146,7 @@ For local files like `/doc/ai/2020-08-05-hippke-analysis.pdf`, the module extrac
 ```
 
 ---
+</details>
 
 ## Scraper Modules
 
@@ -179,7 +193,8 @@ Scrapes gwern.net pages.
 
 ---
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### URL Blacklists
 
@@ -211,6 +226,7 @@ whitelist = ["Guys and Dolls", "A critique of pure reason"]
 - `Config.Misc.arxivAbstractRegexps` / `arxivAbstractFixedRewrites` - arXiv cleanup patterns
 
 ---
+</details>
 
 ## Integration Points
 
@@ -261,7 +277,8 @@ whitelist = ["Guys and Dolls", "A critique of pure reason"]
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Calls linkDispatcher via `annotateLink`, manages the metadata database
 - [LinkMetadataTypes.hs](/backend/link-metadata-types-hs) - Core type definitions (Failure, MetadataItem)
@@ -272,3 +289,4 @@ whitelist = ["Guys and Dolls", "A critique of pure reason"]
 - [Annotation/Gwernnet.hs](/backend/annotation-gwernnet-hs) - Local gwern.net page scraper
 - [popups.js](/frontend/popups-js) - Frontend popup system that displays annotations
 - [extracts.js](/frontend/extracts-js) - Pop-frame extraction and rendering
+</details>

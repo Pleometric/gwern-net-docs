@@ -1,11 +1,23 @@
+---
+title: "reader-mode.js"
+description: "Full reader mode UI with link masking, mode selector widget, and auto-deactivation"
+---
 
 # reader-mode.js
 
-**Path:** `js/reader-mode.js` | **Language:** JavaScript | **Lines:** 582
+Full reader mode UI with link masking, mode selector widget, and auto-deactivation
 
-> Full reader mode UI with link masking, mode selector widget, and auto-deactivation
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/reader-mode.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>582</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/reader-mode.js">js/reader-mode.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around reader-mode.
+</div>
 
 ## Overview
 
@@ -137,7 +149,8 @@ Only the first matching element is observed (`document.querySelector`), so reade
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Progressive Link Revelation
 
@@ -179,8 +192,10 @@ link.specialPopupTriggerDelay = () => {
 The auto-deactivation uses both a primary observer and a backup observer; the backup observer on `#footer-decoration-container` is always created, not only when the primary trigger elements are absent.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Property | Default | Description |
 |----------|---------|-------------|
@@ -193,6 +208,7 @@ The auto-deactivation uses both a primary observer and a backup observer; the ba
 **localStorage key:** `reader-mode-setting` (values: `"on"`, `"off"`, or absent for auto)
 
 ---
+</details>
 
 ## Integration Points
 
@@ -233,7 +249,8 @@ The auto-deactivation uses both a primary observer and a backup observer; the ba
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [reader-mode-initial-js](reader-mode-initial-js) - Bootstrap module for FOUC prevention
 - [reader-mode-css](reader-mode-css) - CSS styles for reader mode visuals
@@ -241,3 +258,4 @@ The auto-deactivation uses both a primary observer and a backup observer; the ba
 - [extracts-js](extracts-js) - Popup/popover system that coordinates with link masking
 - [sidenotes-js](sidenotes-js) - Re-layouts after reader mode deactivation
 - [dark-mode-js](dark-mode-js) - Similar tri-state mode selector pattern
+</details>

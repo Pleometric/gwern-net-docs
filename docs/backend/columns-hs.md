@@ -1,11 +1,23 @@
+---
+title: "Columns.hs"
+description: "Detects \"skinny tall\" lists suitable for CSS multi-column rendering"
+---
 
 # Columns.hs
 
-**Path:** `build/Columns.hs` | **Language:** Haskell | **Lines:** 98
+Detects "skinny tall" lists suitable for CSS multi-column rendering
 
-> Detects "skinny tall" lists suitable for CSS multi-column rendering
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Columns.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>98</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Columns.hs">build/Columns.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Columns.
+</div>
 
 ## Overview
 
@@ -69,7 +81,8 @@ listSubItemLength :: Block -> Int
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Plain Text Measurement via `simplified`
 
@@ -94,8 +107,10 @@ unless preexisting $ ...
 This avoids re-reporting lists in files where the author has already made deliberate choices.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Setting | Location | Default | Purpose |
 |---------|----------|---------|---------|
@@ -104,6 +119,7 @@ This avoids re-reporting lists in files where the author has already made delibe
 The threshold of 75 characters is roughly half the width of a gwern.net content line, ensuring side-by-side items fit comfortably.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -142,7 +158,8 @@ The `columns` class is handled in `default.css` using CSS3 multi-column layout:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [hakyll.hs](/backend/hakyll-hs) - Main build pipeline that integrates column detection
 - [Typography.hs](/backend/typography-hs) - Related Pandoc AST transformations
@@ -150,3 +167,4 @@ The `columns` class is handled in `default.css` using CSS3 multi-column layout:
 - [layout.js](/frontend/layout-js) - Client-side block layout system
 - [GenerateSimilar.hs](/backend/generate-similar-hs) - Uses `listLength` for "See Also" sections
 - [Utils.hs](/backend/utils-hs) - `simplified` function for plain text rendering
+</details>

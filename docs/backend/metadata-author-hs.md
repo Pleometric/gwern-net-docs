@@ -1,13 +1,23 @@
+---
+title: "Metadata/Author.hs"
+description: "Author name canonicalization, linking, and display formatting"
+---
 
 # Metadata/Author.hs
 
-**Path:** `build/Metadata/Author.hs` | **Language:** Haskell | **Lines:** 295
+Author name canonicalization, linking, and display formatting
 
-> Author name canonicalization, linking, and display formatting
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Metadata/Author.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>295</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Metadata/Author.hs">build/Metadata/Author.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
-**Config:** `build/Config/Metadata/Author.hs` | **Lines:** ~3,360
-
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Metadata/Author.
+</div>
 
 ## Overview
 
@@ -160,7 +170,8 @@ Author name → URL mapping (~2,400 entries). Wikipedia links dominate, generate
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Hash Disambiguation
 
@@ -179,8 +190,10 @@ Since author names become regular hyperlinks, the backlinks system automatically
 `name2Abbreviations` handles the combinatorial explosion of academic name formats. For "Ken J. Ong" it generates "K. J. Ong", "K J. Ong", "K. Ong", "Ken Ong", etc. This is only applied to names in `canonicalsWithInitials` to avoid noise.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration lives in `Config/Metadata/Author.hs`:
 
@@ -215,6 +228,7 @@ Names to never auto-link (single letters, common words that aren't people).
 Known-unusual names that pass validation despite looking like errors.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -236,7 +250,8 @@ Known-unusual names that pass validation despite looking like errors.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config/Metadata/Author.hs](/backend/config-metadata-author-hs) - Configuration data (canonicals, author links)
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Uses authorCollapse for annotation display
@@ -245,3 +260,4 @@ Known-unusual names that pass validation despite looking like errors.
 - [Metadata/Date.hs](/backend/metadata-date-hs) - Companion date processing module
 - [Metadata/Format.hs](/backend/metadata-format-hs) - Companion string cleaning module
 - [Metadata/Title.hs](/backend/metadata-title-hs) - Companion title processing module
+</details>

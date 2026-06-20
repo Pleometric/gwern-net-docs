@@ -1,11 +1,23 @@
+---
+title: "special-occasions.js"
+description: "Date-driven holiday theming system for Halloween, Christmas, Easter, and April Fools"
+---
 
 # special-occasions.js
 
-**Path:** `js/special-occasions.js` | **Language:** JavaScript | **Lines:** 692
+Date-driven holiday theming system for Halloween, Christmas, Easter, and April Fools
 
-> Date-driven holiday theming system for Halloween, Christmas, Easter, and April Fools
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/special-occasions.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>692</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/special-occasions.js">js/special-occasions.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around special-occasions.
+</div>
 
 ## Overview
 
@@ -158,7 +170,8 @@ injectSpecialPageLogo()
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Locale-Aware Halloween
 
@@ -195,8 +208,10 @@ doWhenMatchMedia(matchMedia("(min-width: 1180px)"), {
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Global Constants
 
@@ -215,6 +230,7 @@ Each occasion has a test page that forces activation regardless of date:
 - `/lorem-easter`
 
 ---
+</details>
 
 ## Integration Points
 
@@ -261,7 +277,8 @@ Each occasion has a test page that forces activation regardless of date:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [special-occasions-css](special-occasions-css) - CSS styles for holiday themes
 - [dark-mode-js](dark-mode-js) - Theme system that triggers occasion re-application
@@ -269,3 +286,4 @@ Each occasion has a test page that forces activation regardless of date:
 - [colors-css](colors-css) - Base colors overridden by holiday themes
 - [initial-js](initial-js) - Provides lifecycle hooks used throughout
 - [popups-js](popups-js) - Used by April Fools joke popup
+</details>

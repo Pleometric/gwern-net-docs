@@ -1,11 +1,23 @@
+---
+title: "content.js"
+description: "content.js is the backbone of gwern.net's rich link preview and transclusion system."
+---
 
 # content.js
 
-**Path:** `js/content.js` | **Language:** JavaScript | **Lines:** 2031
+content.js is the backbone of gwern.net's rich link preview and transclusion system.
 
-Polymorphic content loading system for fetching and transforming diverse content types.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/content.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>2031</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/content.js">js/content.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around content.
+</div>
 
 ## Overview
 
@@ -118,7 +130,8 @@ Links can override type detection via `data-link-content-type` attribute (kebab-
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Polymorphic Content Types
 
@@ -171,8 +184,10 @@ if (redirectLink) {
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### File Extensions
 
@@ -196,6 +211,7 @@ Each media/document type defines its recognized extensions:
 `liveNitterHosts` (line 1378): List of Nitter instances for tweet embedding
 
 ---
+</details>
 
 ## Content Types Reference
 
@@ -289,7 +305,8 @@ myNewType: {
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [initial.js](/frontend/initial-js) - Notification center that content.js uses for events
 - [rewrite.js](/frontend/rewrite-js) - DOM transformation handlers triggered after content loads
@@ -297,3 +314,4 @@ myNewType: {
 - [extracts.js](/frontend/extracts-js) - Popup/extract system that consumes content via Content.load
 - [annotations.js](/frontend/annotations-js) - Annotation data layer, alternative data provider to Content
 - [popups.js](/frontend/popups-js) - Popup rendering system that displays loaded content
+</details>

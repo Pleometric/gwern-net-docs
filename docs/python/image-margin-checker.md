@@ -1,14 +1,24 @@
 ---
+title: "image-margin-checker.py [DEPRECATED]"
+description: "WARNING: This script is deprecated and not recommended for use as of early 2024."
 sidebar_position: 5
 ---
 
 # image-margin-checker.py [DEPRECATED]
 
-**Path:** `build/old/image-margin-checker.py` | **Language:** Python | **Lines:** 103
+WARNING: This script is deprecated and not recommended for use as of early 2024.
 
-CLI tool to check whether an image is too tightly cropped and needs greater padding/margin using GPT-4 Vision.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/old/image-margin-checker.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>103</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/old/image-margin-checker.py">build/old/image-margin-checker.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around image-margin-checker.py [DEPRECATED].
+</div>
 
 ## Overview
 
@@ -60,7 +70,8 @@ WARNING: Received an error for image ./path/to/image.png: 'Your input image may 
 - Unclear whether vision model or prompt is the primary failure mode
 - May be worth revisiting with improved vision models (GPT-4.5-Vision, etc.)
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Image.hs](/backend/image-hs) - Server-side image processing pipeline
 - [invertornot.py](/python/invertornot) - Related GPT-4-Vision image classification tool
@@ -68,3 +79,4 @@ WARNING: Received an error for image ./path/to/image.png: 'Your input image may 
 - [should_image_have_outline.php](/php/should-image-have-outline) - PHP-based image analysis
 - [compressPNG](/shell/compress-png) - PNG compression optimization
 - [collapse-checker.py](/python/collapse-checker) - Validates collapsed HTML blocks
+</details>

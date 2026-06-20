@@ -1,12 +1,24 @@
 ---
+title: "idealconditionsdonotexistandwillneverhappen.html"
+description: "This template is a humorous anti-procrastination easter egg that can be displayed to users as a random popup or notification."
 sidebar_position: 2
 ---
 
 # idealconditionsdonotexistandwillneverhappen.html
 
-**Path:** `template/idealconditionsdonotexistandwillneverhappen.html` | **Language:** HTML | **Lines:** 9
+This template is a humorous anti-procrastination easter egg that can be displayed to users as a random popup or notification.
 
-Easter egg template featuring a Clippy-style motivational meme about perfectionism.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/idealconditionsdonotexistandwillneverhappen.html</code></div>
+  <div><strong>Language</strong>HTML</div>
+  <div><strong>Lines</strong>9</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/idealconditionsdonotexistandwillneverhappen.html">template/idealconditionsdonotexistandwillneverhappen.html</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around idealconditionsdonotexistandwillneverhappen.
+</div>
 
 ## Overview
 
@@ -60,7 +72,8 @@ The template shares thematic similarities with `unfortunatelytheclockisticking.h
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [unfortunatelytheclockisticking.html](/templates/unfortunatelytheclockisticking) - Similar easter egg template (birthday cat mortality reminder)
 - [default.html](/templates/default) - Main page template (this easter egg bypasses it)
@@ -68,3 +81,4 @@ The template shares thematic similarities with `unfortunatelytheclockisticking.h
 - [popups.js](/frontend/popups-js) - Popup windowing system that may display this
 - [rewrite.js](/frontend/rewrite-js) - DOM transformation that handles randomization
 - [gwern.net.conf](/nginx/gwern-net-conf) - Server config that serves the easter egg
+</details>

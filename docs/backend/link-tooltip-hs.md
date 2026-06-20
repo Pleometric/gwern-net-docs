@@ -1,11 +1,23 @@
+---
+title: "link-tooltip.hs"
+description: "Archived batch tool that extracts citation metadata from HTML link tooltips and updates the annotation database"
+---
 
 # link-tooltip.hs
 
-**Path:** `build/old/link-tooltip.hs` | **Language:** Haskell | **Lines:** 46
+Archived batch tool that extracts citation metadata from HTML link tooltips and updates the annotation database
 
-> Archived batch tool that extracts citation metadata from HTML link tooltips and updates the annotation database
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/old/link-tooltip.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>46</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/old/link-tooltip.hs">build/old/link-tooltip.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around link-tooltip.
+</div>
 
 ## Overview
 
@@ -99,7 +111,8 @@ The upgrade function only touches the first three fields (title, author, date).
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Conservative Merge Strategy
 
@@ -136,8 +149,10 @@ Tooltips starting with these characters are skipped entirely:
 Also skipped: tooltips containing `"Original URL:"` (archive markers).
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 No configuration files. Behavior is hardcoded in the parsing logic.
 
@@ -148,6 +163,7 @@ The minimum length thresholds are:
 These prevent spurious single-letter or short string matches from being treated as valid metadata.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -178,7 +194,8 @@ runghc build/link-tooltip.hs path/to/file.md
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database manager
 - [linkTitler](/backend/link-titler-hs) - Related tool that adds titles to links (reverse direction)
@@ -186,3 +203,4 @@ runghc build/link-tooltip.hs path/to/file.md
 - [LinkID.hs](/backend/link-id-hs) - Citation ID generation for metadata entries
 - [link-prioritize.hs](/backend/link-prioritize-hs) - Identifies links lacking annotations
 - [Query.hs](/backend/query-hs) - Parses Markdown/HTML to extract tooltips
+</details>

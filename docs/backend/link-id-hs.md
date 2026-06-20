@@ -1,11 +1,23 @@
+---
+title: "LinkID.hs"
+description: "Citation-style ID generation for links and annotations"
+---
 
 # LinkID.hs
 
-**Path:** `build/LinkID.hs` | **Language:** Haskell | **Lines:** 234
+Citation-style ID generation for links and annotations
 
-> Citation-style ID generation for links and annotations
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/LinkID.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>234</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/LinkID.hs">build/LinkID.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around LinkID.
+</div>
 
 ## Overview
 
@@ -144,7 +156,8 @@ The suffix generator produces infinite alphabetic sequences: `a..z, aa..zz, aaa.
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Affiliation/Annotation Stripping
 
@@ -191,8 +204,10 @@ metadata/annotation/id/all.json -- All IDs (URL→ID, reversed)
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Config.LinkID.hs
 
@@ -219,6 +234,7 @@ affiliationAnchors = ["ai21", "adobe", "alibaba", ...]
 Individual annotations can specify custom IDs via the `id` key-value pair, bypassing the algorithm entirely.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -251,7 +267,8 @@ Individual annotations can specify custom IDs via the `id` key-value pair, bypas
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config.LinkID](/backend/config-link-id-hs) - ID generation overrides and affiliation anchor lists
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database that provides author/date metadata
@@ -259,3 +276,4 @@ Individual annotations can specify custom IDs via the `id` key-value pair, bypas
 - [hakyll.hs](/backend/hakyll-hs) - Triggers ID database generation during builds
 - [linkSuggester](/backend/link-suggester-hs) - Uses IDs for link suggestion deduplication
 - [linkExtractor](/backend/link-extractor-hs) - Extracts URLs that get assigned IDs
+</details>

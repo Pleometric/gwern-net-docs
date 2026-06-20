@@ -1,14 +1,24 @@
 ---
+title: "upload.sh"
+description: "upload.sh is the primary interface for adding files to gwern.net, handling everything from file naming and format conversion to optimization, metadata extraction, and deployment."
 sidebar_position: 4
 ---
 
 # upload.sh
 
-**Path:** `build/upload.sh` | **Language:** Bash | **Lines:** 309
+upload.sh is the primary interface for adding files to gwern.net, handling everything from file naming and format conversion to optimization, metadata extraction, and deployment.
 
-Comprehensive file upload manager with automatic optimization, naming, and deployment.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/upload.sh</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>309</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/upload.sh">build/upload.sh</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing shell automation, compression, upload/download helpers, linting, or preprocessing around upload.
+</div>
 
 ## Overview
 
@@ -177,7 +187,8 @@ wget https://arxiv.org/pdf/2301.12345.pdf -O transformer-paper.pdf
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [sync.sh](/backend/sync-sh) - Build orchestrator that may trigger bulk uploads
 - [gwsed.sh](/shell/gwsed) - Site-wide string replacement for updating URLs
@@ -186,3 +197,4 @@ wget https://arxiv.org/pdf/2301.12345.pdf -O transformer-paper.pdf
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Stores metadata for uploaded papers
 - [Annotation.hs](/backend/annotation-hs) - Annotation system that references uploaded files
 - [clean-pdf.py](/python/clean-pdf) - PDF text cleaning for uploaded documents
+</details>

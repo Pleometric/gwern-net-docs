@@ -1,11 +1,23 @@
+---
+title: "generateDirectory.hs"
+description: "Generates tag directory index pages (doc//index.md) from filesystem contents and annotation metadata"
+---
 
 # generateDirectory.hs
 
-**Path:** `build/app/generateDirectory.hs` | **Language:** Haskell | **Lines:** 405
+Generates tag directory index pages (doc//index.md) from filesystem contents and annotation metadata
 
-> Generates tag directory index pages (`doc/*/index.md`) from filesystem contents and annotation metadata
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/app/generateDirectory.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>405</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/app/generateDirectory.hs">build/app/generateDirectory.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around generateDirectory.
+</div>
 
 ## Overview
 
@@ -94,7 +106,8 @@ Generated index pages contain these sections in order:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Directory-as-Tag Unification
 
@@ -156,8 +169,10 @@ titledLinksSorted <- if newestp then return []
 Uses pre-computed embedding similarities to cluster related annotations together.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Constant | Location | Purpose |
 |----------|----------|---------|
@@ -166,6 +181,7 @@ Uses pre-computed embedding similarities to cluster related annotations together
 | `CGS.minTagAuto` | `Config.GenerateSimilar` | Minimum entries before showing "Sort By Magic" |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -197,7 +213,8 @@ Generated pages include:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [hakyll.hs](/backend/hakyll-hs) - Main site generator that uses generated directories
 - [Tags.hs](/backend/tags-hs) - Tag listing and abbreviation utilities
@@ -205,3 +222,4 @@ Generated pages include:
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database providing entry metadata
 - [GenerateSimilar.hs](/backend/generate-similar-hs) - Embedding-based clustering for "Sort By Magic"
 - [Typography.hs](/backend/typography-hs) - Title formatting utilities
+</details>

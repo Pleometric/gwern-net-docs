@@ -1,12 +1,24 @@
 ---
+title: "build_functions.php"
+description: "This file exports a single utility function VersionedAssetHref() that generates cache-busted URLs for static assets by appending a version query parameter based on file."
 sidebar_position: 3
 ---
 
 # build_functions.php
 
-**Path:** `build/build_functions.php` | **Language:** PHP | **Lines:** 19
+This file exports a single utility function VersionedAssetHref() that generates cache-busted URLs for static assets by appending a version query parameter based on file.
 
-Provides utility functions for cache-busting asset URLs via file modification timestamps.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/build_functions.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>19</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/build_functions.php">build/build_functions.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around build_functions.
+</div>
 
 ## Overview
 
@@ -71,7 +83,8 @@ The function is called during HTML generation (not during asset building) to ens
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [build_paths.php](/php/build_paths) - Defines `$static_root` used by this function
 - [build_variables.php](/php/build_variables) - Shared state (often imported together)
@@ -79,3 +92,4 @@ The function is called during HTML generation (not during asset building) to ens
 - [build_head_includes.php](/php/build_head_includes) - Uses `VersionedAssetHref()` for head assets
 - [build_body_includes.php](/php/build_body_includes) - Uses `VersionedAssetHref()` for deferred assets
 - [build_unified_assets.php](/php/build_unified_assets) - Main bundler that imports these functions
+</details>

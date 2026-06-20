@@ -1,14 +1,24 @@
 ---
+title: "twdne.conf"
+description: "This is a straightforward nginx server block configuration for hosting the ThisWaifuDoesNotExist.net static file archive."
 sidebar_position: 2
 ---
 
 # twdne.conf
 
-**Path:** `nginx/twdne.conf` | **Language:** Nginx | **Lines:** 19
+This is a straightforward nginx server block configuration for hosting the ThisWaifuDoesNotExist.net static file archive.
 
-Minimal nginx configuration for serving the ThisWaifuDoesNotExist.net (TWDNE) static site mirror.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>nginx/twdne.conf</code></div>
+  <div><strong>Language</strong>Nginx</div>
+  <div><strong>Lines</strong>19</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/nginx/twdne.conf">nginx/twdne.conf</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing server routing, redirects, deployment configuration, or Nginx behavior around twdne.
+</div>
 
 ## Overview
 
@@ -64,10 +74,12 @@ For more background, see the main gwern.net article at `https://gwern.net/twdne`
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [gwern.net.conf](/nginx/gwern-net-conf) - Main site nginx configuration (much more complex)
 - [rsyncd.conf](/nginx/rsyncd-conf) - Rsync daemon providing TWDNE mirror access
 - [memoriam.sh](/nginx/memoriam-sh) - Memorial header (not used in TWDNE)
 - [redirect-nginx](/nginx/redirect-nginx) - URL redirects (not used in TWDNE)
 - [sync.sh](/backend/sync-sh) - Build orchestrator that may handle TWDNE deployment
+</details>

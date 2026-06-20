@@ -1,14 +1,24 @@
 ---
+title: "light-mode-adjustments.css"
+description: "This is a short stylesheet that defines light-mode-specific visual patterns (popup title bars, checkerboard scrollbars) and includes a small @media rule for.poem and.editorial."
 sidebar_position: 6
 ---
 
 # light-mode-adjustments.css
 
-**Path:** `css/light-mode-adjustments.css` | **Language:** CSS | **Lines:** 14
+This is a short stylesheet that defines light-mode-specific visual patterns (popup title bars, checkerboard scrollbars) and includes a small @media rule for.poem and.editorial.
 
-Light mode pattern and texture URLs for popup title bars and scrollbars.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/light-mode-adjustments.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>14</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/light-mode-adjustments.css">css/light-mode-adjustments.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing styling, layout, typography, color, or mode-specific CSS around light-mode-adjustments.
+</div>
 
 ## Overview
 
@@ -52,10 +62,12 @@ The pattern URLs are swapped out in `dark-mode-adjustments.css` to provide dark-
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [dark-mode-adjustments](/css/dark-mode-adjustments) - Provides dark mode equivalents of these patterns
 - [colors](/css/colors) - Defines the color variables that work alongside these patterns
 - [default](/css/default) - Uses these pattern variables for title bars and scrollbars
 - [build-mode-css](/php/build-mode-css) - Combines this with colors.css for final output
 - [dark-mode-js](/frontend/dark-mode-js) - Toggles between light and dark modes
+</details>

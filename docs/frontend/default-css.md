@@ -1,11 +1,23 @@
+---
+title: "default.css"
+description: "Deferred styles for below-the-fold features"
+---
 
 # default.css
 
-**Path:** `css/default.css` | **Language:** CSS | **Lines:** 7679
+Deferred styles for below-the-fold features
 
-> Deferred styles for below-the-fold features
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/default.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>7679</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/default.css">css/default.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around default.
+</div>
 
 ## Overview
 
@@ -390,7 +402,8 @@ Extensive responsive design with breakpoints:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [initial-css](initial-css) - Critical above-the-fold CSS
 - [colors-css](colors-css) - Color scheme variables
@@ -400,3 +413,4 @@ Extensive responsive design with breakpoints:
 - [sidenotes-js](sidenotes-js) - Sidenote positioning logic
 - [collapse-js](collapse-js) - Collapsible section behavior
 - [dark-mode-js](dark-mode-js) - Theme switching
+</details>

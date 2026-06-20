@@ -1,12 +1,24 @@
 ---
+title: "svg_squeeze.php"
+description: "This script optimizes SVG files by reducing numeric precision in path coordinates while preserving visual quality."
 sidebar_position: 3
 ---
 
 # svg_squeeze.php
 
-**Path:** `build/svg_squeeze.php` | **Language:** PHP | **Lines:** 65
+This script optimizes SVG files by reducing numeric precision in path coordinates while preserving visual quality.
 
-Reduces SVG file size by intelligently rounding path coordinate precision based on scale.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/svg_squeeze.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>65</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/svg_squeeze.php">build/svg_squeeze.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around svg_squeeze.
+</div>
 
 ## Overview
 
@@ -98,7 +110,8 @@ The script prints each filename as it processes it, and outputs results to a `sq
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [svg_strip_background.php](/php/svg-strip-background) - Removes background rectangles from SVGs
 - [build_icon_sprite_file.php](/php/build-icon-sprite-file) - Combines SVGs into sprite sheets
@@ -106,3 +119,4 @@ The script prints each filename as it processes it, and outputs results to a `sq
 - [build_unified_assets.php](/php/build_unified_assets) - May reference optimized SVGs
 - [sync.sh](/backend/sync-sh) - Build orchestrator that may invoke SVG optimization
 - [LinkIcon.hs](/backend/link-icon-hs) - Backend system using SVG icons
+</details>

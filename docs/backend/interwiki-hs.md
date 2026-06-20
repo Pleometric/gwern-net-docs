@@ -1,13 +1,23 @@
+---
+title: "Interwiki.hs"
+description: "Expands shortcut links like !W to full Wikipedia URLs and manages WP namespace popup behavior"
+---
 
 # Interwiki.hs
 
-**Path:** `build/Interwiki.hs` | **Language:** Haskell | **Lines:** 263
+Expands shortcut links like !W to full Wikipedia URLs and manages WP namespace popup behavior
 
-> Expands shortcut links like `!W` to full Wikipedia URLs and manages WP namespace popup behavior
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Interwiki.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>263</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Interwiki.hs">build/Interwiki.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
-**Config:** `build/Config/Interwiki.hs` | **Lines:** ~6,000 (mostly redirect mappings)
-
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Interwiki.
+</div>
 
 ## Overview
 
@@ -178,7 +188,8 @@ Output: Link (_, ["link-live"], _) _ ("https://en.wikipedia.org/wiki/George_Wash
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Possessive/Quote Stripping
 
@@ -223,8 +234,10 @@ Namespaces are detected by extracting the prefix before `:` in the article path:
 The colon is crucial—`SpecialPondicherry` is an article, `Special:Pondicherry` is a namespace.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Config/Interwiki.hs Exports
 
@@ -264,6 +277,7 @@ The test suite validates:
 - Valid URL structure
 
 ---
+</details>
 
 ## Integration Points
 
@@ -316,9 +330,11 @@ Run via `Test.hs`. The test suite validates:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config.Interwiki](/backend/config-interwiki-hs) - Wikipedia redirect database and test cases
 - [Typography.hs](/backend/typography-hs) - Runs after interwiki expansion
 - [hakyll.hs](/backend/hakyll-hs) - Build system that invokes interwiki processing
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Uses isWPAPI to decide annotation strategy
+</details>

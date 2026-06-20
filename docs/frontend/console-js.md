@@ -1,11 +1,23 @@
+---
+title: "console.js"
+description: "In-browser developer console with REPL, command history, and output buffer"
+---
 
 # console.js
 
-**Path:** `js/console.js` | **Language:** JavaScript | **Lines:** 277
+In-browser developer console with REPL, command history, and output buffer
 
-> In-browser developer console with REPL, command history, and output buffer
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/console.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>277</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/console.js">js/console.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around console.
+</div>
 
 ## Overview
 
@@ -110,7 +122,8 @@ GW.console = {
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Backtick-Wrapped JavaScript Execution
 
@@ -153,8 +166,10 @@ if (GW.consoleTempBuffer > "") {
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Setting | Location | Effect |
 |---------|----------|--------|
@@ -165,6 +180,7 @@ if (GW.consoleTempBuffer > "") {
 The console view is always constructed, but event listeners are only attached when explicitly enabled.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -187,7 +203,8 @@ The console view is always constructed, but event listeners are only attached wh
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [initial.js](/frontend/initial-js) - GW namespace and core utilities
 - [rewrite.js](/frontend/rewrite-js) - DOM transformation system
@@ -195,3 +212,4 @@ The console view is always constructed, but event listeners are only attached wh
 - [misc.js](/frontend/misc-js) - Related utility modules and UI components
 - [popups.js](/frontend/popups-js) - Popup system that may log to console
 - [extracts.js](/frontend/extracts-js) - Content extraction with debug output
+</details>

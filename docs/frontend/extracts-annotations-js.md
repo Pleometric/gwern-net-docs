@@ -1,11 +1,23 @@
+---
+title: "extracts-annotations.js"
+description: "Annotation-specific content type definitions and popup handling for the extract system"
+---
 
 # extracts-annotations.js
 
-**Path:** `js/extracts-annotations.js` | **Language:** JavaScript | **Lines:** 289
+Annotation-specific content type definitions and popup handling for the extract system
 
-> Annotation-specific content type definitions and popup handling for the extract system
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/extracts-annotations.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>289</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/extracts-annotations.js">js/extracts-annotations.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around extracts-annotations.
+</div>
 
 ## Overview
 
@@ -123,7 +135,8 @@ The `ANNOTATION_PARTIAL` hooks delegate to their `ANNOTATION` counterparts.
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Popup Suppression Logic
 
@@ -178,8 +191,10 @@ Extracts.popFrameProvider.addPartToPopFrame(popFrame, partialAnnotationAppendCon
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Constants
 
@@ -203,6 +218,7 @@ Extracts.annotationLoadHoverDelay = 25;  // ms before annotation preload on hove
 - `annotation-blockquote-inside` — Template for inline partial annotation display
 
 ---
+</details>
 
 ## Integration Points
 
@@ -237,7 +253,8 @@ None directly; annotation loading fires events through `Annotations.load()`:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [extracts.js](/frontend/extracts-js) - Pop-frame infrastructure and target processing
 - [annotations.js](/frontend/annotations-js) - Annotation data loading and caching
@@ -246,3 +263,4 @@ None directly; annotation loading fires events through `Annotations.load()`:
 - [popups.js](/frontend/popups-js) - Popup windowing system
 - [Annotation.hs](/backend/annotation-hs) - Backend annotation scraping and processing
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Backend metadata database management
+</details>

@@ -1,12 +1,24 @@
 ---
+title: "unfortunatelytheclockisticking.html"
+description: "This template is an elaborate easter egg featuring the \"Unfortunately, the clock is ticking\" meme - a birthday cat image combined with a Windows notification-style dialog about."
 sidebar_position: 3
 ---
 
 # unfortunatelytheclockisticking.html
 
-**Path:** `template/unfortunatelytheclockisticking.html` | **Language:** HTML | **Lines:** 168
+This template is an elaborate easter egg featuring the "Unfortunately, the clock is ticking" meme - a birthday cat image combined with a Windows notification-style dialog about.
 
-Easter egg template featuring the "Birthday Cat" mortality reminder meme with elaborate image map.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/unfortunatelytheclockisticking.html</code></div>
+  <div><strong>Language</strong>HTML</div>
+  <div><strong>Lines</strong>168</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/unfortunatelytheclockisticking.html">template/unfortunatelytheclockisticking.html</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around unfortunatelytheclockisticking.
+</div>
 
 ## Overview
 
@@ -114,7 +126,8 @@ The randomization system depends on JavaScript initialized in `rewrite.js` or si
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [idealconditionsdonotexistandwillneverhappen.html](/templates/idealconditionsdonotexistandwillneverhappen) - Sister template (Clippy/C.S. Lewis quote)
 - [default.html](/templates/default) - Main page template (this easter egg bypasses it)
@@ -122,3 +135,4 @@ The randomization system depends on JavaScript initialized in `rewrite.js` or si
 - [rewrite.js](/frontend/rewrite-js) - DOM transformation that handles randomization
 - [transclude.js](/frontend/transclude-js) - Content transclusion for embedding
 - [gwern.net.conf](/nginx/gwern-net-conf) - Server config that serves the easter egg
+</details>

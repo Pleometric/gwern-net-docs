@@ -1,11 +1,23 @@
+---
+title: "Metadata/Format.hs"
+description: "String sanitization and HTML cleanup for annotation metadata"
+---
 
 # Metadata/Format.hs
 
-**Path:** `build/Metadata/Format.hs` | **Language:** Haskell | **Lines:** 140
+String sanitization and HTML cleanup for annotation metadata
 
-> String sanitization and HTML cleanup for annotation metadata
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Metadata/Format.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>140</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Metadata/Format.hs">build/Metadata/Format.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Metadata/Format.
+</div>
 
 ## Overview
 
@@ -130,7 +142,8 @@ All rewrite patterns live in `Config.Metadata.Format`:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Fixed-Point Iteration
 
@@ -184,8 +197,10 @@ Fixes common formatting issues:
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All patterns are in `Config.Metadata.Format.hs` (~1800 lines). Key collections:
 
@@ -199,6 +214,7 @@ All patterns are in `Config.Metadata.Format.hs` (~1800 lines). Key collections:
 | `balancedBracketTestCases` | ~25 | Test cases for bracket balancing |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -223,7 +239,8 @@ Uses `Cycle.testInfixRewriteLoops` to detect potential infinite loops in rewrite
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config/Metadata/Format.hs](/backend/config-metadata-format-hs) - Massive collection of rewrite rules
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Main consumer of cleanAbstractsHTML
@@ -232,3 +249,4 @@ Uses `Cycle.testInfixRewriteLoops` to detect potential infinite loops in rewrite
 - [Metadata/Title.hs](/backend/metadata-title-hs) - Title extraction and cleaning
 - [Annotation/Arxiv.hs](/backend/annotation-arxiv-hs) - Scraper that uses these utilities
 - [paragraphizer.py](/python/paragraphizer) - LLM-based paragraph splitting
+</details>

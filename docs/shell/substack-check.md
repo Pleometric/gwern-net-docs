@@ -1,14 +1,24 @@
 ---
+title: "substack-check.sh"
+description: "substack-check.sh reads a list of URLs and writes out only URLs whose domains appear to be served by Substack."
 sidebar_position: 6
 ---
 
 # substack-check.sh
 
-**Path:** `build/old/substack-check.sh` | **Language:** Bash | **Lines:** 171
+substack-check.sh reads a list of URLs and writes out only URLs whose domains appear to be served by Substack.
 
-Filters URL lists to domains that are hosted on Substack, including custom domains.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/old/substack-check.sh</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>171</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/old/substack-check.sh">build/old/substack-check.sh</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing shell automation, compression, upload/download helpers, linting, or preprocessing around substack-check.
+</div>
 
 ## Overview
 
@@ -87,8 +97,10 @@ Write only URLs whose extracted domain was marked as Substack-hosted.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [sync.sh](/backend/sync-sh) - Broader build/deploy workflow
 - [link-archive](/shell/link-archive) - URL processing and archival pipeline
 - [upload](/shell/upload) - Asset pipeline script with external tool orchestration
+</details>

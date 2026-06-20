@@ -1,12 +1,24 @@
 ---
+title: "font_spec.php"
+description: "fontspec.php is a hybrid PHP/data file that defines the web font stack for gwern.net."
 sidebar_position: 8
 ---
 
 # font_spec.php
 
-**Path:** `font/font_spec.php` | **Language:** PHP | **Lines:** 168
+fontspec.php is a hybrid PHP/data file that defines the web font stack for gwern.net.
 
-Font specification file for generating CSS @font-face declarations.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>font/font_spec.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>168</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/font/font_spec.php">font/font_spec.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around font_spec.
+</div>
 
 ## Overview
 
@@ -145,7 +157,8 @@ The build process:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [build_font_css.php](/php/build-font-css) - DSL parser and CSS generator that consumes this file
 - [build_versioned_font_css.php](/php/build-versioned-font-css) - Versioned font CSS builder
@@ -153,3 +166,4 @@ The build process:
 - [build_paths.php](/php/build_paths) - Directory path constants for font file locations
 - [initial.css](/css/initial) - Defines system font fallbacks
 - [sync.sh](/backend/sync-sh) - Build orchestrator that triggers font CSS generation
+</details>

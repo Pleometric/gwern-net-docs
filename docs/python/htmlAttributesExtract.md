@@ -1,14 +1,24 @@
 ---
+title: "htmlAttributesExtract.py"
+description: "htmlAttributesExtract.py is a build-time quality assurance tool that extracts every CSS class, data-attribute key, and HTML ID from compiled HTML files."
 sidebar_position: 6
 ---
 
 # htmlAttributesExtract.py
 
-**Path:** `build/htmlAttributesExtract.py` | **Language:** Python | **Lines:** 83
+htmlAttributesExtract.py is a build-time quality assurance tool that extracts every CSS class, data-attribute key, and HTML ID from compiled HTML files.
 
-BeautifulSoup-based HTML parser that extracts all CSS classes, data-attributes, and IDs for whitelist validation.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/htmlAttributesExtract.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>83</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/htmlAttributesExtract.py">build/htmlAttributesExtract.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around htmlAttributesExtract.
+</div>
 
 ## Overview
 
@@ -68,7 +78,8 @@ find ./_site -name "*.html" | \
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [sync.sh](/backend/sync-sh) - Build orchestrator that calls this script
 - [rewrite.js](/frontend/rewrite-js) - Frontend code that applies many of these classes dynamically
@@ -76,3 +87,4 @@ find ./_site -name "*.html" | \
 - [daterange-checker.py](/python/daterange-checker) - Validates date-range markup
 - [initial.css](/css/initial) - Stylesheet defining validated classes
 - [default.css](/css/default) - Main stylesheet defining validated classes
+</details>

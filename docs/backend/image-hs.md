@@ -1,11 +1,23 @@
+---
+title: "Image.hs"
+description: "Image processing: dimensions, inversion detection for dark mode, and lazy loading setup"
+---
 
 # Image.hs
 
-**Path:** `build/Image.hs` | **Language:** Haskell | **Lines:** 303
+Image processing: dimensions, inversion detection for dark mode, and lazy loading setup
 
-> Image processing: dimensions, inversion detection for dark mode, and lazy loading setup
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Image.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>303</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Image.hs">build/Image.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Image.
+</div>
 
 ## Overview
 
@@ -120,7 +132,8 @@ identify -ping -format "%h %w\n" $file
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Threshold-Based Inversion
 
@@ -176,8 +189,10 @@ let f'' = if isVideoFilename f' then f' ++ "-poster.jpg" else f'
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 | Constant | Value | Purpose |
 |----------|-------|---------|
@@ -192,6 +207,7 @@ let f'' = if isVideoFilename f' then f' ++ "-poster.jpg" else f'
 3. **Per-image loading:** `loading="eager"` prevents lazy loading
 
 ---
+</details>
 
 ## Integration Points
 
@@ -232,7 +248,8 @@ let f'' = if isVideoFilename f' then f' ++ "-poster.jpg" else f'
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [hakyll.hs](/backend/hakyll-hs) - Main build pipeline that integrates image processing
 - [invertornot.py](/python/invertornot) - GPT-4-Vision inversion classification (obsoleted)
@@ -242,3 +259,4 @@ let f'' = if isVideoFilename f' then f' ++ "-poster.jpg" else f'
 - [Typography.hs](/backend/typography-hs) - Calls `invertImageInline` during AST transformation
 - [popups.js](/frontend/popups-js) - Consumes `image-height`/`image-width` attributes
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Provides inversion override metadata
+</details>

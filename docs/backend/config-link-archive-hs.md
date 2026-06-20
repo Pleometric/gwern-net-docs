@@ -1,11 +1,23 @@
+---
+title: "Config.LinkArchive"
+description: "Configuration module defining URL whitelists/blacklists and transformation rules for the link archiving system"
+---
 
 # Config.LinkArchive
 
-**Path:** `build/Config/LinkArchive.hs` | **Language:** Haskell | **Lines:** 1177
+Configuration module defining URL whitelists/blacklists and transformation rules for the link archiving system
 
-> Configuration module defining URL whitelists/blacklists and transformation rules for the link archiving system
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/LinkArchive.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>1177</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/LinkArchive.hs">build/Config/LinkArchive.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.LinkArchive.
+</div>
 
 ## Overview
 
@@ -174,7 +186,8 @@ The `whiteListMatchesFixed` list contains ~850 entries organized by category (in
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Sed-based URL Rewriting
 
@@ -202,8 +215,10 @@ if "?" `isInfixOf` l then l ++ "&tag=gwernnet-20"
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration is embedded as Haskell values:
 
@@ -215,6 +230,7 @@ All configuration is embedded as Haskell values:
 | `originalDomains` | 4 entries | Forums to rewrite to GreaterWrong |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -249,7 +265,8 @@ transformURLsForLiveLinking() ──► data-url-iframe attr
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkArchive.hs](/backend/link-archive-hs) - Main archiving logic that consumes this config
 - [linkArchive.sh](/shell/link-archive) - Shell script that performs the actual archiving
@@ -257,3 +274,4 @@ transformURLsForLiveLinking() ──► data-url-iframe attr
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Applies transformed URLs to link metadata
 - [hakyll.hs](/backend/hakyll-hs) - Build system that loads archive configuration
 - [deconstruct_singlefile.php](/php/deconstruct-singlefile) - Post-processes large archive files
+</details>

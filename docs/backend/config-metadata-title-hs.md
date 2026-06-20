@@ -1,11 +1,23 @@
+---
+title: "Config.Metadata.Title"
+description: "Configuration lists for filtering and cleaning HTML page titles"
+---
 
 # Config.Metadata.Title
 
-**Path:** `build/Config/Metadata/Title.hs` | **Language:** Haskell | **Lines:** 200
+Configuration lists for filtering and cleaning HTML page titles
 
-> Configuration lists for filtering and cleaning HTML page titles
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/Metadata/Title.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>200</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/Metadata/Title.hs">build/Config/Metadata/Title.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.Metadata.Title.
+</div>
 
 ## Overview
 
@@ -116,7 +128,8 @@ All lists are tested for uniqueness per the inline comments. The `badStrings` li
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Encoding-aware cleanup
 
@@ -135,8 +148,10 @@ This is processed by `Utils.deleteMixedMany` which inspects whitespace position.
 Several entries are massive multi-line strings containing entire navigation menus scraped as "titles". For example, the Quanta Magazine entry is ~400 characters of "Homepage\nSaved articles\nLogin\nSearch...". These represent pathological scraping failures.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 This *is* the configuration. To add new filters:
 
@@ -148,6 +163,7 @@ This *is* the configuration. To add new filters:
 After changes, rebuild and optionally re-run the annotation scraper on affected URLs.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -162,7 +178,8 @@ Relies on `Utils.deleteMixedMany` for the directional deletion logic in `stringD
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Metadata/Title.hs](/backend/metadata-title-hs) - Processing logic that consumes this config
 - [title-cleaner.py](/python/title-cleaner) - LLM-based title cleanup (uses badStrings as examples)
@@ -170,3 +187,4 @@ Relies on `Utils.deleteMixedMany` for the directional deletion logic in `stringD
 - [Annotation.hs](/backend/annotation-hs) - URL-to-scraper dispatcher
 - [Config/Metadata/Author.hs](/backend/config-metadata-author-hs) - Companion author configuration
 - [Config/Metadata/Format.hs](/backend/config-metadata-format-hs) - Companion format configuration
+</details>

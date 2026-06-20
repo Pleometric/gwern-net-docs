@@ -1,14 +1,24 @@
 ---
+title: "title-cleaner.py"
+description: "When scraping HTML pages, the field often contains unwanted content: site names, domain suffixes, error messages, boilerplate text, or garbled Unicode."
 sidebar_position: 6
 ---
 
 # title-cleaner.py
 
-**Path:** `build/title-cleaner.py` | **Language:** Python | **Lines:** 1005
+When scraping HTML pages, the field often contains unwanted content: site names, domain suffixes, error messages, boilerplate text, or garbled Unicode.
 
-Removes cruft from webpage titles extracted from HTML `<title>` tags using GPT-5-mini language model.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/title-cleaner.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>1005</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/title-cleaner.py">build/title-cleaner.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around title-cleaner.
+</div>
 
 ## Overview
 
@@ -72,7 +82,8 @@ echo "Anton Seder's *The Animal in Decorative Art* (1896)" | OPENAI_API_KEY="sk-
 - Recognizes error pages: "Page not found : Stanford University" → `""`
 - Domain-only titles: "Flashback Forum", "GoLocalPDX", "Notion" → `""`
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Metadata/Title.hs](/backend/metadata-title-hs) - Haskell module that calls this script
 - [Config/Metadata/Title.hs](/backend/config-metadata-title-hs) - Rule-based title filtering configuration
@@ -81,3 +92,4 @@ echo "Anton Seder's *The Animal in Decorative Art* (1896)" | OPENAI_API_KEY="sk-
 - [paragraphizer.py](/python/paragraphizer) - Companion LLM-based paragraph splitting
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database manager
 - [Annotation.hs](/backend/annotation-hs) - URL-to-scraper dispatcher
+</details>

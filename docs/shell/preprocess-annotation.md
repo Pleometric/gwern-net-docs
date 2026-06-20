@@ -1,14 +1,24 @@
 ---
+title: "preprocess-annotation.sh"
+description: "preprocess-annotation.sh is a minimal wrapper script that reads raw annotation content from stdin and pipes it through preprocessMarkdown to prepare it for manual editing in."
 sidebar_position: 3
 ---
 
 # preprocess-annotation.sh
 
-**Path:** `build/preprocess-annotation.sh` | **Language:** Bash | **Lines:** 7
+preprocess-annotation.sh is a minimal wrapper script that reads raw annotation content from stdin and pipes it through preprocessMarkdown to prepare it for manual editing in.
 
-Simple stdin preprocessor for annotation editing workflow.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/preprocess-annotation.sh</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>7</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/preprocess-annotation.sh">build/preprocess-annotation.sh</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing shell automation, compression, upload/download helpers, linting, or preprocessing around preprocess-annotation.
+</div>
 
 ## Overview
 
@@ -85,7 +95,8 @@ EOF
 **Exit status:**
 - Returns exit status of `preprocessMarkdown` (pipe propagates last command status)
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Annotation.hs](/backend/annotation-hs) - Annotation scraper dispatcher
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database manager (reads/writes .gtx files)
@@ -93,3 +104,4 @@ EOF
 - [openReviewAbstract.sh](/shell/openreviewabstract) - Example scraper that feeds into this workflow
 - [Metadata/Format.hs](/backend/metadata-format-hs) - HTML cleanup for abstracts
 - [paragraphizer.py](/python/paragraphizer) - LLM-based paragraph splitting
+</details>

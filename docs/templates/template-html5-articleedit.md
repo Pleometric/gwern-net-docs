@@ -1,12 +1,24 @@
 ---
+title: "pandoc/template-html5-articleedit.html5"
+description: "This is a modified version of Pandoc's default HTML5 template (template-html5.html5) used for generating standalone HTML articles outside the main Hakyll build process."
 sidebar_position: 5
 ---
 
 # pandoc/template-html5-articleedit.html5
 
-**Path:** `template/pandoc/template-html5-articleedit.html5` | **Language:** HTML5/Pandoc | **Lines:** 77
+This is a modified version of Pandoc's default HTML5 template (template-html5.html5) used for generating standalone HTML articles outside the main Hakyll build process.
 
-Standard Pandoc HTML5 template for generating standalone HTML articles with minimal gwern.net branding.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>template/pandoc/template-html5-articleedit.html5</code></div>
+  <div><strong>Language</strong>HTML5/Pandoc</div>
+  <div><strong>Lines</strong>77</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/template/pandoc/template-html5-articleedit.html5">template/pandoc/template-html5-articleedit.html5</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the HTML/Pandoc templates and include fragments that shape rendered gwern.net pages around pandoc/template-html5-articleedit.
+</div>
 
 ## Overview
 
@@ -118,7 +130,8 @@ q { quotes: """ """ "'" "'"; }
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [default.html](/templates/default) - Main Hakyll site template with full gwern.net structure
 - [sourcecode.html5](/templates/sourcecode) - Minimal template for syntax-highlighted code
@@ -126,3 +139,4 @@ q { quotes: """ """ "'" "'"; }
 - [hakyll.hs](/backend/hakyll-hs) - Hakyll build system that may invoke this template
 - [Typography.hs](/backend/typography-hs) - Text processing applied before templating
 - [gwern.net.conf](/nginx/gwern-net-conf) - Server config for serving standalone pages
+</details>

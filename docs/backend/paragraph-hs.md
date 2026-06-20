@@ -1,11 +1,23 @@
+---
+title: "Paragraph.hs"
+description: "LLM-powered paragraph splitting for research paper abstracts"
+---
 
 # Paragraph.hs
 
-**Path:** `build/Paragraph.hs` | **Language:** Haskell | **Lines:** 74
+LLM-powered paragraph splitting for research paper abstracts
 
-> LLM-powered paragraph splitting for research paper abstracts
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Paragraph.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>74</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Paragraph.hs">build/Paragraph.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Paragraph.
+</div>
 
 ## Overview
 
@@ -114,7 +126,8 @@ The actual LLM interaction happens in `build/paragraphizer.py`. Key details:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Conservative Application
 
@@ -151,8 +164,10 @@ checkURLs md p = let urls = filter (\u -> not (isLocal u || M.member (T.unpack u
 This is an interesting design: rather than programmatically verifying URLs (which would be unreliable), it presents them to a human for review.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Config.Paragraph
 
@@ -164,6 +179,7 @@ This is an interesting design: rather than programmatically verifying URLs (whic
 The whitelist contains URLs for documents where the abstract format is intentionally unusual (e.g., PDFs with complex formatting, sites with pre-formatted content).
 
 ---
+</details>
 
 ## Integration Points
 
@@ -193,7 +209,8 @@ This is a manual diagnostic command, not part of the regular build.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [paragraphizer.py](/python/paragraphizer) - Python script that makes the `gpt-4o-mini` API call
 - [Annotation.hs](/backend/annotation-hs) - Dispatcher that calls annotation scrapers
@@ -202,3 +219,4 @@ This is a manual diagnostic command, not part of the regular build.
 - [Annotation/OpenReview.hs](/backend/annotation-openreview-hs) - Scraper that uses processParagraphizer
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Metadata database that stores results
 - [GTX.hs](/backend/gtx-hs) - Database format containing annotations to check
+</details>

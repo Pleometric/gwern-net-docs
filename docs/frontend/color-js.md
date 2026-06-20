@@ -1,11 +1,23 @@
+---
+title: "color.js"
+description: "Color space conversion and transformation utilities for image colorization"
+---
 
 # color.js
 
-**Path:** `js/color.js` | **Language:** JavaScript | **Lines:** 557
+Color space conversion and transformation utilities for image colorization
 
-> Color space conversion and transformation utilities for image colorization
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/color.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>557</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/color.js">js/color.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around color.
+</div>
 
 ## Overview
 
@@ -133,7 +145,8 @@ Color.ColorSpace = {
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Lightness Remapping in Colorize
 
@@ -170,8 +183,10 @@ if (color.L > maxLightness)
 This reduces chroma for overly-bright colors to keep them representable.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### `Color.ColorTransformSettings`
 
@@ -189,6 +204,7 @@ Per-color-space tuning parameters for the colorize transform:
 The default color space is `Oklch`, specified in `ColorTransformSettings.colorize.defaultColorSpace`.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -222,10 +238,12 @@ All internal RGB representations use:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [colors-css](colors-css) - CSS color variables that may be transformed
 - [dark-mode-js](dark-mode-js) - Theme system that uses color transformations
 - [special-occasions-js](special-occasions-js) - Uses colorize for holiday theming (Christmas red/green)
 - [dark-mode-adjustments-css](dark-mode-adjustments-css) - CSS that implements filter-based color changes
 - [color-scheme-convert](../php/color-scheme-convert) - PHP equivalent for build-time color transforms
+</details>

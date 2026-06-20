@@ -1,11 +1,23 @@
+---
+title: "Config.GenerateSimilar"
+description: "Configuration constants for embedding-based similar link recommendations"
+---
 
 # Config.GenerateSimilar
 
-**Path:** `build/Config/GenerateSimilar.hs` | **Language:** Haskell | **Lines:** 48
+Configuration constants for embedding-based similar link recommendations
 
-> Configuration constants for embedding-based similar link recommendations
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/GenerateSimilar.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>48</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/GenerateSimilar.hs">build/Config/GenerateSimilar.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.GenerateSimilar.
+</div>
 
 ## Overview
 
@@ -116,7 +128,8 @@ This module has no internal architecture—it's purely declarative constants. Th
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Empirically-Tuned Magic Numbers
 
@@ -131,8 +144,10 @@ The blacklist evolved from debugging pathological cases. One specific paper ("Es
 Both `minimumSuggestions` and `minTagAuto` use 3 as a threshold—a recurring "magic 3" that represents the minimum useful information density.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 These constants are compile-time configuration. To change values, edit this file and rebuild. There's no runtime configuration mechanism.
 
@@ -148,6 +163,7 @@ These constants are compile-time configuration. To change values, edit this file
 | `maxTitlesForTagGuessing` | 30 | Max titles for LLM |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -164,10 +180,12 @@ These constants are compile-time configuration. To change values, edit this file
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [GenerateSimilar.hs](/backend/generate-similar-hs) - Main recommendation engine that consumes these configuration values
 - [generateSimilarLinks.hs](/backend/generate-similar-links-hs) - CLI tool that uses GenerateSimilar with this config
 - [generateDirectory.hs](/backend/generate-directory-hs) - Uses minTagAuto for directory page tag display
 - [Gtx.hs](/backend/gtx-hs) - Annotation format that stores similar links data
 - [embed.sh](/shell/embed) - Shell script for OpenAI API calls, uses maximumLength indirectly
+</details>

@@ -1,11 +1,23 @@
+---
+title: "Config.Inflation"
+description: "Static inflation rate and Bitcoin exchange rate lookup tables"
+---
 
 # Config.Inflation
 
-**Path:** `build/Config/Inflation.hs` | **Language:** Haskell | **Lines:** 1099
+Static inflation rate and Bitcoin exchange rate lookup tables
 
-> Static inflation rate and Bitcoin exchange rate lookup tables
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/Inflation.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>1099</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/Inflation.hs">build/Config/Inflation.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.Inflation.
+</div>
 
 ## Overview
 
@@ -140,7 +152,8 @@ Bitcoin uses **date-indexed** data (string keys like `"2017-01-01"`) because BTC
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Infinite Extension via `repeat`
 
@@ -166,8 +179,10 @@ The `inflationDollarLinkTestCases` list serves dual purposes:
 2. Documentation of expected output format (Pandoc `Span` structure with metadata attributes)
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 This module *is* the configuration. To update:
 
@@ -180,6 +195,7 @@ This module *is* the configuration. To update:
 When adding new inflation rates, append a new list (e.g., `pce2025`) and update the `repeat` to use the last entry of the most recent list.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -208,7 +224,8 @@ Config.Inflation                    Inflation.hs
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Inflation.hs](/backend/inflation-hs) - Adjustment algorithms that consume this data
 - [Typography.hs](/backend/typography-hs) - Related Pandoc AST transformations
@@ -216,3 +233,4 @@ Config.Inflation                    Inflation.hs
 - [Config.Misc](/backend/config-misc-hs) - Related configuration including `currentYear`
 - [hakyll.hs](/backend/hakyll-hs) - Build pipeline that uses inflation adjustments
 - [GTX.hs](/backend/gtx-hs) - Another data-heavy config module (annotation database)
+</details>

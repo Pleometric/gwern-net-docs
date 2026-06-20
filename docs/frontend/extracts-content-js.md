@@ -1,11 +1,23 @@
+---
+title: "extracts-content.js"
+description: "Content type definitions and fill functions for the extract/popup system"
+---
 
 # extracts-content.js
 
-**Path:** `js/extracts-content.js` | **Language:** JavaScript | **Lines:** 1304
+Content type definitions and fill functions for the extract/popup system
 
-> Content type definitions and fill functions for the extract/popup system
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/extracts-content.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>1304</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/extracts-content.js">js/extracts-content.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around extracts-content.
+</div>
 
 ## Overview
 
@@ -105,7 +117,8 @@ For each type `FOO`, the following optional hooks can be defined:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Local Page Content Detection
 
@@ -163,8 +176,10 @@ if (options.loosenSizeConstraints) {
 For local page popups, `preparePopFrame_LOCAL_PAGE` sets up a handler to synchronize transclusions: when a transclude fires inside a popup, the same transclude in the cached source content also fires.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### CSS Custom Properties
 
@@ -191,6 +206,7 @@ Several types compute their pop-frame classes dynamically:
 ```
 
 ---
+</details>
 
 ## Integration Points
 
@@ -223,7 +239,8 @@ None directly; relies on events from `extracts.js` and `transclude.js`.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [extracts.js](/frontend/extracts-js) - Pop-frame infrastructure and target processing
 - [content.js](/frontend/content-js) - Content type system and data providers
@@ -231,3 +248,4 @@ None directly; relies on events from `extracts.js` and `transclude.js`.
 - [popups.js](/frontend/popups-js) - Popup windowing system
 - [extracts-annotations.js](/frontend/extracts-annotations-js) - Annotation content types
 - [popovers.js](/frontend/popovers-js) - Mobile popover display system
+</details>

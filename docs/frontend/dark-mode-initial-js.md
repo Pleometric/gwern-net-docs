@@ -1,11 +1,23 @@
+---
+title: "dark-mode-initial.js"
+description: "Early-loading dark mode bootstrap that prevents flash of unstyled content (FOUC)"
+---
 
 # dark-mode-initial.js
 
-**Path:** `js/dark-mode-initial.js` | **Language:** JavaScript | **Lines:** 138
+Early-loading dark mode bootstrap that prevents flash of unstyled content (FOUC)
 
-> Early-loading dark mode bootstrap that prevents flash of unstyled content (FOUC)
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/dark-mode-initial.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>138</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/dark-mode-initial.js">js/dark-mode-initial.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around dark-mode-initial.
+</div>
 
 ## Overview
 
@@ -128,7 +140,8 @@ Two event handlers set up change detection:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### FOUC Prevention via Immediate Execution
 
@@ -172,8 +185,10 @@ if (previousComputedMode != DarkMode.computedMode())
 This prevents spurious events when switching between "auto" and the mode it would resolve to.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### `DarkMode.pageDefaultMode`
 
@@ -211,6 +226,7 @@ Map of mode names to their `media` attribute values:
 - **Values:** `"light"` | `"dark"` | (absent = auto)
 
 ---
+</details>
 
 ## Integration Points
 
@@ -249,10 +265,12 @@ Map of mode names to their `media` attribute values:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [dark-mode-js](/frontend/dark-mode-js) - Main dark mode module with UI widget
 - [dark-mode-adjustments-css](/frontend/dark-mode-adjustments-css) - CSS that dark mode activates
 - [initial-js](/frontend/initial-js) - Defines `GW.notificationCenter`, `doWhenBodyExists`, `doWhenMatchMedia`
 - [reader-mode-initial-js](/frontend/reader-mode-initial-js) - Similar early-loading pattern for reader mode
 - [colors-css](/frontend/colors-css) - Color variable definitions toggled by this module
+</details>

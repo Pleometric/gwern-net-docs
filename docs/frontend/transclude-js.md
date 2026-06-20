@@ -1,11 +1,23 @@
+---
+title: "transclude.js"
+description: "Transclusion is a feature (inspired by Project Xanadu, English Wikipedia, Everything2, and Urticator.net) that lets you embed content from other pages inline rather than just."
+---
 
 # transclude.js
 
-**Path:** `js/transclude.js` | **Language:** JavaScript | **Lines:** 2587
+Transclusion is a feature (inspired by Project Xanadu, English Wikipedia, Everything2, and Urticator.net) that lets you embed content from other pages inline rather than just.
 
-Dynamic content embedding system - fetches content from other pages and injects it inline, replacing include-links.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/transclude.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>2587</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/transclude.js">js/transclude.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around transclude.
+</div>
 
 ## Overview
 
@@ -230,7 +242,8 @@ Conditional expressions support:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Lazy Loading with Intersection Observer
 
@@ -306,8 +319,10 @@ while (wrapper.parentElement.matches(allowedParentSelector) == false) {
 This prevents invalid HTML like `<p><div>...</div></p>`.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Transclude Object Properties
 
@@ -330,6 +345,7 @@ Transclude.blockContextMaximumLength: 250        // Max chars for block context
 | `data-template-fields` | Comma-separated `fieldName:$attr` or `fieldName:.prop` |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -371,7 +387,8 @@ The provider is selected via `Transclude.dataProviderForLink(includeLink)`.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [content.js](/frontend/content-js) - Content loading and caching; one of two data providers for transclusion
 - [rewrite.js](/frontend/rewrite-js) - Content handlers and event system triggered after transclusion
@@ -379,3 +396,4 @@ The provider is selected via `Transclude.dataProviderForLink(includeLink)`.
 - [annotations.js](/frontend/annotations-js) - Annotation data provider; alternative to Content for transclusion
 - [popups.js](/frontend/popups-js) - Popup system that uses transclusion for popup content
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Backend annotation generation that produces transcludable content
+</details>

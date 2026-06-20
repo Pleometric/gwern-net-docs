@@ -1,13 +1,23 @@
+---
+title: "GTX.hs"
+description: "Custom plain-text format for storing link annotations"
+---
 
 # GTX.hs
 
-**Path:** `build/GTX.hs` | **Language:** Haskell | **Lines:** 247
+Custom plain-text format for storing link annotations
 
-> Custom plain-text format for storing link annotations
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/GTX.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>247</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/GTX.hs">build/GTX.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
-**Note:** GTX is a line-based format. Fields are separated by newlines, and records are separated by `---` lines.
-
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around GTX.
+</div>
 
 ## Overview
 
@@ -260,7 +270,8 @@ doiOrIDorKV mi s
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Why No Escaping?
 
@@ -291,8 +302,10 @@ If a build runs after midnight, new annotations are backdated to the previous da
 The source comments note a subtle issue: if the final `auto.gtx` entry lacks a tag and your editor strips trailing blank lines, the abstract gets truncated. Workaround: ensure the last entry always has a tag, so there's exactly one trailing newline in the abstract field.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Date Validation
 
@@ -314,6 +327,7 @@ IDs must pass `LinkID.isValidID`:
 - No leading/trailing hyphens, no starting with `_` unless hash
 
 ---
+</details>
 
 ## Integration Points
 
@@ -382,7 +396,8 @@ GTX solves these with fixed field order, no quotes, no indentation, simple `---`
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Main consumer; merges and validates GTX files
 - [LinkMetadataTypes.hs](/backend/link-metadata-types-hs) - Type definitions (MetadataItem, Path)
@@ -390,3 +405,4 @@ GTX solves these with fixed field order, no quotes, no indentation, simple `---`
 - [Metadata/Author.hs](/backend/metadata-author-hs) - Author canonicalization called during slow read
 - [Metadata/Date.hs](/backend/metadata-date-hs) - Date parsing called during slow read
 - [annotation-dump.hs](/backend/annotation-dump-hs) - CLI for querying GTX databases
+</details>

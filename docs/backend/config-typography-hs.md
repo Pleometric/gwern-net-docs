@@ -1,11 +1,23 @@
+---
+title: "Config.Typography"
+description: "Configuration constants, test cases, and whitelists for typography transforms"
+---
 
 # Config.Typography
 
-**Path:** `build/Config/Typography.hs` | **Language:** Haskell | **Lines:** 284
+Configuration constants, test cases, and whitelists for typography transforms
 
-> Configuration constants, test cases, and whitelists for typography transforms
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/Typography.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>284</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/Typography.hs">build/Config/Typography.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.Typography.
+</div>
 
 ## Overview
 
@@ -118,7 +130,8 @@ The test case format for `dateRangeDurationTestCases` uses Pandoc's `Inline` typ
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 **Exhaustive edge case coverage:** The title case tests demonstrate gwern.net's attention to typographic detail—handling not just basic capitalization but the full complexity of English title conventions across different quote styles, hyphenation patterns, and punctuation contexts.
 
@@ -127,8 +140,10 @@ The test case format for `dateRangeDurationTestCases` uses Pandoc's `Inline` typ
 **Year-parameterized tests:** The date range tests accept the "current year" as a parameter, allowing the test suite to validate behavior at different points in time. This catches subtle bugs where relative calculations ("37 years ago") would otherwise be tested against stale expected values.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration is static—there are no runtime settings. To adjust typography behavior:
 
@@ -140,6 +155,7 @@ All configuration is static—there are no runtime settings. To adjust typograph
 | Adjust date annotation thresholds | Modify `minRange`, `minDuration`, etc. |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -153,7 +169,8 @@ All configuration is static—there are no runtime settings. To adjust typograph
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Typography.hs](/backend/typography-hs) - The transformation logic that consumes these configs
 - [typography.js](/frontend/typography-js) - Client-side typography transforms (complementary to server-side)
@@ -161,3 +178,4 @@ All configuration is static—there are no runtime settings. To adjust typograph
 - [Config.Inflation](/backend/config-inflation-hs) - Similar data-heavy config module pattern
 - [hakyll.hs](/backend/hakyll-hs) - Build pipeline that uses typography transforms
 - [Metadata.Date](/backend/metadata-date-hs) - Date range duration annotation implementation
+</details>

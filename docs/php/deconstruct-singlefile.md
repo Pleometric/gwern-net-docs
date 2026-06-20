@@ -1,12 +1,24 @@
 ---
+title: "deconstruct_singlefile.php"
+description: "This utility script converts \"single-file\" HTML archives (where all images, fonts, videos, and other assets are embedded as base64 data URIs) into normal HTML with external asset."
 sidebar_position: 2
 ---
 
 # deconstruct_singlefile.php
 
-**Path:** `build/deconstruct_singlefile.php` | **Language:** PHP | **Lines:** 496
+This utility script converts "single-file" HTML archives (where all images, fonts, videos, and other assets are embedded as base64 data URIs) into normal HTML with external asset.
 
-Extracts base64-encoded assets from SingleFile HTML archives into separate files, with optional gwtar self-extracting archive creation.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/deconstruct_singlefile.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>496</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/deconstruct_singlefile.php">build/deconstruct_singlefile.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around deconstruct_singlefile.
+</div>
 
 ## Overview
 
@@ -168,7 +180,8 @@ php deconstruct_singlefile.php --debug archive.html
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkArchive.hs](/backend/link-archive-hs) - Main archiving system that produces SingleFile archives
 - [linkArchive.sh](/shell/link-archive) - Shell script that invokes this PHP tool for large files
@@ -176,3 +189,4 @@ php deconstruct_singlefile.php --debug archive.html
 - [sync.sh](/backend/sync-sh) - Build orchestrator that may invoke this script
 - [hakyll.hs](/backend/hakyll-hs) - Build system that coordinates archiving
 - [gwtar.js](/frontend/gwtar-js) - Client-side JavaScript decoder for gwtar archives
+</details>

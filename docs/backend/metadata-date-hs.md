@@ -1,11 +1,23 @@
+---
+title: "Metadata.Date"
+description: "Date parsing, validation, and range annotation for annotations and typography"
+---
 
 # Metadata.Date
 
-**Path:** `build/Metadata/Date.hs` | **Language:** Haskell | **Lines:** 161
+Date parsing, validation, and range annotation for annotations and typography
 
-> Date parsing, validation, and range annotation for annotations and typography
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Metadata/Date.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>161</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Metadata/Date.hs">build/Metadata/Date.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Metadata.Date.
+</div>
 
 ## Overview
 
@@ -127,7 +139,8 @@ The script validates outputs against future dates and calendar correctness befor
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Conservative Date Guessing
 
@@ -150,8 +163,10 @@ Date ranges get annotated with two subscripts:
 The annotation includes a tooltip with the full description and handles edge cases like same-year ranges or dates too close to present.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 Configuration lives in `Config.Typography`:
 
@@ -165,6 +180,7 @@ Configuration lives in `Config.Typography`:
 These prevent annotating trivial ranges ("2023–2024") or recent events.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -191,7 +207,8 @@ Test.hs ──→ isDate, dateRangeDurationTestCasesTestsuite
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [date-guesser.py](/python/date-guesser) - LLM-powered date extraction script
 - [Annotation.hs](/backend/annotation-hs) - Uses date guessing for new annotations
@@ -202,3 +219,4 @@ Test.hs ──→ isDate, dateRangeDurationTestCasesTestsuite
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Stores processed dates in annotations
 
 ---
+</details>

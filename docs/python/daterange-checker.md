@@ -1,14 +1,24 @@
 ---
+title: "daterange-checker.py"
+description: "Gwern.net automatically annotates year strings (matching [12][0-9]{3}) with CSS markup showing how many years ago they were."
 sidebar_position: 3
 ---
 
 # daterange-checker.py
 
-**Path:** `build/daterange-checker.py` | **Language:** Python | **Lines:** 327
+Gwern.net automatically annotates year strings (matching [12][0-9]{3}) with CSS markup showing how many years ago they were.
 
-Validates that dates auto-annotated with CSS year-range markup are actual dates and not incorrectly formatted numbers.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/daterange-checker.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>327</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/daterange-checker.py">build/daterange-checker.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around daterange-checker.
+</div>
 
 ## Overview
 
@@ -57,7 +67,8 @@ OPENAI_API_KEY="sk-XXX" python daterange-checker.py '<text>Published in <span cl
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Metadata/Date.hs](/backend/metadata-date-hs) - Backend date parsing and validation in Haskell
 - [date-guesser.py](/python/date-guesser) - Extracts dates from natural language
@@ -65,3 +76,4 @@ OPENAI_API_KEY="sk-XXX" python daterange-checker.py '<text>Published in <span cl
 - [rewrite.js](/frontend/rewrite-js) - Frontend JavaScript that applies date-range CSS
 - [sync.sh](/backend/sync-sh) - Build orchestrator that runs validation checks
 - [Typography.hs](/backend/typography-hs) - Text processing that may generate date ranges
+</details>

@@ -1,11 +1,23 @@
+---
+title: "reader-mode-initial.css"
+description: "Reader mode styles for distraction-free reading"
+---
 
 # reader-mode-initial.css
 
-**Path:** `css/reader-mode-initial.css` | **Language:** CSS | **Lines:** 162
+Reader mode styles for distraction-free reading
 
-> Reader mode styles for distraction-free reading
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/reader-mode-initial.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>162</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/reader-mode-initial.css">css/reader-mode-initial.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around reader-mode-initial.
+</div>
 
 ## Overview
 
@@ -197,7 +209,8 @@ body.reader-mode-active article {
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [reader-mode-initial-js](reader-mode-initial-js) - Early reader mode activation logic
 - [reader-mode-js](reader-mode-js) - Full interactive reader mode system
@@ -205,3 +218,4 @@ body.reader-mode-active article {
 - [dark-mode-adjustments-css](dark-mode-adjustments-css) - Dark mode filters
 - [colors-css](colors-css) - Color variables used by reader mode
 - [sidenotes-js](sidenotes-js) - Sidenote JavaScript that reader mode interacts with
+</details>

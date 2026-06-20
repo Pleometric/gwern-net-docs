@@ -1,11 +1,23 @@
+---
+title: "links.css"
+description: "Link icons and annotation indicators"
+---
 
 # links.css
 
-**Path:** `css/links.css` | **Language:** CSS | **Lines:** 1100
+Link icons and annotation indicators
 
-> Link icons and annotation indicators
+<div className="doc-meta">
+  <div><strong>Path</strong><code>css/links.css</code></div>
+  <div><strong>Language</strong>CSS</div>
+  <div><strong>Lines</strong>1100</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/css/links.css">css/links.css</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around links.
+</div>
 
 ## Overview
 
@@ -388,7 +400,8 @@ The CSS carefully balances several concerns:
 
 ---
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 Icons are configured through per-icon selectors that override default CSS custom properties. To add a new icon:
 
@@ -408,8 +421,10 @@ a[data-link-icon='new-domain'] {
 No JavaScript changes required—the system is purely declarative once the data attributes are in place.
 
 ---
+</details>
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [links.css (CSS documentation)](/css/links) - Detailed CSS documentation for link icons and indicators
 - [LinkIcon.hs](/backend/link-icon-hs) - Backend module that assigns icons to URLs
@@ -418,3 +433,4 @@ No JavaScript changes required—the system is purely declarative once the data 
 - [popups.js](/frontend/popups-js) - Popup system that displays the annotations marked by indicators
 - [rewrite.js](/frontend/rewrite-js) - DOM transformation that injects .link-icon-hook elements
 - [dark-mode-adjustments.css](/css/dark-mode-adjustments) - Dark mode filters and image handling
+</details>

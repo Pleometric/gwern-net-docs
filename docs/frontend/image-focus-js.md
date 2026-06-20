@@ -1,11 +1,23 @@
+---
+title: "image-focus.js"
+description: "Lightbox image viewer with zoom, pan, keyboard navigation, and gallery slideshow"
+---
 
 # image-focus.js
 
-**Path:** `js/image-focus.js` | **Language:** JavaScript | **Lines:** 980
+Lightbox image viewer with zoom, pan, keyboard navigation, and gallery slideshow
 
-> Lightbox image viewer with zoom, pan, keyboard navigation, and gallery slideshow
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/image-focus.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>980</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/image-focus.js">js/image-focus.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around image-focus.
+</div>
 
 ## Overview
 
@@ -131,7 +143,8 @@ mouseUp(event)
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Intelligent Image Source Resolution
 
@@ -166,8 +179,10 @@ SVGs have no intrinsic size, so the code:
 The overlay UI (buttons, caption, image counter) auto-hides after a timer (3s desktop, 5s mobile). Mouse movement resets the timer. On mobile, tapping when UI is hidden unhides it; tapping on caption "locks" it visible.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration lives in the `ImageFocus` object at the top of the file:
 
@@ -183,6 +198,7 @@ All configuration lives in the `ImageFocus` object at the top of the file:
 | `fullSizeImageLoadHoverDelay` | 25 | MS hover before preload triggers |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -223,7 +239,8 @@ Registers via `addContentInjectHandler` to process images in dynamically loaded 
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Image.hs](/backend/image-hs) - Server-side image processing (dimensions, inversion detection)
 - [rewrite.js](/frontend/rewrite-js) - DOM transforms that set up figure structure
@@ -232,3 +249,4 @@ Registers via `addContentInjectHandler` to process images in dynamically loaded 
 - [popups.js](/frontend/popups-js) - Popup system (different interaction model)
 - [content.js](/frontend/content-js) - Content loading (provides `objectHTMLForURL`)
 - [dark-mode.js](/frontend/dark-mode-js) - Dark mode affects image inversion display
+</details>

@@ -1,11 +1,23 @@
+---
+title: "Annotation/Arxiv.hs"
+description: "Scrapes metadata from arXiv papers via the arXiv API, converting LaTeX abstracts to HTML."
+---
 
 # Annotation/Arxiv.hs
 
-**Path:** `build/Annotation/Arxiv.hs` | **Language:** Haskell | **Lines:** 104
+Scrapes metadata from arXiv papers via the arXiv API, converting LaTeX abstracts to HTML.
 
-> Scrapes metadata from arXiv papers via the arXiv API, converting LaTeX abstracts to HTML.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Annotation/Arxiv.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>104</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Annotation/Arxiv.hs">build/Annotation/Arxiv.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Annotation/Arxiv.
+</div>
 
 ## Overview
 
@@ -83,7 +95,8 @@ Recursively extracts all `<author><name>...</name></author>` entries from the AP
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### LaTeX Abstract Processing Pipeline
 
@@ -119,8 +132,10 @@ let doi = if null doiTmp
 The module inlines XML parsing helpers from `Network.Api.Arxiv` rather than depending on the unmaintained `arxiv` package, which had silent data corruption bugs. This keeps the parsing logic close to the application for easy patching.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration lives in `Config.Misc`:
 
@@ -139,6 +154,7 @@ Example from `cleanArxivAbstracts`:
 This systematically removes vague superlatives that add no information in research abstracts.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -172,7 +188,8 @@ These are retryable; the link will be re-queried on next build.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Annotation.hs](/backend/annotation-hs) - Dispatcher that routes URLs to this module
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Stores extracted annotations in the metadata database
@@ -181,3 +198,4 @@ These are retryable; the link will be re-queried on next build.
 - [Annotation/Biorxiv.hs](/backend/annotation-biorxiv-hs) - Similar scraper for bioRxiv papers
 - [Metadata/Format.hs](/backend/metadata-format-hs) - cleanAbstractsHTML and processDOI utilities
 - [Paragraph.hs](/backend/paragraph-hs) - LLM-based paragraph splitting for abstracts
+</details>

@@ -1,11 +1,23 @@
+---
+title: "Tags.hs"
+description: "Hierarchical tag system: validation, normalization, rendering, and fuzzy matching for the /doc/ directory taxonomy."
+---
 
 # Tags.hs
 
-**Path:** `build/Tags.hs` + `build/Config/Tags.hs` | **Language:** Haskell | **Lines:** 1,222 (219 + 1,003)
+Hierarchical tag system: validation, normalization, rendering, and fuzzy matching for the /doc/ directory taxonomy.
 
-> Hierarchical tag system: validation, normalization, rendering, and fuzzy matching for the `/doc/` directory taxonomy.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Tags.hs</code><br /><code>build/Config/Tags.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>1,222 (219 + 1,003)</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Tags.hs">build/Tags.hs</a><br /><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/Tags.hs">build/Config/Tags.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Tags.
+</div>
 
 ## Overview
 
@@ -244,7 +256,8 @@ Ambiguous short forms that error rather than guess:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Fixed-Point Tag Normalization
 
@@ -279,8 +292,10 @@ tagPairMax = 11   -- Max co-occurring tag pairs
 `tagCount` and `tagPairsCount` aggregate statistics from the annotation database.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration lives in `Config/Tags.hs`:
 
@@ -297,6 +312,7 @@ All configuration lives in `Config/Tags.hs`:
 | `shortTagTestSuite` | Test cases for tag guessing |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -328,7 +344,8 @@ When creating/updating annotations:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config.Tags](/backend/config-tags-hs) - Tag system configuration (aliases, hierarchy mappings, display formatting)
 - [guessTag.hs](/backend/guess-tag-hs) - CLI tool for testing tag expansion
@@ -337,3 +354,4 @@ When creating/updating annotations:
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Uses tag rendering for annotations
 - [Hakyll.hs](/backend/hakyll-hs) - Site generator integrating tag page generation
 - [generateDirectory.hs](/backend/generate-directory-hs) - Builds tag index pages
+</details>

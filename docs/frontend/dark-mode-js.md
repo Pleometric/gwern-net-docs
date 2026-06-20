@@ -1,11 +1,23 @@
+---
+title: "dark-mode.js"
+description: "UI and advanced features for theme switching: mode selector widget, scroll-triggered activation, and inline selectors"
+---
 
 # dark-mode.js
 
-**Path:** `js/dark-mode.js` | **Language:** JavaScript | **Lines:** 287
+UI and advanced features for theme switching: mode selector widget, scroll-triggered activation, and inline selectors
 
-> UI and advanced features for theme switching: mode selector widget, scroll-triggered activation, and inline selectors
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/dark-mode.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>287</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/dark-mode.js">js/dark-mode.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around dark-mode.
+</div>
 
 ## Overview
 
@@ -175,7 +187,8 @@ The light mode re-enable only fires if `DarkMode.computedMode(DarkMode.savedMode
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Rate-Limited Mode Switching
 
@@ -213,8 +226,10 @@ processMainContentAndAddRewriteProcessor("DarkMode.spawnObserversForTriggerEleme
 Observers are spawned both on initial content and on dynamically loaded content (transclusions, popups).
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Trigger Element Selectors
 
@@ -239,6 +254,7 @@ selectedModeOptionNote: " [This option is currently selected.]"
 Appended to the tooltip of the currently selected mode button.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -277,10 +293,12 @@ Appended to the tooltip of the currently selected mode button.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [dark-mode-initial-js](/frontend/dark-mode-initial-js) - Core dark mode logic and FOUC prevention
 - [initial-js](/frontend/initial-js) - Core utilities and notification center
 - [reader-mode-js](/frontend/reader-mode-js) - Similar tri-state mode selector pattern
 - [colors-css](/frontend/colors-css) - CSS custom properties controlled by dark mode
 - [dark-mode-adjustments-css](/frontend/dark-mode-adjustments-css) - Image filters for dark mode
+</details>

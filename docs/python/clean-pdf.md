@@ -1,14 +1,24 @@
 ---
+title: "clean-pdf.py"
+description: "When copying text from PDFs, the result is often malformatted with broken hyphens, ligature artifacts (like 'ﬄ'), spurious line breaks, and OCR errors."
 sidebar_position: 1
 ---
 
 # clean-pdf.py
 
-**Path:** `build/clean-pdf.py` | **Language:** Python | **Lines:** 224
+When copying text from PDFs, the result is often malformatted with broken hyphens, ligature artifacts (like 'ﬄ'), spurious line breaks, and OCR errors.
 
-A utility for fixing formatting and spelling errors in text extracted from PDFs using GPT-4 language models.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/clean-pdf.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>224</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/clean-pdf.py">build/clean-pdf.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around clean-pdf.
+</div>
 
 ## Overview
 
@@ -47,7 +57,8 @@ xclip -o | OPENAI_API_KEY="sk-XXX" python clean-pdf.py | xclip -i
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Annotation/PDF.hs](/backend/annotation-pdf-hs) - Backend PDF annotation processing in Haskell
 - [title-cleaner.py](/python/title-cleaner) - Cleans webpage titles extracted from `<title>` tags
@@ -55,3 +66,4 @@ xclip -o | OPENAI_API_KEY="sk-XXX" python clean-pdf.py | xclip -i
 - [latex2unicode.py](/python/latex2unicode) - Converts LaTeX math to Unicode/HTML
 - [upload.sh](/shell/upload) - File upload script that may process PDFs
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Metadata system that stores PDF annotations
+</details>

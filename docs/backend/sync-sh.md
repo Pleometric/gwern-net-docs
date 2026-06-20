@@ -1,11 +1,23 @@
+---
+title: "sync.sh"
+description: "sync.sh is the monolithic build script that transforms the gwern.net source (Markdown essays, annotations, images, PDFs) into a deployable static website."
+---
 
 # sync.sh
 
-**Path:** `build/sync.sh` | **Language:** Bash | **Lines:** 2172
+sync.sh is the monolithic build script that transforms the gwern.net source (Markdown essays, annotations, images, PDFs) into a deployable static website.
 
-Master build orchestrator for gwern.net: coordinates pre-processing, compilation, post-processing, validation, and deployment.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/sync.sh</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>2172</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/sync.sh">build/sync.sh</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around sync.
+</div>
 
 ## Overview
 
@@ -405,7 +417,8 @@ LibreOffice document conversion for popups.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [hakyll.hs](/backend/hakyll-hs) - Core static site generator that sync.sh orchestrates
 - [bash.sh](/backend/bash-sh) - Helper function library sourced by sync.sh
@@ -414,3 +427,4 @@ LibreOffice document conversion for popups.
 - [Typography.hs](/backend/typography-hs) - Text transforms applied during build
 - [generate-directory.hs](/backend/generate-directory-hs) - Tag directory generation
 - [generate-link-bibliography.hs](/backend/generate-link-bibliography-hs) - Link bibliography generation
+</details>

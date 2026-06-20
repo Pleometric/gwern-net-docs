@@ -1,11 +1,23 @@
+---
+title: "Utils.hs"
+description: "Shared utility functions for file I/O, string manipulation, Pandoc AST transformations, and URL handling"
+---
 
 # Utils.hs
 
-**Path:** `build/Utils.hs` | **Language:** Haskell | **Lines:** 826
+Shared utility functions for file I/O, string manipulation, Pandoc AST transformations, and URL handling
 
-> Shared utility functions for file I/O, string manipulation, Pandoc AST transformations, and URL handling
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Utils.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>826</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Utils.hs">build/Utils.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Utils.
+</div>
 
 ## Overview
 
@@ -394,7 +406,8 @@ The `T` suffix indicates `Data.Text` versions.
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Atomic File Writes
 
@@ -452,8 +465,10 @@ addClass clss x@(Link (i, clsses, ks) s (url, tt)) =
 Uniform handling across Link, Span, Image, Code with idempotent add (no duplicates).
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Writer Options
 
@@ -471,6 +486,7 @@ Uses `regex-compat-tdfa` (not `regex-compat`) for Unicode support. This is criti
 - Can be tuned per-call if number of rewrite rules is known
 
 ---
+</details>
 
 ## Integration Points
 
@@ -504,7 +520,8 @@ Provides utilities consumed by Typography.hs, LinkMetadata.hs, and content proce
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Hakyll.hs](/backend/hakyll-hs) - Site generator that imports Utils as a core dependency
 - [Query.hs](/backend/query-hs) - Uses Pandoc AST utilities for link extraction
@@ -513,3 +530,4 @@ Provides utilities consumed by Typography.hs, LinkMetadata.hs, and content proce
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Uses file I/O, URL validation, and text processing
 - [Unique.hs](/backend/unique-hs) - Companion validation utilities for configuration lists
 - [sync.sh](/backend/sync-sh) - Build orchestrator that coordinates modules using Utils
+</details>

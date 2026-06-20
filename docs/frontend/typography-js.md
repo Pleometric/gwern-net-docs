@@ -1,11 +1,23 @@
+---
+title: "typography.js"
+description: "Client-side text processing for smart quotes, dashes, ellipses, and word-break insertion"
+---
 
 # typography.js
 
-**Path:** `js/typography.js` | **Language:** JavaScript | **Lines:** 299
+Client-side text processing for smart quotes, dashes, ellipses, and word-break insertion
 
-> Client-side text processing for smart quotes, dashes, ellipses, and word-break insertion
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/typography.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>299</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/typography.js">js/typography.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around typography.
+</div>
 
 ## Overview
 
@@ -128,7 +140,8 @@ After processing the combined string, segment lengths are used to split it back 
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Lookbehind-Heavy Quote Detection
 
@@ -171,8 +184,10 @@ for (let i = 0; i < element.childNodes.length; i++) {
 ```
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Excluded Tags
 
@@ -191,6 +206,7 @@ Typography.unmodifiedTags = [ 'CODE ' ]  // Note: trailing space (likely bug)
 ```
 
 ---
+</details>
 
 ## Integration Points
 
@@ -238,7 +254,8 @@ The `Typography` object is defined at global scope (no namespace wrapper), makin
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Typography.hs](/backend/typography-hs) - Server-side Haskell typography (Pandoc AST transforms)
 - [Config.Typography](/backend/config-typography-hs) - Server-side typography configuration
@@ -247,3 +264,4 @@ The `Typography` object is defined at global scope (no namespace wrapper), makin
 - [transclude.js](/frontend/transclude-js) - Uses CLEAN mode for include markers
 - [image-focus.js](/frontend/image-focus-js) - Uses typography for caption processing
 - [sidenotes.js](/frontend/sidenotes-js) - Related text layout system
+</details>

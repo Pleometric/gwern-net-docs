@@ -1,14 +1,24 @@
 ---
+title: "paragraphizer.py"
+description: "paragraphizer.py reformats dense single-paragraph abstracts into readable multi-paragraph summaries."
 sidebar_position: 5
 ---
 
 # paragraphizer.py
 
-**Path:** `build/paragraphizer.py` | **Language:** Python | **Lines:** 796
+paragraphizer.py reformats dense single-paragraph abstracts into readable multi-paragraph summaries.
 
-LLM-powered tool to split run-on research paper abstracts into multiple topical paragraphs with added hyperlinks.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/paragraphizer.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>796</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/paragraphizer.py">build/paragraphizer.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around paragraphizer.
+</div>
 
 ## Overview
 
@@ -57,7 +67,8 @@ echo "Most deep reinforcement learning algorithms distill experience into parame
 - Temperature: 0 (deterministic paragraph breaks)
 - System prompt: "You are a helpful research assistant"
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Paragraph.hs](/backend/paragraph-hs) - Haskell module that calls this script
 - [Annotation/Arxiv.hs](/backend/annotation-arxiv-hs) - Scraper that uses paragraph splitting
@@ -66,3 +77,4 @@ echo "Most deep reinforcement learning algorithms distill experience into parame
 - [italicizer.py](/python/italicizer) - Companion LLM-based title formatting
 - [title-cleaner.py](/python/title-cleaner) - Companion LLM-based title cleanup
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Stores reformatted abstracts
+</details>

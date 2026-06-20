@@ -1,12 +1,24 @@
 ---
+title: "build_icon_sprite_file.php"
+description: "This script implements an SVG sprite generation system that consolidates individual icon files into a single icons.svg sprite sheet."
 sidebar_position: 4
 ---
 
 # build_icon_sprite_file.php
 
-**Path:** `build/build_icon_sprite_file.php` | **Language:** PHP | **Lines:** 101
+This script implements an SVG sprite generation system that consolidates individual icon files into a single icons.svg sprite sheet.
 
-Combines individual SVG icon files into a single sprite file with positioned views.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/build_icon_sprite_file.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>101</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/build_icon_sprite_file.php">build/build_icon_sprite_file.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around build_icon_sprite_file.
+</div>
 
 ## Overview
 
@@ -81,7 +93,8 @@ The script prints warnings to stdout for icons with invalid or missing viewBox a
 }
 ```
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkIcon.hs](/backend/link-icon-hs) - Haskell module that assigns icons to URLs
 - [Config.LinkIcon](/backend/config-link-icon-hs) - URL-to-icon mapping rules and color constants
@@ -89,3 +102,4 @@ The script prints warnings to stdout for icons with invalid or missing viewBox a
 - [links.css (Frontend)](/frontend/links-css) - Frontend documentation for link icon system
 - [sync.sh](/backend/sync-sh) - Build orchestrator that invokes sprite generation
 - [default.css](/css/default) - Main stylesheet that may reference icon styles
+</details>

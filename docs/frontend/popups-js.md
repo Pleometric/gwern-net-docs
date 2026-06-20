@@ -1,11 +1,23 @@
+---
+title: "popups.js"
+description: "Popups began as simple footnote tooltips (2010, by Lukas Mathis) and evolved into a complete windowing system."
+---
 
 # popups.js
 
-**Path:** `js/popups.js` | **Language:** JavaScript | **Lines:** 2719
+Popups began as simple footnote tooltips (2010, by Lukas Mathis) and evolved into a complete windowing system.
 
-Hover-triggered popup windows with full window-management capabilities (pinning, tiling, minimizing).
+<div className="doc-meta">
+  <div><strong>Path</strong><code>js/popups.js</code></div>
+  <div><strong>Language</strong>JavaScript</div>
+  <div><strong>Lines</strong>2719</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/js/popups.js">js/popups.js</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing browser-side behavior, runtime state, event handling, popups, or UI code around popups.
+</div>
 
 ## Overview
 
@@ -281,7 +293,8 @@ The arrangement algorithm:
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Shadow DOM Content Isolation
 
@@ -377,8 +390,10 @@ Each button has:
 - `updateState()`: Sync visual state with popup state
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All configuration lives in the `Popups` object:
 
@@ -401,6 +416,7 @@ Minimized popup dimensions are in `minimizedPopupsArrangements`:
 - Horizontal layout: 320-640px flexible width
 
 ---
+</details>
 
 ## Integration Points
 
@@ -457,7 +473,8 @@ target.specialPopupTriggerDelay = 500;           // custom spawn delay (ms or fu
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [extracts.js](/frontend/extracts-js) - Content coordinator that decides what content appears in popups
 - [popovers.js](/frontend/popovers-js) - Mobile-friendly alternative using touch popovers instead of hover windows
@@ -466,3 +483,4 @@ target.specialPopupTriggerDelay = 500;           // custom spawn delay (ms or fu
 - [initial.js](/frontend/initial-js) - GW namespace and notification center used for popup events
 - [content.js](/frontend/content-js) - Content loading system that provides popup data
 - [annotations.js](/frontend/annotations-js) - Annotation data loading and caching
+</details>

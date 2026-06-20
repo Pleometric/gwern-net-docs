@@ -1,11 +1,23 @@
+---
+title: "Config.XOfTheDay"
+description: "Configuration constants for the \"X of the Day\" feature: paths, thresholds, and domain exclusions"
+---
 
 # Config.XOfTheDay
 
-**Path:** `build/Config/XOfTheDay.hs` | **Language:** Haskell | **Lines:** 501
+Configuration constants for the "X of the Day" feature: paths, thresholds, and domain exclusions
 
-> Configuration constants for the "X of the Day" feature: paths, thresholds, and domain exclusions
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Config/XOfTheDay.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>501</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Config/XOfTheDay.hs">build/Config/XOfTheDay.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Config.XOfTheDay.
+</div>
 
 ## Overview
 
@@ -64,7 +76,8 @@ The `today-*.html` files are pre-rendered HTML fragments included in page templa
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 **Threshold Tuning Comments**: The module includes inline documentation about threshold selection rationale:
 
@@ -77,8 +90,10 @@ This captures the empirical reasoning for configuration choices, useful for futu
 **Domain Blacklist Organization**: Domains are listed alphabetically within chunks of ~5 per line, making diffs readable and merges less conflicting.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 All values are compile-time constants. To modify:
 
@@ -89,6 +104,7 @@ All values are compile-time constants. To modify:
 | `siteBlackList` | ~460 domains | Prevents generic/common sites from appearing |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -105,7 +121,8 @@ All values are compile-time constants. To modify:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [XOfTheDay.hs](/backend/x-of-the-day-hs) - Main module consuming this configuration
 - [Hakyll.hs](/backend/hakyll-hs) - Site generator that invokes XOTD generation
@@ -114,3 +131,4 @@ All values are compile-time constants. To modify:
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database used for annotation-of-the-day
 - [Blog.hs](/backend/blog-hs) - Related daily content system for blog posts
 - [sync.sh](/backend/sync-sh) - Build orchestrator coordinating content generation
+</details>

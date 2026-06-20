@@ -1,11 +1,23 @@
+---
+title: "linkTitler"
+description: "Automatically add tooltip titles to bare Markdown links using the metadata database"
+---
 
 # linkTitler
 
-**Path:** `build/app/linkTitler.hs` | **Language:** Haskell | **Lines:** 127
+Automatically add tooltip titles to bare Markdown links using the metadata database
 
-> Automatically add tooltip titles to bare Markdown links using the metadata database
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/app/linkTitler.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>127</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/app/linkTitler.hs">build/app/linkTitler.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around linkTitler.
+</div>
 
 ## Overview
 
@@ -92,7 +104,8 @@ The title is single-quoted (with internal quotes escaped), followed by a comma a
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Raw Text Editing
 
@@ -119,8 +132,10 @@ This prevents adding tooltips when the anchor text is essentially the same as th
 Files are processed in parallel using `Control.Monad.Parallel.mapM_`, making it efficient for batch updates across many Markdown files.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 No explicit configuration. Behavior is controlled by:
 
@@ -128,6 +143,7 @@ No explicit configuration. Behavior is controlled by:
 - **Command-line arguments:** Which Markdown files to process
 
 ---
+</details>
 
 ## Integration Points
 
@@ -165,7 +181,8 @@ Documented warnings in the source:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkMetadata.hs](/backend/link-metadata-hs) - The metadata database this script queries
 - [link-tooltip.hs](/backend/link-tooltip-hs) - Related tool that extracts metadata from tooltips (reverse direction)
@@ -173,3 +190,4 @@ Documented warnings in the source:
 - [Annotation.hs](/backend/annotation-hs) - URL scraping that populates the metadata
 - [link-prioritize.hs](/backend/link-prioritize-hs) - Identifies links needing titles
 - [Typography.hs](/backend/typography-hs) - Other Pandoc AST transformations
+</details>

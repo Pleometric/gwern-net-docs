@@ -1,12 +1,24 @@
 ---
+title: "asset.php"
+description: "asset.php is a PHP script designed exclusively for development environments that serves static assets (JavaScript and CSS files) while automatically triggering the build system's."
 sidebar_position: 7
 ---
 
 # asset.php
 
-**Path:** `asset.php` | **Language:** PHP | **Lines:** 23
+asset.php is a PHP script designed exclusively for development environments that serves static assets (JavaScript and CSS files) while automatically triggering the build system's.
 
-Development-only asset serving script with automatic rebuild on file changes.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>asset.php</code></div>
+  <div><strong>Language</strong>PHP</div>
+  <div><strong>Lines</strong>23</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/asset.php">asset.php</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
+
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing PHP asset generation, build hooks, template assembly, or maintenance scripts around asset.
+</div>
 
 ## Overview
 
@@ -88,7 +100,8 @@ Build operations are logged to `asset.log` in the script's directory, useful for
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [pre-commit-hook.php](/php/pre-commit-hook) - The build hook triggered by this script
 - [build_unified_assets.php](/php/build_unified_assets) - Asset compilation system
@@ -96,3 +109,4 @@ Build operations are logged to `asset.log` in the script's directory, useful for
 - [build_functions.php](/php/build_functions) - Utility functions for versioning
 - [sync.sh](/backend/sync-sh) - Production build orchestrator (contrast with dev workflow)
 - [initial.js](/frontend/initial-js) - Example frontend module being served and rebuilt
+</details>

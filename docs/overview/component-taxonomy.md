@@ -4,19 +4,54 @@ description: Functional taxonomy of documented gwern.net source files, covering 
 sidebar_position: 1
 ---
 
-# Functional Taxonomy
+# Component Taxonomy
 
-This document organizes every documented file by functional purpose. Each file is assigned to exactly one category by what it does and not implementation language. An importance score is assigned by how critical the function is.
+This page groups documented source files by the job they do in gwern.net, not by implementation language. Use it as a map from feature area to source page: start with a category card, then drop into the detailed table for the files and scores.
+
+<div className="taxonomy-grid">
+  <div className="taxonomy-card">
+    <h3><a href="#1-build-pipeline">Build Pipeline</a></h3>
+    <p><span className="status-badge status-critical">16</span> Site generation, compilation, deployment, and validation entry points.</p>
+  </div>
+  <div className="taxonomy-card">
+    <h3><a href="#2-annotation--metadata">Annotation & Metadata</a></h3>
+    <p><span className="status-badge">33</span> Link metadata scraping, storage, display, and annotation formatting.</p>
+  </div>
+  <div className="taxonomy-card">
+    <h3><a href="#3-popup-system">Popup System</a></h3>
+    <p><span className="status-badge">12</span> Hover popups, popovers, extract loading, and preview coordination.</p>
+  </div>
+  <div className="taxonomy-card">
+    <h3><a href="#4-link-processing">Link Processing</a></h3>
+    <p><span className="status-badge">20</span> Archives, icons, interwiki links, IDs, suggestions, and link cleanup.</p>
+  </div>
+  <div className="taxonomy-card">
+    <h3><a href="#5-content-rendering">Content Rendering</a></h3>
+    <p><span className="status-badge">10</span> Transclusion, DOM rewriting, backlinks, similar links, and content loading.</p>
+  </div>
+  <div className="taxonomy-card">
+    <h3><a href="#6-typography--layout">Typography & Layout</a></h3>
+    <p><span className="status-badge">15</span> Text transforms, sidenotes, columns, images, and reader-facing layout behavior.</p>
+  </div>
+  <div className="taxonomy-card">
+    <h3><a href="#7-theming--ui">Theming & UI</a></h3>
+    <p><span className="status-badge">20</span> Dark mode, reader mode, colors, CSS bundles, and special UI states.</p>
+  </div>
+  <div className="taxonomy-card">
+    <h3><a href="#8-utilities--infrastructure">Utilities & Infrastructure</a></h3>
+    <p><span className="status-badge">78</span> Shared helpers, config modules, templates, server config, and maintenance scripts.</p>
+  </div>
+</div>
 
 ## Importance Scoring
 
 | Score | Meaning | Criteria |
 |-------|---------|----------|
-| **5** | Critical Path | Site breaks without it; core build/rendering |
-| **4** | Major Feature | Key user-facing functionality |
-| **3** | Supporting | Enables major features to work |
-| **2** | Enhancement | Improves UX/performance, not essential |
-| **1** | Peripheral | Utilities, edge cases, rarely used |
+| <span className="score-badge score-5">5</span> | Critical Path | Site breaks without it; core build/rendering |
+| <span className="score-badge">4</span> | Major Feature | Key user-facing functionality |
+| <span className="score-badge">3</span> | Supporting | Enables major features to work |
+| <span className="score-badge">2</span> | Enhancement | Improves UX/performance, not essential |
+| <span className="score-badge">1</span> | Peripheral | Utilities, edge cases, rarely used |
 
 ---
 

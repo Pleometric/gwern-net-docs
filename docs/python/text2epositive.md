@@ -1,14 +1,24 @@
 ---
+title: "text2epositive.py"
+description: "text2epositive.py implements a linguistic experiment inspired by LessWrong's E-positive writing: rewriting text to avoid negative constructions."
 sidebar_position: 3
 ---
 
 # text2epositive.py
 
-**Path:** `build/old/text2epositive.py` | **Language:** Python | **Lines:** 162
+text2epositive.py implements a linguistic experiment inspired by LessWrong's E-positive writing: rewriting text to avoid negative constructions.
 
-Text style transfer tool that rewrites English to eliminate negations, promoting "E-positive" or "abs-E" language that states what *is* rather than what *isn't*.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/old/text2epositive.py</code></div>
+  <div><strong>Language</strong>Python</div>
+  <div><strong>Lines</strong>162</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/old/text2epositive.py">build/old/text2epositive.py</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing Python helper scripts for metadata cleanup, text processing, PDFs, dates, or generated content around text2epositive.
+</div>
 
 ## Overview
 
@@ -60,7 +70,8 @@ OPENAI_API_KEY="sk-XXX" python text2epositive.py "It is not warm."
 - "nowhere to be found" → "We looked but couldn't find"
 - "immortal" → "ages slowly"
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [italicizer.py](/python/italicizer) - Companion LLM-based title formatting
 - [paragraphizer.py](/python/paragraphizer) - LLM-based text reformatting for abstracts
@@ -68,3 +79,4 @@ OPENAI_API_KEY="sk-XXX" python text2epositive.py "It is not warm."
 - [date-guesser.py](/python/date-guesser) - LLM-based date extraction
 - [Metadata/Format.hs](/backend/metadata-format-hs) - Rule-based text cleanup
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database
+</details>

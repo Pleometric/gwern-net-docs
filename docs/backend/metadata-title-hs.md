@@ -1,11 +1,23 @@
+---
+title: "Metadata.Title"
+description: "Title extraction and cleanup for web page annotations"
+---
 
 # Metadata.Title
 
-**Path:** `build/Metadata/Title.hs` | **Language:** Haskell | **Lines:** 75
+Title extraction and cleanup for web page annotations
 
-> Title extraction and cleanup for web page annotations
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/Metadata/Title.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>75</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/Metadata/Title.hs">build/Metadata/Title.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around Metadata.Title.
+</div>
 
 ## Overview
 
@@ -139,7 +151,8 @@ stringDelete :: [String]
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Separator-Based Site Name Removal
 
@@ -184,8 +197,10 @@ This prevents the LLM from rewriting or adding content—it can only delete.
 This is processed by `Utils.deleteMixedMany`.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Config.Metadata.Title
 
@@ -205,6 +220,7 @@ The LLM script uses `gpt-5-mini` with:
 - Tasks: Remove boilerplate, fix encoding, convert `*italic*` to `<em>`, identify error pages
 
 ---
+</details>
 
 ## Integration Points
 
@@ -229,7 +245,8 @@ The LLM script uses `gpt-5-mini` with:
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [Config/Metadata/Title.hs](/backend/config-metadata-title-hs) - Configuration lists for title filtering
 - [title-cleaner.py](/python/title-cleaner) - LLM-based title cleanup script
@@ -239,3 +256,4 @@ The LLM script uses `gpt-5-mini` with:
 - [Metadata/Date.hs](/backend/metadata-date-hs) - Companion date processing module
 - [Metadata/Format.hs](/backend/metadata-format-hs) - Companion string cleaning module
 - [italicizer.py](/python/italicizer) - Adds italics to book/movie titles
+</details>

@@ -1,11 +1,23 @@
+---
+title: "linkExtractor"
+description: "CLI tool for extracting hyperlinks from Markdown and HTML files"
+---
 
 # linkExtractor
 
-**Path:** `build/app/linkExtractor.hs` | **Language:** Haskell (runghc script) | **Lines:** 53
+CLI tool for extracting hyperlinks from Markdown and HTML files
 
-> CLI tool for extracting hyperlinks from Markdown and HTML files
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/app/linkExtractor.hs</code></div>
+  <div><strong>Language</strong>Haskell (runghc script)</div>
+  <div><strong>Lines</strong>53</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/app/linkExtractor.hs">build/app/linkExtractor.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around linkExtractor.
+</div>
 
 ## Overview
 
@@ -91,7 +103,8 @@ This enables meaningful frequency analysis—you can see how often sections are 
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Markdown-First with HTML Fallback
 
@@ -115,8 +128,10 @@ let converted = extractLinks (".md"`isSuffixOf`file) input
 Files ending in `.md` are parsed as Markdown; everything else is treated as HTML.
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 No configuration files. Behavior is controlled entirely via CLI flags.
 
@@ -125,6 +140,7 @@ No configuration files. Behavior is controlled entirely via CLI flags.
 | `--print-filenames` | Output format becomes `filepath:url` instead of just `url` |
 
 ---
+</details>
 
 ## Integration Points
 
@@ -163,7 +179,8 @@ https://example.com/page
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [linkSuggester](/backend/link-suggester-hs) - Advanced suggestion tool that uses extracted links
 - [link-prioritize.hs](/backend/link-prioritize-hs) - Ranks unannotated links by frequency
@@ -171,3 +188,4 @@ https://example.com/page
 - [Query.hs](/backend/query-hs) - Core URL extraction logic using Pandoc
 - [Interwiki.hs](/backend/interwiki-hs) - Resolves interwiki links during extraction
 - [sync.sh](/backend/sync-sh) - Build orchestrator that may invoke this tool
+</details>

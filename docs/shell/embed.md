@@ -1,14 +1,24 @@
 ---
+title: "embed.sh"
+description: "This script provides a command-line interface to OpenAI's embedding API, converting text strings into high-dimensional vector representations (embeddings)."
 sidebar_position: 2
 ---
 
 # embed.sh
 
-**Path:** `build/embed.sh` | **Language:** Bash | **Lines:** 1628
+This script provides a command-line interface to OpenAI's embedding API, converting text strings into high-dimensional vector representations (embeddings).
 
-Generates neural network embeddings for text using OpenAI's API for semantic similarity search.
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/embed.sh</code></div>
+  <div><strong>Language</strong>Bash</div>
+  <div><strong>Lines</strong>1628</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/embed.sh">build/embed.sh</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing shell automation, compression, upload/download helpers, linting, or preprocessing around embed.
+</div>
 
 ## Overview
 
@@ -76,7 +86,8 @@ $ echo "Sample document text" | embed.sh > embedding.json
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [GenerateSimilar.hs](/backend/generate-similar-hs) - Uses embeddings for recommendation system
 - [extracts.js](/frontend/extracts-js) - Frontend integration for similar links
@@ -84,3 +95,4 @@ $ echo "Sample document text" | embed.sh > embedding.json
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Metadata system storing embedding references
 - [Annotation.hs](/backend/annotation-hs) - Annotation system using similar links
 - [upload.sh](/shell/upload) - File upload that may trigger embedding generation
+</details>

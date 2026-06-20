@@ -1,14 +1,23 @@
+---
+title: "generateBacklinks.hs"
+description: "Reverse citation generator: builds backlinks database and HTML snippets"
+---
 
 # generateBacklinks.hs
 
-**Path:** `build/app/generateBacklinks.hs` | **Language:** Haskell | **Lines:** 211
+Reverse citation generator: builds backlinks database and HTML snippets
 
-> Reverse citation generator: builds backlinks database and HTML snippets
+<div className="doc-meta">
+  <div><strong>Path</strong><code>build/app/generateBacklinks.hs</code></div>
+  <div><strong>Language</strong>Haskell</div>
+  <div><strong>Lines</strong>211</div>
+  <div><strong>Source</strong><a href="https://github.com/gwern/gwern.net/blob/406d3e423c5dd42f3d431d6fedd203de5d277a2f/build/app/generateBacklinks.hs">build/app/generateBacklinks.hs</a><br /><span className="source-link">at 406d3e423</span></div>
+</div>
 
-**Helper module:** `build/LinkBacklink.hs` | **Lines:** ~130
-**Config:** `build/Config/Misc.hs` (partial)
-
----
+<div className="read-when">
+<strong>Read this when</strong>
+Use this page when tracing the Haskell build pipeline, generators, metadata code, or backend utility behavior around generateBacklinks.
+</div>
 
 ## Overview
 
@@ -176,7 +185,8 @@ generateCaller md target (caller, callers) =
 
 ---
 
-## Key Patterns
+<details className="generated-section">
+<summary>Key Patterns</summary>
 
 ### Backlink-Not Class Cascade
 
@@ -237,8 +247,10 @@ main = do
 When starting fresh, some ordering dependency requires running twice. This is acknowledged as a hack ("for uninteresting reasons probably due to a bad architecture").
 
 ---
+</details>
 
-## Configuration
+<details className="generated-section">
+<summary>Configuration</summary>
 
 ### Config.Misc.hs
 
@@ -278,6 +290,7 @@ backlink: False
 Used for index pages, newsletters, and other link-heavy aggregation pages.
 
 ---
+</details>
 
 ## Integration Points
 
@@ -393,7 +406,8 @@ A link was extracted with an empty URL. Debug by checking recent file changes.
 
 ---
 
-## See Also
+<details className="generated-section">
+<summary>See Also</summary>
 
 - [LinkBacklink.hs](/backend/link-backlink-hs) - Helper module for reading/writing backlinks database
 - [hakyll.hs](/backend/hakyll-hs) - Build system that integrates backlinks into page generation
@@ -401,3 +415,4 @@ A link was extracted with an empty URL. Debug by checking recent file changes.
 - [sync.sh](/backend/sync-sh) - Build orchestrator that invokes generateBacklinks.hs
 - [content.js](/frontend/content-js) - Frontend handling of backlink popup content
 - [transclude.js](/frontend/transclude-js) - Implements include-block-context-expanded transclusion for backlinks
+</details>
