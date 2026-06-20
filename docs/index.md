@@ -2,13 +2,6 @@
 slug: /
 title: gwern.net Codebase Documentation
 description: Unofficial technical documentation for the gwern.net Hakyll, Pandoc, Haskell, JavaScript, annotation, popup, and static-site architecture.
-keywords:
-  - gwern.net
-  - Hakyll
-  - Pandoc
-  - Haskell
-  - link annotations
-  - hover popups
 sidebar_position: 1
 ---
 
@@ -18,15 +11,15 @@ These docs are based on gwern.net commit [`406d3e423`](https://github.com/gwern/
 
 # gwern.net Codebase Documentation
 
-Unofficial technical documentation for the [gwern.net](https://gwern.net) codebase, developed by [Gwern Branwen](https://gwern.net/about) and [Said Achmiz](https://github.com/achmizs).
+This is an unofficial map of the [gwern.net](https://gwern.net) codebase: how Markdown essays move through the Hakyll/Pandoc build, how link metadata becomes annotations, and how the frontend turns static HTML into interactive pages.
 
 ## Quick Start
 
-| Want to... | Start here |
-|------------|------------|
-| Get oriented | [Architecture at a Glance](/overview/architecture-at-a-glance) |
-| Follow a page through the full system | [Page Lifecycle](/overview/page-lifecycle) |
-| Browse all files by function | [Functional Taxonomy](/overview/component-taxonomy) |
+| If you want to... | Start here |
+|-------------------|------------|
+| Get the system model | [Architecture at a Glance](/overview/architecture-at-a-glance) |
+| Follow one page from source to browser | [Page Lifecycle](/overview/page-lifecycle) |
+| Find the file responsible for a feature | [Functional Taxonomy](/overview/component-taxonomy) |
 
 If you are new to the codebase, read the [architecture overview](/overview/architecture-at-a-glance) first, then use [page lifecycle](/overview/page-lifecycle) for the end-to-end flow and [functional taxonomy](/overview/component-taxonomy) as the map of individual files.
 
@@ -42,21 +35,17 @@ These are shorter paths through the larger reference when you already know what 
 
 ## What is gwern.net?
 
-gwern.net is a long-form essay site by pseudonymous writer Gwern Branwen, covering topics ranging from statistics and psychology to AI, genetics, and internet culture. The site has been actively maintained since January 2009 (~17 years) and is known for its rigorous, heavily-cited research essays that often run tens of thousands of words.
+gwern.net is a long-form essay site by pseudonymous writer [Gwern Branwen](https://gwern.net/about), with frontend work by [Said Achmiz](https://github.com/achmizs). It is known for long, heavily cited essays and for a site design that treats the web page as an extended reading environment rather than a simple document.
 
-What makes gwern.net technically interesting is its sophisticated custom infrastructure. The site features hover popups that show link previews and citations without leaving the page, inline transclusion (embedding content from other pages), margin sidenotes, automatic bibliography generation, and a preemptive link archiving system that mirrors external links locally to prevent link rot.
+The codebase is interesting because many of the reading features are custom infrastructure: hover popups for citations and local pages, inline transclusion, margin sidenotes, generated bibliographies, annotation databases, and link archiving.
 
-The backend is built with [Hakyll](https://jaspervdj.be/hakyll/), a static site generator written in Haskell, combined with [Pandoc](https://pandoc.org/) for Markdown processing. Custom Haskell modules transform the content during build time, handling everything from typography fixes to annotation scraping. The frontend, written by [Said Achmiz](https://github.com/achmizs), is a custom vanilla JavaScript framework (no React, Vue, etc.) built around a pub/sub event system that coordinates popups, transclusion, theming, and dozens of other features.
+The backend is built around [Hakyll](https://jaspervdj.be/hakyll/) and [Pandoc](https://pandoc.org/), with Haskell modules handling metadata, transforms, validation, generated pages, and deployment support. The frontend is vanilla JavaScript built around an event system that coordinates popups, transclusion, theming, layout, and other runtime behavior.
 
-## Why This Documentation?
+## Why This Exists
 
-Gwern himself has written extensively about the site's design and implementation. See [About This Website](https://gwern.net/about), [Design Graveyard](https://gwern.net/design-hierarchical), and [Typography](https://gwern.net/design-typography) for his own explanations. This documentation is meant to complement those writings by providing a structured reference to the actual source code.
+Gwern has written about the site's design in [About This Website](https://gwern.net/about), [Design Graveyard](https://gwern.net/design-hierarchical), and [Typography](https://gwern.net/design-typography). This reference is meant to complement those essays by organizing the source code itself: what the major modules do, where features enter the pipeline, and how the build-time and runtime systems fit together.
 
-I started this project out of sheer curiosity. I've been reading Gwern's site for a long time and always found his website-as-process approach to writing admirable, so I wanted to understand how it all worked under the hood.
-
-The site's [codebase is available on GitHub](https://github.com/gwern/gwern.net). It's quite large and has been in active development by Gwern and Said Achmiz since January 2009 (~17 years). They're constantly updating the repo, so things change all the time. Thankfully, the code itself is filled with comments, which helped guide me as I tried to document everything.
-
-My intent here is simply to make source code exploration easier and give curious readers a sense for how things work. These docs are also meant to serve as a map for any agents you might want to throw at the codebase, so you can ask questions yourself.
+Use it as a companion while reading the [upstream source](https://github.com/gwern/gwern.net), or as a routing layer when asking an agent to inspect a subsystem. These docs are source-derived but unofficial; the codebase changes often, and the source remains the authority.
 
 ### How These Docs Were Created
 

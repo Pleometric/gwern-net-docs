@@ -108,7 +108,8 @@ const config: Config = {
           title: 'External',
           items: [
             { label: 'gwern.net', href: 'https://gwern.net' },
-            { label: 'Source Code', href: 'https://github.com/gwern/gwern.net' },
+            { label: 'gwern.net source code', href: 'https://github.com/gwern/gwern.net' },
+            { label: 'Documentation repository', href: 'https://github.com/Pleometric/gwern-net-docs' },
           ],
         },
         {
