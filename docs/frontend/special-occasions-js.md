@@ -1,7 +1,7 @@
 
 # special-occasions.js
 
-**Path:** `js/special-occasions.js` | **Language:** JavaScript | **Lines:** ~692
+**Path:** `js/special-occasions.js` | **Language:** JavaScript | **Lines:** 692
 
 > Date-driven holiday theming system for Halloween, Christmas, Easter, and April Fools
 
@@ -147,7 +147,7 @@ doWhenBodyExists()
 ```
 injectSpecialPageLogo()
     └── replacePageLogoWhenPossible()
-            ├── Wait for #sidebar .logo-image and helper functions
+            ├── Wait for #navbar .logo-image and helper functions
             ├── Build logo pathname pattern with mode/identifier/sequence
             ├── Call getAssetPathname() to resolve actual file
             ├── Call versionedAssetURL() for cache-busting

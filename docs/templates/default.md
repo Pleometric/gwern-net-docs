@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # default.html
 
-**Path:** `template/default.html` | **Language:** HTML5/Pandoc | **Lines:** ~175
+**Path:** `template/default.html` | **Language:** HTML5/Pandoc | **Lines:** 186
 
 Main Hakyll template for all standard gwern.net pages.
 

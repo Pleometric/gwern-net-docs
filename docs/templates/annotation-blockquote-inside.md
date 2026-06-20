@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # annotation-blockquote-inside.tmpl
 
-**Path:** `template/include/annotation-blockquote-inside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** ~27
+**Path:** `template/include/annotation-blockquote-inside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 28
 
 Template for rendering annotations where the abstract blockquote follows the title paragraph.
 

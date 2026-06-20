@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # build_inlined_images.php
 
-**Path:** `build/build_inlined_images.php` | **Language:** PHP | **Lines:** ~85
+**Path:** `build/build_inlined_images.php` | **Language:** PHP | **Lines:** 85
 
 Generates CSS custom property definitions containing base64-encoded images.
 

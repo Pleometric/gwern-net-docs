@@ -1,7 +1,7 @@
 
 # popups.js
 
-**Path:** `js/popups.js` | **Language:** JavaScript | **Lines:** ~2,800
+**Path:** `js/popups.js` | **Language:** JavaScript | **Lines:** 2719
 
 Hover-triggered popup windows with full window-management capabilities (pinning, tiling, minimizing).
 
@@ -460,7 +460,7 @@ target.specialPopupTriggerDelay = 500;           // custom spawn delay (ms or fu
 ## See Also
 
 - [extracts.js](/frontend/extracts-js) - Content coordinator that decides what content appears in popups
-- [popins.js](/frontend/popins-js) - Mobile-friendly alternative using inline expansion instead of floating windows
+- [popovers.js](/frontend/popovers-js) - Mobile-friendly alternative using touch popovers instead of hover windows
 - [extracts-annotations.js](/frontend/extracts-annotations-js) - Annotation content type for popups
 - [extracts-content.js](/frontend/extracts-content-js) - Content type definitions (images, videos, local pages)
 - [initial.js](/frontend/initial-js) - GW namespace and notification center used for popup events

@@ -1,7 +1,7 @@
 
 # Config.LinkLive
 
-**Path:** `build/Config/LinkLive.hs` | **Language:** Haskell | **Lines:** ~4,618
+**Path:** `build/Config/LinkLive.hs` | **Language:** Haskell | **Lines:** 4618
 
 > Domain whitelist/blacklist configuration for iframe-able "live" link popups
 

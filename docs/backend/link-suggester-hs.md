@@ -1,7 +1,7 @@
 
-# link-suggester.hs
+# linkSuggester
 
-**Path:** `build/link-suggester.hs` | **Language:** Haskell | **Lines:** ~114
+**Path:** `build/app/linkSuggester.hs` | **Language:** Haskell | **Lines:** 113
 
 > Generates an Emacs-compatible link suggestion database from site-wide anchor/URL pairs
 
@@ -9,7 +9,7 @@
 
 ## Overview
 
-`link-suggester.hs` extracts anchor text and URLs from all Markdown/HTML files on gwern.net and produces an Elisp file that Emacs can load for semi-automated link insertion. When writing annotations or essays, this enables quick conversion of plain text into properly linked references by matching known anchor text to their canonical URLs.
+`linkSuggester` extracts anchor text and URLs from all Markdown/HTML files on gwern.net and produces an Elisp file that Emacs can load for semi-automated link insertion. When writing annotations or essays, this enables quick conversion of plain text into properly linked references by matching known anchor text to their canonical URLs.
 
 The tool implements a multi-stage filtering pipeline: URLs must appear at least 4 times across the corpus (configurable via `hitsMinimum`), anchor text must not appear associated with multiple URLs (ambiguity filter), must not be dictionary words, and must pass pattern-based blacklists. This aggressive filtering ensures only high-confidence, unambiguous suggestions reach the final database.
 
@@ -23,7 +23,7 @@ The output format is native Elisp that sets `markdown-rewrites` to an associatio
 
 Entry point. Reads filenames from stdin, parses all files in parallel, builds the suggestion database through filtering stages, writes the Elisp output to the first CLI argument, and writes debug output to `metadata/linkSuggestions-deleted.hs`.
 
-**Called by:** Command line via `find . -name "*.md" -or -name "*.html" | link-suggester.hs output.el`
+**Called by:** Command line via `find . -name "*.md" -or -name "*.html" | linkSuggester output.el`
 
 **Calls:** `parseURLs`, filtering pipeline, `writeUpdatedFile`
 
@@ -193,7 +193,7 @@ The generated file is loaded via `load-file` in Emacs. The `markdown-rewrites` v
 ## See Also
 
 - [Config.LinkSuggester](/backend/config-link-suggester-hs) - Filtering rules and whitelists for suggestions
-- [link-extractor.hs](/backend/link-extractor-hs) - Simpler URL extraction tool
+- [linkExtractor](/backend/link-extractor-hs) - Simpler URL extraction tool
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database consulted for suggestions
 - [LinkID.hs](/backend/link-id-hs) - Citation ID generation for deduplication
 - [Query.hs](/backend/query-hs) - URL extraction utilities

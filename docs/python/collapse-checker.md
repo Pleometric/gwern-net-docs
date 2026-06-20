@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # collapse-checker.py
 
-**Path:** `build/collapse-checker.py` | **Language:** Python | **Lines:** ~133
+**Path:** `build/collapse-checker.py` | **Language:** Python | **Lines:** 133
 
 Detects HTML blocks with `collapse` class that are too small and should not be collapsed.
 

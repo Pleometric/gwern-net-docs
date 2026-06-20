@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # build_body_includes.php
 
-**Path:** `build/build_body_includes.php` | **Language:** PHP | **Lines:** ~53
+**Path:** `build/build_body_includes.php` | **Language:** PHP | **Lines:** 53
 
 Generates versioned `<link>` and `<script>` tags for deferred CSS and JavaScript loaded at document end.
 

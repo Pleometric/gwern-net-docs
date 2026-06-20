@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # annotation-blockquote-not.tmpl
 
-**Path:** `template/include/annotation-blockquote-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** ~22
+**Path:** `template/include/annotation-blockquote-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 23
 
 Template for rendering annotations without any blockquote wrapper elements.
 

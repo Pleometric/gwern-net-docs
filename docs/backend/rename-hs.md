@@ -1,7 +1,7 @@
 
 # rename.hs
 
-**Path:** `build/rename.hs` | **Language:** Haskell | **Lines:** ~15
+**Path:** `build/rename.hs` | **Language:** Haskell | **Lines:** 14
 
 > Generates shell commands for safely renaming pages across the gwern.net codebase
 
@@ -119,5 +119,5 @@ $ runghc rename.hs /spaced-repetition /srs | bash
 - [Utils.hs](/backend/utils-hs) - Core utilities for string manipulation and file operations
 - [stringReplace.hs](/backend/string-replace-hs) - Parallel string replacement utility for batch processing
 - [sync.sh](/backend/sync-sh) - Build orchestrator that may invoke page renames
-- [nginxredirectguesser.hs](/backend/nginx-redirect-guesser-hs) - Generates nginx redirect rules for broken URLs
+- [redirectGuesser](/backend/nginx-redirect-guesser-hs) - Generates nginx redirect rules for broken URLs
 - [gwern.net.conf](/nginx/gwern-net-conf) - Nginx configuration where redirects are stored

@@ -1,15 +1,17 @@
 
 # Config.LinkAuto
 
-**Path:** `build/Config/LinkAuto.hs` | **Language:** Haskell | **Lines:** ~1,041
+**Path:** `build/old/LinkAuto.hs` | **Language:** Haskell | **Lines:** 1311
 
-> Configuration data for the auto-linking system: regex patterns and URL mappings
+> Archived configuration data for the old auto-linking system: regex patterns and URL mappings
+
+**Status:** archived with `LinkAuto` in `build/old/`; no active `build/Config/LinkAuto.hs` remains in the current source tree.
 
 ---
 
 ## Overview
 
-Config.LinkAuto is a pure data module that defines the dictionary of regular expression patterns and their corresponding URLs for gwern.net's auto-linking system. When the site is compiled, the LinkAuto module scans documents for text matching these patterns and automatically converts the first occurrence of each match into a hyperlink.
+Config.LinkAuto was a pure data module that defined the dictionary of regular expression patterns and their corresponding URLs for gwern.net's former auto-linking system. In the current source tree, the archived definitions are retained inside `build/old/LinkAuto.hs` for reference rather than participating in the active build.
 
 The module contains approximately 1,000 regex→URL pairs covering technical terms (AI/ML model names like "GPT-3", "BERT", "StyleGAN"), statistical concepts ("GWAS", "MCMC", "PGS"), notable people (researchers, authors, historical figures), media (anime, books, websites), and scientific terminology (genetics, psychology, neuroscience). Each pattern uses Haskell's regex-tdfa syntax with alternations and character classes to match multiple surface forms of the same concept.
 

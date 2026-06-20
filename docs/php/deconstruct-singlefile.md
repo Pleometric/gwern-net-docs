@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # deconstruct_singlefile.php
 
-**Path:** `build/deconstruct_singlefile.php` | **Language:** PHP | **Lines:** ~600
+**Path:** `build/deconstruct_singlefile.php` | **Language:** PHP | **Lines:** 496
 
 Extracts base64-encoded assets from SingleFile HTML archives into separate files, with optional gwtar self-extracting archive creation.
 

@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # light-mode-adjustments.css
 
-**Path:** `css/light-mode-adjustments.css` | **Language:** CSS | **Lines:** ~7
+**Path:** `css/light-mode-adjustments.css` | **Language:** CSS | **Lines:** 14
 
 Light mode pattern and texture URLs for popup title bars and scrollbars.
 

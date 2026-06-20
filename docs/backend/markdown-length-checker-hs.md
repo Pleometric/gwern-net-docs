@@ -1,7 +1,7 @@
 
 # markdown-length-checker.hs
 
-**Path:** `build/markdown-length-checker.hs` | **Language:** Haskell (runghc script) | **Lines:** ~36
+**Path:** `build/markdown-length-checker.hs` | **Language:** Haskell (runghc script) | **Lines:** 35
 
 > Validates that code blocks in Markdown files don't contain overly long lines
 

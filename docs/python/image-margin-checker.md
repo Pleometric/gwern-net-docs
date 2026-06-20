@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # image-margin-checker.py [DEPRECATED]
 
-**Path:** `build/image-margin-checker.py` | **Language:** Python | **Lines:** ~103
+**Path:** `build/old/image-margin-checker.py` | **Language:** Python | **Lines:** 103
 
 CLI tool to check whether an image is too tightly cropped and needs greater padding/margin using GPT-4 Vision.
 

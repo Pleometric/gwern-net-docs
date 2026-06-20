@@ -1,7 +1,7 @@
 
 # Metadata.Date
 
-**Path:** `build/Metadata/Date.hs` | **Language:** Haskell | **Lines:** ~159
+**Path:** `build/Metadata/Date.hs` | **Language:** Haskell | **Lines:** 161
 
 > Date parsing, validation, and range annotation for annotations and typography
 

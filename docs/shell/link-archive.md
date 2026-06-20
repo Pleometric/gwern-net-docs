@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # linkArchive.sh
 
-**Path:** `build/linkArchive.sh` | **Language:** Bash | **Lines:** ~190
+**Path:** `build/linkArchive.sh` | **Language:** Bash | **Lines:** 190
 
 Archives web pages and PDFs locally using SingleFile snapshots for preemptive link preservation.
 

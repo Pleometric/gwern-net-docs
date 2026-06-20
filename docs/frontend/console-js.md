@@ -1,7 +1,7 @@
 
 # console.js
 
-**Path:** `js/console.js` | **Language:** JavaScript | **Lines:** ~275
+**Path:** `js/console.js` | **Language:** JavaScript | **Lines:** 277
 
 > In-browser developer console with REPL, command history, and output buffer
 

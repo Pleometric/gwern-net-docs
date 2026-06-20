@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # embed.sh
 
-**Path:** `build/embed.sh` | **Language:** Bash | **Lines:** ~1,628
+**Path:** `build/embed.sh` | **Language:** Bash | **Lines:** 1628
 
 Generates neural network embeddings for text using OpenAI's API for semantic similarity search.
 

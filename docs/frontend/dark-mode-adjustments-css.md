@@ -1,7 +1,7 @@
 
 # dark-mode-adjustments.css
 
-**Path:** `css/dark-mode-adjustments.css` | **Language:** CSS | **Lines:** 163
+**Path:** `css/dark-mode-adjustments.css` | **Language:** CSS | **Lines:** 173
 
 > Dark mode filter adjustments for images and icons
 
@@ -139,8 +139,8 @@ Set at `:root` to override light-mode defaults:
 |----------|-------|---------|
 | `--GW-body-background-color` | `#161616` | Slightly off-black to prevent pixel toggling on OLED |
 | `--GW-body-text-color` | `#f1f1f1` | Slightly off-white to reduce contrast harshness |
-| `--GW-popins-popin-backdrop-color` | `rgba(0, 0, 0, 0.6)` | Modal overlay darkness |
-| `--GW-popins-popin-title-bar-button-color` | `#bbb` | Button color in popin title bars |
+| `--GW-popovers-popover-backdrop-color` | `rgba(0, 0, 0, 0.6)` | Modal overlay darkness |
+| `--GW-popovers-popover-title-bar-button-color` | `#bbb` | Button color in popover title bars |
 
 ### Pattern Variables
 Reference existing image patterns defined elsewhere:

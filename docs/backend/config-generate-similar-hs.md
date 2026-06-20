@@ -1,7 +1,7 @@
 
 # Config.GenerateSimilar
 
-**Path:** `build/Config/GenerateSimilar.hs` | **Language:** Haskell | **Lines:** ~60
+**Path:** `build/Config/GenerateSimilar.hs` | **Language:** Haskell | **Lines:** 48
 
 > Configuration constants for embedding-based similar link recommendations
 
@@ -25,7 +25,7 @@ All exports are simple constants—no functions with complex signatures.
 
 Number of similar results to retrieve per query. Set to **20**.
 
-**Used by:** `findN` in GenerateSimilar for k-nearest-neighbor lookup
+**Used by:** exact top-k lookup in GenerateSimilar.
 
 ---
 
@@ -49,16 +49,6 @@ If fewer matches pass all filters, the section is suppressed entirely—one or t
 
 ---
 
-### `iterationLimit :: Int`
-
-Maximum retry iterations for the k-NN search. Set to **6**.
-
-Prevents infinite loops when the search keeps failing to find enough valid results.
-
-**Used by:** `findN` recursive search
-
----
-
 ### `embeddingsPath :: String`
 
 File path for the binary-serialized embeddings database. Set to **"metadata/embeddings.bin"**.
@@ -67,15 +57,14 @@ File path for the binary-serialized embeddings database. Set to **"metadata/embe
 
 ---
 
-### `minDistance, maxDistance :: Double`
+### `maxDistance :: Double`
 
-Cosine similarity bounds for valid matches:
-- **minDistance = 0.01** — Excludes self-matches and near-duplicates
+Cosine-distance upper bound for valid matches:
 - **maxDistance = 0.95** — Upper relevance threshold (note: this is a *distance*, not similarity, so lower = more similar)
 
 These were empirically tuned. The comment notes a "cliff of relevancy" around 0.60 with text-embedding-ada-002, and warns that thresholds must be rechecked when changing embedding models.
 
-**Used by:** `findNearest` filtering
+**Used by:** `lookupPathK` / `lookupEmbeddingK` result filtering.
 
 ---
 
@@ -89,7 +78,7 @@ Excludes:
 - Newsletter archives (`/newsletter/20*`)
 - Lorem ipsum test pages (`/lorem*`)
 
-**Used by:** `findN` result filtering
+**Used by:** similarity result filtering.
 
 ---
 
@@ -118,16 +107,6 @@ Maximum page titles sent to the LLM for tag name inference. Set to **30**.
 Beyond 30 titles, additional context provides diminishing returns while wasting tokens.
 
 **Used by:** Tag guessing in GenerateSimilar
-
----
-
-### `randSeed :: Word64`
-
-Fixed random seed for reproducible RP-tree construction. Set to **23**.
-
-Ensures embedding forest is deterministic across rebuilds.
-
-**Used by:** RP-tree initialization
 
 ---
 
@@ -160,14 +139,13 @@ These constants are compile-time configuration. To change values, edit this file
 | Constant | Value | Purpose |
 |----------|-------|---------|
 | `bestNEmbeddings` | 20 | Results per query |
+| `maxEmbedAtOnce` | 500 | Max missing embeddings per run |
 | `maximumLength` | 32,700 | Max chars to embed |
 | `minimumSuggestions` | 3 | Min results to show |
-| `iterationLimit` | 6 | Max search retries |
-| `minDistance` | 0.01 | Lower similarity bound |
 | `maxDistance` | 0.95 | Upper similarity bound |
+| `embeddingsPath` | `metadata/embeddings.bin` | Embedding cache path |
 | `minTagAuto` | 3 | Min tags for display |
 | `maxTitlesForTagGuessing` | 30 | Max titles for LLM |
-| `randSeed` | 23 | RP-tree seed |
 
 ---
 

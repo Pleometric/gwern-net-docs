@@ -22,16 +22,16 @@ This document organizes every documented file by functional purpose. Each file i
 
 | Category | Description | Files | Critical (5) |
 |----------|-------------|-------|--------------|
-| **[Build Pipeline](#1-build-pipeline)** | Site generation, compilation, deployment | 15 | 3 |
+| **[Build Pipeline](#1-build-pipeline)** | Site generation, compilation, deployment | 16 | 3 |
 | **[Annotation & Metadata](#2-annotation--metadata)** | Link metadata scraping, storage, display | 33 | 2 |
-| **[Popup System](#3-popup-system)** | Hover popups, popins, extract coordination | 12 | 2 |
-| **[Link Processing](#4-link-processing)** | Archives, icons, auto-linking, IDs | 22 | 1 |
+| **[Popup System](#3-popup-system)** | Hover popups, popovers, extract coordination | 12 | 2 |
+| **[Link Processing](#4-link-processing)** | Archives, icons, interwiki, IDs | 20 | 1 |
 | **[Content Rendering](#5-content-rendering)** | Transclusion, DOM rewriting, content loading | 10 | 2 |
-| **[Typography & Layout](#6-typography--layout)** | Text transforms, sidenotes, columns | 16 | 1 |
+| **[Typography & Layout](#6-typography--layout)** | Text transforms, sidenotes, columns | 15 | 1 |
 | **[Theming & UI](#7-theming--ui)** | Dark mode, reader mode, colors, CSS | 20 | 0 |
-| **[Utilities & Infrastructure](#8-utilities--infrastructure)** | Helpers, config, templates, server | 72 | 1 |
+| **[Utilities & Infrastructure](#8-utilities--infrastructure)** | Helpers, config, templates, server | 78 | 1 |
 
-**Total: 200 files**
+**Total: 204 files**
 
 ---
 
@@ -54,6 +54,7 @@ Core infrastructure that compiles Markdown into the deployed website. Without th
 | [markdown-footnote-length-hs](/backend/markdown-footnote-length-hs) | 2 | Footnote length warnings |
 | [markdown-length-checker-hs](/backend/markdown-length-checker-hs) | 2 | Code block line length checker |
 | [anchor-checker](/php/anchor-checker) | 2 | HTML anchor validation |
+| [hlint-yaml](/backend/hlint-yaml) | 1 | Haskell lint configuration |
 | [duplicate-quote-site-finder-hs](/backend/duplicate-quote-site-finder-hs) | 1 | Near-duplicate quote detection |
 | [cycle-hs](/backend/cycle-hs) | 2 | Prevents infinite rewrite loops |
 
@@ -100,7 +101,6 @@ The annotation system provides rich metadata for links (title, author, date, abs
 | [paragraphizer](/python/paragraphizer) | 2 | LLM paragraph splitting |
 | [tagguesser](/python/tagguesser) | 2 | LLM tag suggestions |
 | [italicizer](/python/italicizer) | 1 | LLM italicization |
-| [text2epositive](/python/text2epositive) | 1 | Text sentiment analysis |
 
 ### Config
 
@@ -109,6 +109,7 @@ The annotation system provides rich metadata for links (title, author, date, abs
 | [config-metadata-author-hs](/backend/config-metadata-author-hs) | 2 | Author canonicalization rules |
 | [config-metadata-format-hs](/backend/config-metadata-format-hs) | 2 | HTML rewrite patterns |
 | [config-metadata-title-hs](/backend/config-metadata-title-hs) | 2 | Bad title string filters |
+| [config-link-metadata-hs](/backend/config-link-metadata-hs) | 2 | Link metadata constants and fixtures |
 
 ---
 
@@ -116,13 +117,13 @@ The annotation system provides rich metadata for links (title, author, date, abs
 
 Displays preview content when hovering over links—the most distinctive user-facing feature.
 
-### Core Popup/Popin
+### Core Popup/Popover
 
 | File | Score | Role |
 |------|-------|------|
 | **[popups-js](/frontend/popups-js)** | 5 | Main popup positioning, windowing (~2,700 lines) |
 | **[extracts-js](/frontend/extracts-js)** | 5 | Orchestrates content → popup coordination |
-| [popins-js](/frontend/popins-js) | 4 | Mobile-friendly popin variant |
+| [popovers-js](/frontend/popovers-js) | 4 | Mobile-friendly popover variant |
 | [extracts-annotations-js](/frontend/extracts-annotations-js) | 4 | Annotation-specific extract handling |
 | [extracts-content-js](/frontend/extracts-content-js) | 4 | Content extraction for popups |
 | [extracts-options-js](/frontend/extracts-options-js) | 3 | User preferences for extracts |
@@ -170,8 +171,6 @@ Multiple subsystems for enriching, archiving, and managing links.
 
 | File | Score | Role |
 |------|-------|------|
-| [link-auto-hs](/backend/link-auto-hs) | 4 | Auto-hyperlinks ~1000 terms/citations |
-| [config-link-auto-hs](/backend/config-link-auto-hs) | 3 | Regex patterns for auto-linking |
 | [interwiki-hs](/backend/interwiki-hs) | 3 | !W → Wikipedia expansion |
 | [config-interwiki-hs](/backend/config-interwiki-hs) | 2 | Interwiki patterns |
 
@@ -216,7 +215,7 @@ Loads, transforms, and displays content—the backbone of the frontend.
 | File | Score | Role |
 |------|-------|------|
 | [generate-backlinks-hs](/backend/generate-backlinks-hs) | 3 | Generates reverse citations |
-| [generate-similar-hs](/backend/generate-similar-hs) | 3 | RP-tree embedding search |
+| [generate-similar-hs](/backend/generate-similar-hs) | 3 | Exact embedding search and recommendation generation |
 | [generate-similar-links-hs](/backend/generate-similar-links-hs) | 3 | Generates similar link HTML |
 | [link-backlink-hs](/backend/link-backlink-hs) | 3 | Backlinks database I/O |
 
@@ -257,7 +256,6 @@ Text transformation, formatting, and page structure.
 | [image-hs](/backend/image-hs) | 3 | Dimensions, inversion detection, lazy loading |
 | [image-focus-js](/frontend/image-focus-js) | 3 | Lightbox/image viewer |
 | [invertornot](/python/invertornot) | 2 | GPT-4V inversion classifier |
-| [image-margin-checker](/python/image-margin-checker) | 1 | Image margin analysis |
 | [should-image-have-outline](/php/should-image-have-outline) | 2 | Corner analysis for outline CSS |
 | [build-inlined-images](/php/build-inlined-images) | 2 | Base64 inline images |
 
@@ -323,10 +321,12 @@ Supporting code, configuration, templates, and server setup.
 | File | Score | Role |
 |------|-------|------|
 | **[utils-hs](/backend/utils-hs)** | 5 | ~150 utility functions |
+| [utext-hs](/backend/utext-hs) | 3 | Pandoc-to-Unicode text rendering |
 | [query-hs](/backend/query-hs) | 3 | Pandoc AST queries |
 | [unique-hs](/backend/unique-hs) | 2 | Duplicate detection |
 | [string-replace-hs](/backend/string-replace-hs) | 2 | Parallel string replacement |
 | [text-regex-hs](/backend/text-regex-hs) | 2 | Regex utilities and pattern matching |
+| [config-utext-hs](/backend/config-utext-hs) | 2 | Utext style state and tests |
 | [rename-hs](/backend/rename-hs) | 2 | Page rename script generator |
 | [gwernnet-cabal](/backend/gwernnet-cabal) | 2 | Cabal project configuration |
 
@@ -401,10 +401,10 @@ Supporting code, configuration, templates, and server setup.
 | [upload](/shell/upload) | 2 | File upload with processing |
 | [download-title](/shell/download-title) | 2 | Download and extract title |
 | [gwsed](/shell/gwsed) | 2 | Site-wide string replacement |
-| [substack-check](/shell/substack-check) | 2 | Substack domain detection/filtering |
 | [compress-gif](/shell/compress-gif) | 2 | GIF compression optimization |
 | [compress-jpg](/shell/compress-jpg) | 2 | JPG compression optimization |
 | [compress-png](/shell/compress-png) | 2 | PNG compression optimization |
+| [compress-video](/shell/compress-video) | 2 | MP4/HEVC video recompression |
 
 ### Configuration Modules
 
@@ -426,7 +426,6 @@ Supporting code, configuration, templates, and server setup.
 | [annotation-partial-inline](/templates/annotation-partial-inline) | 2 | Partial annotation template |
 | [github-issue-blockquote-not](/templates/github-issue-blockquote-not) | 2 | GitHub issue template |
 | [github-issue-blockquote-outside](/templates/github-issue-blockquote-outside) | 2 | GitHub issue template variant |
-| [google-cse](/templates/google-cse) | 2 | Google custom search template |
 | [google-search](/templates/google-search) | 2 | Google search template |
 | [tweet-blockquote-not](/templates/tweet-blockquote-not) | 2 | Tweet template |
 | [tweet-blockquote-outside](/templates/tweet-blockquote-outside) | 2 | Tweet template variant |
@@ -452,6 +451,7 @@ Supporting code, configuration, templates, and server setup.
 | [gwern-net-conf](/nginx/gwern-net-conf) | 4 | Main nginx configuration |
 | [redirect-nginx](/nginx/redirect-nginx) | 3 | Nginx redirect rules |
 | [redirect-nginx-broken](/nginx/redirect-nginx-broken) | 2 | Broken redirect handling |
+| [redirect-remove-duplicates](/nginx/redirect-remove-duplicates) | 2 | Duplicate redirect map-key linter |
 | [memoriam-sh](/nginx/memoriam-sh) | 1 | Memorial system |
 | [rsyncd-conf](/nginx/rsyncd-conf) | 2 | rsync daemon config |
 | [twdne-conf](/nginx/twdne-conf) | 1 | TWDNE subdomain config |
@@ -478,7 +478,7 @@ Supporting code, configuration, templates, and server setup.
 │                                                           │
 │  Key transforms:                                          │
 │  • Typography.hs: text polish                             │
-│  • LinkAuto.hs: auto-linking                              │
+│  • LinkMetadata.hs: annotation marking                    │
 │  • LinkMetadata.hs: annotation marking                    │
 │  • LinkArchive.hs: archive localization                   │
 │  • LinkIcon.hs: icon assignment                           │

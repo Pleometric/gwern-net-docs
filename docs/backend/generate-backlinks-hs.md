@@ -1,7 +1,7 @@
 
 # generateBacklinks.hs
 
-**Path:** `build/generateBacklinks.hs` | **Language:** Haskell | **Lines:** ~215
+**Path:** `build/app/generateBacklinks.hs` | **Language:** Haskell | **Lines:** 211
 
 > Reverse citation generator: builds backlinks database and HTML snippets
 
@@ -32,7 +32,7 @@ Entry point. Reads file list from stdin, updates backlinks database, writes HTML
 
 ```bash
 # Typical invocation from sync.sh:
-find . -name "*.md" -o -name "*.html" | runghc generateBacklinks.hs
+find . -name "*.md" -o -name "*.html" | generateBacklinks
 ```
 
 **Called by:** `sync.sh` (build orchestrator)
@@ -64,7 +64,7 @@ Extracts links from annotation abstracts and author fields.
 Generates the HTML snippet for a single target URL, writing to `metadata/annotation/backlink/{urlencoded}.html`.
 
 **Called by:** `main'`
-**Calls:** `generateCaller`, `linkAutoFiltered`, `hasAnnotation`, `writeUpdatedFile`
+**Calls:** `generateCaller`, `typographyTransformTemporary`, `hasAnnotation`, `writeUpdatedFile`
 
 ---
 
@@ -317,7 +317,7 @@ if (auxLinksLinkType == "backlinks") {
 
 ```bash
 # sync.sh calls:
-find . -name "*.md" -o -name "*.html" | runghc generateBacklinks.hs
+find . -name "*.md" -o -name "*.html" | generateBacklinks
 
 # Validation checks:
 BACKLINKS_N=$(cat ./metadata/backlinks.hs | wc --lines)
@@ -336,9 +336,9 @@ BACKLINKS_FILES_N=$(find ./metadata/annotation/backlink/ -type f | wc --lines)
 ```bash
 rm -rf metadata/annotation/backlink/
 rm metadata/backlinks.hs
-find . -name "*.md" -o -name "*.html" | runghc build/generateBacklinks.hs
+find . -name "*.md" -o -name "*.html" | generateBacklinks
 # Run twice for clean start
-find . -name "*.md" -o -name "*.html" | runghc build/generateBacklinks.hs
+find . -name "*.md" -o -name "*.html" | generateBacklinks
 ```
 
 ### Find Popular Anchors to Split Out

@@ -1,6 +1,6 @@
 # gwernnet.cabal
 
-**Path:** `build/gwernnet.cabal` | **Language:** Cabal | **Lines:** ~177
+**Path:** `build/gwernnet.cabal` | **Language:** Cabal | **Lines:** 190
 
 Cabal build configuration defining the gwern.net Haskell library and executables.
 
@@ -10,8 +10,8 @@ Cabal build configuration defining the gwern.net Haskell library and executables
 
 gwernnet.cabal is the central build configuration for all Haskell code in the gwern.net build system. It defines:
 
-- A shared library (`gwernnet`) containing 50+ modules for site generation
-- 9 executable tools for various build and maintenance tasks
+- A shared library (`gwernnet`) exposing 53 modules for site generation
+- 13 executable tools for build and maintenance tasks
 - Common dependencies and compiler options shared across all components
 
 The configuration uses Cabal 3.0 features like common stanzas to reduce duplication and ensure consistent settings across all build targets.
@@ -38,7 +38,7 @@ The version follows a date-based scheme: `YYYY.M.DD.patch`
 
 ## Library Modules
 
-The library exposes 50+ modules organized by function:
+The library exposes 53 modules organized by function:
 
 ### Core Build
 | Module | Purpose |
@@ -62,11 +62,11 @@ The library exposes 50+ modules organized by function:
 | Module | Purpose |
 |--------|---------|
 | `LinkArchive` | Archive.org integration |
-| `LinkAuto` | Automatic link annotation |
 | `LinkBacklink` | Backlink generation |
 | `LinkID` | Link identification |
 | `LinkIcon` | Link type icons |
 | `LinkLive` | Live preview popups |
+| `LinkMetadata` | Link metadata processing |
 
 ### Text Processing
 | Module | Purpose |
@@ -75,6 +75,7 @@ The library exposes 50+ modules organized by function:
 | `Columns` | List column layout |
 | `Inflation` | Dollar inflation adjustment |
 | `Text.Regex` | Vendored regex module |
+| `Utext` | Unicode-rich plain-text rendering |
 
 ### Metadata Handling
 | Module | Purpose |
@@ -87,10 +88,10 @@ The library exposes 50+ modules organized by function:
 ### Configuration Modules
 All `Config.*` modules contain constants, test cases, and whitelists:
 - `Config.GenerateSimilar`, `Config.Inflation`, `Config.Interwiki`
-- `Config.LinkArchive`, `Config.LinkAuto`, `Config.LinkID`
+- `Config.LinkArchive`, `Config.LinkID`, `Config.LinkMetadata`
 - `Config.LinkIcon`, `Config.LinkLive`, `Config.LinkSuggester`
 - `Config.Metadata.Author`, `Config.Metadata.Format`, `Config.Metadata.Title`
-- `Config.Misc`, `Config.Paragraph`, `Config.Tags`, `Config.Typography`
+- `Config.Misc`, `Config.Paragraph`, `Config.Tags`, `Config.Typography`, `Config.Utext`
 - `Config.XOfTheDay`
 
 ### Other Modules
@@ -123,13 +124,13 @@ executable hakyll
   ghc-options: -threaded -rtsopts
 ```
 
-### preprocess-markdown
+### preprocessMarkdown
 
 Markdown preprocessing before Pandoc.
 
 ```cabal
-executable preprocess-markdown
-  main-is: preprocess-markdown.hs
+executable preprocessMarkdown
+  main-is: preprocessMarkdown.hs
   build-depends: gwernnet
 ```
 
@@ -198,6 +199,42 @@ Creates "similar links" recommendations.
 ```cabal
 executable generateSimilarLinks
   main-is: generateSimilarLinks.hs
+```
+
+### linkTitler
+
+Adds title metadata to links.
+
+```cabal
+executable linkTitler
+  main-is: linkTitler.hs
+```
+
+### redirectGuesser
+
+Suggests nginx redirects for likely moved URLs.
+
+```cabal
+executable redirectGuesser
+  main-is: redirectGuesser.hs
+```
+
+### linkSuggester
+
+Generates link suggestions.
+
+```cabal
+executable linkSuggester
+  main-is: linkSuggester.hs
+```
+
+### linkExtractor
+
+Extracts links from Markdown.
+
+```cabal
+executable linkExtractor
+  main-is: linkExtractor.hs
 ```
 
 ---

@@ -1,7 +1,7 @@
 
-# link-extractor.hs
+# linkExtractor
 
-**Path:** `build/link-extractor.hs` | **Language:** Haskell (runghc script) | **Lines:** ~54
+**Path:** `build/app/linkExtractor.hs` | **Language:** Haskell (runghc script) | **Lines:** 53
 
 > CLI tool for extracting hyperlinks from Markdown and HTML files
 
@@ -9,7 +9,7 @@
 
 ## Overview
 
-`link-extractor.hs` is a command-line utility that parses Markdown or HTML files and outputs all hyperlinks found within them. It's designed for bulk URL extraction across the gwern.net corpus, enabling link analysis, frequency counting, and dead-link detection workflows.
+`linkExtractor` is a command-line utility that parses Markdown or HTML files and outputs all hyperlinks found within them. It's designed for bulk URL extraction across the gwern.net corpus, enabling link analysis, frequency counting, and dead-link detection workflows.
 
 The tool handles several gwern.net-specific concerns: it rewrites interwiki links (like `!W`) to their full URLs, converts anchor-only links (like `#section`) to absolute paths based on the source filename, and can optionally prefix each URL with its source file for tracking provenance. It delegates parsing to the `Query` module, which uses Pandoc under the hood.
 
@@ -22,7 +22,7 @@ The script is designed for process-level parallelization—you can run hundreds 
 ### CLI Interface
 
 ```bash
-link-extractor.hs [--print-filenames] [file...]
+linkExtractor [--print-filenames] [file...]
 ```
 
 **Arguments:**
@@ -139,10 +139,10 @@ No configuration files. Behavior is controlled entirely via CLI flags.
 ```bash
 # Extract all links from Markdown files, parallelized
 find . -name '*.md' | parallel --max-args=500 --jobs=30 \
-    runghc -i./build ./build/link-extractor.hs --print-filenames
+    linkExtractor --print-filenames
 
 # Pipe clipboard content for quick link extraction
-xclip -o | runghc -i./build ./build/link-extractor.hs
+xclip -o | linkExtractor
 ```
 
 ### Output Format
@@ -165,7 +165,7 @@ https://example.com/page
 
 ## See Also
 
-- [link-suggester.hs](/backend/link-suggester-hs) - Advanced suggestion tool that uses extracted links
+- [linkSuggester](/backend/link-suggester-hs) - Advanced suggestion tool that uses extracted links
 - [link-prioritize.hs](/backend/link-prioritize-hs) - Ranks unannotated links by frequency
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database that consumes link data
 - [Query.hs](/backend/query-hs) - Core URL extraction logic using Pandoc

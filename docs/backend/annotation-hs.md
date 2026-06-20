@@ -1,7 +1,7 @@
 
 # Annotation.hs
 
-**Path:** `build/Annotation.hs` | **Language:** Haskell | **Lines:** ~290
+**Path:** `build/Annotation.hs` | **Language:** Haskell | **Lines:** 290
 
 URL-to-scraper dispatcher for metadata extraction
 
@@ -225,7 +225,7 @@ whitelist = ["Guys and Dolls", "A critique of pure reason"]
 - **Metadata.Author** - author validation and canonicalization
 - **Metadata.Date** - date guessing and validation
 - **Metadata.Title** - title extraction and cleaning
-- **LinkAuto** - auto-linking in abstracts
+- **Metadata.Format** - abstract HTML cleanup
 - **Paragraph** - paragraph splitting in abstracts
 - **Typography** - typographic cleanup
 

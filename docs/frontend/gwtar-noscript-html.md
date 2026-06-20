@@ -1,6 +1,6 @@
 # gwtar_noscript.html
 
-**Path:** `build/gwtar_noscript.html` | **Language:** HTML | **Lines:** ~13
+**Path:** `build/gwtar_noscript.html` | **Language:** HTML | **Lines:** 13
 
 Fallback content displayed when a `.gwtar.html` file cannot be loaded normally.
 

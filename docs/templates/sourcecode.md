@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # pandoc/sourcecode.html5
 
-**Path:** `template/pandoc/sourcecode.html5` | **Language:** HTML5/Pandoc | **Lines:** ~27
+**Path:** `template/pandoc/sourcecode.html5` | **Language:** HTML5/Pandoc | **Lines:** 38
 
 Minimal Pandoc template for syntax-highlighted source code previews.
 

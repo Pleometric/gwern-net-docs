@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # build_icon_sprite_file.php
 
-**Path:** `build/build_icon_sprite_file.php` | **Language:** PHP | **Lines:** ~101
+**Path:** `build/build_icon_sprite_file.php` | **Language:** PHP | **Lines:** 101
 
 Combines individual SVG icon files into a single sprite file with positioned views.
 

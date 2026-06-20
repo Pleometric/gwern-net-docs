@@ -1,7 +1,7 @@
 
 # guessTag.hs
 
-**Path:** `build/guessTag.hs` | **Language:** Haskell | **Lines:** ~11
+**Path:** `build/app/guessTag.hs` | **Language:** Haskell | **Lines:** 10
 
 > CLI tool for expanding short or partial tag names to full tag paths
 

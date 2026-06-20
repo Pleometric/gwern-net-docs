@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # title-cleaner.py
 
-**Path:** `build/title-cleaner.py` | **Language:** Python | **Lines:** ~882
+**Path:** `build/title-cleaner.py` | **Language:** Python | **Lines:** 1005
 
 Removes cruft from webpage titles extracted from HTML `<title>` tags using GPT-5-mini language model.
 

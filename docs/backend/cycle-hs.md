@@ -1,7 +1,7 @@
 
 # Cycle.hs
 
-**Path:** `build/Cycle.hs` | **Language:** Haskell | **Lines:** ~45
+**Path:** `build/Cycle.hs` | **Language:** Haskell | **Lines:** 50
 
 > Detects and prevents infinite loops in rewrite rule graphs
 

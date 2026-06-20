@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # build_paths.php
 
-**Path:** `build/build_paths.php` | **Language:** PHP | **Lines:** ~14
+**Path:** `build/build_paths.php` | **Language:** PHP | **Lines:** 14
 
 Defines global directory path constants used throughout the PHP build system.
 

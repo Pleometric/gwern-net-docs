@@ -1,7 +1,7 @@
 
 # reader-mode.js
 
-**Path:** `js/reader-mode.js` | **Language:** JavaScript | **Lines:** ~573
+**Path:** `js/reader-mode.js` | **Language:** JavaScript | **Lines:** 582
 
 > Full reader mode UI with link masking, mode selector widget, and auto-deactivation
 

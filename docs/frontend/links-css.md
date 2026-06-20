@@ -1,7 +1,7 @@
 
 # links.css
 
-**Path:** `css/links.css` | **Language:** CSS | **Lines:** ~1147
+**Path:** `css/links.css` | **Language:** CSS | **Lines:** 1100
 
 > Link icons and annotation indicators
 

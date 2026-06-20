@@ -1,7 +1,7 @@
 
 # XOfTheDay.hs
 
-**Path:** `build/XOfTheDay.hs` | **Language:** Haskell | **Lines:** ~153
+**Path:** `build/XOfTheDay.hs` | **Language:** Haskell | **Lines:** 152
 
 > Daily rotating featured content system: quotes, sites, and annotations
 

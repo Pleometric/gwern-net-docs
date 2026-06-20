@@ -1,7 +1,7 @@
 
 # Annotation.Gwernnet
 
-**Path:** `build/Annotation/Gwernnet.hs` | **Language:** Haskell | **Lines:** ~280
+**Path:** `build/Annotation/Gwernnet.hs` | **Language:** Haskell | **Lines:** 278
 
 > Local gwern.net page scraper for extracting metadata from local essays and sections
 
@@ -34,7 +34,7 @@ gwern md "/doc/ai/index"    -- Scrape tag index page
 ```
 
 **Called by:** `Annotation.linkDispatcherURL` (line 84)
-**Calls:** `pdf` (for PDFs), `gwernAbstract`, `gwerntoplevelDocAbstract`, `invertImage`, `linkAutoHtml5String`
+**Calls:** `pdf` (for PDFs), `gwernAbstract`, `gwerntoplevelDocAbstract`, `invertImage`, `cleanAbstractsHTML`
 
 ### `findDivContent :: String -> Maybe String`
 
@@ -250,7 +250,7 @@ Dates of "N/A" or "2009-01-01" are treated as missing (2009-01-01 is a legacy pl
 | `Metadata.Author` | `cleanAuthors` |
 | `Metadata.Date` | `isDate` validation |
 | `Tags` | `listTagDirectoriesAll`, `abbreviateTag` |
-| `LinkAuto` | `linkAutoHtml5String` for auto-linking |
+| `Metadata.Format` | `cleanAbstractsHTML` for abstract cleanup |
 | `Utils` | String manipulation helpers |
 
 ### Shared State

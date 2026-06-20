@@ -1,7 +1,7 @@
 
 # Config.XOfTheDay
 
-**Path:** `build/Config/XOfTheDay.hs` | **Language:** Haskell | **Lines:** ~499
+**Path:** `build/Config/XOfTheDay.hs` | **Language:** Haskell | **Lines:** 501
 
 > Configuration constants for the "X of the Day" feature: paths, thresholds, and domain exclusions
 

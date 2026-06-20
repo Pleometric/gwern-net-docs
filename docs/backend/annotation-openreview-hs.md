@@ -1,7 +1,7 @@
 
 # Annotation.OpenReview
 
-**Path:** `build/Annotation/OpenReview.hs` | **Language:** Haskell | **Lines:** ~42
+**Path:** `build/Annotation/OpenReview.hs` | **Language:** Haskell | **Lines:** 40
 
 > Scrapes academic paper metadata from OpenReview.net conference papers
 
@@ -38,7 +38,7 @@ Main entry point for scraping an OpenReview paper URL.
 - `processArxivAbstract` - Cleans up LaTeX math notation in abstracts
 - `cleanAbstractsHTML` - Sanitizes HTML in abstract text
 - `processParagraphizer` - Adds paragraph breaks to long abstracts
-- `linkAutoHtml5String` - Auto-links recognized terms in keywords
+- `cleanAbstractsHTML` - Normalizes cleaned abstract HTML
 - `cleanAuthors` / `trimTitle` - Normalizes author and title strings
 
 ---

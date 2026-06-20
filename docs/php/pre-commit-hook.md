@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # pre-commit.hook.php
 
-**Path:** `build/pre-commit.hook.php` | **Language:** PHP | **Lines:** ~220
+**Path:** `build/pre-commit.hook.php` | **Language:** PHP | **Lines:** 220
 
 Git pre-commit hook that orchestrates the build pipeline for CSS, JavaScript, fonts, and icons.
 

@@ -1,7 +1,7 @@
 
 # GTX.hs
 
-**Path:** `build/GTX.hs` | **Language:** Haskell | **Lines:** ~234
+**Path:** `build/GTX.hs` | **Language:** Haskell | **Lines:** 247
 
 > Custom plain-text format for storing link annotations
 

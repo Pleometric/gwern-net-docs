@@ -1,7 +1,7 @@
 
 # Inflation.hs
 
-**Path:** `build/Inflation.hs` | **Language:** Haskell | **Lines:** ~237
+**Path:** `build/Inflation.hs` | **Language:** Haskell | **Lines:** 239
 
 > Automatic inflation adjustment for historical dollar amounts and Bitcoin exchange rates
 

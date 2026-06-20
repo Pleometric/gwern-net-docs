@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # memoriam.sh
 
-**Path:** `nginx/memoriam.sh` | **Language:** Bash
+**Path:** `nginx/memoriam.sh` | **Language:** Bash | **Lines:** 177
 
 Bash script that generates a daily-rotating `X-Clacks-Overhead` HTTP header to commemorate deceased scientists, writers, and intellectuals.
 

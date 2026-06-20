@@ -1,7 +1,7 @@
 
 # LinkMetadataTypes.hs
 
-**Path:** `build/LinkMetadataTypes.hs` | **Language:** Haskell | **Lines:** ~40
+**Path:** `build/LinkMetadataTypes.hs` | **Language:** Haskell | **Lines:** 39
 
 > Core type definitions for the annotation and link metadata system
 

@@ -1,7 +1,7 @@
 
 # Config.Paragraph
 
-**Path:** `build/Config/Paragraph.hs` | **Language:** Haskell | **Lines:** ~29
+**Path:** `build/Config/Paragraph.hs` | **Language:** Haskell | **Lines:** 30
 
 > Configuration constants for GPT-4o paragraph-splitting behavior
 

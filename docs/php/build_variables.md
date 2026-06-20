@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # build_variables.php
 
-**Path:** `build/build_variables.php` | **Language:** PHP | **Lines:** ~5
+**Path:** `build/build_variables.php` | **Language:** PHP | **Lines:** 5
 
 Maintains shared state for tracking which files have been updated during the build process.
 

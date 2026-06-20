@@ -1,7 +1,7 @@
 
 # hakyll.hs
 
-**Path:** `build/hakyll.hs` | **Language:** Haskell | **Lines:** ~526
+**Path:** `build/app/hakyll.hs` | **Language:** Haskell | **Lines:** 602
 
 > Hakyll-based static site generator entry point orchestrating Pandoc transforms and template rendering
 
@@ -34,7 +34,7 @@ main = do
   withArgs [head args] $ hakyll $ do ...
 ```
 
-**Called by:** sync.sh (via `runghc hakyll.hs build`)
+**Called by:** sync.sh (via the `hakyll` executable)
 **Calls:** readArchiveMetadataAndCheck, readLinkMetadataSlow, writeAnnotationFragments, pandocTransform
 
 ---
@@ -45,21 +45,19 @@ The core AST transformation pipeline. Applies all content transforms to a parsed
 
 **Called by:** Hakyll's `pandocCompilerWithTransformM`
 **Calls:** (in order)
-1. `linkAuto` - Auto-link citations like "Brock et al 2018"
-2. `convertInterwikiLinks` - Expand `[WP:topic](WP:topic)` syntax
-3. `footnoteAnchorChecker` - Warn on malformed footnotes (non-index pages only)
-4. `createAnnotations` - Trigger annotation generation (non-index pages only)
-5. `addPageLinkWalk` - Mark local links
-6. `nominalToRealInflationAdjuster` - Adjust dollar amounts for inflation (non-index pages only)
-7. `addSizeToLinks` - Add file size metadata
-8. `hasAnnotation` - Add link-annotated class
-9. `localizeLink` - Rewrite to archived versions
-10. `typographyTransformTemporary` - Typography fixes
-11. `headerSelflinkAndSanitize` - Make headers self-linking
-12. `addPageLinkWalk` - Re-mark local links after header rewrite
-13. `wrapInParagraphs` - Convert Plain to Para blocks
-14. `imageLinkHeightWidthSet` - Add image dimensions
-15. `addCanPrefetch` - Mark prefetchable links
+1. `convertInterwikiLinks` - Expand interwiki syntax.
+2. `footnoteAnchorChecker` - Warn on malformed footnotes (non-index pages only).
+3. `createAnnotations` - Trigger annotation generation (non-index pages only).
+4. `addPageLinkWalk` - Mark local links before annotation/archive rewrites.
+5. `nominalToRealInflationAdjuster` - Adjust dollar amounts for inflation (non-index pages only).
+6. `hasAnnotation` - Add annotation classes from metadata.
+7. `localizeLink` - Rewrite to archived versions.
+8. `typographyTransformTemporary` - Typography fixes.
+9. `headerSelflinkAndSanitize` - Make headers self-linking and sanitize IDs.
+10. `addPageLinkWalk` - Re-mark local links after header/archive rewrites.
+11. `wrapInParagraphs` - Convert `Plain` blocks to paragraphs.
+12. `imageLinkHeightWidthSet` - Add image dimensions.
+13. `addCanPrefetch` - Mark prefetchable links.
 
 ---
 
@@ -84,7 +82,7 @@ postCtx md rts =
 | `$title-plain$` | Plain text title for `<title>` |
 | `$title-escaped$` | HTML-escaped for `<meta>` |
 | `$description$` | Description with HTML |
-| `$description-escaped$` | Escaped description |
+| `$description-escaped$` | Escaped description rendered through Utext for Unicode-rich plain text |
 | `$created$` | Creation date (YYYY-MM-DD) |
 | `$modified$` | Last modified date |
 | `$status$` | Writing status |
@@ -178,13 +176,12 @@ The main template `default.html` (149 lines) handles:
 
 ### Index Page Detection
 
-Essays with `index: True` in frontmatter skip expensive transforms like `linkAuto` (which can break section headers in tag directories):
+Essays with `index: True` in frontmatter take a lighter transform path. They still run interwiki conversion, but skip footnote checking, annotation creation, and inflation adjustment:
 
 ```haskell
 let indexp = indexp' == "True"
 let pw = if indexp then convertInterwikiLinks p
-         else walk footnoteAnchorChecker $ convertInterwikiLinks $
-              walk linkAuto p
+         else walk footnoteAnchorChecker $ convertInterwikiLinks p
 ```
 
 ### Safe ID Generation
@@ -300,7 +297,7 @@ The 19 local imports provide:
 - **Inflation**: dollar adjustment
 - **Interwiki**: `[WP:...](WP:...)` expansion
 - **LinkArchive**: archive.org localization
-- **LinkAuto**: citation auto-linking
+- **LinkMetadata**: annotation lookup and link metadata marking
 - **LinkBacklink**: backlink detection
 - **LinkMetadata**: annotation system
 - **Tags**: tag rendering

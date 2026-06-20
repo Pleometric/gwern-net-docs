@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # openReviewAbstract.sh
 
-**Path:** `build/openReviewAbstract.sh` | **Language:** Bash | **Lines:** ~62
+**Path:** `build/openReviewAbstract.sh` | **Language:** Bash | **Lines:** 62
 
 Web scraper for extracting paper metadata from OpenReview conference submissions.
 

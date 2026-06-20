@@ -4,7 +4,7 @@ sidebar_position: 11
 
 # tweet-blockquote-not.tmpl
 
-**Path:** `template/include/tweet-blockquote-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** ~19
+**Path:** `template/include/tweet-blockquote-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 20
 
 Template fragment for rendering tweet content without a blockquote wrapper.
 

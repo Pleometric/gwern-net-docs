@@ -1,7 +1,7 @@
 
 # transclude.js
 
-**Path:** `js/transclude.js` | **Language:** JavaScript | **Lines:** ~2,590
+**Path:** `js/transclude.js` | **Language:** JavaScript | **Lines:** 2587
 
 Dynamic content embedding system - fetches content from other pages and injects it inline, replacing include-links.
 

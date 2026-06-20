@@ -1,7 +1,7 @@
 
 # Interwiki.hs
 
-**Path:** `build/Interwiki.hs` | **Language:** Haskell | **Lines:** ~221
+**Path:** `build/Interwiki.hs` | **Language:** Haskell | **Lines:** 263
 
 > Expands shortcut links like `!W` to full Wikipedia URLs and manages WP namespace popup behavior
 
@@ -272,8 +272,6 @@ The test suite validates:
 ```
 Markdown → Pandoc AST
               ↓
-         linkAuto (adds !W links to citations)
-              ↓
     → convertInterwikiLinks ←
               ↓
          Typography transforms
@@ -281,7 +279,7 @@ Markdown → Pandoc AST
          LinkMetadata annotation lookup
 ```
 
-Must run after `linkAuto` (which generates `!W` links) and before annotation lookup (which needs resolved URLs).
+Must run before annotation lookup, because downstream metadata checks need explicit interwiki shorthand such as `!W` expanded to concrete URLs.
 
 ### CSS Classes Output
 
@@ -321,8 +319,6 @@ Run via `Test.hs`. The test suite validates:
 ## See Also
 
 - [Config.Interwiki](/backend/config-interwiki-hs) - Wikipedia redirect database and test cases
-- [LinkAuto.hs](/backend/link-auto-hs) - Generates `!W` links that this module expands
-- [Config.LinkAuto](/backend/config-link-auto-hs) - Auto-linking patterns that produce interwiki links
 - [Typography.hs](/backend/typography-hs) - Runs after interwiki expansion
 - [hakyll.hs](/backend/hakyll-hs) - Build system that invokes interwiki processing
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Uses isWPAPI to decide annotation strategy

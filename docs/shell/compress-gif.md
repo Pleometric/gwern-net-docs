@@ -1,6 +1,6 @@
 # compressGIF
 
-**Path:** `build/compressGIF` | **Language:** Bash | **Lines:** ~65
+**Path:** `build/compressGIF` | **Language:** Bash | **Lines:** 71
 
 Lossless GIF compression script using gifsicle with intelligent file replacement.
 

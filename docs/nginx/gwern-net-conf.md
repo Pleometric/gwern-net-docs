@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # gwern.net.conf
 
-**Path:** `nginx/gwern.net.conf` | **Language:** Nginx
+**Path:** `nginx/gwern.net.conf` | **Language:** Nginx | **Lines:** 1675
 
 Main nginx web server configuration file for serving gwern.net with extensive URL rewrites, Markdown API support, and bot protection.
 

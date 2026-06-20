@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # text2epositive.py
 
-**Path:** `build/text2epositive.py` | **Language:** Python | **Lines:** ~162
+**Path:** `build/old/text2epositive.py` | **Language:** Python | **Lines:** 162
 
 Text style transfer tool that rewrites English to eliminate negations, promoting "E-positive" or "abs-E" language that states what *is* rather than what *isn't*.
 

@@ -1,7 +1,7 @@
 
 # LinkMetadata.hs
 
-**Path:** `build/LinkMetadata.hs` | **Language:** Haskell | **Lines:** ~944
+**Path:** `build/LinkMetadata.hs` | **Language:** Haskell | **Lines:** 882
 
 The brain of gwern.net's annotation system - loads, creates, validates, and caches link metadata that powers popup annotations.
 

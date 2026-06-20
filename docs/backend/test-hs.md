@@ -1,7 +1,7 @@
 
 # Test.hs
 
-**Path:** `build/Test.hs` | **Language:** Haskell | **Lines:** ~235
+**Path:** `build/Test.hs` | **Language:** Haskell | **Lines:** 299
 
 > Centralized test suite validating configuration files, metadata databases, and module unit tests
 
@@ -160,8 +160,9 @@ Test.hs itself has no configuration. It tests configs from these modules:
 | `Config.Typography` | Title case rules, date ranges |
 | `Config.XOfTheDay` | Site/quote databases |
 | `Config.Inflation` | Bitcoin exchange rates, test cases |
-| `Config.LinkAuto` | Custom link rewrites |
 | `Config.LinkID` | ID overrides, affiliation anchors |
+| `Config.LinkMetadata` | URI validation exemptions and previewable extension lists |
+| `Config.Utext` | Raw Markdown-to-Utext rendering cases |
 | `Config.Metadata.*` | Author, Format, Title configs |
 | `Config.Misc` | Tooltips, cycles, arxiv abstracts |
 | `Config.Paragraph` | Paragraph whitelist |
@@ -179,12 +180,13 @@ Test.hs imports test functions from these modules:
 - `Inflation.inflationDollarTestSuite`
 - `Interwiki.interwikiTestSuite`, `interwikiCycleTestSuite`
 - `LinkArchive.testLinkRewrites`
-- `LinkAuto.linkAutoTest`
+- `GenerateSimilar.generateSimilarTestSuite`
 - `LinkIcon.linkIconTest`
 - `LinkLive.linkLiveTest`, `linkLivePrioritize`
 - `Tags.testTags`
 - `Typography.titleCaseTest`
 - `LinkMetadata.fileTranscludesTest`
+- `Utext.rawMarkdown2Utext`, `rawMarkdown2UtextStyled`
 - `Metadata.Author.authorCollapseTest`, `cleanAuthorsTest`
 - `Metadata.Format.printDoubleTestSuite`, `cleanAbstractsHTMLTest`
 - `Metadata.Date.dateRangeDurationTestCasesTestsuite`
@@ -221,7 +223,7 @@ All regex patterns from configs are compiled to catch syntax errors:
 - Author cleanup regexes
 - HTML rewrite regexes
 - Arxiv abstract regexes
-- LinkAuto custom patterns
+- URI validation and preview-extension lists from `Config.LinkMetadata`
 
 ### Unit Test Suites
 

@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # gwsed.sh
 
-**Path:** `build/gwsed.sh` | **Language:** Bash | **Lines:** ~75
+**Path:** `build/gwsed.sh` | **Language:** Bash | **Lines:** 75
 
 Site-wide string replacement tool for maintaining and updating URLs across the gwern.net codebase.
 

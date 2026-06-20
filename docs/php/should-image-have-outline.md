@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # should_image_have_outline.php
 
-**Path:** `build/should_image_have_outline.php` | **Language:** PHP | **Lines:** ~188
+**Path:** `build/should_image_have_outline.php` | **Language:** PHP | **Lines:** 188
 
 Heuristic analyzer that determines whether an image should have a CSS outline for better contrast.
 

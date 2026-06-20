@@ -1,7 +1,7 @@
 
 # duplicatequotesitefinder.hs
 
-**Path:** `build/duplicatequotesitefinder.hs` | **Language:** Haskell | **Lines:** ~47
+**Path:** `build/duplicatequotesitefinder.hs` | **Language:** Haskell | **Lines:** 46
 
 > Near-duplicate detection for quote and site-of-the-day databases using Levenshtein edit distance
 

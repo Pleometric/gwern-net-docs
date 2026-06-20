@@ -1,7 +1,7 @@
 
 # Config.Tags
 
-**Path:** `build/Config/Tags.hs` | **Language:** Haskell | **Lines:** ~993
+**Path:** `build/Config/Tags.hs` | **Language:** Haskell | **Lines:** 1003
 
 > Tag system configuration: aliases, hierarchy mappings, and display formatting
 

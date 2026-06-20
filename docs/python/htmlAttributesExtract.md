@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # htmlAttributesExtract.py
 
-**Path:** `build/htmlAttributesExtract.py` | **Language:** Python | **Lines:** ~84
+**Path:** `build/htmlAttributesExtract.py` | **Language:** Python | **Lines:** 83
 
 BeautifulSoup-based HTML parser that extracts all CSS classes, data-attributes, and IDs for whitelist validation.
 

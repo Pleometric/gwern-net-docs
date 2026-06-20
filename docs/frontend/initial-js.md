@@ -1,7 +1,7 @@
 
 # initial.js
 
-**Path:** `js/initial.js` | **Language:** JavaScript | **Lines:** ~1,351
+**Path:** `js/initial.js` | **Language:** JavaScript | **Lines:** 1354
 
 > Site-wide initialization and custom pub/sub event system (notification center)
 
@@ -501,4 +501,4 @@ GW.setLogLevel(2, true);  // Level 2, persist to localStorage
 - [popups.js](/frontend/popups-js) - Popup system that fires content events when pop-frames load
 - [extracts.js](/frontend/extracts-js) - Extract/popup system that depends on the notification center
 - [transclude.js](/frontend/transclude-js) - Uses transclude phase of GW.contentDidLoad for inline embedding
-- [popins.js](/frontend/popins-js) - Mobile popup variant that uses the same event system
+- [popovers.js](/frontend/popovers-js) - Mobile popup variant that uses the same event system

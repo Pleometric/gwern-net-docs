@@ -1,7 +1,7 @@
 
 # Config.LinkSuggester
 
-**Path:** `build/Config/LinkSuggester.hs` | **Language:** Haskell | **Lines:** ~1,260
+**Path:** `build/Config/LinkSuggester.hs` | **Language:** Haskell | **Lines:** 1275
 
 > Configuration for link suggestion filtering and whitelisting in Emacs integration
 
@@ -172,8 +172,8 @@ This is a pure configuration module—no side effects. It's imported by the actu
 
 ## See Also
 
-- [link-suggester.hs](/backend/link-suggester-hs) - Main script that consumes this configuration
-- [link-extractor.hs](/backend/link-extractor-hs) - Extracts URLs for suggestion processing
+- [linkSuggester](/backend/link-suggester-hs) - Main script that consumes this configuration
+- [linkExtractor](/backend/link-extractor-hs) - Extracts URLs for suggestion processing
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database for URL metadata
 - [LinkID.hs](/backend/link-id-hs) - Citation ID generation for link deduplication
 - [Annotation.hs](/backend/annotation-hs) - Uses link suggestions during annotation processing

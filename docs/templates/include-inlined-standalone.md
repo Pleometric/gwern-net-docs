@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # inlined-standalone.html
 
-**Path:** `include/inlined-standalone.html` | **Language:** HTML/CSS | **Lines:** ~345
+**Path:** `include/inlined-standalone.html` | **Language:** HTML/CSS | **Lines:** 347
 
 Standalone page variant that inlines core color variables but still links `head.css` and `style.css` externally.
 

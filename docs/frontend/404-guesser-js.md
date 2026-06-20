@@ -5,7 +5,7 @@ slug: 404-guesser-js
 
 # 404-guesser.js
 
-**Path:** `js/404-guesser.js` | **Language:** JavaScript | **Lines:** ~263
+**Path:** `js/404-guesser.js` | **Language:** JavaScript | **Lines:** 220
 
 > Enhances 404 error pages with intelligent URL suggestions based on Levenshtein distance
 
@@ -202,7 +202,7 @@ This is acceptable for gwern.net's controlled environment but would need hardeni
 
 ## See Also
 
-- [nginxredirectguesser.hs](/backend/nginx-redirect-guesser-hs) - Server-side counterpart using same Levenshtein algorithm
+- [redirectGuesser](/backend/nginx-redirect-guesser-hs) - Server-side counterpart using same Levenshtein algorithm
 - [extracts.js](/frontend/extracts-js) - Popup system integration for suggestion links
 - [initial.js](/frontend/initial-js) - Utility functions (`elementFromHTML`, `URLFromString`)
 - [utility.js](/frontend/utility-js) - Core DOM utilities used for suggestion injection

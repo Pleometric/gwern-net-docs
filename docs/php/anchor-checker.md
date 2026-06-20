@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # anchor-checker.php
 
-**Path:** `build/anchor-checker.php` | **Language:** PHP | **Lines:** ~173
+**Path:** `build/anchor-checker.php` | **Language:** PHP | **Lines:** 173
 
 Validates local fragment identifiers in HTML files to detect broken internal links.
 

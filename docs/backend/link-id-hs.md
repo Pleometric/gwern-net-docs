@@ -1,7 +1,7 @@
 
 # LinkID.hs
 
-**Path:** `build/LinkID.hs` | **Language:** Haskell | **Lines:** ~232
+**Path:** `build/LinkID.hs` | **Language:** Haskell | **Lines:** 234
 
 > Citation-style ID generation for links and annotations
 
@@ -37,7 +37,7 @@ Convenience wrapper that extracts author/date from a MetadataItem.
 
 Formats authors into citation string ("Foo 2020", "Foo & Bar 2020", "Foo et al 2020").
 
-**Called by:** annotation-dump.hs, generateDirectory.hs, link-titler.hs, `generateID`
+**Called by:** annotation-dump.hs, generateDirectory.hs, linkTitler, `generateID`
 **Calls:** Utils.sedMany, Config.Misc.currentYear
 
 ### `url2ID(url) → Text`
@@ -232,7 +232,7 @@ Individual annotations can specify custom IDs via the `id` key-value pair, bypas
 | Blog.hs | IDs for blog post links |
 | hakyll.hs | Triggers JSON database generation |
 | annotation-dump.hs | `/ref/` URL generation |
-| link-titler.hs | Citation text formatting |
+| linkTitler | Citation text formatting |
 | GTX.hs | ID validation |
 | Test.hs | Unit tests for ID generation |
 
@@ -257,5 +257,5 @@ Individual annotations can specify custom IDs via the `id` key-value pair, bypas
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database that provides author/date metadata
 - [Annotation.hs](/backend/annotation-hs) - Scraper system that populates metadata
 - [hakyll.hs](/backend/hakyll-hs) - Triggers ID database generation during builds
-- [link-suggester.hs](/backend/link-suggester-hs) - Uses IDs for link suggestion deduplication
-- [link-extractor.hs](/backend/link-extractor-hs) - Extracts URLs that get assigned IDs
+- [linkSuggester](/backend/link-suggester-hs) - Uses IDs for link suggestion deduplication
+- [linkExtractor](/backend/link-extractor-hs) - Extracts URLs that get assigned IDs

@@ -1,7 +1,7 @@
 
 # rewrite.js
 
-**Path:** `js/rewrite.js` | **Language:** JavaScript | **Lines:** ~4,536
+**Path:** `js/rewrite.js` | **Language:** JavaScript | **Lines:** 4803
 
 > DOM transformation pipeline—registers dozens of handlers that run on content load/inject to enhance raw HTML
 

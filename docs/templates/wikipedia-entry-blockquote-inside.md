@@ -4,7 +4,7 @@ sidebar_position: 13
 
 # wikipedia-entry-blockquote-inside.tmpl
 
-**Path:** `template/include/wikipedia-entry-blockquote-inside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** ~8
+**Path:** `template/include/wikipedia-entry-blockquote-inside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 9
 
 Template fragment for rendering Wikipedia entry content with blockquote inside the container.
 

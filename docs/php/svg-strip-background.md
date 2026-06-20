@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # svg_strip_background.php
 
-**Path:** `build/svg_strip_background.php` | **Language:** PHP | **Lines:** ~29
+**Path:** `build/svg_strip_background.php` | **Language:** PHP | **Lines:** 29
 
 Removes full-size background rectangles from SVG files.
 

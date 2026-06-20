@@ -1,7 +1,7 @@
 
 # Metadata.Title
 
-**Path:** `build/Metadata/Title.hs` | **Language:** Haskell | **Lines:** ~76
+**Path:** `build/Metadata/Title.hs` | **Language:** Haskell | **Lines:** 75
 
 > Title extraction and cleanup for web page annotations
 

@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # build_mode_css.php
 
-**Path:** `build/build_mode_css.php` | **Language:** PHP | **Lines:** ~21
+**Path:** `build/build_mode_css.php` | **Language:** PHP | **Lines:** 22
 
 Generates light and dark mode CSS files from base color definitions.
 

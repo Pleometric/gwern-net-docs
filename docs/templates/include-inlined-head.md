@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # inlined-head.html
 
-**Path:** `include/inlined-head.html` | **Language:** HTML/CSS | **Lines:** ~844
+**Path:** `include/inlined-head.html` | **Language:** HTML/CSS | **Lines:** 852
 
 Critical CSS inlined in the document `<head>` for optimal initial page load; JavaScript is linked externally.
 
@@ -40,7 +40,7 @@ The file is particularly notable for its extensive CSS custom properties (CSS va
   - Dropcaps (5 font variants)
   - Admonitions (note, tip, warning, error)
   - Footer styling
-  - Popups and popins (including focus states)
+  - Popups and popovers (including focus states)
   - Page toolbar
   - Reader mode
   - Accessibility features

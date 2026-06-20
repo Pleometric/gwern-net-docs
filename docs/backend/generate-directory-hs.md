@@ -1,7 +1,7 @@
 
 # generateDirectory.hs
 
-**Path:** `build/generateDirectory.hs` | **Language:** Haskell | **Lines:** ~398
+**Path:** `build/app/generateDirectory.hs` | **Language:** Haskell | **Lines:** 405
 
 > Generates tag directory index pages (`doc/*/index.md`) from filesystem contents and annotation metadata
 

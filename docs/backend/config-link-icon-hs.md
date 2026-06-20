@@ -1,7 +1,7 @@
 
 # Config/LinkIcon.hs
 
-**Path:** `build/Config/LinkIcon.hs` | **Language:** Haskell | **Lines:** ~1,389
+**Path:** `build/Config/LinkIcon.hs` | **Language:** Haskell | **Lines:** 1390
 
 > URL-to-icon mapping rules: ~700 domain patterns, color constants, and validation test cases
 

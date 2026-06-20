@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # links.css
 
-**Path:** `css/links.css` | **Language:** CSS | **Lines:** ~1,146
+**Path:** `css/links.css` | **Language:** CSS | **Lines:** 1100
 
 Comprehensive link icon and annotation indicator system for external and specialized links.
 

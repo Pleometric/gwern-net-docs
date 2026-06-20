@@ -1,7 +1,7 @@
 
 # Typography.hs
 
-**Path:** `build/Typography.hs` | **Language:** Haskell | **Lines:** ~443
+**Path:** `build/Typography.hs` | **Language:** Haskell | **Lines:** 513
 
 Pandoc AST transforms for text typography: citations, date ranges, rulers, title case.
 
@@ -247,7 +247,7 @@ The `parseRawAllClean` pass later removes these wrapper spans.
 - [Config.Typography](/backend/config-typography-hs) - Configuration constants, test cases, and whitelists for typography transforms
 - [typography.js](/frontend/typography-js) - Client-side typography processing (smart quotes, dashes, ellipses)
 - [hakyll.hs](/backend/hakyll-hs) - Main build pipeline that calls typography transforms
-- [preprocess-markdown.hs](/backend/preprocess-markdown-hs) - Markdown preprocessing before Pandoc parsing
+- [preprocessMarkdown.hs](/backend/preprocess-markdown-hs) - Markdown preprocessing before Pandoc parsing
 - [Inflation.hs](/backend/inflation-hs) - Related Pandoc AST transforms for dollar amount adjustments
 - [Columns.hs](/backend/columns-hs) - Other Pandoc AST transformations for list layout
 - [LinkIcon.hs](/backend/link-icon-hs) - Link icon annotation called during typography pipeline

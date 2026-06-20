@@ -1,7 +1,7 @@
 
 # Paragraph.hs
 
-**Path:** `build/Paragraph.hs` | **Language:** Haskell | **Lines:** ~75
+**Path:** `build/Paragraph.hs` | **Language:** Haskell | **Lines:** 74
 
 > LLM-powered paragraph splitting for research paper abstracts
 

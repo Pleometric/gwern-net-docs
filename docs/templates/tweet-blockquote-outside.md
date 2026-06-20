@@ -4,7 +4,7 @@ sidebar_position: 12
 
 # tweet-blockquote-outside.tmpl
 
-**Path:** `template/include/tweet-blockquote-outside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** ~19
+**Path:** `template/include/tweet-blockquote-outside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 20
 
 Template fragment for rendering tweet content with a blockquote wrapper.
 

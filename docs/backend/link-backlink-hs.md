@@ -1,7 +1,7 @@
 
 # LinkBacklink.hs
 
-**Path:** `build/LinkBacklink.hs` | **Language:** Haskell | **Lines:** ~130
+**Path:** `build/LinkBacklink.hs` | **Language:** Haskell | **Lines:** 129
 
 > Utility functions for reading and writing the backlinks database
 

@@ -1,17 +1,17 @@
 
-# preprocess-markdown.hs
+# preprocessMarkdown.hs
 
-**Path:** `build/preprocess-markdown.hs` | **Language:** Haskell | **Lines:** ~50
+**Path:** `build/app/preprocessMarkdown.hs` | **Language:** Haskell | **Lines:** 47
 
-> Standalone preprocessor that transforms Markdown abstracts into annotated HTML with auto-links and recommendations
+> Standalone preprocessor that transforms Markdown abstracts into cleaned HTML with interwiki expansion and recommendations
 
 ---
 
 ## Overview
 
-`preprocess-markdown.hs` is a small, focused command-line utility that reads Markdown from stdin, applies a series of Pandoc AST transformations, and outputs enriched HTML. It serves as a preprocessing step for annotations and abstracts before they enter the main Hakyll build pipeline.
+`preprocessMarkdown.hs` is a small, focused command-line utility that reads Markdown from stdin, applies a series of Pandoc AST transformations, and outputs enriched HTML. It serves as a preprocessing step for annotations and abstracts before they enter the main Hakyll build pipeline.
 
-The module performs three key transformations: (1) interwiki link expansion (converting shorthand like `[foo](!W)` to full Wikipedia URLs), (2) automatic term hyperlinking via regex patterns defined in LinkAuto, and (3) generation of "See Also" recommendations using embedding-based similarity matching. It also validates Wikipedia links to catch broken references early in the pipeline.
+The module performs three key operations: (1) interwiki link expansion, (2) Wikipedia link validation, and (3) generation of "See Also" recommendations using embedding-based similarity matching. The active source imports `LinkMetadata`, `Interwiki`, `GenerateSimilar`, and `Query`.
 
 This tool is designed for single-document processing (annotations, abstracts) rather than full pages. It's invoked during annotation creation workflows to ensure consistency between manually-written abstracts and auto-generated ones.
 
@@ -27,15 +27,15 @@ Entry point that orchestrates the preprocessing pipeline.
 1. Read Markdown from stdin
 2. Parse to Pandoc AST with full Pandoc extensions
 3. Apply `convertInterwikiLinks` transformation
-4. Apply `linkAuto` transformation
-5. Validate Wikipedia links via `checkWP`
-6. Render to HTML5
-7. Clean abstracts via `cleanAbstractsHTML`
+4. Validate Wikipedia links via `checkWP`
+5. Render to HTML5
+6. Clean abstracts via `cleanAbstractsHTML`
+7. Remove `class="link-live"` from the standalone output
 8. Generate embedding-based recommendations
 9. Output HTML with optional "See Also" section
 
 **Called by:** Shell scripts, annotation workflows
-**Calls:** `convertInterwikiLinks`, `linkAuto`, `checkWP`, `cleanAbstractsHTML`, `singleShotRecommendations`
+**Calls:** `convertInterwikiLinks`, `checkWP`, `cleanAbstractsHTML`, `singleShotRecommendations`
 
 ---
 
@@ -54,11 +54,6 @@ stdin (Markdown)
     ▼
 ┌─────────────────────┐
 │ convertInterwikiLinks│  !W, !G, etc. → full URLs
-└─────────────────────┘
-    │
-    ▼
-┌─────────────────────┐
-│ linkAuto            │  Regex-based term linking
 └─────────────────────┘
     │
     ▼
@@ -152,7 +147,6 @@ The `collapse` class allows the recommendations to be hidden by default on pages
 | `pandocExtensions` | Pandoc | Full Markdown extension set |
 | `safeHtmlWriterOptions` | Utils | HTML output settings |
 | Interwiki prefixes | Config.Interwiki | Shorthand → URL mappings |
-| LinkAuto patterns | Config.LinkAuto | Term → URL regex patterns |
 | `C.cd` | Config.Misc | Working directory path |
 
 ---
@@ -164,7 +158,6 @@ The `collapse` class allows the recommendations to be hidden by default on pages
 | Module | Usage |
 |--------|-------|
 | `LinkMetadata` | `cleanAbstractsHTML` for output sanitization |
-| `LinkAuto` | `linkAuto` for automatic term linking |
 | `Interwiki` | `convertInterwikiLinks`, `isWPArticle`, `isWPDisambig` |
 | `GenerateSimilar` | `singleShotRecommendations` for See Also generation |
 | `Query` | `extractURLs` for Wikipedia link validation |
@@ -189,7 +182,6 @@ Reads (via `singleShotRecommendations`):
 - [hakyll.hs](/backend/hakyll-hs) - Main build system that uses similar transforms
 - [sync.sh](/backend/sync-sh) - Build orchestrator that may invoke this tool
 - [Typography.hs](/backend/typography-hs) - Typography transforms shared with hakyll
-- [LinkAuto.hs](/backend/link-auto-hs) - Automatic term hyperlinking
 - [Interwiki.hs](/backend/interwiki-hs) - Interwiki link expansion
 - [GenerateSimilar.hs](/backend/generate-similar-hs) - Embedding-based recommendations
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Metadata and abstract handling

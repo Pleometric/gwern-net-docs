@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # daterange-checker.py
 
-**Path:** `build/daterange-checker.py` | **Language:** Python | **Lines:** ~327
+**Path:** `build/daterange-checker.py` | **Language:** Python | **Lines:** 327
 
 Validates that dates auto-annotated with CSS year-range markup are actual dates and not incorrectly formatted numbers.
 

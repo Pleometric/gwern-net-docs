@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # download-title.sh
 
-**Path:** `build/download-title.sh` | **Language:** Bash | **Lines:** ~53
+**Path:** `build/download-title.sh` | **Language:** Bash | **Lines:** 53
 
 Downloads a URL and extracts the HTML page title for metadata generation.
 

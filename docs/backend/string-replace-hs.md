@@ -1,7 +1,7 @@
 
 # stringReplace.hs
 
-**Path:** `build/stringReplace.hs` | **Language:** Haskell | **Lines:** ~47
+**Path:** `build/stringReplace.hs` | **Language:** Haskell | **Lines:** 46
 
 > Parallel exact string search-and-replace utility for batch file processing
 

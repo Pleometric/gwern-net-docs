@@ -1,7 +1,7 @@
 
 # changeTag.hs
 
-**Path:** `build/changeTag.hs` | **Language:** Haskell (runghc script) | **Lines:** ~148
+**Path:** `build/app/changeTag.hs` | **Language:** Haskell (runghc script) | **Lines:** 147
 
 > CLI tool for batch add/remove operations on link tags across metadata databases
 

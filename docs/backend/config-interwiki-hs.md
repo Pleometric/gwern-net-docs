@@ -1,7 +1,7 @@
 
 # Config.Interwiki
 
-**Path:** `build/Config/Interwiki.hs` | **Language:** Haskell | **Lines:** ~6,000
+**Path:** `build/Config/Interwiki.hs` | **Language:** Haskell | **Lines:** 6048
 
 > Wikipedia redirect bypass database and interwiki link test cases
 
@@ -197,8 +197,7 @@ None. Pure data module with no mutable state.
 ## See Also
 
 - [Interwiki.hs](/backend/interwiki-hs) - The transformation logic that consumes this data
-- [LinkAuto.hs](/backend/link-auto-hs) - Generates interwiki links that trigger redirects
-- [Config.LinkAuto](/backend/config-link-auto-hs) - Auto-linking patterns that produce !W links
+- [Interwiki.hs](/backend/interwiki-hs) - Applies redirects and expands explicit interwiki shorthand in Markdown
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Uses Wikipedia URLs for annotation lookup
 - [Typography.hs](/backend/typography-hs) - Also performs Pandoc AST transformations
 - [hakyll.hs](/backend/hakyll-hs) - Build system that orchestrates link processing

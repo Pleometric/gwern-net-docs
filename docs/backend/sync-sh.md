@@ -1,7 +1,7 @@
 
 # sync.sh
 
-**Path:** `build/sync.sh` | **Language:** Bash | **Lines:** ~1,900
+**Path:** `build/sync.sh` | **Language:** Bash | **Lines:** 2172
 
 Master build orchestrator for gwern.net: coordinates pre-processing, compilation, post-processing, validation, and deployment.
 

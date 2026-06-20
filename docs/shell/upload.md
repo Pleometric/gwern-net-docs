@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # upload.sh
 
-**Path:** `build/upload.sh` | **Language:** Bash | **Lines:** ~279
+**Path:** `build/upload.sh` | **Language:** Bash | **Lines:** 309
 
 Comprehensive file upload manager with automatic optimization, naming, and deployment.
 

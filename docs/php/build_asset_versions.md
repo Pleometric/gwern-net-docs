@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # build_asset_versions.php
 
-**Path:** `build/build_asset_versions.php` | **Language:** PHP | **Lines:** ~52
+**Path:** `build/build_asset_versions.php` | **Language:** PHP | **Lines:** 52
 
 Generates a JavaScript object mapping asset URLs to modification timestamps for cache busting.
 

@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # colors.css
 
-**Path:** `css/colors.css` | **Language:** CSS | **Lines:** ~334
+**Path:** `css/colors.css` | **Language:** CSS | **Lines:** 329
 
 CSS custom property definitions for the complete gwern.net color palette, supporting both light and dark modes.
 
@@ -44,7 +44,7 @@ The file contains approximately 335 lines defining over 200 color variables cove
 - **Syntax highlighting**: 20+ token types with a custom light-mode-friendly theme (mostly blues, greens, grays)
 
 ### Interactive Elements
-- **Popups/Popins**: Title bars, borders, shadows, scrollbars (with focused/unfocused states)
+- **Popups/Popovers**: Title bars, borders, shadows, scrollbars (with focused/unfocused states)
 - **Page toolbar**: Button icons, text, active/disabled states
 - **Footnotes/Sidenotes**: Borders, highlights, scrollbars, backlinks
 - **Admonitions**: 4 types (note, tip, warning, error) with distinct color schemes

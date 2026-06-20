@@ -1,7 +1,7 @@
 
 # Metadata/Author.hs
 
-**Path:** `build/Metadata/Author.hs` | **Language:** Haskell | **Lines:** ~290
+**Path:** `build/Metadata/Author.hs` | **Language:** Haskell | **Lines:** 295
 
 > Author name canonicalization, linking, and display formatting
 

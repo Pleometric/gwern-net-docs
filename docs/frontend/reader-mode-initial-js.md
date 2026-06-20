@@ -1,7 +1,7 @@
 
 # reader-mode-initial.js
 
-**Path:** `js/reader-mode-initial.js` | **Language:** JavaScript | **Lines:** ~55
+**Path:** `js/reader-mode-initial.js` | **Language:** JavaScript | **Lines:** 54
 
 > Early reader mode bootstrap that prevents FOUC by activating before full JS loads
 

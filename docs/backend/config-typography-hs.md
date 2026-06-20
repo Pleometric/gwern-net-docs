@@ -1,7 +1,7 @@
 
 # Config.Typography
 
-**Path:** `build/Config/Typography.hs` | **Language:** Haskell | **Lines:** ~234
+**Path:** `build/Config/Typography.hs` | **Language:** Haskell | **Lines:** 284
 
 > Configuration constants, test cases, and whitelists for typography transforms
 

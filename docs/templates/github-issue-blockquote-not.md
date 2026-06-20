@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # github-issue-blockquote-not.tmpl
 
-**Path:** `template/include/github-issue-blockquote-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** ~2
+**Path:** `template/include/github-issue-blockquote-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 3
 
 Template for rendering GitHub issue content without blockquote wrapper elements.
 

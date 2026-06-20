@@ -1,7 +1,7 @@
 
 # link-prioritize.hs
 
-**Path:** `build/link-prioritize.hs` | **Language:** Haskell | **Lines:** ~94
+**Path:** `build/link-prioritize.hs` | **Language:** Haskell | **Lines:** 93
 
 > Ranks unannotated links by usage frequency to prioritize manual annotation work
 
@@ -130,9 +130,9 @@ link-prioritize.hs 50
 
 ## See Also
 
-- [link-extractor.hs](/backend/link-extractor-hs) - Extracts URLs from Markdown files (typical input source)
+- [linkExtractor](/backend/link-extractor-hs) - Extracts URLs from Markdown files (typical input source)
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database manager
 - [Annotation.hs](/backend/annotation-hs) - URL-to-scraper dispatcher for auto-annotations
-- [link-suggester.hs](/backend/link-suggester-hs) - Related tool for link suggestion generation
+- [linkSuggester](/backend/link-suggester-hs) - Related tool for link suggestion generation
 - [LinkID.hs](/backend/link-id-hs) - Citation ID generation used in backlinks
-- [link-titler.hs](/backend/link-titler-hs) - Adds titles to links that need annotation
+- [linkTitler](/backend/link-titler-hs) - Adds titles to links that need annotation

@@ -1,7 +1,7 @@
 
 # sidenotes.js
 
-**Path:** `js/sidenotes.js` | **Language:** JavaScript | **Lines:** ~1,350 | **Author:** Said Achmiz (2019)
+**Path:** `js/sidenotes.js` | **Language:** JavaScript | **Lines:** 1325
 
 > Dynamically positions footnotes as margin sidenotes with collision avoidance
 

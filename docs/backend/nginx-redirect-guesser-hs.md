@@ -1,7 +1,7 @@
 
-# nginxredirectguesser.hs
+# redirectGuesser
 
-**Path:** `build/nginxredirectguesser.hs` | **Language:** Haskell | **Lines:** ~160
+**Path:** `build/app/redirectGuesser.hs` | **Language:** Haskell | **Lines:** 154
 
 > Semi-automated nginx redirect rule generator for fixing 404 errors
 
@@ -25,7 +25,7 @@ Entry point. Reads broken URLs from stdin, loads existing redirect rules and fil
 
 **Usage:**
 ```bash
-xclip -o | sort -u | runghc -istatic/build/ static/build/nginxredirectguesser.hs
+xclip -o | sort -u | redirectGuesser
 ```
 
 **Calls:** `listFilesRecursivelyWithBasename`, `diffAndRank`, `mkPattern`, `escapeRegex`

@@ -1,7 +1,7 @@
 
 # dark-mode.js
 
-**Path:** `js/dark-mode.js` | **Language:** JavaScript | **Lines:** ~291
+**Path:** `js/dark-mode.js` | **Language:** JavaScript | **Lines:** 287
 
 > UI and advanced features for theme switching: mode selector widget, scroll-triggered activation, and inline selectors
 

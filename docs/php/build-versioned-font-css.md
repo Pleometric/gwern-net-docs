@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # build_versioned_font_css.php
 
-**Path:** `build/build_versioned_font_css.php` | **Language:** PHP | **Lines:** ~40
+**Path:** `build/build_versioned_font_css.php` | **Language:** PHP | **Lines:** 40
 
 Adds cache-busting version parameters to font file URLs in generated CSS.
 

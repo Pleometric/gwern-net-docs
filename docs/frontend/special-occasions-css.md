@@ -1,7 +1,7 @@
 
 # special-occasions.css
 
-**Path:** `css/special-occasions.css` | **Language:** CSS | **Lines:** 391
+**Path:** `css/special-occasions.css` | **Language:** CSS | **Lines:** 384
 
 > Holiday and special event theming (Halloween, Christmas, April Fools, Easter)
 
@@ -244,13 +244,13 @@ Only Halloween and Christmas replace the site logo (Easter logo injection is com
 
 ```css
 /* Hide default SVG logo */
-body.special-halloween-dark #sidebar svg.logo-image { visibility: hidden; }
+body.special-halloween-dark #navbar svg.logo-image { visibility: hidden; }
 
 /* Show replacement when JS injects it */
-body.special-halloween-dark #sidebar svg.logo-image.visible { visibility: visible; }
+body.special-halloween-dark #navbar svg.logo-image.visible { visibility: visible; }
 
 /* Style replacement image */
-body.special-halloween-dark #sidebar span.logo-image img {
+body.special-halloween-dark #navbar span.logo-image img {
     filter: none;
     /* Responsive sizing and positioning at different breakpoints */
 }
@@ -309,17 +309,17 @@ The pattern cycles through 3 Halloween-specific ornaments for sequential horizon
 Both Halloween and Christmas have special styles for the homepage:
 
 ```css
-body.page-index.special-halloween-dark #sidebar a:hover {
+body.page-index.special-halloween-dark #navbar a:hover {
     color: var(--GW-blood-red);
 }
-body.page-index.special-halloween-dark #sidebar a.logo {
+body.page-index.special-halloween-dark #navbar a.logo {
     pointer-events: auto;  /* Make logo clickable on index */
 }
 
-body.page-index[class*='special-christmas'] #sidebar a:hover {
+body.page-index[class*='special-christmas'] #navbar a:hover {
     color: var(--GW-holly-leaf-green);
 }
-body.page-index[class*='special-christmas'] #sidebar a.logo {
+body.page-index[class*='special-christmas'] #navbar a.logo {
     pointer-events: auto;
 }
 ```

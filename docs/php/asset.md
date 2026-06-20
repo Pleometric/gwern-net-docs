@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # asset.php
 
-**Path:** `asset.php` | **Language:** PHP | **Lines:** ~22
+**Path:** `asset.php` | **Language:** PHP | **Lines:** 23
 
 Development-only asset serving script with automatic rebuild on file changes.
 

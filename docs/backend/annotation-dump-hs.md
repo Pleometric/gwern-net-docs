@@ -1,7 +1,7 @@
 
 # annotation-dump.hs
 
-**Path:** `build/annotation-dump.hs` | **Language:** Haskell | **Lines:** ~69
+**Path:** `build/annotation-dump.hs` | **Language:** Haskell | **Lines:** 68
 
 > CLI utility for querying and grepping the annotation database
 

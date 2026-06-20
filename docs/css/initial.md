@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # initial.css
 
-**Path:** `css/initial.css` | **Language:** CSS | **Lines:** ~2,615
+**Path:** `css/initial.css` | **Language:** CSS | **Lines:** 2710
 
 Core layout, typography, and critical above-the-fold styles loaded inline in the document head.
 
@@ -35,7 +35,7 @@ Key design decisions encoded here include the responsive line-height system (1.4
 ### Layout
 - `html`, `body`: Full-height, zero margin/padding
 - `main`: Flexbox column, centered, max-width constraint, padding
-- `#sidebar`: Top navigation bar with logo and links
+- `#navbar`: Top navigation bar with logo and links
 - `article`: Main content container
 - `header`: Page title block
 - `#page-metadata`: Metadata flex layout with responsive breaks
@@ -61,7 +61,7 @@ Key design decisions encoded here include the responsive line-height system (1.4
 - Hover effects with indicator bar
 
 ### Special Features
-- `.marginnote`: Margin notes (inline or popped-out sidenotes)
+- `.margin-note`: Margin notes (inline or popped-out sidenotes)
 - `.sidenote`: Positioned margin notes on wide viewports (≥1497px)
 - `#skip-to-content-link`: Accessibility skip link
 - `.display-random-*`: Random content display system

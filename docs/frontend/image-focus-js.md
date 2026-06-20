@@ -1,7 +1,7 @@
 
 # image-focus.js
 
-**Path:** `js/image-focus.js` | **Language:** JavaScript | **Lines:** ~980
+**Path:** `js/image-focus.js` | **Language:** JavaScript | **Lines:** 980
 
 > Lightbox image viewer with zoom, pan, keyboard navigation, and gallery slideshow
 

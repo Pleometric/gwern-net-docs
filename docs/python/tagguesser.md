@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # tagguesser.py
 
-**Path:** `build/tagguesser.py` | **Language:** Python | **Lines:** ~58
+**Path:** `build/tagguesser.py` | **Language:** Python | **Lines:** 58
 
 Suggests taxonomic tags for clusters of link annotations based on their titles using GPT-4.
 

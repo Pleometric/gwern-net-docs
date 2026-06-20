@@ -1,7 +1,7 @@
 
 # annotations.js
 
-**Path:** `js/annotations.js` | **Language:** JavaScript | **Lines:** ~426
+**Path:** `js/annotations.js` | **Language:** JavaScript | **Lines:** 445
 
 > Client-side annotation data layer: fetches, parses, and caches link metadata from the server's `/metadata/annotation/` API
 
@@ -309,7 +309,7 @@ The hover delay (25ms) prevents unnecessary loads when the cursor passes over li
 
 - [extracts.js](/frontend/extracts-js) - Pop-frame system that displays annotations
 - [popups.js](/frontend/popups-js) - Popup positioning and rendering
-- [popins.js](/frontend/popins-js) - Mobile-friendly popin system
+- [popovers.js](/frontend/popovers-js) - Mobile-friendly popover system
 - [content.js](/frontend/content-js) - Content type system for media annotations
 - [transclude.js](/frontend/transclude-js) - Transclusion system for file includes
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Server-side annotation database manager

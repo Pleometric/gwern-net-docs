@@ -1,6 +1,6 @@
 # google-search.html
 
-**Path:** `google-search.html` | **Language:** HTML | **Lines:** ~139
+**Path:** `google-search.html` | **Language:** HTML | **Lines:** 161
 
 Custom Google Search form interface for gwern.net with site filtering options.
 

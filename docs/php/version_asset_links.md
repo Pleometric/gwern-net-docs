@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # version_asset_links.php
 
-**Path:** `build/version_asset_links.php` | **Language:** PHP | **Lines:** ~34
+**Path:** `build/version_asset_links.php` | **Language:** PHP | **Lines:** 34
 
 Adds cache-busting version parameters to asset URLs embedded within CSS files.
 

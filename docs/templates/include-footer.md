@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # footer.html
 
-**Path:** `include/footer.html` | **Language:** HTML | **Lines:** ~17
+**Path:** `include/footer.html` | **Language:** HTML | **Lines:** 17
 
 Site-wide footer component with navigation controls and dynamic daily content.
 

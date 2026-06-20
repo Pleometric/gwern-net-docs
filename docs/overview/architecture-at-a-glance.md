@@ -43,7 +43,7 @@ The Markdown file is fed into [Pandoc](https://pandoc.org/), a document converte
 This is where the magic happens. The AST passes through dozens of custom Haskell modules, each one making specific enhancements:
 
 - Adding metadata to links (title, author, date, abstract)
-- Auto-linking certain terms to their definitions
+- Adding link metadata classes and annotation hooks
 - Fixing typography (smart quotes, proper dashes)
 - Archiving external links locally to prevent link rot
 - Generating citation IDs and bibliographies
@@ -90,4 +90,3 @@ This keeps the code modular. The popup system doesn't need to know about the sid
 **Sidenotes**: Footnotes are converted to margin notes on wide screens, keeping annotations visible alongside the text they reference.
 
 **Link Archiving**: External links are automatically mirrored locally. If the original page disappears, readers can still access a cached copy.
-

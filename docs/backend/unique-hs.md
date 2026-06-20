@@ -1,7 +1,7 @@
 
 # Unique.hs
 
-**Path:** `build/Unique.hs` | **Language:** Haskell | **Lines:** ~70
+**Path:** `build/Unique.hs` | **Language:** Haskell | **Lines:** 69
 
 > Runtime uniqueness checking for configuration lists to catch duplicates early
 

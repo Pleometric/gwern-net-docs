@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # preprocess-annotation.sh
 
-**Path:** `build/preprocess-annotation.sh` | **Language:** Bash | **Lines:** ~7
+**Path:** `build/preprocess-annotation.sh` | **Language:** Bash | **Lines:** 7
 
 Simple stdin preprocessor for annotation editing workflow.
 
@@ -12,22 +12,22 @@ Simple stdin preprocessor for annotation editing workflow.
 
 ## Overview
 
-`preprocess-annotation.sh` is a minimal wrapper script that reads raw annotation content from stdin and pipes it through `preprocess-markdown` to prepare it for manual editing in Emacs. The preprocessed output is then stored in annotation database files (`full.gtx` or `half.gtx`).
+`preprocess-annotation.sh` is a minimal wrapper script that reads raw annotation content from stdin and pipes it through `preprocessMarkdown` to prepare it for manual editing in Emacs. The preprocessed output is then stored in annotation database files (`full.gtx` or `half.gtx`).
 
 This script is part of the manual annotation editing workflow on gwern.net. When adding or updating link annotations, the raw scraped or draft content is passed through this script to normalize formatting before being opened in an editor buffer. Historically, this also included Pandoc HTML conversion and HTML Tidy formatting (now commented out), but the current version only performs Markdown preprocessing.
 
-The simplicity of this script reflects the design philosophy that most annotation processing should happen in dedicated tools (`preprocess-markdown`) rather than being scattered across multiple scripts.
+The simplicity of this script reflects the design philosophy that most annotation processing should happen in dedicated tools (`preprocessMarkdown`) rather than being scattered across multiple scripts.
 
 ## Key Commands/Variables
 
 **Main pipeline:**
 ```bash
-cat - | preprocess-markdown
+cat - | preprocessMarkdown
 ```
 
 **Components:**
 - `cat -` - Read from stdin (explicit pipe-through idiom)
-- `preprocess-markdown` (from `$PATH`) - Core Markdown normalizer
+- `preprocessMarkdown` (from `$PATH`) - Core Markdown normalizer
 
 **Commented-out legacy pipeline:**
 ```bash
@@ -71,7 +71,7 @@ Contains **bold** and _italic_ text.
 EOF
 ```
 
-**What `preprocess-markdown` likely does:**
+**What `preprocessMarkdown` likely does:**
 - Normalize whitespace and line breaks
 - Standardize Markdown formatting (list indentation, emphasis markers)
 - Convert HTML entities to Unicode
@@ -83,7 +83,7 @@ EOF
 - All input via stdin, output to stdout (Unix filter pattern)
 
 **Exit status:**
-- Returns exit status of `preprocess-markdown` (pipe propagates last command status)
+- Returns exit status of `preprocessMarkdown` (pipe propagates last command status)
 
 ## See Also
 

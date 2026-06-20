@@ -4,7 +4,7 @@ sidebar_position: 10
 
 # github-issue-blockquote-outside.tmpl
 
-**Path:** `template/include/github-issue-blockquote-outside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** ~2
+**Path:** `template/include/github-issue-blockquote-outside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 3
 
 Template fragment for rendering GitHub issue content with a blockquote wrapper.
 

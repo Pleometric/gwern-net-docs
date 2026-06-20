@@ -1,7 +1,7 @@
 
 # colors.css
 
-**Path:** `css/colors.css` | **Language:** CSS | **Lines:** 335
+**Path:** `css/colors.css` | **Language:** CSS | **Lines:** 329
 
 > Light mode color design tokens
 
@@ -73,7 +73,7 @@ The design system organizes colors into 30+ semantic categories:
 
 ### Pop-frames System
 - **Popups**: 21 variables for backgrounds, borders, shadows, title bars, scrollbars, focused states
-- **Popins**: Backgrounds, borders, backdrops, title bars, scrollbars, stack counters
+- **Popovers**: Backgrounds, borders, backdrops, title bars, scrollbars, stack counters
 - **Extracts options dialog**: 12 variables for the configuration UI
 - **Object popframes**: Background colors
 
@@ -153,7 +153,7 @@ The design system organizes colors into 30+ semantic categories:
 
 ```css
 /* Semi-transparent overlays */
---GW-popins-popin-backdrop-color: rgba(0, 0, 0, 0.4);
+--GW-popovers-popover-backdrop-color: rgba(0, 0, 0, 0.4);
 --GW-extracts-options-dialog-backdrop-background-color: rgba(255, 255, 255, 0.95);
 --GW-reader-mode-masked-links-key-toggle-info-alert-panel-background-color: rgba(0, 0, 0, 0.8);
 
@@ -205,7 +205,7 @@ Some variables reference other variables using `var()`:
 
 ```css
 --GW-popups-popup-background-color: var(--GW-body-background-color);
---GW-popins-popin-background-color: var(--GW-body-background-color);
+--GW-popovers-popover-background-color: var(--GW-body-background-color);
 --GW-extracts-options-dialog-background-color: var(--GW-body-background-color);
 --GW-extracts-options-dialog-button-background-color: var(--GW-body-background-color);
 --GW-popups-popup-title-link-hover-color: var(--GW-body-link-hover-color);

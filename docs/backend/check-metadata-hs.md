@@ -1,7 +1,7 @@
 
 # checkMetadata.hs
 
-**Path:** `build/checkMetadata.hs` | **Language:** Haskell | **Lines:** ~6
+**Path:** `build/app/checkMetadata.hs` | **Language:** Haskell | **Lines:** 8
 
 > Standalone executable for validating annotation metadata databases
 

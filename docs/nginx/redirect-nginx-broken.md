@@ -1,6 +1,6 @@
 # broken.conf
 
-**Path:** `nginx/redirect/broken.conf` | **Language:** Nginx
+**Path:** `nginx/redirect/broken.conf` | **Language:** Nginx | **Lines:** 29352
 
 Nginx redirect map configuration for handling broken, malicious, and malformed URLs on gwern.net.
 

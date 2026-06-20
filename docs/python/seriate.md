@@ -1,6 +1,6 @@
 # seriate.py
 
-**Path:** `build/seriate.py` | **Language:** Python | **Lines:** ~188
+**Path:** `build/seriate.py` | **Language:** Python | **Lines:** 212
 
 LLM-powered semantic sorting that arranges list items in "logical order" via iterative reordering.
 

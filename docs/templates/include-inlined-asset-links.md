@@ -3,7 +3,7 @@ sidebar_position: 4
 
 # inlined-asset-links.html
 
-**Path:** `include/inlined-asset-links.html` | **Language:** HTML | **Lines:** ~2
+**Path:** `include/inlined-asset-links.html` | **Language:** HTML | **Lines:** 2
 
 Deferred stylesheet and JavaScript asset loading for non-critical resources.
 

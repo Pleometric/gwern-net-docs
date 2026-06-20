@@ -1,7 +1,7 @@
 
 # Config.Inflation
 
-**Path:** `build/Config/Inflation.hs` | **Language:** Haskell | **Lines:** ~1,100
+**Path:** `build/Config/Inflation.hs` | **Language:** Haskell | **Lines:** 1099
 
 > Static inflation rate and Bitcoin exchange rate lookup tables
 

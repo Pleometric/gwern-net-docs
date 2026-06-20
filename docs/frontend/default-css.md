@@ -1,7 +1,7 @@
 
 # default.css
 
-**Path:** `css/default.css` | **Language:** CSS | **Lines:** ~7,569
+**Path:** `css/default.css` | **Language:** CSS | **Lines:** 7679
 
 > Deferred styles for below-the-fold features
 
@@ -11,7 +11,7 @@
 
 `default.css` is the main stylesheet for gwern.net, containing styles for below-the-fold features and interactive components. Unlike [initial-css](initial-css) which is bundled into `head.css` and linked in the head, this file is bundled into `style-GENERATED.css` during the build process. The combined stylesheet is then loaded asynchronously using the `media="print" onload="this.media='all'"` pattern for improved page load performance.
 
-The file implements sophisticated styling for the site's signature features: margin sidenotes, popup windows (popups), inline content expansions (popins), collapsible sections, footnotes, code blocks, tables, image focus overlays, and the page toolbar. It extensively uses CSS custom properties (CSS variables) prefixed with `--GW-*` for theming and layout configuration.
+The file implements sophisticated styling for the site's signature features: margin sidenotes, popup windows (popups), inline content expansions (popovers), collapsible sections, footnotes, code blocks, tables, image focus overlays, and the page toolbar. It extensively uses CSS custom properties (CSS variables) prefixed with `--GW-*` for theming and layout configuration.
 
 This stylesheet works in close coordination with JavaScript modules like [popups-js](popups-js), [sidenotes-js](sidenotes-js), [collapse-js](collapse-js), and [extracts-js](extracts-js) to create the site's interactive reading experience.
 
@@ -25,7 +25,7 @@ The CSS is organized into major functional sections, roughly in order of appeara
 Defines CSS custom properties for all major components:
 - Sidenote dimensions (`--GW-sidenotes-max-width: 550px`)
 - Popup sizing constraints (min/max widths and heights for various popup types)
-- Popin layout parameters (max height, border widths, title bar height)
+- Popover layout parameters (max height, border widths, title bar height)
 - Page toolbar timing and animation variables
 - Floating header indicators
 - Search widget dimensions
@@ -109,7 +109,7 @@ Special section for daily featured content.
 Page footer decorations and previous/next navigation UI.
 
 ### Pop-Frames (Lines 3944-4337)
-Base styles for popup/popin content containers:
+Base styles for popup/popover content containers:
 - Title bar elements
 - Loading states
 - Type-specific content adjustments (annotations, footnotes, code files, objects)
@@ -124,12 +124,12 @@ Floating popup window system:
 - Type-specific popup styles (video, audio, image, annotation, etc.)
 - Popup stacking and z-index management
 
-### Popins (Lines 5137-5692)
+### Popovers (Lines 5137-5692)
 Inline content expansion system:
-- Popin outer frame (`.popin`)
+- Popover outer frame (`.popover`)
 - Title and footer bars
 - Scroll view with custom scrollbars
-- Backdrop overlays for open popins
+- Backdrop overlays for open popovers
 - Partial annotation appends
 - Stack counters
 
@@ -205,12 +205,12 @@ Developer console widget styles.
   - `--GW-popups-audio-popup-min-width/height`
   - `--GW-popups-image-popup-min-size`
 
-### Popins
-- `--GW-popins-popin-max-height`: Maximum popin height (75vh)
-- `--GW-popins-popin-min-height`: Minimum popin height (120px)
-- `--GW-popins-popin-border-width`: Popin border thickness (3px)
-- `--GW-popins-popin-title-bar-height`: Popin title bar height
-- `--GW-popins-popin-footer-bar-height`: Popin footer bar height
+### Popovers
+- `--GW-popovers-popover-max-height`: Maximum popover height (75vh)
+- `--GW-popovers-popover-min-height`: Minimum popover height (120px)
+- `--GW-popovers-popover-border-width`: Popover border thickness (3px)
+- `--GW-popovers-popover-title-bar-height`: Popover title bar height
+- `--GW-popovers-popover-footer-bar-height`: Popover footer bar height
 
 ### Page Toolbar
 - `--GW-page-toolbar-minimum-width`: Minimum toolbar width (46px)
@@ -232,7 +232,7 @@ Many color-related custom properties reference values from [colors-css](colors-c
 - `--GW-section-highlighted-border-color`
 - `--GW-sidenote-highlight-box-shadow-color`
 - `--GW-footnote-highlighted-border-color`
-- `--GW-popins-popin-background-color`
+- `--GW-popovers-popover-background-color`
 - `--GW-page-toolbar-border-color`
 - And many more for theming interactive states
 
@@ -267,7 +267,7 @@ Many color-related custom properties reference values from [colors-css](colors-c
 - `.sidenote.cut-off`: Truncated sidenote with scrollbar
 - `.sidenote-self-link`: Number link in sidenote
 
-### Pop-Frames (base class for popups and popins)
+### Pop-Frames (base class for popups and popovers)
 - `.popframe`: Base container
 - `.popframe-title-bar`: Title bar container
 - `.popframe-title-link`: Link in title
@@ -283,12 +283,12 @@ Many color-related custom properties reference values from [colors-css](colors-c
 - `.popup.resized`: User-resized popup
 - Type classes: `.annotation`, `.wikipedia-entry`, `.tweet`, `.video`, `.audio`, `.image`, `.local-page`, etc.
 
-### Popins
-- `.popin`: Inline expansion container
-- `.popin-open`: Active popin
-- `.popin-ancestor`: Parent element of active popin
-- `.popin .popin-footer-bar`: Popin footer
-- `.popin-stack-counter`: Popin nesting depth indicator
+### Popovers
+- `.popover`: Inline expansion container
+- `.popover-open`: Active popover
+- `.popover-ancestor`: Parent element of active popover
+- `.popover .popover-footer-bar`: Popover footer
+- `.popover-stack-counter`: Popover nesting depth indicator
 
 ### Page Toolbar
 - `#page-toolbar`: Main toolbar container
@@ -343,8 +343,8 @@ Many color-related custom properties reference values from [colors-css](colors-c
 - Handles resize interactions: `.resized`, `.resizing`
 
 **[extracts-js](extracts-js)**
-- Coordinates between popups (`.popup`) and popins (`.popin`)
-- Manages `.popin-open` state and `.popin-ancestor` markers
+- Coordinates between popups (`.popup`) and popovers (`.popover`)
+- Manages `.popover-open` state and `.popover-ancestor` markers
 - Adds `.highlighted` class to sections
 
 **[collapse-js](collapse-js)**

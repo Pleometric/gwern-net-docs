@@ -1,7 +1,7 @@
 
 # Utils.hs
 
-**Path:** `build/Utils.hs` | **Language:** Haskell | **Lines:** ~774
+**Path:** `build/Utils.hs` | **Language:** Haskell | **Lines:** 826
 
 > Shared utility functions for file I/O, string manipulation, Pandoc AST transformations, and URL handling
 

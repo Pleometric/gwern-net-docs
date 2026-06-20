@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # build_font_css.php
 
-**Path:** `build/build_font_css.php` | **Language:** PHP | **Lines:** ~225
+**Path:** `build/build_font_css.php` | **Language:** PHP | **Lines:** 226
 
 Generates CSS `@font-face` declarations from a structured font specification file.
 

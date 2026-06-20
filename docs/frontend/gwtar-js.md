@@ -1,6 +1,6 @@
 # gwtar.js
 
-**Path:** `build/gwtar.js` | **Language:** JavaScript | **Lines:** ~705
+**Path:** `build/gwtar.js` | **Language:** JavaScript | **Lines:** 711
 
 Self-extracting archive loader that enables offline viewing of gwern.net pages with lazy-loaded assets.
 

@@ -1,7 +1,7 @@
 
 # markdown-footnote-length.hs
 
-**Path:** `build/markdown-footnote-length.hs` | **Language:** Haskell | **Lines:** ~30
+**Path:** `build/markdown-footnote-length.hs` | **Language:** Haskell | **Lines:** 29
 
 > Linter that warns about overly long footnotes in Markdown files
 

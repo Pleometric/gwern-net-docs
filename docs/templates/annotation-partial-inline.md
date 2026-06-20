@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # annotation-partial-inline.tmpl
 
-**Path:** `template/include/annotation-partial-inline.tmpl` | **Language:** HTML5/Pandoc | **Lines:** ~11
+**Path:** `template/include/annotation-partial-inline.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 12
 
 Template for rendering minimal inline annotations containing only title and author/date information.
 

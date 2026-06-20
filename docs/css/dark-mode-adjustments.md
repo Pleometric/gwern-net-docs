@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # dark-mode-adjustments.css
 
-**Path:** `css/dark-mode-adjustments.css` | **Language:** CSS | **Lines:** ~162
+**Path:** `css/dark-mode-adjustments.css` | **Language:** CSS | **Lines:** 173
 
 Dark mode color and filter overrides for gwern.net's dark theme.
 
@@ -26,7 +26,7 @@ The file is relatively compact (~160 lines) because it leverages the existing co
 
 ### Pattern/Texture Variables
 - `--GW-popups-popup-title-bar-pattern`: Dotted pattern for popup title bars (dark variant)
-- `--GW-popins-popin-backdrop-color`: Darker backdrop (60% black instead of 40%)
+- `--GW-popovers-popover-backdrop-color`: Darker backdrop (60% black instead of 40%)
 - `--GW-checkerboard-scrollbar-background-image`: Inverted scrollbar checkerboard pattern
 
 ### Filter Classes

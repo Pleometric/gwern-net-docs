@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # twdne.conf
 
-**Path:** `nginx/twdne.conf` | **Language:** Nginx
+**Path:** `nginx/twdne.conf` | **Language:** Nginx | **Lines:** 19
 
 Minimal nginx configuration for serving the ThisWaifuDoesNotExist.net (TWDNE) static site mirror.
 

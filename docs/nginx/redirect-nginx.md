@@ -1,6 +1,6 @@
 # move.conf
 
-**Path:** `nginx/redirect/move.conf` | **Language:** Nginx
+**Path:** `nginx/redirect/move.conf` | **Language:** Nginx | **Lines:** 12896
 
 Nginx redirect map configuration for gwern.net URL canonicalization and historical redirects.
 

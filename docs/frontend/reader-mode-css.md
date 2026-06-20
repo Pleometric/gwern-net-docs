@@ -1,7 +1,7 @@
 
 # reader-mode-initial.css
 
-**Path:** `css/reader-mode-initial.css` | **Language:** CSS | **Lines:** ~157
+**Path:** `css/reader-mode-initial.css` | **Language:** CSS | **Lines:** 162
 
 > Reader mode styles for distraction-free reading
 
@@ -22,7 +22,7 @@ The stylesheet implements careful distinctions between elements that should be c
 ### Complete Element Removal (`display: none`)
 
 **Navigation and chrome:**
-- `#sidebar` - Left sidebar with logo and site navigation
+- `#navbar` - Left sidebar with logo and site navigation
 - `#navigation` - Main navigation bar
 - `#footer` - Page footer with links and metadata
 - `.reader-mode-not` - Generic class for elements explicitly excluded from reader mode
@@ -68,7 +68,7 @@ When `body.reader-mode-active.masked-links-hidden` is active:
 - Indicator hooks hidden (`visibility: hidden`)
 
 **Exceptions (links that remain visible):**
-- `.popup-open`, `.popin-open` - Currently active popup/popin links remain styled
+- `.popup-open`, `.popover-open` - Currently active popup/popover links remain styled
 - Links are still interactive when hovered (Alt key reveals them)
 
 ### Citation Formatting Changes
@@ -112,7 +112,7 @@ Reader mode adjusts citation display for readability:
 - Links with popup/annotation indicators
 - Receives special positioning (`position: relative`, `z-index: 111`) in reader mode
 
-**`a:not(.popup-open):not(.popin-open)`**
+**`a:not(.popup-open):not(.popover-open)`**
 - Targets links that are NOT currently showing a popup
 - These are the links that get masked when masked-links-hidden is active
 - Active popups remain styled so users don't lose context

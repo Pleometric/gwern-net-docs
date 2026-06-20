@@ -1,7 +1,7 @@
 
 # Query.hs
 
-**Path:** `build/Query.hs` | **Language:** Haskell | **Lines:** ~141
+**Path:** `build/Query.hs` | **Language:** Haskell | **Lines:** 140
 
 Utility module for extracting links, images, and URLs from Pandoc AST documents.
 
@@ -28,7 +28,7 @@ parseMarkdownOrHTML True  "# Hello"        -- Markdown
 parseMarkdownOrHTML False "<h1>Hello</h1>" -- HTML
 ```
 
-**Called by:** `link-titler.hs`, `link-tooltip.hs`, `link-suggester.hs`, `generateBacklinks.hs`
+**Called by:** `linkTitler`, `link-tooltip.hs`, `linkSuggester`, `generateBacklinks.hs`
 **Calls:** `Text.Pandoc.readMarkdown`, `Text.Pandoc.readHtml`
 
 ---
@@ -37,7 +37,7 @@ parseMarkdownOrHTML False "<h1>Hello</h1>" -- HTML
 
 Parse text and return all URLs. Convenience wrapper around `extractLinksWith (const True)`.
 
-**Called by:** `link-extractor.hs`, `GenerateSimilar.hs`
+**Called by:** `linkExtractor`, `GenerateSimilar.hs`
 **Calls:** `extractLinksWith`, `parseMarkdownOrHTML`
 
 ---
@@ -60,7 +60,7 @@ extractLinksWith (\(Link _ _ (url,_)) -> "http" `T.isPrefixOf` url) True doc
 
 Extract all URLs from an already-parsed Pandoc AST. Note: may return duplicates.
 
-**Called by:** `Metadata/Author.hs`, `preprocess-markdown.hs`, `Paragraph.hs`, `LinkAuto.hs`
+**Called by:** `Metadata/Author.hs`, `preprocessMarkdown.hs`, `Paragraph.hs`
 **Calls:** `extractURLsWith`, `convertInterwikiLinks`
 
 ---
@@ -111,7 +111,7 @@ extractURLsAndAnchorTooltips doc
 
 Includes cleanup for anchor text that gets malformed by nested spans (removes `>...<` wrappers).
 
-**Called by:** `link-titler.hs`, `GenerateSimilar.hs`, `link-suggester.hs`
+**Called by:** `linkTitler`, `GenerateSimilar.hs`, `linkSuggester`
 **Calls:** `queryWith`, `convertInterwikiLinks`, `inlinesToText`
 
 ---
@@ -271,19 +271,18 @@ No external configuration. Behavior is determined entirely by function parameter
 ### Used By
 | Module | Functions Used |
 |--------|---------------|
-| `link-titler.hs` | `extractURLsAndAnchorTooltips`, `parseMarkdownOrHTML` |
+| `linkTitler.hs` | `extractURLsAndAnchorTooltips`, `parseMarkdownOrHTML` |
 | `link-tooltip.hs` | `parseMarkdownOrHTML` |
-| `link-suggester.hs` | `extractURLsAndAnchorTooltips`, `parseMarkdownOrHTML` |
-| `link-extractor.hs` | `extractLinks` |
+| `linkSuggester.hs` | `extractURLsAndAnchorTooltips`, `parseMarkdownOrHTML` |
+| `linkExtractor.hs` | `extractLinks` |
 | `GenerateSimilar.hs` | `extractURLsAndAnchorTooltips`, `extractLinks` |
 | `generateBacklinks.hs` | `extractLinkIDsWith`, `parseMarkdownOrHTML`, `extractURL` |
 | `generateLinkBibliography.hs` | `extractLinkIDsWith` |
 | `generateDirectory.hs` | `extractImages` |
 | `LinkMetadata.hs` | `extractLinksInlines` |
-| `LinkAuto.hs` | `extractURLs` |
 | `Metadata/Author.hs` | `extractURLs` |
 | `Paragraph.hs` | `extractURLs` |
-| `preprocess-markdown.hs` | `extractURLs` |
+| `preprocessMarkdown.hs` | `extractURLs` |
 
 ### External Dependencies
 - `Text.Pandoc` - AST types and parsing

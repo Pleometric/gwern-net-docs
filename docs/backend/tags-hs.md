@@ -1,7 +1,7 @@
 
 # Tags.hs
 
-**Path:** `build/Tags.hs` + `build/Config/Tags.hs` | **Language:** Haskell | **Lines:** ~1,200+ (209 + ~993)
+**Path:** `build/Tags.hs` + `build/Config/Tags.hs` | **Language:** Haskell | **Lines:** 1,222 (219 + 1,003)
 
 > Hierarchical tag system: validation, normalization, rendering, and fuzzy matching for the `/doc/` directory taxonomy.
 

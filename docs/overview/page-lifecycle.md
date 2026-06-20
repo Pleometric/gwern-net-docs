@@ -117,7 +117,7 @@ Several types of content must be generated before Hakyll runs:
 | Generated | Source | Why |
 |-----------|--------|-----|
 | Backlinks | Scan all pages for incoming links | "What links here" sections |
-| Similar links | OpenAI embeddings + RP-tree search | Related content discovery |
+| Similar links | OpenAI embeddings + exact vector search | Related content discovery |
 | Tag directories | Tag metadata from frontmatter | Browsable topic indexes |
 | Link bibliographies | Per-page link collection | Reference lists |
 | Annotation HTML | GTX → rendered blockquotes | Pre-rendered for popup speed |
@@ -202,17 +202,7 @@ Expands shorthand wiki links to full URLs.
 
 **Why?** Faster to write, cleaner source. [Interwiki.hs](/backend/interwiki-hs)
 
-#### b. Auto-linking
-
-Converts ~1,000 citation patterns into hyperlinks automatically.
-
-**Before:** `Kaplan et al 2020 found that...`
-
-**After:** `[Kaplan et al 2020](https://arxiv.org/abs/2001.08361) found that...`
-
-**Why?** Academic citations are tedious to link manually. The system knows major papers. [LinkAuto.hs](/backend/link-auto-hs)
-
-#### c. Annotation Creation
+#### b. Annotation Creation
 
 Triggers scraping for any URL lacking metadata. If you link to an arXiv paper, the system fetches title/authors/abstract.
 
@@ -222,7 +212,7 @@ Triggers scraping for any URL lacking metadata. If you link to an arXiv paper, t
 
 **Why?** Rich hover previews need metadata. Getting it automatically means every link can have a preview. [Annotation.hs](/backend/annotation-hs)
 
-#### d. Annotation Marking
+#### c. Annotation Marking
 
 Adds `.link-annotated` class to links that have annotations in the database.
 
@@ -489,22 +479,16 @@ When you hover an annotated link:
 Let's trace what happens when you write this in Markdown:
 
 ```markdown
-Kaplan et al 2020 showed that loss scales as a power law.
+[Kaplan et al 2020](https://arxiv.org/abs/2001.08361) showed that loss scales as a power law.
 ```
 
 ### 2. Pre-processing
 `et al.` → `et al` (if period present)
 
-### 5b. Auto-linking
-Pattern `Kaplan et al 2020` matches database → wrapped in link:
-```markdown
-[Kaplan et al 2020](https://arxiv.org/abs/2001.08361) showed...
-```
-
-### 5c. Annotation Creation
+### 5b. Annotation Creation
 arXiv URL checked against GTX database → annotation exists (or created via API)
 
-### 5d. Annotation Marking
+### 5c. Annotation Marking
 Link gets class:
 ```html
 <a href="https://arxiv.org/abs/2001.08361" class="link-annotated">Kaplan et al 2020</a>

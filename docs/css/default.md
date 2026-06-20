@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # default.css
 
-**Path:** `css/default.css` | **Language:** CSS | **Lines:** ~7,569
+**Path:** `css/default.css` | **Language:** CSS | **Lines:** 7679
 
 The main stylesheet containing all non-critical component styles for gwern.net.
 
@@ -16,7 +16,7 @@ This is gwern.net's largest stylesheet, a massive generated file with approximat
 
 As a generated file, it's compiled from multiple source stylesheets and includes extensive CSS for:
 - Interactive UI elements (collapse blocks, tabs, tooltips)
-- Pop-frame system (popups and popins with complex title bars, scrollbars, controls)
+- Pop-frame system (popups and popovers with complex title bars, scrollbars, controls)
 - Typography refinements (smallcaps, dropcaps, citations, epigraphs)
 - Content types (code blocks, math, tables, figures, blockquotes, lists)
 - Navigation elements (page toolbar, back-to-top links, search UI)
@@ -28,7 +28,7 @@ Unlike `initial.css` which is inlined for instant rendering, `default.css` is lo
 ## Key Selector Groups
 
 ### Variables
-- Popup/popin dimensions and constraints (min/max widths and heights for different content types)
+- Popup/popover dimensions and constraints (min/max widths and heights for different content types)
 - Page toolbar animation durations and filters
 - Floating header indicators
 - Search interface dimensions
@@ -66,7 +66,7 @@ Unlike `initial.css` which is inlined for instant rendering, `default.css` is lo
 - Blockquote nesting and styling
 
 ### Interactive Components
-- **Pop-frames** (popups and popins):
+- **Pop-frames** (popups and popovers):
   - Title bars with controls (pin, close, zoom, options)
   - Scrollbars (custom styled)
   - Resize handles

@@ -1,7 +1,7 @@
 
 # Annotation/Arxiv.hs
 
-**Path:** `build/Annotation/Arxiv.hs` | **Language:** Haskell | **Lines:** ~106
+**Path:** `build/Annotation/Arxiv.hs` | **Language:** Haskell | **Lines:** 104
 
 > Scrapes metadata from arXiv papers via the arXiv API, converting LaTeX abstracts to HTML.
 
@@ -24,7 +24,7 @@ The module also handles arXiv's DOI assignment scheme (introduced 2022), constru
 Main entry point. Downloads arXiv API response for a URL, parses XML, extracts metadata fields, processes the abstract through LaTeX→HTML conversion.
 
 **Called by:** `Annotation.linkDispatcher` (when URL matches `arxiv.org/abs/` or `arxiv.org/pdf/`)
-**Calls:** `arxivDownload`, `processArxivAbstract`, `cleanAuthors`, `trimTitle`, `processDOI`, `processDOIArxiv`, `linkAutoHtml5String`, `processParagraphizer`
+**Calls:** `arxivDownload`, `processArxivAbstract`, `cleanAuthors`, `trimTitle`, `processDOI`, `processDOIArxiv`, `cleanAbstractsHTML`, `processParagraphizer`
 
 **Returns:**
 - `Left Temporary` — API call failed or parsing produced empty/error results (may succeed on retry)
@@ -56,7 +56,7 @@ URL → arxivDownload → XML response
     ↓                     ↓                     ↓
 processArxivAbstract  getAuthorNames    processArxivAbstract
                           ↓                     ↓
-                     cleanAuthors        linkAutoHtml5String
+                     cleanAuthors        cleanAbstractsHTML
                                                 ↓
                                         processParagraphizer
                           ↓
@@ -147,7 +147,7 @@ This systematically removes vague superlatives that add no information in resear
 - **`LinkMetadataTypes`** — `Failure`, `Metadata`, `MetadataItem`, `Path` types
 - **`Metadata.Format`** — `checkURL`, `cleanAbstractsHTML`, `processDOI`, `processDOIArxiv`, `trimTitle`
 - **`Metadata.Author`** — `cleanAuthors` for name normalization
-- **`LinkAuto`** — `linkAutoHtml5String` auto-links author names, terms
+- **`Metadata.Format`** — `cleanAbstractsHTML` normalizes abstract HTML
 - **`Paragraph`** — `processParagraphizer` adds paragraph breaks
 - **`Utils`** — `inlineMath2Text` converts LaTeX math to Unicode where possible
 

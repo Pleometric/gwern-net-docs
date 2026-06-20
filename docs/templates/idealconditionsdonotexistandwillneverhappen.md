@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # idealconditionsdonotexistandwillneverhappen.html
 
-**Path:** `template/idealconditionsdonotexistandwillneverhappen.html` | **Language:** HTML | **Lines:** ~9
+**Path:** `template/idealconditionsdonotexistandwillneverhappen.html` | **Language:** HTML | **Lines:** 9
 
 Easter egg template featuring a Clippy-style motivational meme about perfectionism.
 

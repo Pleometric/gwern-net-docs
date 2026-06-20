@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # build_functions.php
 
-**Path:** `build/build_functions.php` | **Language:** PHP | **Lines:** ~19
+**Path:** `build/build_functions.php` | **Language:** PHP | **Lines:** 19
 
 Provides utility functions for cache-busting asset URLs via file modification timestamps.
 

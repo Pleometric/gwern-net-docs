@@ -1,7 +1,7 @@
 
 # initial.css
 
-**Path:** `css/initial.css` | **Language:** CSS | **Lines:** ~2,616
+**Path:** `css/initial.css` | **Language:** CSS | **Lines:** 2710
 
 > Core critical-path CSS for above-the-fold rendering and fundamental typography
 
@@ -93,7 +93,7 @@ Key design philosophy: progressive enhancement with mobile-first responsive brea
 
 ### Margin Notes (lines 1682–1786)
 - **Dual display modes**: inline (italic colored text) or sidenote (popped-out on wide viewports ≥1497px)
-- **Sidenote positioning**: `top` uses `--marginnote-vertical-position`, but this stylesheet does not set `position` (so actual positioning is handled elsewhere/JS)
+- **Sidenote positioning**: `top` uses `--margin-note-vertical-position`, but this stylesheet does not set `position` (so actual positioning is handled elsewhere/JS)
 - **Width calculation**: `calc(50vw - (var(--GW-body-max-width) / 2 + 96px))`
 - **Special handling** in admonitions (adjusted for icon area width)
 - **"Icon only" variants** for pure visual indicators
@@ -195,7 +195,7 @@ Key design philosophy: progressive enhancement with mobile-first responsive brea
 - `--float-side-margin`: 2em (content), 1.5em (blockquotes), adjustable per-page
 
 ### Margin Notes
-- `--marginnote-vertical-position`: dynamic, set by JS based on scroll position
+- `--margin-note-vertical-position`: dynamic, set by JS based on scroll position
 
 ### Blockquotes
 - `--blockquote-vertical-padding`, `--blockquote-horizontal-padding`, `--blockquote-font-size-scaling-factor`
@@ -242,7 +242,7 @@ The stylesheet uses a sophisticated cascade of breakpoints for different layout 
 
 ### Structural
 - `html`, `body`, `main`: Root layout containers
-- `#sidebar`: Top navigation bar with logo and links
+- `#navbar`: Top navigation bar with logo and links
 - `header`: Page title block
 - `#page-metadata`: Metadata fields (author, date, tags, confidence, etc.)
 - `#TOC`: Table of contents
@@ -277,8 +277,8 @@ The stylesheet uses a sophisticated cascade of breakpoints for different layout 
 - `.link-modified-recently-list-item`: Special list bullet for updated items
 
 ### Margin Notes & Sidenotes
-- `.marginnote`, `.marginnote.inline`, `.marginnote.sidenote`: Dual-mode margin notes
-- `.marginnote.only-icon`: Icon-only margin notes
+- `.margin-note`, `.margin-note.inline`, `.margin-note.sidenote`: Dual-mode margin notes
+- `.margin-note.only-icon`: Icon-only margin notes
 - `.margin-notes-block`: Collected margin notes at section start
 - `#sidenote-column-left`, `#sidenote-column-right`: Sidenote containers
 - `p.has-margin-note`: Paragraphs with positioned sidenotes
@@ -322,7 +322,7 @@ The stylesheet uses a sophisticated cascade of breakpoints for different layout 
 ### JavaScript Dependencies
 **Consumed by JS modules:**
 - **[collapse-js](collapse-js)**: Relies on TOC `.collapsed` class, `.toc-collapse-toggle-button` markup
-- **[sidenotes-js](sidenotes-js)**: Reads/writes `.marginnote.{inline,sidenote}` classes, sets `--marginnote-vertical-position` custom property
+- **[sidenotes-js](sidenotes-js)**: Reads/writes `.margin-note.{inline,sidenote}` classes, sets `--margin-note-vertical-position` custom property
 - **[content-js](content-js)**: `.shadow-body` class for popup styling inheritance
 - **[popups-js](popups-js)**: Uses link underlining styles, reads `.markdownBody` context
 - **Dark mode JS**: Toggles theme by swapping color custom properties; initial.css references all `--GW-*-color` variables

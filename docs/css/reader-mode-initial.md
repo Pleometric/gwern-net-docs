@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # reader-mode-initial.css
 
-**Path:** `css/reader-mode-initial.css` | **Language:** CSS | **Lines:** ~156
+**Path:** `css/reader-mode-initial.css` | **Language:** CSS | **Lines:** 162
 
 Minimal styling overrides for gwern.net's "reader mode" - a distraction-free reading experience.
 
@@ -24,7 +24,7 @@ The implementation uses `body.reader-mode-active` as a scoping class, allowing n
 
 Complete removal of non-essential elements:
 - `.reader-mode-not`: Explicitly marked non-reader-mode content
-- `#sidebar`: Top navigation bar
+- `#navbar`: Top navigation bar
 - Page metadata fields: `.page-status`, `.page-confidence`, `.page-importance`, `.page-backlinks`, `.page-link-bibliography`, `.page-similars`
 - Table of Contents decorations: numbering (`#TOC ul li::before`), collapse button
 - Sidenote columns: `#sidenote-column-left`, `#sidenote-column-right`
@@ -42,7 +42,7 @@ Preserve layout while hiding:
 
 When `body.reader-mode-active.masked-links-hidden`:
 - Link opacity reduced to 0 for: `.footnote-ref`, `.footnote-back`, `.footnote-back-block`
-- Links inherit text color: `a:not(.popup-open):not(.popin-open)`
+- Links inherit text color: `a:not(.popup-open):not(.popover-open)`
 - Link underlines removed: `a:link` text-shadow removed
 - Link cursor becomes text cursor
 - Indicator hooks become invisible

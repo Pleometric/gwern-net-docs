@@ -1,7 +1,7 @@
 
 # LinkIcon.hs
 
-**Path:** `build/LinkIcon.hs` + `build/Config/LinkIcon.hs` | **Language:** Haskell | **Lines:** ~231 + ~800
+**Path:** `build/LinkIcon.hs` + `build/Config/LinkIcon.hs` | **Language:** Haskell | **Lines:** 1,620 (230 + 1,390)
 
 > Assigns visual icons to links based on URL/domain patterns at compile-time
 

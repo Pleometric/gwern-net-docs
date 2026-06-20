@@ -1,7 +1,7 @@
 
 # Config.Metadata.Title
 
-**Path:** `build/Config/Metadata/Title.hs` | **Language:** Haskell | **Lines:** ~189
+**Path:** `build/Config/Metadata/Title.hs` | **Language:** Haskell | **Lines:** 200
 
 > Configuration lists for filtering and cleaning HTML page titles
 

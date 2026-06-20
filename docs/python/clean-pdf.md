@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # clean-pdf.py
 
-**Path:** `build/clean-pdf.py` | **Language:** Python | **Lines:** ~222
+**Path:** `build/clean-pdf.py` | **Language:** Python | **Lines:** 224
 
 A utility for fixing formatting and spelling errors in text extracted from PDFs using GPT-4 language models.
 

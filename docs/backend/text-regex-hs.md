@@ -1,6 +1,6 @@
 # Text.Regex
 
-**Path:** `build/Text/Regex.hs` | **Language:** Haskell | **Lines:** ~203
+**Path:** `build/Text/Regex.hs` | **Language:** Haskell | **Lines:** 202
 
 Vendored regex compatibility module providing POSIX-style regular expressions via TDFA backend.
 

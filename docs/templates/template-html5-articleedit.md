@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # pandoc/template-html5-articleedit.html5
 
-**Path:** `template/pandoc/template-html5-articleedit.html5` | **Language:** HTML5/Pandoc | **Lines:** ~77
+**Path:** `template/pandoc/template-html5-articleedit.html5` | **Language:** HTML5/Pandoc | **Lines:** 77
 
 Standard Pandoc HTML5 template for generating standalone HTML articles with minimal gwern.net branding.
 

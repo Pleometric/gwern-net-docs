@@ -1,7 +1,7 @@
 
 # extracts-annotations.js
 
-**Path:** `js/extracts-annotations.js` | **Language:** JavaScript | **Lines:** ~296
+**Path:** `js/extracts-annotations.js` | **Language:** JavaScript | **Lines:** 289
 
 > Annotation-specific content type definitions and popup handling for the extract system
 
@@ -9,7 +9,7 @@
 
 ## Overview
 
-This module registers annotation content types with the extract system, enabling popups and popins to display bibliographic annotation data. It defines two related types: `ANNOTATION` for fully-annotated links (marked with `link-annotated`) and `ANNOTATION_PARTIAL` for partially-annotated links (`link-annotated-partial`).
+This module registers annotation content types with the extract system, enabling popups and popovers to display bibliographic annotation data. It defines two related types: `ANNOTATION` for fully-annotated links (marked with `link-annotated`) and `ANNOTATION_PARTIAL` for partially-annotated links (`link-annotated-partial`).
 
 The core pattern mirrors other extract content types: each type is a five-element array specifying a name, predicate, CSS classes, fill function, and pop-frame styling. The fill functions synthesize include-links that trigger the transclusion system to fetch and render annotation HTML from `/metadata/annotation/`.
 
@@ -68,7 +68,7 @@ Creates a DocumentFragment for partial annotation transclusion.
 
 ### `Extracts.setUpAnnotationLoadEventsWithin(container)`
 
-Sets up preloading for annotated links within `container`. On desktop (Popups mode), adds `mouseenter` listeners with a 25ms delay to pre-fetch annotation data. On mobile (Popins mode), adds `click` listeners instead.
+Sets up preloading for annotated links within `container`. On desktop (Popups mode), adds `mouseenter` listeners with a 25ms delay to pre-fetch annotation data. On mobile (Popovers mode), adds `click` listeners instead.
 
 **Called by:** `extracts.js` during setup
 **Calls:** `Annotations.allAnnotatedLinksInContainer()`, `Annotations.load()`, `Annotations.cachedDataExists()`
@@ -112,7 +112,7 @@ For each type, the module defines these hooks:
 
 | Hook | Purpose |
 |------|---------|
-| `testTarget_ANNOTATION` | Excludes TOC and sidebar links in popin mode |
+| `testTarget_ANNOTATION` | Excludes TOC and sidebar links in popover mode |
 | `titleForPopFrame_ANNOTATION` | Renders title from annotation reference data |
 | `preparePopFrame_ANNOTATION` | Sets base location to annotation source URL |
 | `preparePopup_ANNOTATION` | Suppresses popup if annotation already visible |
@@ -199,7 +199,7 @@ Extracts.annotationLoadHoverDelay = 25;  // ms before annotation preload on hove
 
 ### Template References
 
-- `$popFrameTemplate` — Resolved dynamically based on popup/popin context
+- `$popFrameTemplate` — Resolved dynamically based on popup/popover context
 - `annotation-blockquote-inside` — Template for inline partial annotation display
 
 ---
@@ -233,7 +233,7 @@ None directly; annotation loading fires events through `Annotations.load()`:
 
 - `Extracts.targetTypeDefinitions` — Type registry (mutated by push)
 - `Extracts.additionalRewrites` — Rewrite hooks (mutated by push)
-- `Extracts.popFrameProvider` — Either `Popups` or `Popins`
+- `Extracts.popFrameProvider` — Either `Popups` or `Popovers`
 
 ---
 

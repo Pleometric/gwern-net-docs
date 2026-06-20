@@ -1,7 +1,7 @@
 
 # Config.LinkArchive
 
-**Path:** `build/Config/LinkArchive.hs` | **Language:** Haskell | **Lines:** ~1,175
+**Path:** `build/Config/LinkArchive.hs` | **Language:** Haskell | **Lines:** 1177
 
 > Configuration module defining URL whitelists/blacklists and transformation rules for the link archiving system
 

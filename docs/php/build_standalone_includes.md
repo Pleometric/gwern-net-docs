@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # build_standalone_includes.php
 
-**Path:** `build/build_standalone_includes.php` | **Language:** PHP | **Lines:** ~88
+**Path:** `build/build_standalone_includes.php` | **Language:** PHP | **Lines:** 88
 
 Generates an inlined HTML include for standalone pages with minimal CSS and no JavaScript.
 

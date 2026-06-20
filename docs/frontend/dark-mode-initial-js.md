@@ -1,7 +1,7 @@
 
 # dark-mode-initial.js
 
-**Path:** `js/dark-mode-initial.js` | **Language:** JavaScript | **Lines:** ~139
+**Path:** `js/dark-mode-initial.js` | **Language:** JavaScript | **Lines:** 138
 
 > Early-loading dark mode bootstrap that prevents flash of unstyled content (FOUC)
 

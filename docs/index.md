@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 
 :::info Source Version
-These docs are based on gwern.net commit [`d6a316c32`](https://github.com/gwern/gwern.net/commit/d6a316c32461c76e3a5917f55abeed998bb3656a) (2026-02-08)
+These docs are based on gwern.net commit [`406d3e423`](https://github.com/gwern/gwern.net/commit/406d3e423) (2026-06-20)
 :::
 
 # Codebase Documentation for gwern.net
@@ -56,7 +56,7 @@ See [Functional Taxonomy](/overview/component-taxonomy) for a complete file list
 | Overview | High-level architecture, page lifecycle, and functional taxonomy |
 | [Build Pipeline](/overview/component-taxonomy#1-build-pipeline) | Core build scripts (sync.sh, hakyll.hs, bash.sh) |
 | [Annotation & Metadata](/overview/component-taxonomy#2-annotation--metadata) | Link metadata system, scrapers, and processing |
-| [Popup System](/overview/component-taxonomy#3-popup-system) | Popups, popins, and extract handling |
+| [Popup System](/overview/component-taxonomy#3-popup-system) | Popups, popovers, and extract handling |
 | [Link Processing](/overview/component-taxonomy#4-link-processing) | Archives, icons, auto-linking, and interwiki |
 | [Content Rendering](/overview/component-taxonomy#5-content-rendering) | Core JS framework, transclusion, and DOM rewriting |
 | [Typography & Layout](/overview/component-taxonomy#6-typography--layout) | Text transforms, sidenotes, columns, and images |

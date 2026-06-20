@@ -4,7 +4,7 @@ sidebar_position: 15
 
 # wikipedia-entry-blockquote-title-not.tmpl
 
-**Path:** `template/include/wikipedia-entry-blockquote-title-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** ~7
+**Path:** `template/include/wikipedia-entry-blockquote-title-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 8
 
 Template fragment for rendering Wikipedia entry content with blockquote but no title.
 

@@ -1,9 +1,9 @@
 
 # link-tooltip.hs
 
-**Path:** `build/link-tooltip.hs` | **Language:** Haskell | **Lines:** ~47
+**Path:** `build/old/link-tooltip.hs` | **Language:** Haskell | **Lines:** 46
 
-> Batch tool that extracts citation metadata from HTML link tooltips and updates the annotation database
+> Archived batch tool that extracts citation metadata from HTML link tooltips and updates the annotation database
 
 ---
 
@@ -181,7 +181,7 @@ runghc build/link-tooltip.hs path/to/file.md
 ## See Also
 
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Annotation database manager
-- [link-titler.hs](/backend/link-titler-hs) - Related tool that adds titles to links (reverse direction)
+- [linkTitler](/backend/link-titler-hs) - Related tool that adds titles to links (reverse direction)
 - [Annotation.hs](/backend/annotation-hs) - URL-to-scraper dispatcher (re-exports tooltipToMetadata)
 - [LinkID.hs](/backend/link-id-hs) - Citation ID generation for metadata entries
 - [link-prioritize.hs](/backend/link-prioritize-hs) - Identifies links lacking annotations

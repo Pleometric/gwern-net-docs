@@ -1,17 +1,17 @@
 
 # LinkAuto.hs
 
-**Path:** `build/LinkAuto.hs` | **Language:** Haskell | **Lines:** ~261
+**Path:** `build/old/LinkAuto.hs` | **Language:** Haskell | **Lines:** 1311
 
-> Automatic hyperlink insertion for predefined terms, phrases, and citations
+> Archived automatic hyperlink insertion for predefined terms, phrases, and citations
 
-**Config:** `build/Config/LinkAuto.hs` | **Lines:** ~1,041
+**Status:** archived under `build/old/`; no active `build/LinkAuto.hs` or `build/Config/LinkAuto.hs` remains in the current source tree.
 
 ---
 
 ## Overview
 
-LinkAuto transforms a Pandoc document by searching for predefined regex patterns (terms, names, concepts, citations) and converting the first occurrence of each match into a hyperlink. This automates the tedious work of manually linking common terms like "BERT", "GPT-3", or "reinforcement learning" throughout the site, particularly in auto-generated content like abstracts and annotations.
+LinkAuto formerly transformed a Pandoc document by searching for predefined regex patterns (terms, names, concepts, citations) and converting the first occurrence of each match into a hyperlink. It is now archived under `build/old/` and is not part of the active build.
 
 The system is designed for correctness over greed: regexes are sorted longest-first to prefer specific matches (e.g., "BigGAN" before "GAN"), delimited with word boundaries to avoid substring matches (e.g., "GAN" shouldn't match inside "StyleGAN"), and only the **first** occurrence of each term gets linked. Subsequent occurrences receive a `link-auto-skipped` class for debugging but render as plain text.
 

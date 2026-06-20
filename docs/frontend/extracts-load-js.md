@@ -1,7 +1,7 @@
 
 # extracts-load.js
 
-**Path:** `js/extracts-load.js` | **Language:** JavaScript | **Lines:** ~47
+**Path:** `js/extracts-load.js` | **Language:** JavaScript | **Lines:** 49
 
 > Bootstrap module that configures and initializes the extracts/popup system
 
@@ -12,7 +12,7 @@
 `extracts-load.js` is the final module in the extracts system's load sequence. Its sole purpose is to configure the extracts system and trigger initialization. This file must be loaded **after** all other `extracts*.js` files, as documented in its opening comment.
 
 The module performs three critical operations:
-1. Sets up `Extracts.config` with CSS selectors that define where and how popups/popins can appear
+1. Sets up `Extracts.config` with CSS selectors that define where and how popups/popovers can appear
 2. Fires the `Extracts.didLoad` event to notify other systems
 3. Calls `Extracts.setup()` to begin the initialization process
 
@@ -27,15 +27,15 @@ The entire module centers on the `Extracts.config` object, which contains five k
 ### contentContainersSelector
 
 ```javascript
-contentContainersSelector: ".markdownBody, #TOC, #sidebar"
+contentContainersSelector: ".markdownBody, #TOC, #navbar"
 ```
 
-Defines the containers within which the extracts system will search for eligible links. Only links inside these containers will be processed for popups/popins.
+Defines the containers within which the extracts system will search for eligible links. Only links inside these containers will be processed for popups/popovers.
 
 **Containers:**
 - `.markdownBody` - The main article content
 - `#TOC` - Table of contents
-- `#sidebar` - Sidebar navigation
+- `#navbar` - Sidebar navigation
 
 ### excludedContainerElementsSelector
 
@@ -51,7 +51,7 @@ Links within these elements will be excluded from extracts processing, even if t
 targetElementsSelector: "a[href]"
 ```
 
-The base selector for potential targets. All anchor elements with `href` attributes are candidates for popup/popin treatment.
+The base selector for potential targets. All anchor elements with `href` attributes are candidates for popup/popover treatment.
 
 ### excludedElementsSelector
 
@@ -78,7 +78,7 @@ Links matching any of these selectors are explicitly excluded from processing:
 hooklessLinksContainersSelector: [
     "body.page-index #markdownBody",
     "div#new-popular-notable",
-    "#sidebar",
+    "#navbar",
     ".TOC",
     "#floating-header",
     "#page-toolbar",
@@ -115,8 +115,8 @@ Extracts.setup();
 ```
 
 Calls the main setup function defined in [extracts-js](extracts-js). This function:
-- Determines whether to use popups (desktop) or popins (mobile)
-- Waits for the appropriate provider (Popups/Popins) to load
+- Determines whether to use popups (desktop) or popovers (mobile)
+- Waits for the appropriate provider (Popups/Popovers) to load
 - Processes all links in content containers
 - Sets up event handlers for dynamic content injection
 
@@ -129,7 +129,7 @@ This module **must** be loaded last in the extracts sequence. The build system e
 ```php
 $js = [
     'popups.js',           // Popup windowing system
-    'popins.js',           // Popin (mobile) system
+    'popovers.js',           // Popover (mobile) system
     'annotations.js',      // Annotation data access
     'content.js',          // Content type system
     'transclude.js',       // Transclusion engine
@@ -243,7 +243,7 @@ The `Extracts.didLoad` event follows the notification center pattern used throug
 **Likely causes:**
 1. Link is in an excluded container (headings, etc.)
 2. Link has `.extract-not` class
-3. Link is not in a content container (`.markdownBody`, `#TOC`, `#sidebar`)
+3. Link is not in a content container (`.markdownBody`, `#TOC`, `#navbar`)
 4. Another module disabled extracts before setup
 
 **Debug:** Check `Extracts.config` selectors and inspect the link's DOM position
@@ -263,7 +263,7 @@ The `Extracts.didLoad` event follows the notification center pattern used throug
 - [extracts.js](/frontend/extracts-js) - Main extracts system that this module initializes
 - [extracts-annotations.js](/frontend/extracts-annotations-js) - Annotation extract type definitions
 - [extracts-content.js](/frontend/extracts-content-js) - Content extract type definitions
-- [extracts-options.js](/frontend/extracts-options-js) - User preference UI for popups/popins
+- [extracts-options.js](/frontend/extracts-options-js) - User preference UI for popups/popovers
 - [popups.js](/frontend/popups-js) - Desktop popup windowing system
-- [popins.js](/frontend/popins-js) - Mobile popin system
+- [popovers.js](/frontend/popovers-js) - Mobile popover system
 - [initial.js](/frontend/initial-js) - GW namespace providing setup infrastructure

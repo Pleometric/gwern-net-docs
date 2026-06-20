@@ -1,8 +1,8 @@
 # google-cse.html
 
-**Path:** `google-cse.html` | **Language:** HTML | **Lines:** ~38
+**Path:** `js/old/google-cse.html` | **Language:** HTML | **Lines:** 38
 
-Google Custom Search Engine integration page for gwern.net.
+Archived Google Custom Search Engine integration page for gwern.net.
 
 ## Overview
 

@@ -1,7 +1,7 @@
 
-# link-titler.hs
+# linkTitler
 
-**Path:** `build/link-titler.hs` | **Language:** Haskell | **Lines:** ~128
+**Path:** `build/app/linkTitler.hs` | **Language:** Haskell | **Lines:** 127
 
 > Automatically add tooltip titles to bare Markdown links using the metadata database
 
@@ -9,7 +9,7 @@
 
 ## Overview
 
-link-titler.hs is a utility script that enriches Markdown files by adding tooltip titles to links that lack them. When writing Markdown, authors often include bare URLs like `[text](url)` without specifying a title attribute. This script looks up each URL in the link metadata database and generates a standardized citation tooltip in the form `"'Title', Author et al 2024"`.
+linkTitler is a utility script that enriches Markdown files by adding tooltip titles to links that lack them. When writing Markdown, authors often include bare URLs like `[text](url)` without specifying a title attribute. This script looks up each URL in the link metadata database and generates a standardized citation tooltip in the form `"'Title', Author et al 2024"`.
 
 The script serves two purposes: making Markdown source files more readable during authoring (since the live site would add these tooltips at compile time anyway, but you can't see them while writing), and improving full-text search by embedding author/title/year information directly in the source. It operates on both standalone Markdown files and the HTML abstracts stored in annotation metadata.
 
@@ -150,7 +150,7 @@ No explicit configuration. Behavior is controlled by:
 
 Typically run from cron or manually during authoring:
 ```bash
-runghc build/link-titler.hs path/to/file.md [more files...]
+linkTitler path/to/file.md [more files...]
 ```
 
 ---

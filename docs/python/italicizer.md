@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # italicizer.py
 
-**Path:** `build/italicizer.py` | **Language:** Python | **Lines:** ~1294
+**Path:** `build/italicizer.py` | **Language:** Python | **Lines:** 1547
 
 LLM-based script to add missing italics formatting to text using semantic understanding of English writing conventions.
 

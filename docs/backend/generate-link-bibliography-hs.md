@@ -1,7 +1,7 @@
 
 # generateLinkBibliography.hs
 
-**Path:** `build/generateLinkBibliography.hs` | **Language:** Haskell | **Lines:** ~177
+**Path:** `build/app/generateLinkBibliography.hs` | **Language:** Haskell | **Lines:** 176
 
 > Generates per-page "forward citation" bibliographies listing all outbound links with their annotations
 

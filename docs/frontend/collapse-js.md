@@ -1,7 +1,7 @@
 
 # collapse.js
 
-**Path:** `js/collapse.js` | **Language:** JavaScript | **Lines:** ~1,150
+**Path:** `js/collapse.js` | **Language:** JavaScript | **Lines:** 1248
 
 > Collapsible content sections with disclosure buttons and auto-expansion
 

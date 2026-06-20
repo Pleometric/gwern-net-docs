@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # substack-check.sh
 
-**Path:** `build/substack-check.sh` | **Language:** Bash | **Lines:** ~171
+**Path:** `build/old/substack-check.sh` | **Language:** Bash | **Lines:** 171
 
 Filters URL lists to domains that are hosted on Substack, including custom domains.
 
@@ -92,4 +92,3 @@ Write only URLs whose extracted domain was marked as Substack-hosted.
 - [sync.sh](/backend/sync-sh) - Broader build/deploy workflow
 - [link-archive](/shell/link-archive) - URL processing and archival pipeline
 - [upload](/shell/upload) - Asset pipeline script with external tool orchestration
-

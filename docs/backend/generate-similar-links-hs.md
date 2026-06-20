@@ -1,7 +1,7 @@
 
 # generateSimilarLinks.hs
 
-**Path:** `build/generateSimilarLinks.hs` | **Language:** Haskell | **Lines:** ~106
+**Path:** `build/app/generateSimilarLinks.hs` | **Language:** Haskell | **Lines:** 186
 
 > CLI tool for generating embedding-based "similar links" recommendations as HTML fragments
 
@@ -11,9 +11,9 @@
 
 `generateSimilarLinks.hs` is the command-line entry point for gwern.net's embedding-based recommendation system. It generates "See also" HTML fragments containing similar articles based on semantic similarity of OpenAI embeddings.
 
-The tool orchestrates the complete pipeline: reading existing embeddings and metadata, identifying pages that need embeddings, calling the OpenAI API to generate new embeddings, building an RP-tree spatial index for fast nearest-neighbor search, computing similarity rankings, reordering results for coherence, and writing out HTML fragments to `metadata/annotation/similar/`.
+The tool orchestrates the complete pipeline: reading existing embeddings and metadata, identifying pages that need embeddings, calling the OpenAI API to generate new embeddings, building a normalized `EmbeddingIndex`, computing exact cosine-distance rankings, reordering results for coherence, and writing out HTML fragments to `metadata/annotation/similar/`.
 
-The system is designed for incremental updates—it only embeds **missing** pages, supports watch-mode for immediate updates during annotation workflows, and can operate in several modes: full rebuild, embedding-only, or update-missing-only. This makes it practical for a large corpus (thousands of documents) without re-embedding everything on each run.
+The system is designed for incremental updates: it embeds **missing** pages, can update missing similarity files, can rewrite all similarity files, or can stop after embedding only. This makes it practical for a large corpus without re-embedding everything on each run.
 
 ---
 
@@ -22,23 +22,28 @@ The system is designed for incremental updates—it only embeds **missing** page
 ### Basic Invocation
 
 ```bash
-# Full pipeline: embed missing items, compute all similarities, write HTML
-runghc -istatic/build/ ./static/build/generateSimilarLinks.hs
+# Default: embed missing items and fill missing/newly affected similarity files
+generateSimilarLinks
 
 # Embed new items only (no similarity computation)
-runghc -istatic/build/ ./static/build/generateSimilarLinks.hs --only-embed
+generateSimilarLinks --only-embed
 
 # Update only items missing similarity files (faster than full rebuild)
-runghc -istatic/build/ ./static/build/generateSimilarLinks.hs --update-only-missing-embeddings
+generateSimilarLinks --update-only-missing-embeddings
+
+# Rewrite all similarity files
+generateSimilarLinks --rewrite-all
 ```
 
 ### Command-Line Flags
 
 - **`--only-embed`**: Generate embeddings for new items, save to database, then exit. Does not compute similarities or write HTML fragments. Used for incremental embedding during annotation work.
 
-- **`--update-only-missing-embeddings`**: Embed new items (if any), then compute similarities only for URLs missing HTML fragments. Skips full rebuild of all existing similarity files.
+- **`--update-only-missing-embeddings`**: Alias for the default missing-only mode.
 
-- **(no arguments)**: Full rebuild—embed missing items, compute similarities for all annotated URLs, write all HTML fragments.
+- **`--rewrite-all` / `--all`**: Embed missing items, then rewrite all annotated URLs that have embeddings.
+
+- **(no arguments)**: Missing-only mode: embed missing items, compute similarities for newly embedded items and URLs missing similarity fragments, then expire reciprocal hits affected by new embeddings.
 
 ### Watch Mode Example
 
@@ -50,7 +55,7 @@ The tool supports an `inotifywait`-based daemon for automatic embedding:
   'cd ~/wiki/; while true; do \
      inotifywait ~/wiki/metadata/*.gtx -e attrib && \
      sleep 10s && \
-     runghc -istatic/build/ ./static/build/generateSimilarLinks.hs --only-embed; \
+     generateSimilarLinks --only-embed; \
    done'
 ```
 
@@ -66,8 +71,8 @@ This watches annotation database files (`.gtx`) and immediately embeds new annot
 2. **Identify missing embeddings**: Compare metadata URLs with embedding database and list missing entries (no date-based ordering)
 3. **Generate embeddings**: Call OpenAI API for missing items (batch limit: 2000 at once)
 4. **Prune stale embeddings**: Remove embeddings for URLs no longer in metadata
-5. **Build RP-tree forest**: Spatial index for fast k-nearest-neighbor search
-6. **Compute similarities**: For each URL, find N nearest neighbors via tree search
+5. **Build EmbeddingIndex**: Normalized in-memory vector index
+6. **Compute similarities**: For each selected URL, find nearest neighbors by exact cosine-distance scan
 7. **Reorder results**: Sort matches by pairwise distance for internal coherence
 8. **Write HTML fragments**: Generate `metadata/annotation/similar/URL.html` files
 9. **Expire reciprocal matches**: Delete similarity files for newly-matched items to trigger rebuild
@@ -80,26 +85,25 @@ type Embedding = (String, Integer, String, String, [Double])
 -- (url/path, ModifiedJulianDay age, embedded text, model id, vector)
 ```
 
-**Forest**: RP-tree spatial index built from embeddings for fast approximate nearest-neighbor search.
+**EmbeddingIndex**: In-memory index of normalized rows plus a path lookup map.
 
 **Databases loaded**:
 - `md :: Metadata` — annotation database (titles, abstracts, dates)
 - `bdb :: Backlinks` — bidirectional link index
 - `edb :: Embeddings` — OpenAI embedding vectors
-- `sortDB :: ListSortedMagic` — cached sorted-by-similarity lists
 
 ### Processing Phases
 
 **Phase 1: Embedding**
 - Filter items without abstracts (can't embed empty content)
 - Embed entries missing from the embeddings DB (no modification-time prioritization)
-- Batch at most 2000 embeddings per run (API cost control)
+- Batch at most 500 embeddings per run (API cost control)
 - Use `embed` from `GenerateSimilar` to create embeddings (includes backlinks context)
 
 **Phase 2: Similarity Computation**
-- Build RP-tree forest via `embeddings2Forest`
-- For each URL, call `findN` to get top N nearest neighbors
-- Re-sort matches with `sortSimilars` for pairwise coherence (not just distance to target)
+- Build an `EmbeddingIndex` via `embeddings2Index`
+- For each selected URL, call `lookupPathK` through the CLI's `similarMatches` helper
+- Re-sort matches with `seriateGreedy` for pairwise coherence
 - Filter out items already linked in abstract or body
 
 **Phase 3: HTML Generation**
@@ -121,12 +125,12 @@ The tool uses `missingEmbeddings` to identify annotation URLs not yet embedded, 
 ### Batching and Parallelization
 
 ```haskell
-maxEmbedAtOnce = 2000  -- API cost control
+maxEmbedAtOnce = 500  -- API cost control
 let mdlMissingChunks = chunksOf 10 mdlMissing
 mapM_ (mapM_ (...)) mdlMissingChunks
 ```
 
-Processing happens in chunks of 10 for progress visibility. Full rewrites use `Control.Monad.Parallel.mapM_` for parallel HTML generation.
+The current CLI runs selected writes sequentially after building a shared index. `maxEmbedAtOnce` bounds how many missing embeddings are generated in one run.
 
 ### Reciprocal Update Triggering
 
@@ -138,7 +142,7 @@ when (f `elem` todoLinks) $ expireMatches (snd nmatchesSorted)
 
 ### Reordering for Coherence
 
-Raw nearest-neighbor results are reordered with `sortSimilars`, which minimizes pairwise distances among the result set. This produces more internally coherent recommendation lists—items that are not only similar to the target, but also similar to each other.
+Raw nearest-neighbor results are reordered with `seriateGreedy`, which greedily minimizes pairwise distances among the result set. This produces more internally coherent recommendation lists: items that are not only similar to the target, but also similar to each other.
 
 ### Stale Embedding Cleanup
 
@@ -151,14 +155,13 @@ Raw nearest-neighbor results are reordered with `sortSimilars`, which minimizes 
 Via `Config.GenerateSimilar`:
 
 - **`bestNEmbeddings`**: Number of similar items to find (default ~10-20)
-- **`iterationLimit`**: Max k-NN search iterations before giving up
 - **`maxDistance`**: Maximum embedding distance threshold
 - **`minimumSuggestions`**: Don't write HTML if fewer matches found
 - **`blackList`**: URLs to exclude from recommendations
 - **`embeddingsPath`**: Path to serialized embeddings database
 
 Via `maxEmbedAtOnce` constant:
-- Limits batch size to 2000 embeddings per run (API cost control)
+- Limits batch size to 500 embeddings per run (API cost control)
 
 ---
 
@@ -186,9 +189,9 @@ Via `maxEmbedAtOnce` constant:
 All core functionality from **[generate-similar-hs](generate-similar-hs)**:
 - `embed`: Generate OpenAI embeddings with backlinks context
 - `readEmbeddings` / `writeEmbeddings`: Binary serialization
-- `embeddings2Forest`: Build RP-tree spatial index
-- `findN`: k-NN search with iteration-based expansion
-- `sortSimilars`: Pairwise distance minimization reordering
+- `embeddings2Index`: Build normalized in-memory vector index
+- `lookupPathK`: Exact k-nearest lookup by path
+- `seriateGreedy`: Pairwise distance minimization reordering
 - `writeOutMatch`: HTML fragment generation
 - `pruneEmbeddings`: Remove stale entries
 - `expireMatches`: Delete HTML to force rebuild
@@ -207,7 +210,7 @@ Generated HTML fragments are transcluded by the annotation system when popups/po
 
 ### OpenAI API Errors
 
-If embeddings fail (rate limit, network error, API key), the tool will error out. Embeddings are batched at 2000/run to avoid hitting rate limits too hard. Retry by re-running—already-embedded items are skipped.
+If embeddings fail (rate limit, network error, API key), the tool will error out. Embeddings are batched at 500/run to avoid hitting rate limits too hard. Retry by re-running—already-embedded items are skipped.
 
 ### Insufficient Matches
 

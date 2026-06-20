@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # annotation-blockquote-outside.tmpl
 
-**Path:** `template/include/annotation-blockquote-outside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** ~22
+**Path:** `template/include/annotation-blockquote-outside.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 23
 
 Template for rendering annotations with a blockquote element wrapping the entire annotation.
 

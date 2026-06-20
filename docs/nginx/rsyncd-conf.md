@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # rsyncd.conf
 
-**Path:** `nginx/rsyncd.conf` | **Language:** Config
+**Path:** `nginx/rsyncd.conf` | **Language:** Config | **Lines:** 33
 
 Rsync daemon configuration providing read-only public access to large dataset mirrors hosted by gwern.net.
 

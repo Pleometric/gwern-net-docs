@@ -1,7 +1,7 @@
 
 # GenerateSimilar.hs
 
-**Path:** `build/GenerateSimilar.hs` | **Language:** Haskell | **Lines:** ~680
+**Path:** `build/GenerateSimilar.hs` | **Language:** Haskell | **Lines:** 1610
 
 > Embedding-based semantic similarity system for generating "Similar Links" recommendations
 
@@ -11,7 +11,7 @@
 
 GenerateSimilar implements gwern.net's "Similar Links" feature, which uses OpenAI embeddings to find semantically related pages. When you see the "Similar Links" tab on an annotation popup, this module generated those recommendations.
 
-The system works in three phases: (1) document formatting—converting metadata items into embedding-friendly plaintext, (2) embedding generation—calling the OpenAI API via a shell script, and (3) nearest-neighbor search—using an RP-tree (Random Projection tree) data structure for fast approximate lookups. The embeddings are stored in a binary cache (`metadata/embeddings.bin`) and rebuilt incrementally as new annotations are added.
+The system works in three phases: (1) document formatting, converting metadata items into embedding-friendly plaintext; (2) embedding generation through the OpenAI API wrapper; and (3) exact nearest-neighbor lookup over normalized vectors. The embeddings are stored in a binary cache (`metadata/embeddings.bin`) and rebuilt incrementally as new annotations are added.
 
 A secondary capability is "sort by magic"—using embeddings to order lists by semantic similarity rather than date or alphabetically. This creates visually coherent clusters when displaying tag pages, making related items appear adjacent.
 
@@ -23,8 +23,8 @@ A secondary capability is "sort by magic"—using embeddings to order lists by s
 
 Generate recommendations HTML for arbitrary HTML text (used during annotation editing).
 
-**Called by:** `preprocess-markdown.hs`
-**Calls:** `readLinkMetadata`, `readEmbeddings`, `embed`, `embeddings2Forest`, `findN`, `generateMatches`
+**Called by:** `preprocessMarkdown.hs`
+**Calls:** `readEmbeddings`, `embed`, `embeddings2Index`, `lookupEmbeddingK`, `seriateGreedy`, `generateMatches`
 
 ### `readEmbeddings :: IO Embeddings`
 
@@ -32,10 +32,10 @@ Load the embedding database from `metadata/embeddings.bin`.
 
 ```haskell
 type Embedding = (String,    -- URL/path
-                  Integer,   -- Creation date (ModifiedJulianDay)
+                  Integer,   -- ModifiedJulianDay / embedding age
                   String,    -- Formatted document text
                   String,    -- Model version ID
-                  [Double])  -- Embedding vector (512 dimensions)
+                  [Double])  -- Embedding vector
 type Embeddings = [Embedding]
 ```
 
@@ -104,40 +104,35 @@ oaAPIEmbed (shell out to embed.sh → OpenAI API)
     ↓
 Embedding (URL, date, text, model, [Double])
     ↓
-embeddings2Forest (build RP-tree index)
+embeddings2Index (normalize vectors into an in-memory index)
     ↓
-findN / findNearest (k-NN search)
+lookupPathK / lookupEmbeddingK (exact cosine-distance scan)
     ↓
 generateMatches (filter, format as Pandoc → HTML)
 ```
 
 ### Key Data Structures
 
-**Embedding tuple:** `(URL, CreationDate, FormattedText, ModelID, Vector)`
+**Embedding tuple:** `(URL, ModifiedJulianDay, FormattedText, ModelID, Vector)`
 - URL: Path like `/doc/ai/gpt.pdf` or full URL
 - CreationDate: Julian day integer for age-based expiry
 - FormattedText: The plaintext sent to OpenAI (debugging)
 - ModelID: e.g., `text-embedding-3-large`
-- Vector: 512 Double values (truncated from 3072)
+- Vector: Double-valued embedding vector
 
-**RPForest:** Random Projection forest for approximate nearest neighbor search
+**EmbeddingIndex:** Normalized in-memory search index
 ```haskell
-type Forest = RPForest Double (V.Vector (Embed DVector Double String))
+data EmbeddingIndex = EmbeddingIndex
+  { eiRows   :: Vector EmbeddingRow
+  , eiByPath :: Map FilePath Int
+  }
 ```
 
-**ListSortedMagic:** Cache mapping sets of URLs to their similarity-sorted order
-```haskell
-type ListSortedMagic = M.Map (S.Set FilePath) [FilePath]
-```
+### Search Semantics
 
-### RP-Tree Configuration
+The current implementation performs exact cosine-distance search. Vectors are normalized once when converted into `EmbeddingIndex`, and lookup retains only the best `k` candidates during the scan rather than allocating and sorting every scored candidate.
 
-The forest is built with tuned hyperparameters:
-- `minLeafSize = 60`
-- `nTrees = 2`
-- `projectionVectorDimension = 10`
-
-These were chosen via hyperparameter sweep (commented code shows grid search results achieving ~85% recall).
+Distances are sorted ascending: `0` means identical direction, `1` means orthogonal, and `2` means opposite direction. Embeddings from different model IDs are not compared.
 
 ---
 
@@ -201,7 +196,6 @@ From `Config/GenerateSimilar.hs`:
 | `maxDistance` | 0.95 | L2 distance threshold for relevance |
 | `minDistance` | 0.01 | Avoids self-matches |
 | `embeddingsPath` | `metadata/embeddings.bin` | Cache location |
-| `randSeed` | 23 | Deterministic RP-tree construction |
 | `blackList` | `/index`, `/changelog`, etc. | Exclude pathological matches |
 
 ---
@@ -218,9 +212,9 @@ curl "https://api.openai.com/v1/engines/$ENGINE/embeddings" \
     -d "{\"input\": \"$TEXT\", \"dimensions\": $ENGINE_DIMENSION}"
 ```
 
-**rp-tree library:** `Data.RPTree` for approximate nearest neighbor
-- Uses `metricL2` (L2-normalized Euclidean ≈ cosine similarity)
-- `knn` function for k-nearest lookup
+**Vector index:** normalized in-memory `EmbeddingIndex`
+- Stores normalized embedding rows and a path lookup map
+- Uses exact cosine-distance scans with bounded top-k collection
 
 ### File Outputs
 

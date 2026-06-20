@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # color-scheme-convert.php
 
-**Path:** `build/color-scheme-convert.php` | **Language:** PHP | **Lines:** ~649
+**Path:** `build/color-scheme-convert.php` | **Language:** PHP | **Lines:** 650
 
 Transforms CSS color values through various color spaces to generate dark mode or alternate color scheme stylesheets.
 

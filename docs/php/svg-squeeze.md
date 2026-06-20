@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # svg_squeeze.php
 
-**Path:** `build/svg_squeeze.php` | **Language:** PHP | **Lines:** ~64
+**Path:** `build/svg_squeeze.php` | **Language:** PHP | **Lines:** 65
 
 Reduces SVG file size by intelligently rounding path coordinate precision based on scale.
 

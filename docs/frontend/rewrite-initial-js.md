@@ -1,7 +1,7 @@
 
 # rewrite-initial.js
 
-**Path:** `js/rewrite-initial.js` | **Language:** JavaScript | **Lines:** ~537
+**Path:** `js/rewrite-initial.js` | **Language:** JavaScript | **Lines:** 554
 
 > Fast non-block-layout DOM processors run before full rewrite.js system
 

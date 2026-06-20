@@ -1,17 +1,17 @@
 
 # extracts-options.js
 
-**Path:** `js/extracts-options.js` | **Language:** JavaScript | **Lines:** ~275
+**Path:** `js/extracts-options.js` | **Language:** JavaScript | **Lines:** 274
 
-> User preference UI and persistence for enabling/disabling the popup/popin system.
+> User preference UI and persistence for enabling/disabling the popup/popover system.
 
 ---
 
 ## Overview
 
-extracts-options.js handles user preferences for gwern.net's popup/popin extract system. It provides the mode selector widget (the "On/Off" toggle in the page toolbar), persists user choices to localStorage, and orchestrates the enable/disable lifecycle by calling into the main extracts.js module.
+extracts-options.js handles user preferences for gwern.net's popup/popover extract system. It provides the mode selector widget (the "On/Off" toggle in the page toolbar), persists user choices to localStorage, and orchestrates the enable/disable lifecycle by calling into the main extracts.js module.
 
-The module extends the `Extracts` object (defined in extracts.js) with option-related functionality. It supports two modes—"on" (popups/popins enabled) and "off" (disabled)—and automatically adapts UI labels based on whether the system is running in popup mode (desktop) or popin mode (mobile). The mode selector can appear in the toolbar as a full widget or inline as a compact button pair.
+The module extends the `Extracts` object (defined in extracts.js) with option-related functionality. It supports two modes—"on" (popups/popovers enabled) and "off" (disabled)—and automatically adapts UI labels based on whether the system is running in popup mode (desktop) or popover mode (mobile). The mode selector can appear in the toolbar as a full widget or inline as a compact button pair.
 
 A notable UX feature is the "disable from popup" flow: clicking the eye-slash button inside a popup dismisses all popups, expands the toolbar, flashes the mode selector widget, then directly calls `Extracts.disableExtractPopFrames()` after a delay. This teaches users where the setting lives while respecting their intent to disable.
 
@@ -90,7 +90,7 @@ modeOptions: [
 ]
 ```
 
-Each option is a tuple: `[name, shortLabel, unselectedLabel, selectedLabel, description, iconName]`. Labels adapt to popup vs popin mode via string replacement of "-frame" with the current suffix.
+Each option is a tuple: `[name, shortLabel, unselectedLabel, selectedLabel, description, iconName]`. Labels adapt to popup vs popover mode via string replacement of "-frame" with the current suffix.
 
 ### State Flow
 
@@ -120,11 +120,11 @@ The module dynamically selects the correct localStorage key based on current mod
 extractPopFramesDisabledLocalStorageItemKey: () => {
     return (Extracts.popFrameProvider == Popups
             ? Extracts.popupsDisabledLocalStorageItemKey    // "extract-popups-disabled"
-            : Extracts.popinsDisabledLocalStorageItemKey); // "extract-popins-disabled"
+            : Extracts.popoversDisabledLocalStorageItemKey); // "extract-popovers-disabled"
 }
 ```
 
-This means popup and popin preferences are stored separately—disabling popups on desktop doesn't affect popin behavior on mobile.
+This means popup and popover preferences are stored separately—disabling popups on desktop doesn't affect popover behavior on mobile.
 
 ---
 
@@ -195,9 +195,9 @@ This teaches users where the setting lives while providing smooth visual feedbac
 | Key | Module | Effect |
 |-----|--------|--------|
 | `extract-popups-disabled` | extracts.js | Disables popups when "true" |
-| `extract-popins-disabled` | extracts.js | Disables popins when "true" |
+| `extract-popovers-disabled` | extracts.js | Disables popovers when "true" |
 
-Note: Keys are defined in extracts.js as `popupsDisabledLocalStorageItemKey` and `popinsDisabledLocalStorageItemKey`. This module references them dynamically.
+Note: Keys are defined in extracts.js as `popupsDisabledLocalStorageItemKey` and `popoversDisabledLocalStorageItemKey`. This module references them dynamically.
 
 ---
 
@@ -219,7 +219,7 @@ Note: Keys are defined in extracts.js as `popupsDisabledLocalStorageItemKey` and
 
 - **GW.pageToolbar** — Toolbar widget management (`addWidget`, `flashWidget`, `toggleCollapseState`, `expandToolbarFlashWidgetDoThing`)
 - **GW.svg()** — Icon rendering
-- **Extracts.popFrameProvider** — Determines if we're in popup or popin mode
+- **Extracts.popFrameProvider** — Determines if we're in popup or popover mode
 - **Extracts.setup() / cleanup()** — Lifecycle management (from extracts.js)
 - **doIfAllowed()** — Rate-limiting utility (likely from GW namespace)
 
@@ -234,7 +234,7 @@ Note: Keys are defined in extracts.js as `popupsDisabledLocalStorageItemKey` and
 
 - [extracts.js](/frontend/extracts-js) - Main extract system that defines setup/cleanup lifecycle
 - [popups.js](/frontend/popups-js) - Desktop popup display system
-- [popins.js](/frontend/popins-js) - Mobile popin display system
+- [popovers.js](/frontend/popovers-js) - Mobile popover display system
 - [extracts-load.js](/frontend/extracts-load-js) - Bootstrap module that triggers setup
 - [initial.js](/frontend/initial-js) - GW namespace and notification center
 - [dark-mode.js](/frontend/dark-mode-js) - Similar options pattern for theme preferences

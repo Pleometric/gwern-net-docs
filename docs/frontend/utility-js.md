@@ -1,7 +1,7 @@
 
 # utility.js
 
-**Path:** `js/utility.js` | **Language:** JavaScript | **Lines:** ~1,679
+**Path:** `js/utility.js` | **Language:** JavaScript | **Lines:** 1886
 
 > General-purpose utility functions used throughout the gwern.net frontend
 

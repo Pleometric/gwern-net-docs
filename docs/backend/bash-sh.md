@@ -1,7 +1,7 @@
 
 # bash.sh
 
-**Path:** `build/bash.sh` | **Language:** Bash | **Lines:** ~1,250
+**Path:** `build/bash.sh` | **Language:** Bash | **Lines:** 1999
 
 > Shell helper function library for gwern.net wiki operations
 

@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # build_head_includes.php
 
-**Path:** `build/build_head_includes.php` | **Language:** PHP | **Lines:** ~91
+**Path:** `build/build_head_includes.php` | **Language:** PHP | **Lines:** 91
 
 Generates an inlined HTML include file for the document `<head>` with critical CSS, external JS tags, and preload hints.
 

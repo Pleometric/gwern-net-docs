@@ -1,7 +1,7 @@
 
 # Config.Metadata.Format
 
-**Path:** `build/Config/Metadata/Format.hs` | **Language:** Haskell | **Lines:** ~1,936
+**Path:** `build/Config/Metadata/Format.hs` | **Language:** Haskell | **Lines:** 1941
 
 > Massive collection of HTML rewrite rules for cleaning and normalizing abstract text
 

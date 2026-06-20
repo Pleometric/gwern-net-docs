@@ -1,7 +1,7 @@
 
 # Columns.hs
 
-**Path:** `build/Columns.hs` | **Language:** Haskell | **Lines:** ~99
+**Path:** `build/Columns.hs` | **Language:** Haskell | **Lines:** 98
 
 > Detects "skinny tall" lists suitable for CSS multi-column rendering
 

@@ -1,7 +1,7 @@
 
 # Metadata/Format.hs
 
-**Path:** `build/Metadata/Format.hs` | **Language:** Haskell | **Lines:** ~141
+**Path:** `build/Metadata/Format.hs` | **Language:** Haskell | **Lines:** 140
 
 > String sanitization and HTML cleanup for annotation metadata
 

@@ -1,7 +1,7 @@
 
 # color.js
 
-**Path:** `js/color.js` | **Language:** JavaScript | **Lines:** ~557
+**Path:** `js/color.js` | **Language:** JavaScript | **Lines:** 557
 
 > Color space conversion and transformation utilities for image colorization
 

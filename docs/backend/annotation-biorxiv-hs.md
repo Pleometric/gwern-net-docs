@@ -1,7 +1,7 @@
 
 # Annotation.Biorxiv
 
-**Path:** `build/Annotation/Biorxiv.hs` | **Language:** Haskell | **Lines:** ~61
+**Path:** `build/Annotation/Biorxiv.hs` | **Language:** Haskell | **Lines:** 59
 
 > Scrapes metadata from bioRxiv and medRxiv preprint pages using Dublin Core meta tags
 
@@ -11,7 +11,7 @@
 
 This module extracts bibliographic metadata from bioRxiv and medRxiv preprint pages. Both preprint servers share the same codebase and embed Dublin Core metadata in HTML `<meta>` tags, which this module parses using TagSoup after fetching the page via curl.
 
-The scraper extracts title, authors, date, DOI, and abstract from the HTML. It handles several bioRxiv-specific quirks: broken quote encoding in abstracts (`'9s` → `'s`), and two different tag formats for abstracts (`citation_abstract` vs `DC.Description`). The extracted abstract is cleaned, auto-linked, and optionally split into paragraphs by the LLM-based paragraphizer.
+The scraper extracts title, authors, date, DOI, and abstract from the HTML. It handles several bioRxiv-specific quirks: broken quote encoding in abstracts (`'9s` -> `'s`), and two different tag formats for abstracts (`citation_abstract` vs `DC.Description`). The extracted abstract is cleaned and optionally split into paragraphs by the LLM-based paragraphizer.
 
 This module is one of several domain-specific scrapers under `Annotation/` that feed into the central `Annotation.linkDispatcher` routing system.
 
@@ -36,7 +36,6 @@ biorxiv md "https://www.biorxiv.org/content/10.1101/2020.04.03.024554.full"
 - `cleanAuthors` — author name normalization
 - `processDOI` — DOI cleanup
 - `cleanAbstractsHTML` — abstract HTML cleanup
-- `linkAutoHtml5String` — auto-link scientific terms
 - `processParagraphizer` — LLM-based paragraph splitting
 
 **Returns:**
@@ -130,7 +129,7 @@ No direct configuration. Behavior is controlled by:
 
 - **User-Agent:** Hardcoded to `gwern+biorxivscraping@gwern.net` for curl requests
 - **Abstract processing:** Delegated to `cleanAbstractsHTML` (config in `Config.Metadata.Format`)
-- **Auto-linking:** Delegated to `linkAutoHtml5String` (config in `Config.LinkAuto`)
+- **Abstract processing:** Delegated to `cleanAbstractsHTML` and `processParagraphizer`
 
 ---
 
@@ -146,7 +145,7 @@ None. Pure scraper with no global state or event system.
 - `LinkMetadataTypes` — `Failure`, `MetadataItem`, `Path`, `Metadata` types
 - `Metadata.Format` — `checkURL`, `cleanAbstractsHTML`, `processDOI`
 - `Metadata.Author` — `cleanAuthors`
-- `LinkAuto` — `linkAutoHtml5String`
+- `Metadata.Format` — `cleanAbstractsHTML`
 - `Paragraph` — `processParagraphizer`
 - `Utils` — `printRed`, `replace`
 

@@ -1,7 +1,7 @@
 
 # Annotation/PDF.hs
 
-**Path:** `build/Annotation/PDF.hs` | **Language:** Haskell | **Lines:** ~74
+**Path:** `build/Annotation/PDF.hs` | **Language:** Haskell | **Lines:** 72
 
 > Extracts metadata from local PDF files using exiftool and fetches abstracts from Crossref
 
@@ -30,7 +30,7 @@ Main entry point. Extracts metadata from a PDF file at the given path.
 **Returns:** `Right (path, metadataItem)` on success with extracted title, author, date, DOI, and abstract; `Left Permanent` only when Title/Author/Date/DOI are all empty (missing files `error`).
 
 **Called by:** `Annotation.linkDispatcherURL` (when path has `.pdf` extension)
-**Calls:** `exiftool` (via shell), `doi2Abstract`, `cleanAuthors`, `linkAutoHtml5String`, `pageNumberParse`
+**Calls:** `exiftool` (via shell), `doi2Abstract`, `cleanAuthors`, `cleanAbstractsHTML`, `pageNumberParse`
 
 ---
 
@@ -54,7 +54,7 @@ doi2Abstract md doi = if length doi < 7 then return Nothing
 **Returns:** `Just abstract` with cleaned, auto-linked HTML, or `Nothing` if DOI is too short, not found, or lacks an abstract.
 
 **Called by:** `pdf`
-**Calls:** `curl` (via shell), Crossref API, `processParagraphizer`, `linkAutoHtml5String`, `cleanAbstractsHTML`
+**Calls:** `curl` (via shell), Crossref API, `processParagraphizer`, `cleanAbstractsHTML`
 
 ---
 

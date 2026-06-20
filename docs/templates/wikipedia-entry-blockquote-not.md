@@ -4,7 +4,7 @@ sidebar_position: 14
 
 # wikipedia-entry-blockquote-not.tmpl
 
-**Path:** `template/include/wikipedia-entry-blockquote-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** ~6
+**Path:** `template/include/wikipedia-entry-blockquote-not.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 7
 
 Template fragment for rendering Wikipedia entry content without a blockquote wrapper.
 

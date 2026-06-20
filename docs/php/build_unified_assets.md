@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # build_unified_assets.php
 
-**Path:** `build/build_unified_assets.php` | **Language:** PHP | **Lines:** ~130
+**Path:** `build/build_unified_assets.php` | **Language:** PHP | **Lines:** 130
 
 Concatenates individual CSS and JS modules into unified bundles for production deployment.
 
@@ -64,7 +64,7 @@ This script runs early in the build process (typically invoked by `sync.sh`) and
 - `/js/reader-mode-initial.js`
 - `/js/asset-versions-GENERATED.js`
 - `/js/misc.js`
-- `/js/popups.js`, `/js/popins.js`
+- `/js/popups.js`, `/js/popovers.js`
 - `/js/annotations.js`
 - `/js/content.js`, `/js/transclude.js`
 - `/js/extracts.js`, `/js/extracts-annotations.js`, `/js/extracts-content.js`, `/js/extracts-options.js`, `/js/extracts-load.js`

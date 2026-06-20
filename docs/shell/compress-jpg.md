@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # compressJPG
 
-**Path:** `build/compressJPG` | **Language:** Bash | **Lines:** ~51
+**Path:** `build/compressJPG` | **Language:** Bash | **Lines:** 83
 
 JPEG compression helper that rewrites files only when savings exceed a threshold.
 

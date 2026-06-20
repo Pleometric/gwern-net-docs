@@ -1,7 +1,7 @@
 
 # Config.LinkID
 
-**Path:** `build/Config/LinkID.hs` | **Language:** Haskell | **Lines:** ~29
+**Path:** `build/Config/LinkID.hs` | **Language:** Haskell | **Lines:** 27
 
 > Configuration for citation ID generation overrides and affiliation anchor lists
 
@@ -150,5 +150,5 @@ The lists are compiled into the Hakyll build executable. Changes require rebuild
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Metadata database that uses affiliation detection
 - [Annotation.hs](/backend/annotation-hs) - Broader annotation system context
 - [hakyll.hs](/backend/hakyll-hs) - Build system that generates ID databases
-- [link-suggester.hs](/backend/link-suggester-hs) - Uses citation IDs for deduplication
-- [link-extractor.hs](/backend/link-extractor-hs) - Extracts URLs that receive IDs
+- [linkSuggester](/backend/link-suggester-hs) - Uses citation IDs for deduplication
+- [linkExtractor](/backend/link-extractor-hs) - Extracts URLs that receive IDs

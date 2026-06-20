@@ -1,7 +1,7 @@
 
 # extracts-content.js
 
-**Path:** `js/extracts-content.js` | **Language:** JavaScript | **Lines:** ~1,178
+**Path:** `js/extracts-content.js` | **Language:** JavaScript | **Lines:** 1304
 
 > Content type definitions and fill functions for the extract/popup system
 
@@ -9,7 +9,7 @@
 
 ## Overview
 
-This module defines the *content types* that the extract system can display. While `extracts.js` provides the pop-frame infrastructure (popups/popins), this file specifies *what* content appears for each kind of link. Each content type is a five-element array registered into `Extracts.targetTypeDefinitions`:
+This module defines the *content types* that the extract system can display. While `extracts.js` provides the pop-frame infrastructure (popups/popovers), this file specifies *what* content appears for each kind of link. Each content type is a five-element array registered into `Extracts.targetTypeDefinitions`:
 
 1. **Type name** (e.g., `"LOCAL_PAGE"`)
 2. **Predicate function name** (e.g., `"isLocalPageLink"`)
@@ -50,7 +50,7 @@ Each type is registered via `Extracts.targetTypeDefinitions.insertBefore(...)`:
 
 ### `Extracts.setUpContentLoadEventsWithin(container)`
 
-Sets up preloading for content-bearing links within `container`. On desktop (Popups), adds `mouseenter` listeners with a 25ms delay to preload content before popup spawn. On mobile (Popins), adds `click` listeners.
+Sets up preloading for content-bearing links within `container`. On desktop (Popups), adds `mouseenter` listeners with a 25ms delay to preload content before popup spawn. On mobile (Popovers), adds `click` listeners.
 
 **Called by:** `extracts.js` during setup
 **Calls:** `Content.load()`, `Content.cachedDataExists()`
@@ -94,14 +94,14 @@ For each type `FOO`, the following optional hooks can be defined:
 | Hook | When Called | Purpose |
 |------|-------------|---------|
 | `testTarget_FOO` | After predicate matches | Additional exclusion logic |
-| `preparePopFrame_FOO` | Before popup/popin spawns | Modify pop-frame, return `null` to cancel |
+| `preparePopFrame_FOO` | Before popup/popover spawns | Modify pop-frame, return `null` to cancel |
 | `preparePopup_FOO` | Before popup spawns | Popup-specific preparation |
-| `preparePopin_FOO` | Before popin spawns | Popin-specific preparation |
+| `preparePopover_FOO` | Before popover spawns | Popover-specific preparation |
 | `titleForPopFrame_FOO` | When setting title | Returns title HTML |
 | `updatePopFrame_FOO` | After content loads | Add classes, update title |
 | `rewritePopFrameContent_FOO` | After injection | DOM manipulations |
 | `rewritePopupContent_FOO` | After injection | Popup-specific rewrites |
-| `rewritePopinContent_FOO` | After injection | Popin-specific rewrites |
+| `rewritePopoverContent_FOO` | After injection | Popover-specific rewrites |
 
 ---
 
@@ -209,7 +209,7 @@ Several types compute their pop-frame classes dynamically:
 ### Events Listened
 
 - `GW.contentDidInject` — Triggers transclude sync in source content
-- `Popups.popupWillDespawn` / `Popins.popinWillDespawn` — Cleanup handlers
+- `Popups.popupWillDespawn` / `Popovers.popoverWillDespawn` — Cleanup handlers
 
 ### Events Fired
 
@@ -218,7 +218,7 @@ None directly; relies on events from `extracts.js` and `transclude.js`.
 ### Shared State
 
 - `Extracts.targetTypeDefinitions` — Registry of content types
-- `Extracts.popFrameProvider` — Either `Popups` or `Popins`
+- `Extracts.popFrameProvider` — Either `Popups` or `Popovers`
 - `Extracts.rootDocument` — Root document reference
 
 ---
@@ -230,4 +230,4 @@ None directly; relies on events from `extracts.js` and `transclude.js`.
 - [transclude.js](/frontend/transclude-js) - Content transclusion engine
 - [popups.js](/frontend/popups-js) - Popup windowing system
 - [extracts-annotations.js](/frontend/extracts-annotations-js) - Annotation content types
-- [popins.js](/frontend/popins-js) - Mobile popin display system
+- [popovers.js](/frontend/popovers-js) - Mobile popover display system

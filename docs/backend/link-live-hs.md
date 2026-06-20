@@ -1,7 +1,7 @@
 
 # LinkLive.hs
 
-**Path:** `build/LinkLive.hs` | **Language:** Haskell | **Lines:** ~156
+**Path:** `build/LinkLive.hs` | **Language:** Haskell | **Lines:** 155
 
 Determines which external URLs can be shown as live iframe previews based on domain whitelists.
 

@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # date-guesser.py
 
-**Path:** `build/date-guesser.py` | **Language:** Python | **Lines:** ~1182
+**Path:** `build/date-guesser.py` | **Language:** Python | **Lines:** 858
 
 Extracts publication dates in standardized YYYY[-MM[-DD]] format from natural language inputs, URLs, and structured metadata.
 

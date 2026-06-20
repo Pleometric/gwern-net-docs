@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # markdown-lint.sh
 
-**Path:** `build/markdown-lint.sh` | **Language:** Bash | **Lines:** ~134
+**Path:** `build/markdown-lint.sh` | **Language:** Bash | **Lines:** 134
 
 Comprehensive linter for Markdown files, checking for common errors, style violations, and metadata quality.
 
@@ -142,13 +142,13 @@ After Pandoc compilation, validates:
 - `elinks`: Text extraction from HTML
 - `markdown-length-checker.hs`: Custom Haskell line-length validator
 - `markdown-footnote-length.hs`: Custom Haskell footnote analyzer
-- `link-extractor.hs`: Custom Haskell link parser
+- `linkExtractor`: Custom Haskell link parser
 - `runghc`: Haskell interpreter for inline scripts
 
 ## See Also
 
 - [sync.sh](/backend/sync-sh) - Build process that runs linting
-- [preprocess-markdown.hs](/backend/preprocess-markdown-hs) - Markdown preprocessing pipeline
+- [preprocessMarkdown.hs](/backend/preprocess-markdown-hs) - Markdown preprocessing pipeline
 - [Typography.hs](/backend/typography-hs) - Pandoc AST transformations
 - [markdown-length-checker.hs](/backend/markdown-length-checker-hs) - Line length validator
 - [markdown-footnote-length.hs](/backend/markdown-footnote-length-hs) - Footnote size analyzer

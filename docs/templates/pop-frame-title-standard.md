@@ -4,13 +4,13 @@ sidebar_position: 5
 
 # pop-frame-title-standard.tmpl
 
-**Path:** `template/include/pop-frame-title-standard.tmpl` | **Language:** HTML5/Pandoc | **Lines:** ~5
+**Path:** `template/include/pop-frame-title-standard.tmpl` | **Language:** HTML5/Pandoc | **Lines:** 6
 
 Template for rendering the title bar of popup frames in the gwern.net popup system.
 
 ## Overview
 
-This template produces the title link element that appears in the header/title bar of popup windows (popups and popins). It's a minimal template that creates a single anchor element linking to the popup's source content, with appropriate accessibility attributes and target behavior.
+This template produces the title link element that appears in the header/title bar of popup windows (popups and popovers). It's a minimal template that creates a single anchor element linking to the popup's source content, with appropriate accessibility attributes and target behavior.
 
 The template is part of gwern.net's sophisticated popup windowing system, which displays link content in floating frames without navigating away from the current page. The popup frame title serves as both a label for the popup content and a clickable link that allows users to open the full source page in a new tab or window.
 
@@ -67,7 +67,7 @@ This provides clear information to users about what will happen when they click 
 This template is used by:
 
 1. **popups.js**: Constructs popup frame HTML including title bar
-2. **extracts.js**: Coordinates popup/popin rendering and determines title content
+2. **extracts.js**: Coordinates popup/popover rendering and determines title content
 3. **Content loaders**: Various content type handlers that populate `popFrameTitle` variable
 
 The popup system fills in the template variables based on:
@@ -88,8 +88,8 @@ The `popframe-title-link` class enables:
 ## See Also
 
 - [popups.js](/frontend/popups-js) - Popup windowing system that uses this template
-- [extracts.js](/frontend/extracts-js) - Popup/popin coordinator that populates title content
-- [popins.js](/frontend/popins-js) - Popin system that also uses this title template
+- [extracts.js](/frontend/extracts-js) - Popup/popover coordinator that populates title content
+- [popovers.js](/frontend/popovers-js) - Mobile popover system that also uses this title template
 - [annotation-blockquote-inside.tmpl](/templates/annotation-blockquote-inside) - Template for popup content with nested blockquote
 - [annotation-blockquote-outside.tmpl](/templates/annotation-blockquote-outside) - Template for popup content with outer blockquote
 - [Annotation.hs](/backend/annotation-hs) - Backend annotation processing that generates popup data

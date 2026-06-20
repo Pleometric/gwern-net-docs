@@ -1,7 +1,7 @@
 
 # Image.hs
 
-**Path:** `build/Image.hs` | **Language:** Haskell | **Lines:** ~303
+**Path:** `build/Image.hs` | **Language:** Haskell | **Lines:** 303
 
 > Image processing: dimensions, inversion detection for dark mode, and lazy loading setup
 

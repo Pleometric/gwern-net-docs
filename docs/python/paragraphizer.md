@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # paragraphizer.py
 
-**Path:** `build/paragraphizer.py` | **Language:** Python | **Lines:** ~791
+**Path:** `build/paragraphizer.py` | **Language:** Python | **Lines:** 796
 
 LLM-powered tool to split run-on research paper abstracts into multiple topical paragraphs with added hyperlinks.
 

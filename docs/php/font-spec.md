@@ -4,7 +4,7 @@ sidebar_position: 8
 
 # font_spec.php
 
-**Path:** `font/font_spec.php` | **Language:** PHP | **Lines:** ~168
+**Path:** `font/font_spec.php` | **Language:** PHP | **Lines:** 168
 
 Font specification file for generating CSS @font-face declarations.
 

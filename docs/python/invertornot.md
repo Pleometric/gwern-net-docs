@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # invertornot.py
 
-**Path:** `build/invertornot.py` | **Language:** Python | **Lines:** ~96
+**Path:** `build/invertornot.py` | **Language:** Python | **Lines:** 96
 
 Experimental GPT-4-Vision script for classifying images for dark-mode inversion. **Now obsoleted by InvertOrNot.com.**
 

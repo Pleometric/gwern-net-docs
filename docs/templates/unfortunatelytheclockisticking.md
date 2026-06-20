@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # unfortunatelytheclockisticking.html
 
-**Path:** `template/unfortunatelytheclockisticking.html` | **Language:** HTML | **Lines:** ~168
+**Path:** `template/unfortunatelytheclockisticking.html` | **Language:** HTML | **Lines:** 168
 
 Easter egg template featuring the "Birthday Cat" mortality reminder meme with elaborate image map.
 

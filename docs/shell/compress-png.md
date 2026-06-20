@@ -1,6 +1,6 @@
 # compressPNG
 
-**Path:** `build/compressPNG` | **Language:** Bash | **Lines:** ~79
+**Path:** `build/compressPNG` | **Language:** Bash | **Lines:** 124
 
 Lossy and lossless PNG compression using pngnq and optipng with intelligent replacement.
 

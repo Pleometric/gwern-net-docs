@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # navbar.html
 
-**Path:** `include/navbar.html` | **Language:** HTML | **Lines:** ~13
+**Path:** `include/navbar.html` | **Language:** HTML | **Lines:** 13
 
 Site-wide top navigation include with logo and primary section links.
 

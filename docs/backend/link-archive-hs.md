@@ -1,7 +1,7 @@
 
 # LinkArchive.hs
 
-**Path:** `build/LinkArchive.hs` | **Language:** Haskell | **Lines:** ~395
+**Path:** `build/LinkArchive.hs` | **Language:** Haskell | **Lines:** 394
 
 > External link localization for preemptive link-rot prevention
 
