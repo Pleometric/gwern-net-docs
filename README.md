@@ -31,7 +31,7 @@ I started this project out of curiosity after reading Gwern's site for years. Th
 
 - **Main site**: [github.com/gwern/gwern.net](https://github.com/gwern/gwern.net)
 
-These docs are based on commit [`d6a316c32`](https://github.com/gwern/gwern.net/commit/d6a316c32461c76e3a5917f55abeed998bb3656a) (2026-02-08).
+These docs are based on commit [`406d3e423`](https://github.com/gwern/gwern.net/commit/406d3e423) (2026-06-20).
 
 ## How These Docs Were Created
 
@@ -78,6 +78,26 @@ npm run build
 ```
 
 Static files will be generated in the `build/` directory.
+
+### Hosting / Deployment
+
+The public site is hosted on **Cloudflare Pages** at:
+
+**https://gwern.pleometric.net**
+
+Cloudflare Pages is connected to the GitHub repository:
+
+**https://github.com/Pleometric/gwern-net-docs**
+
+Expected Cloudflare Pages settings:
+
+| Setting | Value |
+|---------|-------|
+| Production branch | `main` |
+| Build command | `npm run build` |
+| Build output directory | `build` |
+| Root directory | repository root |
+| Node version | `>=20` |
 
 ## Documentation Structure
 
