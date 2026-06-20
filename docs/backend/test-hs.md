@@ -28,7 +28,7 @@ Main entry point that runs all tests sequentially. Prints colored output indicat
 
 ### `testConfigs :: Int`
 
-Pure function that validates all configuration lists for uniqueness and format correctness. Returns count of errors (0 = all pass).
+Pure function that forces centralized configuration sanity checks and returns an accounting value used by `testAll` output. The source comments warn not to interpret this `Int` as a pass/fail error count; failed checks abort or report through their own validation paths.
 
 **Called by:** `testAll`
 **Calls:** `isUniqueList`, `isUniqueKeys`, `isUniqueAll`, `isCycleLess`, `ensure`, `isDomainT`, `isURL*` family

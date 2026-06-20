@@ -11,7 +11,7 @@
 
 annotations.js is the data layer for gwern.net's annotation system. When a user hovers over an annotated link (one with class `link-annotated` or `link-annotated-partial`), this module fetches the pre-generated HTML annotation from the server, parses it into a structured reference data object, and caches it for reuse.
 
-The module follows a strict separation of concerns: it handles *only* data fetching and caching, not display. The actual popup/popin rendering is delegated to extracts-annotations.js, which registers itself with the Extracts system using the data this module provides. This clean split means annotations.js can be tested and reasoned about independently.
+The module follows a strict separation of concerns: it handles *only* data fetching and caching, not display. The actual popup/popover rendering is delegated to extracts-annotations.js, which registers itself with the Extracts system using the data this module provides. This clean split means annotations.js can be tested and reasoned about independently.
 
 The caching strategy is simple but effective: once an annotation is loaded, it stays in memory for the session. Failed loads are also cached (as the string `"LOADING_FAILED"`) to prevent repeated requests to broken URLs. The `waitForDataLoad` pattern enables async coordination without promises—callers register success/failure callbacks that fire when the annotation eventually loads.
 

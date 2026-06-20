@@ -23,7 +23,7 @@ The configuration uses Cabal 3.0 features like common stanzas to reduce duplicat
 ```cabal
 cabal-version: 3.0
 name:          gwernnet
-version:       2026.1.21.0
+version:       2026.6.1
 license:       CC0-1.0
 author:        Gwern Branwen
 maintainer:    Gwern Branwen
@@ -241,29 +241,26 @@ executable linkExtractor
 
 ## Common Stanza
 
-All components share settings via the `gwern-common` stanza:
+All components share dependencies and warning defaults via the `gwern-common` stanza:
 
 ```cabal
 common gwern-common
   default-language: Haskell2010
-  hs-source-dirs: .
 
-  ghc-options:
-      -O2
-      -Wall
-      -Wno-missing-home-modules
+  ghc-options: -Wall
 
   build-depends:
       base, HTTP, aeson, array, async, ...
 ```
 
+Executables import `exe-common`, which sets `hs-source-dirs: app` and depends on the `gwernnet` library. The library stanza sets `hs-source-dirs: .` and adds `ghc-options: -O2`.
+
 ### Compiler Options
 
 | Option | Purpose |
 |--------|---------|
-| `-O2` | Optimization level 2 |
+| `-O2` | Optimization level 2 for the library stanza |
 | `-Wall` | Enable all warnings |
-| `-Wno-missing-home-modules` | Suppress module location warnings |
 | `-threaded` | Enable threading (some executables) |
 | `-rtsopts` | Enable runtime options (some executables) |
 

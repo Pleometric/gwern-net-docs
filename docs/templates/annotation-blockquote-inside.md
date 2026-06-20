@@ -87,7 +87,7 @@ Notable conditions:
 - [annotation-blockquote-outside.tmpl](/templates/annotation-blockquote-outside) - Variant with blockquote wrapping entire annotation
 - [pop-frame-title-standard.tmpl](/templates/pop-frame-title-standard) - Template for popup title bar
 - [popups.js](/frontend/popups-js) - Frontend popup system that displays annotations
-- [extracts.js](/frontend/extracts-js) - Frontend coordinator for popup/popin rendering
+- [extracts.js](/frontend/extracts-js) - Frontend coordinator for popup/popover rendering
 - [extracts-annotations.js](/frontend/extracts-annotations-js) - Frontend annotation type handling
 - [Annotation.hs](/backend/annotation-hs) - Backend scraping and processing of annotation metadata
 - [LinkMetadata.hs](/backend/link-metadata-hs) - Backend metadata database management

@@ -182,7 +182,7 @@ Returns array of all unminimized popups, sorted by z-index.
 | `setPopFrameStateLoading(popup)` | Show loading spinner |
 | `setPopFrameStateLoadingFailed(popup)` | Show error message |
 | `clearPopFrameState(popup)` | Clear loading/failed state |
-| `popFrameStateLoading(popup)` | **Bug:** references `popin` instead of `popup`, so it throws rather than checking |
+| `popFrameStateLoading(popup)` | Check if loading |
 | `popFrameStateLoadingFailed(popup)` | Check if failed |
 
 ---

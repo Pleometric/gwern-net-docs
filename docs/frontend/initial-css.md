@@ -11,7 +11,7 @@
 
 `initial.css` is the foundational stylesheet for gwern.net, loaded synchronously in the critical rendering path to ensure proper display of above-the-fold content before JavaScript executes. This ~2,600-line file establishes the site's visual identity through sophisticated typography, responsive layout systems, and carefully tuned typographic details.
 
-The file handles everything needed for initial page render: font stacks, color variables (via CSS custom properties), the navigation sidebar, page headers and metadata blocks, table of contents, main content typography (headings, paragraphs, blockquotes, lists), figures and captions, margin notes, and extensive page-specific customizations for `/index`, `/404`, and other special pages.
+The file handles everything needed for initial page render: font stacks, color variables (via CSS custom properties), the navbar, page headers and metadata blocks, table of contents, main content typography (headings, paragraphs, blockquotes, lists), figures and captions, margin notes, and extensive page-specific customizations for `/index`, `/404`, and other special pages.
 
 Key design philosophy: progressive enhancement with mobile-first responsive breakpoints, extensive use of CSS custom properties for theming, and meticulous attention to typographic details like oldstyle numerals, hyphenation, text justification, and link underlining with descender-aware "skip-ink" simulation.
 
@@ -28,7 +28,7 @@ Key design philosophy: progressive enhancement with mobile-first responsive brea
 - **Flexbox main layout**: centered column with max-width, responsive padding
 - **Adaptiveness utilities**: `.mobile-not` and `.desktop-not` display classes
 
-### Sidebar Navigation (lines 99–245)
+### Navbar Navigation (lines 99–245)
 - **Logo positioning**: absolute positioning on wide screens (≥1180px), inline on narrow
 - **Link styling**: dotted borders, small-caps on mobile, uppercase on desktop
 - **Responsive logo sizing**: 4em absolute-positioned on wide, 1em inline on medium, 2.5em on mobile
@@ -225,7 +225,7 @@ The stylesheet uses a sophisticated cascade of breakpoints for different layout 
 - **≥1761px (ultra-ultra-wide)**: Sidenote columns visible, 3-column `/index` layout
 
 ### Special breakpoints
-- **≤779px**: Hide some nav links in sidebar (`.mobile-not` in sidebar context)
+- **≤779px**: Hide the Blog navbar link; `.mobile-not` is a global responsive utility
 - **≤960px**: `/index` newest-blog section shows only 10 items
 - **≥961px**: `/index` 2-column grid layout, newest-blog shows 20 items (2-column) or 30 items (3-column ≥1761px)
 - **≤999px, ≤1199px, ≥1200px**: Progressive line-height increases (1.45 → 1.50 → 1.55 → 1.60)
@@ -322,7 +322,7 @@ The stylesheet uses a sophisticated cascade of breakpoints for different layout 
 ### JavaScript Dependencies
 **Consumed by JS modules:**
 - **[collapse-js](collapse-js)**: Relies on TOC `.collapsed` class, `.toc-collapse-toggle-button` markup
-- **[sidenotes-js](sidenotes-js)**: Reads/writes `.margin-note.{inline,sidenote}` classes, sets `--margin-note-vertical-position` custom property
+- **[sidenotes-js](sidenotes-js)**: Reads/writes `.margin-note.{inline,sidenote}` classes; current generated sidenotes are positioned with inline `top`, while CSS consumes `--margin-note-vertical-position` for margin-note layout
 - **[content-js](content-js)**: `.shadow-body` class for popup styling inheritance
 - **[popups-js](popups-js)**: Uses link underlining styles, reads `.markdownBody` context
 - **Dark mode JS**: Toggles theme by swapping color custom properties; initial.css references all `--GW-*-color` variables

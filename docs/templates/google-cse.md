@@ -12,11 +12,11 @@ The page uses Google's CSE JavaScript widget which handles all search functional
 
 ## File Structure
 
-**Location:** `/Users/m/Projects/gwern-analysis/gwern.net/google-cse.html`
+**Location:** `/Users/m/Projects/gwern-analysis/gwern.net/js/old/google-cse.html`
 
 **Type:** HTML fragment/template
 
-**Lines:** 39 lines (minimal, single-purpose)
+**Lines:** 38 lines (minimal, single-purpose)
 
 ## HTML Structure
 
@@ -97,13 +97,12 @@ The page styles several Google-provided CSS classes:
 
 ## Integration Context
 
-This page is typically:
+This archived page was designed to be:
 
 1. **Loaded in popup/modal** - Via the popup system when user requests search
 2. **Transcluded** - May be embedded into other pages via transclusion system
-3. **Standalone page** - Can be accessed directly at `/google-cse.html`
 
-The minimal structure (no header, nav, footer) suggests it's designed primarily for embedding rather than standalone viewing.
+The current source tree keeps it under `js/old/`, and no root-level `google-cse.html` exists. The minimal structure (no header, nav, footer) suggests it was designed primarily for embedding rather than standalone viewing.
 
 ## Design Decisions
 

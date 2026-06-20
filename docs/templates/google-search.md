@@ -242,15 +242,15 @@ body {
 
 **Purpose:** Disables interaction with background/body while enabling only the search UI. This is likely because the page is embedded in a modal/popup where the underlying page should be non-interactive.
 
-## JavaScript Integration (Implied)
+## JavaScript Integration
 
-While no JavaScript is present in the file, the form likely requires JavaScript to:
+The HTML page is mostly markup and CSS, but query composition is handled by gwern.net JavaScript when the search page is injected as a widget. `rewrite.js` attaches the submit handler, combines the visible query with the selected site filter, and populates the hidden Google query field before submission.
 
 1. Combine the user's query with the selected site filter
 2. Populate the hidden `q` input before submission
 3. Handle form submission event
 
-**Expected behavior:**
+**Behavior:**
 ```javascript
 form.addEventListener('submit', (e) => {
     const userQuery = document.querySelector('.search').value;
@@ -287,13 +287,13 @@ form.addEventListener('submit', (e) => {
 
 ## Use Cases
 
-### Primary Use: Embedded Search
+### Primary Use: Search Pop-Frame Widget
 
-The minimal design and pointer-events manipulation suggest this page is designed to be:
+The minimal design and pointer-events manipulation support the search widget configured by `misc.js`:
 
-1. **Loaded in iframe** - As part of a search modal/popup
-2. **Embedded via popup system** - Using gwern.net's popup.js
-3. **Transcluded** - Via the transclusion system
+1. **Loaded in a pop-frame** - As the `/static/google-search.html` search widget
+2. **Handled by the pop-frame system** - Displayed through the same popup/popover infrastructure used for other widgets
+3. **Enhanced by rewrite.js** - Query composition happens after injection
 
 ### Secondary Use: Direct Access
 
@@ -306,7 +306,7 @@ Can also be accessed directly at `/google-search.html` for standalone searching.
 | **Backend** | Standard Google Search | Google Custom Search Engine |
 | **Results** | Opens in new tab | Embedded in page |
 | **Customization** | Site filter radio buttons | None (configured in CSE panel) |
-| **JavaScript** | Required (implied) | Optional (widget handles all) |
+| **JavaScript** | Handled by `rewrite.js` when injected | Widget handles all |
 | **Styling** | Full custom design | Minimal widget styling |
 | **Dark mode** | Built-in CSS | Widget-dependent |
 | **Complexity** | Higher (form handling) | Lower (widget does everything) |
@@ -326,14 +326,14 @@ Can also be accessed directly at `/google-search.html` for standalone searching.
 
 ## Performance
 
-- **Zero JavaScript** - HTML/CSS only (JS handled by parent page)
+- **Small runtime hook** - HTML/CSS page with query handling supplied by `rewrite.js` after injection
 - **Inline styles** - No external CSS requests
 - **No images** - Pure text/color interface
 - **Minimal markup** - Under 2KB total
 
 ## Integration Points
 
-### Expected Parent Page JavaScript
+### Runtime JavaScript
 
 Parent page likely provides:
 1. Form submission handler

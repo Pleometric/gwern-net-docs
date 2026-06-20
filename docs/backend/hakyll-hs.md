@@ -39,9 +39,11 @@ main = do
 
 ---
 
-### `pandocTransform :: Metadata -> ArchiveMetadata -> SizeDB -> String -> Pandoc -> IO Pandoc`
+### `pandocTransform :: Metadata -> ArchiveMetadata -> String -> Pandoc -> IO Pandoc`
 
 The core AST transformation pipeline. Applies all content transforms to a parsed Markdown document.
+
+`SizeDB` is computed earlier for annotation fragment generation, but it is not passed into `pandocTransform`.
 
 **Called by:** Hakyll's `pandocCompilerWithTransformM`
 **Calls:** (in order)

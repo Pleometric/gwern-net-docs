@@ -31,7 +31,7 @@ I started this project out of curiosity after reading Gwern's site for years. Th
 
 - **Main site**: [github.com/gwern/gwern.net](https://github.com/gwern/gwern.net)
 
-These docs are based on commit [`406d3e423`](https://github.com/gwern/gwern.net/commit/406d3e423) (2026-06-20).
+These docs are based on gwern.net commit [`406d3e423`](https://github.com/gwern/gwern.net/commit/406d3e423) (committed 2026-06-18; docs refreshed 2026-06-20).
 
 ## How These Docs Were Created
 
@@ -89,7 +89,7 @@ Cloudflare Pages is connected to the GitHub repository:
 
 **https://github.com/Pleometric/gwern-net-docs**
 
-Expected Cloudflare Pages settings:
+Production deploys are automatic from `main` through Cloudflare Pages; `npm run deploy` is not used. Expected Cloudflare Pages settings:
 
 | Setting | Value |
 |---------|-------|

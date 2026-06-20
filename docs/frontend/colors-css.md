@@ -298,7 +298,7 @@ The dark mode color system is **generated, not hand-authored**:
 All component stylesheets reference these variables exclusively:
 
 ```css
-/* In initial.css, default.css, popups.css, etc. */
+/* In initial.css, default.css, etc. */
 body {
   background-color: var(--GW-body-background-color);
   color: var(--GW-body-text-color);

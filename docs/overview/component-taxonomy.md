@@ -501,7 +501,7 @@ Supporting code, configuration, templates, and server setup.
 │  Phase order: transclude → rewrite → eventListeners       │
 │                                                           │
 │  Key modules:                                             │
-│  • extracts.js: popup/popin coordination                  │
+│  • extracts.js: popup/popover coordination                │
 │  • popups.js: windowing system                            │
 │  • transclude.js: include-link resolution                 │
 │  • rewrite.js: DOM transformations                        │

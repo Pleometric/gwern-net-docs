@@ -223,9 +223,9 @@ This shifts the computational cost from client to build-time.
 ### Cascade Relationship
 This file **overrides** base styles defined in other stylesheets:
 
-- Base colors likely in `default.css` or `colors.css`
-- Popup styles in `popups.css`
-- Table styles in `tablesorter.css`
+- Base colors in `colors.css`
+- Popup/popover and table styles in `default.css`
+- Dark tablesorter icon overrides in `dark-mode-adjustments.css`
 
 The specificity is generally equal, so load order matters—this must load **after** base styles.
 

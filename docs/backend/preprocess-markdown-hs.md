@@ -123,7 +123,7 @@ C.cd  -- Ensure correct directory for metadata databases
 matchList <- GS.singleShotRecommendations html
 ```
 
-This is necessary because `singleShotRecommendations` needs to read the embeddings database, backlinks database, and metadata from specific file paths.
+This is necessary because `singleShotRecommendations` reads the embeddings database and metadata from project-relative paths. In this single-shot mode, backlinks context is empty rather than loaded from the backlinks database.
 
 ### See Also Formatting
 
@@ -172,8 +172,8 @@ The `collapse` class allows the recommendations to be hidden by default on pages
 
 Reads (via `singleShotRecommendations`):
 - Embeddings database (`metadata/embeddings.bin`)
-- Backlinks database
-- Metadata database (`.gtx` file)
+- Metadata database (`.gtx` file, for rendering matched entries)
+- No backlinks database; single-shot recommendations use empty backlinks context
 
 ---
 

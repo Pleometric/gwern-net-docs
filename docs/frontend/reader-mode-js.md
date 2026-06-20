@@ -238,6 +238,6 @@ The auto-deactivation uses both a primary observer and a backup observer; the ba
 - [reader-mode-initial-js](reader-mode-initial-js) - Bootstrap module for FOUC prevention
 - [reader-mode-css](reader-mode-css) - CSS styles for reader mode visuals
 - [initial-js](initial-js) - Core utilities (doWhenBodyExists, notification center)
-- [extracts-js](extracts-js) - Popup/popin system that coordinates with link masking
+- [extracts-js](extracts-js) - Popup/popover system that coordinates with link masking
 - [sidenotes-js](sidenotes-js) - Re-layouts after reader mode deactivation
 - [dark-mode-js](dark-mode-js) - Similar tri-state mode selector pattern

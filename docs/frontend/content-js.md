@@ -30,7 +30,7 @@ Content.load(link,
 );
 ```
 
-**Called by:** Extracts.js, Transclude.js, popup/popin systems
+**Called by:** Extracts.js, Transclude.js, popup/popover systems
 **Calls:** `doAjax()`, `contentTypeForLink()`, `sourceURLsForLink()`, `contentFromResponse()`
 
 Fires `Content.contentDidLoad` or `Content.contentLoadDidFail` events on completion.
