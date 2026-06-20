@@ -63,7 +63,7 @@ Fills a pop-frame with content based on its spawning target's type. Returns true
 
 Looks up the fill function from `targetTypeInfo`, calls it to get a DocumentFragment, and passes that to `popFrameProvider.setPopFrameContent()`.
 
-**Called by:** `preparePopFrame`, `refreshPopFrameAfterLocalPageLoads`
+**Called by:** `preparePopFrame`, `extracts-annotations.js`
 
 ### `Extracts.titleForPopFrame(popFrame, titleHTML?) → Element`
 
@@ -111,7 +111,9 @@ preparePopFrame              → Generic pop-frame setup:
     ├─ fillPopFrame          →   Calls type-specific fill function
     ├─ setLoadingSpinner     →   Shows loading state
     ├─ {type}TitleBarContents→   Builds title bar
-    ├─ preparePopFrame_{TYPE}→   Type-specific prepare (optional)
+    ├─ preparePop{up|over}_{TYPE}
+    │   or preparePopFrame_{TYPE}
+    │                         →   Type-specific prepare (optional)
     ├─ Inject stylesheets    →   Copy page styles into pop-frame
     ├─ startDynamicLayout    →   Enable layout system
     └─ Transclude.trigger... →   Kick off content loading
@@ -120,7 +122,9 @@ preparePopFrame              → Generic pop-frame setup:
         ↓
 GW.contentDidInject handler  → Catches transclude completion
         ↓
-rewritePopFrameContent_{TYPE}→ Type-specific DOM rewrites
+rewritePop{up|over}Content_{TYPE}
+or rewritePopFrameContent_{TYPE}
+                          → Type-specific DOM rewrites
 ```
 
 ### Provider Abstraction
@@ -136,8 +140,8 @@ Extracts.popFrameProvider.containingPopFrame(element)
 
 Where behavior must differ, the system uses suffixed functions:
 
-- popup-specific handlers and popover-specific handlers, when defined
-- Falls back to `preparePopFrame_LOCAL_PAGE` for shared logic
+- `preparePopup_${TYPE}` / `preparePopover_${TYPE}`, falling back to `preparePopFrame_${TYPE}`
+- `rewritePopupContent_${TYPE}` / `rewritePopoverContent_${TYPE}`, falling back to `rewritePopFrameContent_${TYPE}`
 
 ---
 
@@ -275,7 +279,7 @@ Title generation follows a dispatch pattern:
 ```javascript
 titleForPopFrame: (popFrame, titleHTML) => {
     let targetTypeName = Extracts.targetTypeInfo(target).typeName;
-    let suffix = Extracts.popFrameTypeSuffix();  // "up" or "in"
+    let suffix = Extracts.popFrameTypeSuffix();  // "up" or "over"
 
     // Try popup/popover-specific, then generic, then default
     let specialTitleFunction = (

@@ -49,13 +49,12 @@ Returns the current `spawnedPopovers` stack.
 
 Scrolls the popover body so a target element becomes visible.
 
-### `removePopover(popover, noUpdateLocation)`
+### `removePopover(popover, remove = false)`
 
-Fires `Popovers.popoverWillDespawn`, detaches the popover from its target, removes it from the stack, and optionally updates history state.
+With the default `remove = false`, delegates removal to browser history by calling `history.back()`. With `remove = true` (used from the `popstate` handler), fires `Popovers.popoverWillDespawn`, detaches the popover from its target, removes it from the stack, and restores scroll state without another history navigation.
 
 ## Related Files
 
 - [extracts.js](/frontend/extracts-js) chooses between `Popups` and `Popovers`.
 - [extracts-content.js](/frontend/extracts-content-js) provides content handlers consumed by pop-frame providers.
 - [popups.js](/frontend/popups-js) is the desktop hover/window provider.
-

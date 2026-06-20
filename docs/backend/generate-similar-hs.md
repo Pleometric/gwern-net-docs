@@ -172,14 +172,14 @@ expireMatches = mapM_ (removeFile . fst . getSimilarLink)
 
 ### Clustering for Display
 
-`clusterIntoSublist` splits sorted lists at natural breakpoints (large distance jumps) for grouped display:
+`clusterIntoSublist` works on an already-seriated list, computes adjacent embedding distances, splits at the largest adjacent gaps, and returns the original list unsplit when computed `k == 1`:
 
 ```haskell
 clusterIntoSublist es list =
     let k = max 1 (round(sqrt(fromIntegral $ length list)) - 1)
-        distances = pairwiseDistances listWithEmbeddings
-        splitPoints = take k (sortByDistance distances)
-    in splitAtIndices splitPoints list
+    in if k == 1
+       then [list]
+       else splitAtLargestAdjacentGaps list
 ```
 
 ---
@@ -192,9 +192,8 @@ From `Config/GenerateSimilar.hs`:
 |---------|-------|---------|
 | `bestNEmbeddings` | 20 | Max similar links to show |
 | `maximumLength` | 32,700 | Max chars for embedding (≈8k tokens) |
-| `minimumSuggestions` | 3 | Don't show section if fewer matches |
-| `maxDistance` | 0.95 | L2 distance threshold for relevance |
-| `minDistance` | 0.01 | Avoids self-matches |
+| `minimumSuggestions` | 3 | Skip writing if the pre-pruning match list has fewer matches |
+| `maxDistance` | 0.95 | Cosine-distance threshold for relevance |
 | `embeddingsPath` | `metadata/embeddings.bin` | Cache location |
 | `blackList` | `/index`, `/changelog`, etc. | Exclude pathological matches |
 

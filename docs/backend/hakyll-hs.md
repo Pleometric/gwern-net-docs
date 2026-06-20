@@ -48,7 +48,7 @@ The core AST transformation pipeline. Applies all content transforms to a parsed
 **Called by:** Hakyll's `pandocCompilerWithTransformM`
 **Calls:** (in order)
 1. `convertInterwikiLinks` - Expand interwiki syntax.
-2. `footnoteAnchorChecker` - Warn on malformed footnotes (non-index pages only).
+2. `footnoteAnchorChecker` - Fail the build on suspicious short spaceless footnotes (non-index pages only).
 3. `createAnnotations` - Trigger annotation generation (non-index pages only).
 4. `addPageLinkWalk` - Mark local links before annotation/archive rewrites.
 5. `nominalToRealInflationAdjuster` - Adjust dollar amounts for inflation (non-index pages only).
@@ -89,7 +89,7 @@ postCtx md rts =
 | `$modified$` | Last modified date |
 | `$status$` | Writing status |
 | `$confidence$` | Certainty level |
-| `$importance$` | Topic importance (1-10) |
+| `$importance$` | Topic importance (0-10 or N/A) |
 | `$tagsHTML$` | Rendered tag links |
 | `$tags-plain$` | Comma-separated tags |
 | `$thumbnail$` | OG image path |
@@ -98,7 +98,7 @@ postCtx md rts =
 | `$backlinks-yes$` | Boolean: has backlinks? |
 | `$similars-yes$` | Boolean: has similar links? |
 | `$linkbib-yes$` | Boolean: has link bibliography? |
-| `$page-created-recently$` | CSS class if \<90 days old |
+| `$page-created-recently$` | CSS class if within `C.isNewWithinNDays` days; currently 62 days |
 | `$refMapTimestamp$` | Cache-busting timestamp for /ref/ |
 | `$date-range-HTML$` | Formatted date range with duration |
 
@@ -165,7 +165,7 @@ $else$
 $endif$
 ```
 
-The main template `default.html` (149 lines) handles:
+The main template `default.html` (186 lines) handles:
 - HTML `<head>` with SEO metadata
 - Body class assignment (`page-$safe-url$ $css-extension$`)
 - Article wrapper with title and metadata block
@@ -260,8 +260,8 @@ Required:
 
 Optional:
 - `modified` - Last edit date
-- `confidence` - Certainty: certain/highly likely/likely/possible/unlikely/remote
-- `importance` - Topic significance: 1-10
+- `confidence` - Certainty validated by `C.yamlValidConfidences` (`certain`, `highly likely`, `likely`, `possible`, `unlikely`, `highly unlikely`, `remote`, `impossible`, `log`, `emotional`, `fiction`)
+- `importance` - Topic significance: 0-10 or N/A
 - `author` - If not Gwern
 - `thumbnail` - OG image path
 - `thumbnail-text` - Alt text for thumbnail
@@ -294,22 +294,24 @@ Optional:
 
 ### Modules Called
 
-The 19 local imports provide:
+The local custom imports include:
 - **Image**: dimensions, optimization
 - **Inflation**: dollar adjustment
 - **Interwiki**: `[WP:...](WP:...)` expansion
 - **LinkArchive**: archive.org localization
-- **LinkMetadata**: annotation lookup and link metadata marking
 - **LinkBacklink**: backlink detection
 - **LinkMetadata**: annotation system
+- **LinkMetadataTypes**: metadata and size database types
 - **Tags**: tag rendering
 - **Typography**: text polish
 - **Utils**: helpers
 - **Test**: test suite
 - **Config.Misc**: date utilities
+- **Metadata.Author**: author cleanup and linking
 - **Metadata.Date**: date range formatting
 - **LinkID**: ID mapping
 - **Blog**: newsletter generation
+- **Utext**: Unicode-rich plain text conversion
 
 ---
 

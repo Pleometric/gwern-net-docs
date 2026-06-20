@@ -69,13 +69,13 @@ This watches annotation database files (`.gtx`) and immediately embeds new annot
 
 1. **Load databases** (metadata, backlinks, embeddings)
 2. **Identify missing embeddings**: Compare metadata URLs with embedding database, considering annotated paths in metadata modified-date order
-3. **Generate embeddings**: Call OpenAI API for missing items (batch limit: 2000 at once)
+3. **Generate embeddings**: Call OpenAI API for missing items (batch limit: 500 per run)
 4. **Prune stale embeddings**: Remove embeddings for URLs no longer in metadata
 5. **Build EmbeddingIndex**: Normalized in-memory vector index
 6. **Compute similarities**: For each selected URL, find nearest neighbors by exact cosine-distance scan
 7. **Reorder results**: Sort matches by pairwise distance for internal coherence
 8. **Write HTML fragments**: Generate `metadata/annotation/similar/URL.html` files
-9. **Expire reciprocal matches**: Delete similarity files for newly-matched items to trigger rebuild
+9. **Refresh reciprocal matches**: Newly embedded items can expire reciprocal hits, and the current run rewrites eligible reciprocal similarity rankings
 
 ### Key Data Structures
 
@@ -109,7 +109,7 @@ type Embedding = (String, Integer, String, String, [Double])
 **Phase 3: HTML Generation**
 - Call `writeOutMatch` to generate HTML fragment
 - Fragments stored in `metadata/annotation/similar/URLENCODED.html` (max 274 chars filename)
-- Search links (Google Scholar/Google/Context) are appended when metadata has a title/abstract; not conditional on "few" results
+- Search links (Google Scholar, optional Connected Papers when DOI is present, Google, and gwern.net site search) are appended when metadata has a title/abstract; not conditional on "few" results
 
 ---
 
@@ -154,9 +154,9 @@ Raw nearest-neighbor results are reordered with `seriateGreedy`, which greedily 
 
 Via `Config.GenerateSimilar`:
 
-- **`bestNEmbeddings`**: Number of similar items to find (default ~10-20)
-- **`maxDistance`**: Maximum embedding distance threshold
-- **`minimumSuggestions`**: Don't write HTML if fewer matches found
+- **`bestNEmbeddings`**: Number of similar items to find (20)
+- **`maxDistance`**: Maximum cosine-distance threshold
+- **`minimumSuggestions`**: Don't write HTML if the pre-pruning match list has fewer matches; later rendering may still prune already-linked items
 - **`blackList`**: URLs to exclude from recommendations
 - **`embeddingsPath`**: Path to serialized embeddings database
 
@@ -214,7 +214,7 @@ If embeddings fail (rate limit, network error, API key), the tool will error out
 
 ### Insufficient Matches
 
-If fewer than `minimumSuggestions` matches are found, no HTML is written. This is expected for very niche content with no similar pages.
+If the pre-pruning match list has fewer than `minimumSuggestions` matches, no HTML is written. Later rendering prunes items already linked in the abstract, body, or backlinks, so the visible fragment can contain fewer final items.
 
 ### Corrupted Embedding Database
 

@@ -16,7 +16,7 @@ The page features a clean, minimalist design with support for both light and dar
 
 **Type:** HTML page (standalone)
 
-**Lines:** 140 lines
+**Lines:** 161 lines
 
 ## HTML Structure
 
@@ -42,8 +42,9 @@ This approach provides automatic dark mode support based on user's system prefer
 ```html
 <body>
     <main>
-        <form class="searchform">...</form>
+        <form id="searchform-main" class="searchform">...</form>
         <fieldset id="search-where-selector">...</fieldset>
+        <form id="searchform-ref" class="searchform">...</form>
     </main>
 </body>
 ```
@@ -244,7 +245,7 @@ body {
 
 ## JavaScript Integration
 
-The HTML page is mostly markup and CSS, but query composition is handled by gwern.net JavaScript when the search page is injected as a widget. `rewrite.js` attaches the submit handler, combines the visible query with the selected site filter, and populates the hidden Google query field before submission.
+The HTML page is mostly markup and CSS. `misc.js` registers and activates the search widget, while `rewrite.js` initializes the injected `/static/google-search.html` iframe, syncs dark-mode media, and attaches the submit handler that fills `#searchform-main input.query` from the visible query plus selected site filter.
 
 1. Combine the user's query with the selected site filter
 2. Populate the hidden `q` input before submission
@@ -293,7 +294,7 @@ The minimal design and pointer-events manipulation support the search widget con
 
 1. **Loaded in a pop-frame** - As the `/static/google-search.html` search widget
 2. **Handled by the pop-frame system** - Displayed through the same popup/popover infrastructure used for other widgets
-3. **Enhanced by rewrite.js** - Query composition happens after injection
+3. **Registered by misc.js, enhanced by rewrite.js** - Widget creation is in `misc.js`; query composition happens after injection in `rewrite.js`
 
 ### Secondary Use: Direct Access
 
@@ -306,7 +307,7 @@ Can also be accessed directly at `/google-search.html` for standalone searching.
 | **Backend** | Standard Google Search | Google Custom Search Engine |
 | **Results** | Opens in new tab | Embedded in page |
 | **Customization** | Site filter radio buttons | None (configured in CSE panel) |
-| **JavaScript** | Handled by `rewrite.js` when injected | Widget handles all |
+| **JavaScript** | Registered by `misc.js`; injected iframe handled by `rewrite.js` | Widget handles all |
 | **Styling** | Full custom design | Minimal widget styling |
 | **Dark mode** | Built-in CSS | Widget-dependent |
 | **Complexity** | Higher (form handling) | Lower (widget does everything) |
@@ -326,7 +327,7 @@ Can also be accessed directly at `/google-search.html` for standalone searching.
 
 ## Performance
 
-- **Small runtime hook** - HTML/CSS page with query handling supplied by `rewrite.js` after injection
+- **Small runtime hook** - HTML/CSS page with widget registration in `misc.js` and query handling supplied by `rewrite.js` after injection
 - **Inline styles** - No external CSS requests
 - **No images** - Pure text/color interface
 - **Minimal markup** - Under 2KB total
@@ -335,11 +336,10 @@ Can also be accessed directly at `/google-search.html` for standalone searching.
 
 ### Runtime JavaScript
 
-Parent page likely provides:
-1. Form submission handler
-2. Query combination logic
-3. Popup/modal management
-4. Analytics tracking
+Parent page provides:
+1. Widget registration and activation through `misc.js`
+2. Form submission handler and query combination through `rewrite.js`
+3. Popup/popover management through the pop-frame system
 
 ### Popup System Integration
 
@@ -356,5 +356,5 @@ Coordinates with:
 - [popups.js](/frontend/popups-js) - Popup system that displays search interfaces
 - [extracts.js](/frontend/extracts-js) - Popup/embed content coordinator
 - [content.js](/frontend/content-js) - Content type definitions and handlers
-- [default.html](/templates/default) - Main page template that may link to search
-- [include-navbar](/templates/include-navbar) - Navbar that may contain search links
+- [misc.js](/frontend/misc-js) - Runtime widget registration for the search pop-frame
+- [rewrite.js](/frontend/rewrite-js) - Injected search iframe setup and submit override

@@ -11,7 +11,7 @@
 
 `preprocessMarkdown.hs` is a small, focused command-line utility that reads Markdown from stdin, applies a series of Pandoc AST transformations, and outputs enriched HTML. It serves as a preprocessing step for annotations and abstracts before they enter the main Hakyll build pipeline.
 
-The module performs three key operations: (1) interwiki link expansion, (2) Wikipedia link validation, and (3) generation of "See Also" recommendations using embedding-based similarity matching. The active source imports `LinkMetadata`, `Interwiki`, `GenerateSimilar`, and `Query`.
+The module performs three key operations: (1) interwiki link expansion, (2) Wikipedia link validation, and (3) generation of "See Also" recommendations using embedding-based similarity matching. The active source imports `LinkMetadata`, `Interwiki`, `GenerateSimilar`, `Utils`, `Config.Misc`, and `Query`.
 
 This tool is designed for single-document processing (annotations, abstracts) rather than full pages. It's invoked during annotation creation workflows to ensure consistency between manually-written abstracts and auto-generated ones.
 

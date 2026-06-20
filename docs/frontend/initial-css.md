@@ -9,11 +9,11 @@
 
 ## Overview
 
-`initial.css` is the foundational stylesheet for gwern.net, loaded synchronously in the critical rendering path to ensure proper display of above-the-fold content before JavaScript executes. This ~2,600-line file establishes the site's visual identity through sophisticated typography, responsive layout systems, and carefully tuned typographic details.
+`initial.css` is the foundational stylesheet for gwern.net, loaded synchronously in the critical rendering path to ensure proper display of above-the-fold content before JavaScript executes. This 2,710-line file establishes the site's visual identity through sophisticated typography, responsive layout systems, and carefully tuned typographic details.
 
 The file handles everything needed for initial page render: font stacks, color variables (via CSS custom properties), the navbar, page headers and metadata blocks, table of contents, main content typography (headings, paragraphs, blockquotes, lists), figures and captions, margin notes, and extensive page-specific customizations for `/index`, `/404`, and other special pages.
 
-Key design philosophy: progressive enhancement with mobile-first responsive breakpoints, extensive use of CSS custom properties for theming, and meticulous attention to typographic details like oldstyle numerals, hyphenation, text justification, and link underlining with descender-aware "skip-ink" simulation.
+Key design philosophy: progressive enhancement with a mixed responsive cascade using both max-width and min-width media queries, extensive use of CSS custom properties for theming, and meticulous attention to typographic details like oldstyle numerals, hyphenation, text justification, and link underlining with descender-aware "skip-ink" simulation.
 
 ---
 
@@ -93,7 +93,7 @@ Key design philosophy: progressive enhancement with mobile-first responsive brea
 
 ### Margin Notes (lines 1682–1786)
 - **Dual display modes**: inline (italic colored text) or sidenote (popped-out on wide viewports ≥1497px)
-- **Sidenote positioning**: `top` uses `--margin-note-vertical-position`, but this stylesheet does not set `position` (so actual positioning is handled elsewhere/JS)
+- **Sidenote positioning**: `initial.css` sets sidenote offset variables/top/right/width and consumes `--margin-note-vertical-position`; JS writes that inline CSS variable, while base `.sidenote` positioning comes from other CSS
 - **Width calculation**: `calc(50vw - (var(--GW-body-max-width) / 2 + 96px))`
 - **Special handling** in admonitions (adjusted for icon area width)
 - **"Icon only" variants** for pure visual indicators
@@ -322,10 +322,10 @@ The stylesheet uses a sophisticated cascade of breakpoints for different layout 
 ### JavaScript Dependencies
 **Consumed by JS modules:**
 - **[collapse-js](collapse-js)**: Relies on TOC `.collapsed` class, `.toc-collapse-toggle-button` markup
-- **[sidenotes-js](sidenotes-js)**: Reads/writes `.margin-note.{inline,sidenote}` classes; current generated sidenotes are positioned with inline `top`, while CSS consumes `--margin-note-vertical-position` for margin-note layout
+- **[sidenotes-js](sidenotes-js)**: Reads/writes `.margin-note.{inline,sidenote}` classes; current generated sidenotes receive an inline `--margin-note-vertical-position` CSS variable consumed by margin-note layout
 - **[content-js](content-js)**: `.shadow-body` class for popup styling inheritance
 - **[popups-js](popups-js)**: Uses link underlining styles, reads `.markdownBody` context
-- **Dark mode JS**: Toggles theme by swapping color custom properties; initial.css references all `--GW-*-color` variables
+- **Dark mode**: `initial.css` consumes theme variables defined outside `initial.css`; injected search iframe dark-mode media is updated by `rewrite.js`
 
 **Sets state for JS:**
 - `.TOC .visible` class on random display elements
@@ -344,7 +344,7 @@ The stylesheet uses a sophisticated cascade of breakpoints for different layout 
 - Specific class structure: `section.level{1-6}`, `.markdownBody`, `#markdownBody`
 - Metadata in `#page-metadata .page-metadata-fields` with specific child `<span>` classes
 - TOC structure: `#TOC > ul > li > a` hierarchy
-- Figure wrapper: `.figure-outer-wrapper > img/video/svg + .caption-wrapper > figcaption`
+- Figure and caption selectors: `figure`, `figure img`, `figure video`, `figure audio`, `figure figcaption`, and related width/outline classes
 
 ### Build Process
 - **Generated during build** by [sync-sh](../backend/sync-sh) / Hakyll
