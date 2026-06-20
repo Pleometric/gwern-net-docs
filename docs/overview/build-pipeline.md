@@ -1,18 +1,12 @@
 ---
-title: gwern.net Build Pipeline Hub
-description: Start here for gwern.net's build pipeline, including sync.sh orchestration, Hakyll, Pandoc transforms, generated content, validation, and deployment flow.
-keywords:
-  - gwern.net build pipeline
-  - Hakyll
-  - Pandoc
-  - sync.sh
-  - static site generation
+title: Build Pipeline
+description: A guided path through sync.sh orchestration, Hakyll, Pandoc transforms, generated content, validation, and deployment flow.
 sidebar_position: 2
 ---
 
-# Build Pipeline Hub
+# Build Pipeline
 
-Start here to understand how gwern.net source files become the deployed static site.
+This is the build-time path through the reference. It pairs with [Architecture at a Glance](/overview/architecture-at-a-glance), which explains the broad build/runtime split, and [Page Lifecycle](/overview/page-lifecycle), which follows a single page through the whole system.
 
 ## Reading Path
 
@@ -38,3 +32,5 @@ Start here to understand how gwern.net source files become the deployed static s
 - [Templates](/templates/default) define the HTML structure that Hakyll fills.
 - [PHP asset pipeline](/php/asset) builds CSS, JavaScript, icons, and includes.
 - [Nginx configuration](/nginx/gwern-net-conf) documents the production server layer.
+- [Annotation and Metadata](/overview/annotation-metadata) covers the metadata inputs consumed during the build.
+- [Popup System](/overview/popup-system) covers the runtime layer that uses the generated annotation and transclusion data.

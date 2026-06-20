@@ -13,9 +13,9 @@ Documented source commit: 406d3e423c5dd42f3d431d6fedd203de5d277a2f
 - Architecture at a Glance: https://gwern.pleometric.net/overview/architecture-at-a-glance
 - Page Lifecycle: https://gwern.pleometric.net/overview/page-lifecycle
 - Functional Taxonomy: https://gwern.pleometric.net/overview/component-taxonomy
-- Build Pipeline Hub: https://gwern.pleometric.net/overview/build-pipeline
-- Annotation and Metadata Hub: https://gwern.pleometric.net/overview/annotation-metadata
-- Popup System Hub: https://gwern.pleometric.net/overview/popup-system
+- Build Pipeline: https://gwern.pleometric.net/overview/build-pipeline
+- Annotation and Metadata: https://gwern.pleometric.net/overview/annotation-metadata
+- Popup System: https://gwern.pleometric.net/overview/popup-system
 
 ## Core Build Pipeline
 

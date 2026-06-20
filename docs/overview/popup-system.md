@@ -1,18 +1,12 @@
 ---
-title: gwern.net Popup System Hub
-description: Start here for gwern.net's popup and popover system, including Extracts, Popups, Popovers, annotation rendering, transclusion, and content handlers.
-keywords:
-  - gwern.net popups
-  - hover previews
-  - popovers
-  - Extracts.js
-  - transclusion
+title: Popup System
+description: A guided path through Extracts, Popups, Popovers, annotation rendering, transclusion, and content handlers.
 sidebar_position: 4
 ---
 
-# Popup System Hub
+# Popup System
 
-Start here to understand the runtime system that displays hover previews, citation annotations, local-page embeds, and mobile popovers.
+This is the runtime path through hover previews, citation annotations, local-page embeds, and mobile popovers. Read [Architecture at a Glance](/overview/architecture-at-a-glance) first if you want the build/runtime model, or [Annotation and Metadata](/overview/annotation-metadata) first if you want the data that powers citation previews.
 
 ## Reading Path
 
@@ -36,6 +30,7 @@ Start here to understand the runtime system that displays hover previews, citati
 
 ## Template and Backend Inputs
 
-- [Annotation and Metadata Hub](/overview/annotation-metadata) explains the backend data that powers citation previews.
+- [Annotation and Metadata](/overview/annotation-metadata) explains the backend data that powers citation previews.
 - [pop-frame-title-standard](/templates/pop-frame-title-standard) defines the standard title bar template.
 - [annotation-blockquote-inside](/templates/annotation-blockquote-inside) and [annotation-blockquote-outside](/templates/annotation-blockquote-outside) define annotation display fragments.
+- [Functional Taxonomy](/overview/component-taxonomy#3-popup-system) lists the broader popup-related file set.

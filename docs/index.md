@@ -24,17 +24,21 @@ Unofficial technical documentation for the [gwern.net](https://gwern.net) codeba
 
 | Want to... | Start here |
 |------------|------------|
-| Get a quick overview of how it works | [Architecture at a Glance](/overview/architecture-at-a-glance) |
-| See how an article becomes a web page | [Page Lifecycle](/overview/page-lifecycle) |
+| Get oriented | [Architecture at a Glance](/overview/architecture-at-a-glance) |
+| Follow a page through the full system | [Page Lifecycle](/overview/page-lifecycle) |
 | Browse all files by function | [Functional Taxonomy](/overview/component-taxonomy) |
 
-## Topic Hubs
+If you are new to the codebase, read the [architecture overview](/overview/architecture-at-a-glance) first, then use [page lifecycle](/overview/page-lifecycle) for the end-to-end flow and [functional taxonomy](/overview/component-taxonomy) as the map of individual files.
 
-| Topic | Start here | Use this when you want to understand... |
-|-------|------------|------------------------------------------|
-| Build pipeline | [Build Pipeline Hub](/overview/build-pipeline) | Hakyll, Pandoc, generated content, validation, and deployment flow |
-| Annotation metadata | [Annotation and Metadata Hub](/overview/annotation-metadata) | GTX records, metadata scrapers, annotation fragments, and frontend annotation loading |
-| Popup system | [Popup System Hub](/overview/popup-system) | Hover previews, mobile popovers, Extracts dispatch, transclusion, and annotation display |
+## Guided Topics
+
+These are shorter paths through the larger reference when you already know what subsystem you care about.
+
+| Topic | Start here | Covers |
+|-------|------------|--------|
+| Build pipeline | [Build Pipeline](/overview/build-pipeline) | Hakyll, Pandoc, generated content, validation, and deployment |
+| Annotation metadata | [Annotation and Metadata](/overview/annotation-metadata) | GTX records, metadata scrapers, annotation fragments, and frontend loading |
+| Popup system | [Popup System](/overview/popup-system) | Hover previews, mobile popovers, Extracts dispatch, transclusion, and annotation display |
 
 ## What is gwern.net?
 
@@ -66,7 +70,7 @@ Every now and then I find a new mistake or a not-quite-accurate description. The
 
 ## Documentation Structure
 
-See [Functional Taxonomy](/overview/component-taxonomy) for a complete file listing with importance scores.
+The overview section has three layers: [Architecture at a Glance](/overview/architecture-at-a-glance) for the system model, [Page Lifecycle](/overview/page-lifecycle) for the chronological flow, and [Functional Taxonomy](/overview/component-taxonomy) for the full file map with importance scores.
 
 | Category | Description |
 |----------|-------------|

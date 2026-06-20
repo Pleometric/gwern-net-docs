@@ -1,18 +1,12 @@
 ---
-title: gwern.net Annotation and Metadata Hub
-description: Start here for gwern.net's annotation metadata system, including GTX databases, Haskell metadata processing, scrapers, generated fragments, and frontend annotation loading.
-keywords:
-  - gwern.net annotations
-  - link metadata
-  - GTX
-  - citation popups
-  - annotation scrapers
+title: Annotation and Metadata
+description: A guided path through GTX databases, Haskell metadata processing, scrapers, generated fragments, and frontend annotation loading.
 sidebar_position: 3
 ---
 
-# Annotation and Metadata Hub
+# Annotation and Metadata
 
-Start here to understand how gwern.net attaches titles, authors, dates, abstracts, tags, and other metadata to links.
+This is the data path behind annotated links. It connects the [Build Pipeline](/overview/build-pipeline), where metadata is read and generated, to the [Popup System](/overview/popup-system), where annotation fragments are shown to readers.
 
 ## Reading Path
 
@@ -39,6 +33,7 @@ Start here to understand how gwern.net attaches titles, authors, dates, abstract
 
 ## Where It Surfaces
 
-- [Popup System Hub](/overview/popup-system) shows how metadata appears in popups and popovers.
+- [Popup System](/overview/popup-system) shows how metadata appears in popups and popovers.
 - [annotation-blockquote templates](/templates/annotation-blockquote-inside) define rendered annotation HTML.
 - [generateSimilar.hs](/backend/generate-similar-hs) reuses metadata for embedding-based recommendations.
+- [Functional Taxonomy](/overview/component-taxonomy#2-annotation--metadata) lists the broader set of annotation and metadata files.

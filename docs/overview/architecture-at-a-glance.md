@@ -1,13 +1,6 @@
 ---
 title: gwern.net Architecture at a Glance
 description: A high-level map of gwern.net's build-time Hakyll and Pandoc pipeline, runtime JavaScript event system, annotations, popups, transclusion, and sidenotes.
-keywords:
-  - gwern.net architecture
-  - Hakyll
-  - Pandoc
-  - JavaScript event system
-  - link annotations
-  - transclusion
 sidebar_position: 0
 ---
 
@@ -16,6 +9,8 @@ sidebar_position: 0
 Every gwern.net article starts as a Markdown file. By the time a reader sees it in their browser, that file has been transformed into a richly interactive page with hover popups showing citation previews, automatic bibliographies, margin notes, and dozens of other enhancements.
 
 This transformation happens in two distinct phases: **build time** (when the site is compiled) and **runtime** (when the page loads in your browser).
+
+Use this page as the short orientation. For the full chronological walkthrough, read [Page Lifecycle](/overview/page-lifecycle). For a file-by-file map, use [Functional Taxonomy](/overview/component-taxonomy). If you already know the subsystem you want, jump to [Build Pipeline](/overview/build-pipeline), [Annotation and Metadata](/overview/annotation-metadata), or [Popup System](/overview/popup-system).
 
 ## The Two Phases
 
@@ -99,3 +94,13 @@ This keeps the code modular. The popup system doesn't need to know about the sid
 **Sidenotes**: Footnotes are converted to margin notes on wide screens, keeping annotations visible alongside the text they reference.
 
 **Link Archiving**: External links are automatically mirrored locally. If the original page disappears, readers can still access a cached copy.
+
+## Where to Go Next
+
+| If you want to understand... | Read next |
+|------------------------------|-----------|
+| The exact order of operations for one page | [Page Lifecycle](/overview/page-lifecycle) |
+| Which files own each subsystem | [Functional Taxonomy](/overview/component-taxonomy) |
+| Build-time compilation and validation | [Build Pipeline](/overview/build-pipeline) |
+| Link annotation data and metadata fragments | [Annotation and Metadata](/overview/annotation-metadata) |
+| Runtime previews, popups, and popovers | [Popup System](/overview/popup-system) |
