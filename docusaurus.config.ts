@@ -2,9 +2,15 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
+const siteUrl = 'https://gwern.pleometric.net';
+const siteTitle = 'gwern.net Codebase Documentation';
+const siteDescription =
+  'Unofficial technical documentation for the gwern.net Hakyll, Pandoc, Haskell, JavaScript, annotation, popup, and static-site architecture.';
+const siteImage = 'img/social-card.png';
+
 const config: Config = {
-  title: 'gwern.net unofficial docs',
-  tagline: 'Technical documentation for the gwern.net codebase',
+  title: siteTitle,
+  tagline: siteDescription,
   favicon: 'favicon.ico',
   headTags: [
     {tagName: 'link', attributes: {rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png'}},
@@ -17,7 +23,7 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://gwern.pleometric.net',
+  url: siteUrl,
   baseUrl: '/',
 
   onBrokenLinks: 'warn',
@@ -54,9 +60,21 @@ const config: Config = {
 
   themeConfig: {
     // Open Graph social card image (for link previews)
-    image: 'img/social-card.png',
+    image: siteImage,
     metadata: [
+      {name: 'description', content: siteDescription},
+      {
+        name: 'keywords',
+        content:
+          'gwern.net, Gwern Branwen, Hakyll, Pandoc, Haskell static site, link annotations, hover popups, static site architecture, codebase documentation',
+      },
+      {property: 'og:site_name', content: siteTitle},
+      {property: 'og:title', content: siteTitle},
+      {property: 'og:description', content: siteDescription},
+      {property: 'og:type', content: 'website'},
+      {property: 'og:image', content: `${siteUrl}/${siteImage}`},
       {name: 'twitter:card', content: 'summary_large_image'},
+      {name: 'twitter:image', content: `${siteUrl}/${siteImage}`},
     ],
     tableOfContents: {
       minHeadingLevel: 2,
@@ -66,7 +84,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'gwern.net unofficial docs',
+      title: 'gwern.net docs',
       items: [
         {
           href: 'https://gwern.net',

@@ -1,5 +1,14 @@
 ---
 slug: /
+title: gwern.net Codebase Documentation
+description: Unofficial technical documentation for the gwern.net Hakyll, Pandoc, Haskell, JavaScript, annotation, popup, and static-site architecture.
+keywords:
+  - gwern.net
+  - Hakyll
+  - Pandoc
+  - Haskell
+  - link annotations
+  - hover popups
 sidebar_position: 1
 ---
 
@@ -7,7 +16,7 @@ sidebar_position: 1
 These docs are based on gwern.net commit [`406d3e423`](https://github.com/gwern/gwern.net/commit/406d3e423) (2026-06-20)
 :::
 
-# Codebase Documentation for gwern.net
+# gwern.net Codebase Documentation
 
 Unofficial technical documentation for the [gwern.net](https://gwern.net) codebase, developed by [Gwern Branwen](https://gwern.net/about) and [Said Achmiz](https://github.com/achmizs).
 

@@ -1,4 +1,13 @@
 ---
+title: gwern.net Component Taxonomy
+description: Functional taxonomy of documented gwern.net source files, covering build pipeline, annotations, popups, link processing, content rendering, typography, theming, and infrastructure.
+keywords:
+  - gwern.net source files
+  - codebase taxonomy
+  - annotation metadata
+  - popup system
+  - Haskell modules
+  - JavaScript modules
 sidebar_position: 1
 ---
 

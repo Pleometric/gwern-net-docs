@@ -1,6 +1,7 @@
 {
-  "name": "gwern.net unofficial docs",
-  "short_name": "gwern docs",
+  "name": "gwern.net Codebase Documentation",
+  "short_name": "gwern.net docs",
+  "description": "Unofficial technical documentation for the gwern.net codebase.",
   "icons": [
     {"src": "/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png"},
     {"src": "/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png"}

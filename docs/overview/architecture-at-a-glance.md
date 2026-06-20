@@ -1,4 +1,13 @@
 ---
+title: gwern.net Architecture at a Glance
+description: A high-level map of gwern.net's build-time Hakyll and Pandoc pipeline, runtime JavaScript event system, annotations, popups, transclusion, and sidenotes.
+keywords:
+  - gwern.net architecture
+  - Hakyll
+  - Pandoc
+  - JavaScript event system
+  - link annotations
+  - transclusion
 sidebar_position: 0
 ---
 
