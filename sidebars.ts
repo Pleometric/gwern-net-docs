@@ -15,6 +15,9 @@ const sidebars: SidebarsConfig = {
         'overview/architecture-at-a-glance',
         'overview/page-lifecycle',
         'overview/component-taxonomy',
+        'overview/build-pipeline',
+        'overview/annotation-metadata',
+        'overview/popup-system',
       ],
     },
     {

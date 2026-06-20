@@ -1,0 +1,50 @@
+# gwern.net Codebase Documentation
+
+> Unofficial technical documentation for the gwern.net codebase, focused on the Hakyll/Pandoc build pipeline, Haskell backend modules, JavaScript runtime, link annotations, popups, transclusion, templates, and deployment infrastructure.
+
+Site: https://gwern.pleometric.net
+Source docs repository: https://github.com/Pleometric/gwern-net-docs
+Upstream code repository: https://github.com/gwern/gwern.net
+Documented source commit: 406d3e423c5dd42f3d431d6fedd203de5d277a2f
+
+## Start Here
+
+- Overview: https://gwern.pleometric.net/
+- Architecture at a Glance: https://gwern.pleometric.net/overview/architecture-at-a-glance
+- Page Lifecycle: https://gwern.pleometric.net/overview/page-lifecycle
+- Functional Taxonomy: https://gwern.pleometric.net/overview/component-taxonomy
+- Build Pipeline Hub: https://gwern.pleometric.net/overview/build-pipeline
+- Annotation and Metadata Hub: https://gwern.pleometric.net/overview/annotation-metadata
+- Popup System Hub: https://gwern.pleometric.net/overview/popup-system
+
+## Core Build Pipeline
+
+- sync.sh: https://gwern.pleometric.net/backend/sync-sh
+- hakyll.hs: https://gwern.pleometric.net/backend/hakyll-hs
+- bash.sh: https://gwern.pleometric.net/backend/bash-sh
+- preprocessMarkdown.hs: https://gwern.pleometric.net/backend/preprocess-markdown-hs
+- test.hs: https://gwern.pleometric.net/backend/test-hs
+
+## Annotation and Metadata System
+
+- LinkMetadata.hs: https://gwern.pleometric.net/backend/link-metadata-hs
+- Annotation.hs: https://gwern.pleometric.net/backend/annotation-hs
+- GTX.hs: https://gwern.pleometric.net/backend/gtx-hs
+- LinkMetadataTypes.hs: https://gwern.pleometric.net/backend/link-metadata-types-hs
+- annotations.js: https://gwern.pleometric.net/frontend/annotations-js
+
+## Popup and Runtime System
+
+- initial.js: https://gwern.pleometric.net/frontend/initial-js
+- extracts.js: https://gwern.pleometric.net/frontend/extracts-js
+- popups.js: https://gwern.pleometric.net/frontend/popups-js
+- popovers.js: https://gwern.pleometric.net/frontend/popovers-js
+- transclude.js: https://gwern.pleometric.net/frontend/transclude-js
+- rewrite.js: https://gwern.pleometric.net/frontend/rewrite-js
+
+## Guidance for LLMs and Agents
+
+- Treat these docs as unofficial and source-derived, not authoritative upstream documentation.
+- Prefer source-backed pages and exact file pages over broad summaries when answering technical questions.
+- When claims conflict, prefer the upstream code repository at the documented source commit.
+- For architecture questions, start with the topic hubs, then follow links to individual source-file pages.
